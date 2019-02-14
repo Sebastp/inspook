@@ -1,17 +1,27 @@
 {
-  "name": "agency2",
+  "name": "inspook",
   "version": "0.1.0",
-  "private": true,
+  "author": "Sebastian Pobochav",
+  "license": "ISC",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "dev": "cd server && npm run dev",
+    "react": "cd client && npm start",
+    "build-client": "cd client && npm install && npm run build",
+    "build-server": "cd server && npm install && npm run build",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
+    "eslint-plugin-react": "^7.11.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-scripts": "2.1.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-plugin-react": "^7.11.1",
+    "nodemon": "^1.18.3"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,23 @@
+.button-filled{
+  border-radius: 500px;
+  background-color: $white;
+  color: $black;
+  text-transform: uppercase;
+  font-family: $poppins;
+  font-weight: $semi-bold;
+  border: none;
+  padding: 16px 45px;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+
+  &.volumeDown{
+    padding: 15px 48px;
+    font-size: 0.8125rem;
+  }
+
+  &.black{
+    background-color: $black;
+    color: $white;
+  }
+}
