@@ -1,31 +1,34 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ApolloProvider } from 'react-apollo'
+
 
 import './assets/vendor/bootstrap/css/bootstrap.min.css'
 import './assets/css/main.css'
 import './assets/js/main.js'
 
-import Main from './components/Main'
 
+import App from './components/App'
 
-
-import { ApolloProvider } from 'react-apollo'
+import * as serviceWorker from './serviceWorker';
 import apollo from './core/apollo'
 
 
 
 
-const AUTH_URL = '/auth/steam'
-
 ReactDOM.render(
   <ApolloProvider client={apollo}>
-    <Main
-      // user={data.user}
-      AuthURL={AUTH_URL}
-      // SteamInventory={data.SteamInventory}
-      // RecentOpened={data.RecentOpened}
-      // cases={data.cases}
-    />
+    <App />
   </ApolloProvider>,
-  window.document.getElementById('index')
-)
+
+  document.getElementById('index')
+);
+
+
+
+
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();

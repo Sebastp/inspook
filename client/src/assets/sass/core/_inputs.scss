@@ -1,0 +1,20 @@
+input, textarea{
+  display: block;
+  resize: none;
+  outline: none;
+  box-sizing: content-box;
+  border: none;
+  width: 100%;
+  background-color: $grey3;
+  border-radius: 8px;
+  padding: 11px 25px;
+
+  font-size: 1rem;
+  font-family: $poppins;
+  font-weight: $regular;
+  color: rgba($black, 0.9);
+
+  &::placeholder{
+    color: rgba($black, 0.35);
+  }
+}

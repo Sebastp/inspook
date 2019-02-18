@@ -1,0 +1,361 @@
+#header{
+  height: 100vh;
+  max-height: 940px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &-inner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    justify-content: center;
+  }
+
+
+  #tagline{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 75px;
+
+    h1{
+      font-family: $merriweather;
+      font-weight: $superBold;
+      color: $dark2;
+      font-size: 2.563rem;
+    }
+
+    p{
+      font-weight: $medium;
+      color: #3636368c;
+      margin-top: 15px;
+      font-size: 1.063rem;
+    }
+  }
+
+
+  .header-center{
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 3%;
+
+    .books-gallery{
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 40px;
+
+      li{
+        flex: 1;
+        display: inline-block;
+        text-align: center;
+
+        .book-recom{
+          font-size: 0.875rem;
+          color: rgba($dark2, 0.5);
+          font-weight: $regular;
+          font-weight: $medium;
+        }
+
+        .book-center{
+          width: 100%;
+          text-align: center;
+          position: relative;
+          display: block;
+          margin-top: 15px;
+
+          .book-cover{
+            display: block;
+            width: 130px; //155px
+            height: 204px; //245px
+            overflow: hidden;
+            z-index: 2;
+            margin: auto;
+            box-shadow: 11px 10px 26px 0px rgba(0,0,0,0.25);
+            &__inner{
+              display: inline-block;
+              width: 100%;
+              height: 100%;
+              background-repeat: no-repeat;
+              background-position: top center;
+              background-size: cover;
+            }
+          }
+
+
+          .circle{
+            width: auto;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: -1;
+            padding: 2px 0;
+          }
+        }
+
+        .book-title{
+          font-family: $merriweather;
+          font-weight: $bold;
+          color: $dark2;
+          font-size: 1.25rem;
+          margin-top: 18px;
+        }
+
+        .book-author{
+          font-weight: $regular;
+          color: rgba($dark2, 0.6);
+          font-size: 1rem;
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+}
+
+
+.top-background{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  margin: auto;
+  max-width: 1950px;
+  width: 100vw;
+  height: 100%;
+  z-index: -2;
+
+  .bck-shape1{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: top right;
+    background-size: auto;
+    background-repeat: no-repeat;
+
+    // width: 51%;
+    // height: 33%;
+    // background-size: contain;
+  }
+
+  .bck-shape2{
+    position: absolute;
+    left: 0;
+    bottom: -120px;
+    width: 100%;
+    height: 100%;
+    background-position: bottom left;
+    background-size: auto;
+    background-repeat: no-repeat;
+  }
+}
+
+
+
+
+#searchSect{
+  display: block;
+  max-width: 555px;
+  width: 100%;
+  margin: auto;
+  margin-top: 250px;
+
+  input{
+    margin-top: 80px;
+  }
+
+  button{
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+  }
+}
+
+
+
+#recommSect{
+  position: relative;
+  display: block;
+  text-align: center;
+  background-color: $grey3;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 80px;
+  padding-bottom: 100px;
+  margin-top: 150px;
+
+
+  .carousel{
+    margin-top: 90px;
+    display: inline-block;
+    white-space: nowrap;
+
+    &-itm{
+      display: inline-block;
+      // margin: 0 40px;
+      width: 500px !important;
+
+      .ccard{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 18px;
+        background-color: $white;
+        padding: 40px;
+        box-shadow: 1px 5px 30px 0px rgba(0,0,0,0.05);
+        border-radius: 1px 1px 6px 6px;
+        border-top: #454849 3px solid;
+
+        .book-cover{
+          width: 90px;
+          height: 141px;
+          display: inline-block;
+          flex-shrink: 0;
+          margin-right: 20px;
+
+          &__inner{
+            width: 100%;
+            height: 100%;
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+
+        .book-info{
+          display: inline-block;
+          white-space: normal;
+          flex: 1;
+          text-align: left;
+          position: relative;
+
+          h5{
+            font-family: $merriweather;
+            font-weight: $bold;
+            color: $dark2;
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+          }
+
+          .book-author{
+            font-weight: $medium;
+            color: rgba($dark2, 0.5);
+            font-size: 1rem;
+          }
+
+          .book-rate{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            font-weight: $medium;
+            color: rgba($dark2, 0.4);
+            font-size: 0.875rem;
+
+            span{
+              font-size: 1.125rem;
+              font-weight: $semi-bold;
+              color: rgba($dark2, 0.9);
+              margin-right: 9px;
+            }
+          }
+        }
+      }
+
+
+      .book-recomm{
+        span{
+          margin-right: 15px;
+          color: rgba($dark2, 0.65);
+        }
+
+        font-weight: $medium;
+        color: rgba($dark2, 0.5);
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+
+
+#peopleSect{
+  margin-top: 100px;
+
+  ul{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    li{
+      display: inline-block;
+    }
+  }
+}
+
+
+
+#collectionsSect{
+  margin-top: 150px;
+
+  ul{
+    width: 100%;
+    margin-top: 100px;
+    li{
+      width: 50%;
+      display: inline-block;
+    }
+  }
+}
+
+
+
+
+#signSect{
+  text-align: center;
+  margin-top: 100px;
+
+  h2{
+    margin-bottom: 100px;
+  }
+
+  button{
+    display: inline-block;
+    margin: 0 15px;
+    img{
+      display: block;
+      width: auto;
+      height: 18px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+
+// =====================================================
+//    MEDIA QUERIES
+// =====================================================
+// Small
+@media (min-width: 544px) {}
+// Medium
+@media (min-width: 768px) {}
+// Large
+@media (max-width: 992px) {}
+// Extra large
+@media (max-width: 1225px) {
+
+}

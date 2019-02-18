@@ -1,0 +1,49 @@
+.collection {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+
+  &-top{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 18px;
+
+    &__left, &__right{
+      flex: 1;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom right;
+    }
+
+    &__right{
+      transform: scaleX(-1);
+    }
+
+    .collection-cover{
+      background-size: cover;
+      background-color: $grey2;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 85px;
+      height: 133px;
+      margin: auto 12px;
+    }
+  }
+
+
+  &-name{
+    display: block;
+    font-family: $merriweather;
+    font-weight: $bold;
+    color: $dark2;
+    font-size: 1.5rem;
+  }
+
+  &-subtitle{
+    font-size: 0.9375rem;
+    font-weight: $medium;
+    color: rgba($dark2, 0.5);
+  }
+}

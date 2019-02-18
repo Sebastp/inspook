@@ -8,9 +8,11 @@
     "start": "cd server && npm start",
     "dev": "cd server && npm run dev",
     "react": "cd client && npm start",
+    "css": "cd client && npm run watch-css",
     "build-client": "cd client && npm install && npm run build",
     "build-server": "cd server && npm install && npm run build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build-client && npm run build-server"
   },
   "dependencies": {
     "eslint-plugin-react": "^7.11.1",

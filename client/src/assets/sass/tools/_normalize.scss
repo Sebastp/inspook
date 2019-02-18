@@ -31,7 +31,24 @@ body {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
+}
+
+h1, h2,h3,h4,h5,h6 {
+  font-family: $poppins;
+  font-weight: $semi-bold;
+  margin: 0;
+  padding: 0;
+
+  span{
+    font-weight: inherit;
+  }
+}
+
+
+ul{
+  padding: 0;
+  margin: 0;
 }
 
 /* Grouping content
@@ -66,7 +83,18 @@ pre {
  */
 
 a {
+  color: inherit;
   background-color: transparent;
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+ul{
+  list-style: none;
 }
 
 /**
@@ -158,6 +186,7 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  background: none;
 }
 
 /**
@@ -168,6 +197,12 @@ textarea {
 button,
 input { /* 1 */
   overflow: visible;
+
+  &:active{
+    outline: none;
+    border: none;
+  }
+  &:focus {outline:0;}
 }
 
 /**
@@ -345,6 +380,7 @@ template {
 [hidden] {
   display: none;
 }
+
 
 
 .scrlbar-hidden{
