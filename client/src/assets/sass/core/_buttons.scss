@@ -17,4 +17,8 @@
     padding-right: 60px;
     letter-spacing: 0.04em;
   }
+
+  &.branded1{
+    background: linear-gradient(90deg, #ff007f, $brandCol2);
+  }
 }

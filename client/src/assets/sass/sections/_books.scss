@@ -119,6 +119,7 @@
       margin-top: 25px;
 
       p{
+        text-align: center;
         padding: 0 30px;
       }
 
@@ -143,6 +144,111 @@
 
 
 
+
+
+
+
+
+
+
+
+.bookBlog{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  padding-bottom: 133px;
+
+  .book-center{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    display: block;
+
+    .book-cover{
+      display: block;
+      width: 130px; //155px
+      height: 204px; //245px
+      overflow: hidden;
+      z-index: 2;
+      margin: auto;
+      box-shadow: 12px 11px 24px 0px rgba(0,0,0,0.21);
+      &__inner{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: $grey2;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+      }
+    }
+
+    .circle{
+      width: auto;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: -1;
+      padding: 2px 0;
+    }
+  }
+
+  .book-title{
+    display: block;
+    font-family: $merriweather;
+    font-weight: $bold;
+    color: $dark2;
+    font-size: 1.438rem;
+    margin-top: 30px;
+  }
+
+  .book-author{
+    display: block;
+    font-weight: $regular;
+    color: rgba($dark2, 0.6);
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+
+
+  .book-story{
+    font-family: $poppins;
+    font-weight: $regular;
+    font-size: 1rem;
+    color: rgba($dark2, 0.6);
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  &-person{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .person-cover{
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0px;
+    }
+    .person-name{
+      text-align: center;
+      font-size: 1.188rem;
+      margin-top: 10px;
+    }
+  }
+}
+
+
+
+
 // Large
 @media (max-width: 992px) {
   .bookHalf{
@@ -157,6 +263,50 @@
     .book-canvas .book-cover{
       height: 200px;
       width: 127px;
+    }
+  }
+
+  .bookBlog{
+    padding-bottom: 138px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 768px) {
+  .bookHalf{
+    .book-recomm{
+      font-size: 0.8125rem;
+    }
+
+    .book-canvas .book-cover{
+      height: 185px;
+      width: 118px;
+    }
+
+    .book-review__inner{
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bookHalf{
+    padding: 0 15px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .bookHalf{
+    .book-recomm{
+      margin-left: -15px;
+      margin-right: -15px;
+      text-align: center;
+    }
+
+    .book-canvas{
+      margin-left: -40px;
+      margin-right: -40px;
+      width: auto;
     }
   }
 }

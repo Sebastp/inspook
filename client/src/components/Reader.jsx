@@ -1,6 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, {Component, Fragment} from 'react'
+import {Query} from 'react-apollo'
 
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+
 
 
 import Topbar from './Topbar'
@@ -8,72 +10,93 @@ import Footer from './Footer'
 import PersonMini from './PersonMini'
 import BookHalf from './BookHalf'
 
+import { getReaderPage, getRandomReaders } from '../graphql'
 
 export default class Reader extends Component {
   render() {
-    return (
-      <Fragment>
-        <header className="reader-top">
-          <Topbar/>
+    const urlUid = this.props.match.params.urlUid
 
-          <section className="top-inner">
-            <div className="top-person">
-              <Link to='/reader/' className="top-person-cover">
-                <div className="person-cover__inner"
-                  style={{
-                    backgroundImage: `url(${require('../assets/img/demo/avatar.png')})`
-                  }}
-                  />
-              </Link>
-
-
-              <span className="top-person-name">
-                <Link to='/reader/'>
-                  Jeff Bezos
-                </Link>
-              </span>
-              <span className="top-person-subtitle">88 Books</span>
-            </div>
-            
-            <div className="sugestions">
-              <div className="heading">
-                <hr/>
-                <span>You Should also see</span>
-                <hr/>
-              </div>
-
-              <ul>
-                {[1,2,3,4].map((item,i)=>(
-                  <li key={i}>
-                    <PersonMini/>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          <div className="top-background">
-            <div className="bck-shape1"
-              style={{
-                backgroundImage: `url(${require('../assets/img/shape1.png')})`
-              }}
-              />
-          </div>
-        </header>
-
-        <div className="reader-books">
-          <ul className="row">
-            {
-              [1,2,3].map((item,i)=>(
-                <BookHalf key={i}/>
-              ))
+    return (<Fragment>
+      <Query query={getReaderPage} variables={{uid: urlUid}}>
+        {
+          ({loading, error, data}) => {
+            if (loading){
+              return 'loading'
             }
-          </ul>
-        </div>
+
+            if (error) {
+              return error.toString()
+            }
+            var reader = data.getByUid;
+            if (reader.avatar) {
+              this.ravatar = reader.avatar
+            }else {
+              this.ravatar = reader.uid
+            }
 
 
-        <Footer />
-      </Fragment>
-    )
+
+            return (
+              <Fragment>
+              <header className="reader-top">
+                <Topbar/>
+                <section className="top-inner">
+                  <div className="top-person">
+                    <Link to='/reader/' className="top-person-cover">
+                      <div className="person-cover__inner" style={{
+                          backgroundImage: `url(${require('../assets/img/readers/'+this.ravatar+'.jpg')})`
+                        }}/>
+                    </Link>
+
+                    <span className="top-person-name">
+                      <Link to='/reader/'>
+                        {reader.displayName}
+                      </Link>
+                    </span>
+                    <span className="top-person-subtitle">{reader.desc}</span>
+                  </div>
+
+                  <div className="sugestions">
+                    <div className="heading">
+                      <hr/>
+                      <span>You Should also see</span>
+                      <hr/>
+                    </div>
+
+                    <ul>
+                      <Query query={getRandomReaders} variables={{numToGet: 4}}>
+                        {
+                          ({loading, error, data}) => {
+                            if (loading){
+                              return 'loading'
+                            }
+                            const randSuggestion = data.getRandomReaders;
+                            console.log(randSuggestion);
+                            return randSuggestion.map((item, i) => (<li key={i}>
+                              <PersonMini personObj={item}/>
+                            </li>))
+                          }
+                        }
+                      </Query>
+                    </ul>
+                  </div>
+                </section>
+
+              </header>
+
+              <div className="reader-books">
+                <ul className="row">
+                  {reader.books.map((item, i) => (<BookHalf key={i} bookinfo={item}/>))}
+                </ul>
+              </div>
+            </Fragment>
+          )
+          }
+        }
+      </Query>
+
+      <Footer/>
+    </Fragment>
+  )
   }
 }

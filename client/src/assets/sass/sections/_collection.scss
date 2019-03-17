@@ -8,18 +8,7 @@
     margin: auto;
     width: 100%;
     margin-bottom: 18px;
-
-    &__left, &__right{
-      flex: 1;
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: bottom right;
-    }
-
-    &__right{
-      transform: scaleX(-1);
-    }
+    position: relative;
 
     .collection-cover{
       background-size: cover;
@@ -28,7 +17,27 @@
       background-repeat: no-repeat;
       width: 85px;
       height: 133px;
-      margin: auto 12px;
+      margin: 0 auto;
+      box-shadow: 5px 7px 25px 0px rgba(0, 0, 0, 0.18);
+    }
+
+    .collection-bck{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: -1;
+      margin: 20px 0 25px 0;
+      overflow: hidden;
+      &__inner{
+        width: 100%;
+        height: 100%;
+        filter: blur(3px);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
     }
   }
 

@@ -12,7 +12,6 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
 
-
   ::selection {
     background: rgba($brandCol1, 0.7);
   }
@@ -26,15 +25,38 @@ body {
   position: relative;
   min-height: 100vh;
   margin: 0 auto;
+}
 
-  padding: 0px 40px;
-  max-width: 1250px; //40+40+15+15=110
+.grad-line{
+  height: 1px;
+  width: 100%;
+  display: inline-block;
+  background: linear-gradient(90deg, $brandCol1, $brandCol2);
 }
 
 
+.cont-width_0{
+  margin: auto;
+  padding: 0px 40px;
+  max-width: 1250px; //40+40+15+15=110
+  width: 100%;
+  display: block;
+}
 
+.cont-width_1{//topbar
+  margin: auto;
+  padding: 0px 150px;
+  max-width: 1920px; //40+40+15+15=110
+  width: 100%;
+  display: block;
+}
 
-
+.cont-width_fullp{//blog posts on landing
+  margin: auto;
+  padding: 0px 40px;
+  width: 100%;
+  display: block;
+}
 
 
 

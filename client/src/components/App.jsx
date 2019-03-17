@@ -5,11 +5,10 @@ import { Query } from 'react-apollo'
 import { getReader } from '../graphql'
 
 
-import Topbar from './Topbar'
-import Footer from './Footer'
 import Landing from './Landing'
-import Loading from './Loading'
+import TopBooks from './TopBooks'
 import Reader from './Reader'
+import Book from './Book'
 
 export default class App extends Component {
   render() {
@@ -23,7 +22,7 @@ export default class App extends Component {
               if (error) {
                 return error.toString()
               }
-              console.log(data);
+              // console.log(data);
               return '';
             }}
           </Query>
@@ -34,9 +33,21 @@ export default class App extends Component {
               )}
             />
 
-            <Route exact path="/reader"
+          <Route exact path="/top-books"
+              component={props => (
+                <TopBooks {...props}/>
+              )}
+            />
+
+            <Route exact path="/reader/:urlUid"
               component={props => (
                 <Reader {...props}/>
+              )}
+            />
+
+          <Route exact path="/book/:urlBookId"
+              component={props => (
+                <Book {...props}/>
               )}
             />
           </Switch>

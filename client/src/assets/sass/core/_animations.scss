@@ -1,0 +1,15 @@
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 0%
+	}
+
+	100% {
+		background-position: 0% 100%
+	}
+}
+
+.gradient-loadAnim {
+  background: linear-gradient(0deg, $grey2, rgba($grey1, 0.07), $grey2, rgba($grey1, 0.07));
+  background-size: 300% 300% !important;
+  animation: Gradient 2.8s linear infinite;
+}

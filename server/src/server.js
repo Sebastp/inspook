@@ -9,6 +9,7 @@ import { createServer } from 'http'
 import router from '~/core/router'
 import apollo from '~/core/apollo'
 
+var cors_proxy = require('cors-anywhere');
 
 const {
   PORT = 8080,
@@ -40,7 +41,7 @@ app.use(cookieParser())
 // Enable cors
 app.use(
   cors({
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', "Access-Control-Allow-Origin"],
     credentials: true,
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -48,10 +49,14 @@ app.use(
   })
 )
 
+
+
+
 // Enable GZIP compression
 app.use(compression())
 
 apollo.applyMiddleware({ app })
+
 
 // Handle routes
 app.use('/', router)
@@ -59,6 +64,15 @@ app.use('/', router)
 
 const httpServer = createServer(app)
 apollo.installSubscriptionHandlers(httpServer)
+
+
+cors_proxy.createServer({
+    originWhitelist: [], // Allow all origins
+    requireHeader: ['origin', 'x-requested-with'],
+    removeHeaders: ['cookie', 'cookie2']
+}).listen(8081, '0.0.0.0', function() {
+    console.log('Running CORS Anywhere on:' + 8081);
+});
 
 // Start the server
 httpServer.listen(PORT, () => {

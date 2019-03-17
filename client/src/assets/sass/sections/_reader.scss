@@ -12,6 +12,7 @@
 
     .top-person{
       width: 100%;
+      max-width: 750px;
       text-align: center;
       margin-top: 60px;
       .top-person-cover{
@@ -50,7 +51,7 @@
 
 
     .sugestions{
-      margin-top: 70px;
+      margin-top: 60px;
       max-width: 750px;
       width: 100%;
       display: block;
@@ -64,7 +65,7 @@
         flex-direction: row;
         justify-content: space-between;
         margin: auto;
-        margin-top: 50px;
+        margin-top: 40px;
       }
     }
   }
@@ -74,7 +75,7 @@
 .reader-books{
   width: 100%;
   display: block;
-  margin-top: 170px;
+  margin-top: 150px;
 }
 
 
@@ -136,12 +137,50 @@
 @media (max-width: 900px) {
   .top-background .bck-shape1{
     width: 65%;
-    transform: translate(7%, -1%);
+    transform: translate(12%, 0%);
   }
 }
 
 @media (max-width: 840px) {
+  .reader-top .top-inner{
+    .top-person{
+      margin-top: 70px;
+    }
+
+    .sugestions li{
+      &:first-child{
+        .person{
+          padding-left: 0px;
+        }
+      }
+
+      &:last-child{
+        .person{
+          padding-right: 0px;
+        }
+      }
+
+      .person{
+        padding: 0 10px;
+      }
+
+      .person-cover{
+        width: 78px;
+        height: 78px;
+        margin-bottom: 14px;
+      }
+
+      .person-name{
+        font-size: 1.063rem;
+      }
+      .person-subtitle{
+        font-size: 0.875rem;
+      }
+    }
+  }
+
   .top-background .bck-shape1{
+    display: none;
     width: 67%;
     transform: translate(6%, 0%);
   }

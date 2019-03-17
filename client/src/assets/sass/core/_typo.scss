@@ -1,0 +1,35 @@
+.sect-header {
+  color: $dark2;
+  font-family: $playfair;
+  font-size: 2rem;
+  font-weight: $bold;
+  text-align: center;
+  width: 100%;
+}
+
+.navAnach {
+  display: inline-block;
+  color: rgba($dark2, 0.8);
+  font-weight: $semi-bold;
+  transition: opacity 0.2s;
+  text-transform: uppercase;
+
+  &:hover{
+    opacity: 0.9;
+    transition: opacity 0.3s;
+  }
+}
+
+
+// =====================================================
+//    MEDIA QUERIES
+// =====================================================
+// Small
+@media (min-width: 544px) {}
+// Medium
+@media (min-width: 768px) {}
+// Large
+@media (max-width: 992px) {}
+// Extra large
+@media (max-width: 1225px) {
+}

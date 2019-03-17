@@ -5,7 +5,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 
   header{
     display: inline-block;
@@ -24,6 +25,47 @@
   }
 
 
+  .grad-line{
+    flex: 1;
+    margin: 0 100px;
+  }
+
+  .nav-toggle{
+    display: none;
+    float: right;
+    border: 0;
+    background-color: transparent;
+    outline-style: none;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    z-index: 100;
+    // transition: all .6s cubic-bezier(.785,.135,.15,.86);
+    cursor: pointer;
+
+    &:after, &:before{
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background-color: #080808;
+      transition: all .5s cubic-bezier(.785,.135,.15,.86);
+      border-bottom: 2px solid #fff;
+    }
+
+    &:after{
+      top: auto;
+      bottom: 8px;
+    }
+
+    &:hover{
+      &:after{
+        width: 80%;
+      }
+    }
+  }
 
 
   nav{
@@ -31,16 +73,13 @@
     display: inline-block;
 
     span{
-      display: inline-block;
-      color: rgba($dark2, 0.8);
-      font-weight: $semi-bold;
-      margin-right: 45px;
-      transition: opacity 0.2s;
-      text-transform: uppercase;
+      margin-right: 42px;
+    }
 
-      &:hover{
-        opacity: 0.9;
-        transition: opacity 0.3s;
+    .nav-search{
+      img{
+        width: auto;
+        height: 21px;
       }
     }
 
@@ -61,5 +100,24 @@
 @media (max-width: 1150px) {
   .topbar{
     padding-top: 40px;
+  }
+}
+
+
+@media (max-width: 840px) {
+  .topbar{
+    padding-bottom: 40px;
+
+    &-bck{
+      display: block;
+    }
+
+    .nav-toggle{
+      display: block;
+    }
+
+    nav{
+      display: none;
+    }
   }
 }
