@@ -81,10 +81,12 @@ export default class BookThird extends Component {
           <img className="circle" src={require('../assets/img/circle.svg')}/>
         </div>
 
-        <Dotdotdot clamp={2}>
-          <h5 className="book-title">{bookObj?bookObj.title[0]:'Loading Title...'}</h5>
+        <Dotdotdot clamp={2} className="book-title" tagName="h5">
+          {bookObj?bookObj.title[0]:'Loading Title...'}
         </Dotdotdot>
-        <span className="book-author">{bookObj?bookObj.authors[0].author[0].name[0]:'Loading Author...'}</span>
+        <Dotdotdot clamp={1} className="book-author" tagName="span">
+          {bookObj?bookObj.authors[0].author[0].name[0]:'Loading Author...'}
+        </Dotdotdot>
       </li>
     )
   }

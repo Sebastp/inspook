@@ -45,7 +45,7 @@ export default class PersonMini extends Component {
         </div>
       )
     }
-
+    console.log(personObj);
     return (
       <div className="person">
         <Link to={'/reader/'+personObj.uid} className="person-cover">
@@ -56,7 +56,7 @@ export default class PersonMini extends Component {
             />
         </Link>
 
-        {personObj.books.length>0?
+        {personObj.books && personObj.books.length>0?
           <div className="person-bckbooks">
             {this.state.bookObjs.map((bookObj,i)=>(
               bookObj.cover ? (

@@ -73,10 +73,6 @@ export default class Landing extends Component {
               <h1>Get Inspired By The Best</h1>
               <p>See the most Recommended Books by Successful People</p>
             </div>
-            <div id="header-buttons">
-              <button className="button-filled branded1">See Most Recomended</button>
-              <button className="button-filled">Search</button>
-            </div>
           </section>
         </header>
 
@@ -124,7 +120,7 @@ export default class Landing extends Component {
 
         <section id="todaysRecomm">
           <div className="cont-width_0">
-            <h2 className="sect-header">Today’s Stories</h2>
+            <h2 className="sect-header">Today’s Recommendations</h2>
 
             <ul className="books-gallery row">
               {

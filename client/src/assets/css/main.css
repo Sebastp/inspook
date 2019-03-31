@@ -490,7 +490,7 @@ body {
 
 .cont-width_1 {
   margin: auto;
-  padding: 0px 150px;
+  padding: 0px 100px;
   max-width: 1920px;
   width: 100%;
   display: block; }
@@ -509,16 +509,10 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   border: none;
-  padding: 15px 30px;
+  padding: 14px 34px;
   font-size: 0.75rem;
   cursor: pointer;
   letter-spacing: 0.025em; }
-  .button-filled.wide {
-    padding-left: 60px;
-    padding-right: 60px;
-    letter-spacing: 0.04em; }
-  .button-filled.branded1 {
-    background: linear-gradient(90deg, #ff007f, #ff004e); }
 
 input, textarea {
   display: block;
@@ -527,9 +521,8 @@ input, textarea {
   box-sizing: content-box;
   border: none;
   width: 100%;
-  background-color: #f5f5f5;
-  border-radius: 500px;
-  padding: 11px 25px;
+  border-bottom: solid 1px #e5e6e8;
+  padding: 8px 5px;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -712,10 +705,13 @@ input, textarea {
       .collection-top .collection-bck__inner {
         width: 100%;
         height: 100%;
+        background-color: #f5f5f5;
+        /*
         filter: blur(3px);
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat; }
+        background-repeat: no-repeat;
+        */ }
   .collection-name {
     display: block;
     font-family: "Merriweather", serif;
@@ -877,15 +873,15 @@ input, textarea {
     margin-top: 30px; }
   .bookBlog .book-author {
     display: block;
-    font-weight: 400;
-    color: rgba(0, 7, 34, 0.6);
+    font-weight: 500;
+    color: rgba(0, 7, 34, 0.43);
     font-size: 1rem;
     margin-top: 4px; }
   .bookBlog .book-story {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    color: rgba(0, 7, 34, 0.6);
+    color: rgba(0, 7, 34, 0.5);
     margin-top: 20px;
     margin-bottom: 0px; }
   .bookBlog-person {
@@ -964,11 +960,6 @@ input, textarea {
       margin-top: 15px;
       margin-bottom: 0px;
       font-size: 1.063rem; }
-  #header #header-buttons {
-    width: 100%;
-    text-align: center; }
-    #header #header-buttons button {
-      margin: 0 25px; }
 
 #peopleSect {
   width: 100%;
@@ -1029,12 +1020,12 @@ input, textarea {
         margin-top: 15px; }
         #todaysRecomm .books-gallery li .book-center .book-cover {
           display: block;
-          width: 130px;
-          height: 204px;
+          width: 120px;
+          height: 190px;
           overflow: hidden;
           z-index: 2;
           margin: auto;
-          box-shadow: 11px 10px 26px 0px rgba(0, 0, 0, 0.2); }
+          box-shadow: 10px 8px 25px 0px rgba(0, 0, 0, 0.2); }
           #todaysRecomm .books-gallery li .book-center .book-cover__inner {
             display: inline-block;
             width: 100%;
@@ -1056,16 +1047,18 @@ input, textarea {
           z-index: -1;
           padding: 2px 0; }
       #todaysRecomm .books-gallery li .book-title {
+        display: block;
         font-family: "Merriweather", serif;
         font-weight: 700;
         color: #000722;
-        font-size: 1.25rem;
-        margin-top: 20px; }
+        font-size: 1.188rem;
+        margin-top: 23px; }
       #todaysRecomm .books-gallery li .book-author {
-        font-weight: 400;
-        color: rgba(0, 7, 34, 0.6);
+        display: block;
+        font-weight: 500;
+        color: rgba(0, 7, 34, 0.43);
         font-size: 1rem;
-        margin-top: 12px; }
+        margin-top: 6px; }
   #todaysRecomm .bckname {
     z-index: 0;
     display: block;
@@ -1159,7 +1152,10 @@ input, textarea {
       margin-bottom: 0px;
       display: block; }
   #todaysRecomm ul li {
-    margin-bottom: 100px; }
+    margin-bottom: 90px; }
+    #todaysRecomm ul li .book-title {
+      max-width: 400px;
+      margin: auto; }
     #todaysRecomm ul li:last-child {
       margin-bottom: 0px;
       display: block; }
@@ -1327,26 +1323,31 @@ input, textarea {
 .topbar {
   width: 100%;
   position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 60px;
   padding-bottom: 60px; }
+  .topbar .grad-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 2px; }
+  .topbar__inner {
+    padding-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
   .topbar header {
     display: inline-block; }
     .topbar header #tpb-logoi {
       display: inline-block;
-      height: 24px;
+      height: 20px;
       width: auto; }
     .topbar header #tpb-logot {
       display: inline-block;
       width: auto;
-      height: 26px;
+      height: 22px;
       margin-left: 18px; }
-  .topbar .grad-line {
-    flex: 1;
-    margin: 0 100px; }
   .topbar .nav-toggle {
     display: none;
     float: right;
@@ -1384,23 +1385,37 @@ input, textarea {
     .topbar nav div {
       display: inline-block; }
 
-@media (min-width: 1550px) {
-  .topbar {
-    width: calc(100% + 135px); } }
+@media (max-width: 1300px) {
+  .topbar__inner {
+    padding-left: 80px;
+    padding-right: 80px; } }
+
+@media (max-width: 1300px) {
+  .topbar__inner {
+    padding-left: 40px;
+    padding-right: 40px; } }
 
 @media (max-width: 1150px) {
-  .topbar {
-    padding-top: 40px; } }
+  .topbar__inner {
+    padding-top: 40px; }
+  .topbar header #tpb-logoi {
+    height: 23px; }
+  .topbar header #tpb-logot {
+    height: 24px; }
+  .topbar nav span {
+    margin-right: 35px; }
+  .topbar nav .button-filled {
+    margin-left: 5px; } }
 
 @media (max-width: 840px) {
-  .topbar {
+  .topbar__inner {
     padding-bottom: 40px; }
-    .topbar-bck {
-      display: block; }
-    .topbar .nav-toggle {
-      display: block; }
-    .topbar nav {
-      display: none; } }
+  .topbar-bck {
+    display: block; }
+  .topbar .nav-toggle {
+    display: block; }
+  .topbar nav {
+    display: none; } }
 
 footer {
   width: 100%;

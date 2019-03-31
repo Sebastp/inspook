@@ -17,11 +17,7 @@ export default class Collection extends Component {
           />
 
           <div className="collection-bck">
-            <div className="collection-bck__inner"
-              style={{
-                backgroundImage: `url(${require('../assets/img/demo/cover1.jpg')})`
-              }}
-              />
+            <div className="collection-bck__inner"/>
           </div>
         </Link>
 

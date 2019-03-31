@@ -6,19 +6,8 @@
   font-family: $poppins;
   font-weight: $semi-bold;
   border: none;
-  padding: 15px 30px;
+  padding: 14px 34px;
   font-size: 0.75rem;
   cursor: pointer;
   letter-spacing: 0.025em;
-
-
-  &.wide{
-    padding-left: 60px;
-    padding-right: 60px;
-    letter-spacing: 0.04em;
-  }
-
-  &.branded1{
-    background: linear-gradient(90deg, #ff007f, $brandCol2);
-  }
 }

@@ -35,15 +35,6 @@
       font-size: 1.063rem;
     }
   }
-
-  #header-buttons{
-    width: 100%;
-    text-align: center;
-
-    button{
-      margin: 0 25px;
-    }
-  }
 }
 
 
@@ -131,12 +122,12 @@
 
         .book-cover{
           display: block;
-          width: 130px; //155px
-          height: 204px; //245px
+          width: 120px; //130px
+          height: 190px; //204px
           overflow: hidden;
           z-index: 2;
           margin: auto;
-          box-shadow: 11px 10px 26px 0px rgba(0,0,0,0.2);
+          box-shadow: 10px 8px 25px 0px rgba(0,0,0,0.2);
           &__inner{
             display: inline-block;
             width: 100%;
@@ -165,18 +156,22 @@
       }
 
       .book-title{
+        display: block;
         font-family: $merriweather;
         font-weight: $bold;
         color: $dark2;
-        font-size: 1.25rem;
-        margin-top: 20px;
+        font-size: 1.188rem;
+        margin-top: 23px;
       }
 
       .book-author{
-        font-weight: $regular;
-        color: rgba($dark2, 0.6);
+        display: block;
+        // font-weight: $regular;
+        // color: rgba($dark2, 0.5);
+        font-weight: $medium;
+        color: rgba($dark2, 0.43);
         font-size: 1rem;
-        margin-top: 12px;
+        margin-top: 6px;
       }
     }
   }
@@ -347,12 +342,19 @@
 
   #todaysRecomm{
     ul li{
-      margin-bottom: 100px;
+      margin-bottom: 90px;
+
+      .book-title{
+        max-width: 400px;
+        margin: auto;
+      }
+
       &:last-child{
         margin-bottom: 0px;
         display: block;
       }
     }
+
     .bckname{
       display: none;
     }

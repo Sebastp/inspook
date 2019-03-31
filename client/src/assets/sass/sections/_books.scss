@@ -211,8 +211,9 @@
 
   .book-author{
     display: block;
-    font-weight: $regular;
-    color: rgba($dark2, 0.6);
+    font-weight: $medium;
+    color: rgba($dark2, 0.43);
+
     font-size: 1rem;
     margin-top: 4px;
   }
@@ -222,7 +223,7 @@
     font-family: $poppins;
     font-weight: $regular;
     font-size: 1rem;
-    color: rgba($dark2, 0.6);
+    color: rgba($dark2, 0.5);
     margin-top: 20px;
     margin-bottom: 0px;
   }

@@ -5,9 +5,8 @@ input, textarea{
   box-sizing: content-box;
   border: none;
   width: 100%;
-  background-color: $grey3;
-  border-radius: 500px;
-  padding: 11px 25px;
+  border-bottom: solid 1px $grey4;
+  padding: 8px 5px;
 
   font-size: 1rem;
   font-family: $poppins;

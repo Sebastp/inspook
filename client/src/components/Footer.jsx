@@ -6,28 +6,30 @@ export default class Footer extends Component {
     return (
       <footer className="cont-width_0">
         <div className="row">
-          <ul className="col-6 d-flex justify-content-between m-auto">
-            <li className="navAnach">
-              <Link to={'/top-books'}>
-                Top Books
-              </Link>
-            </li>
-            <li className="navAnach">
-              <Link to={'/people'}>
-                People
-              </Link>
-            </li>
-            <li className="navAnach">
-              <Link to={'/collections'}>
-                Collections
-              </Link>
-            </li>
-            <li className="navAnach">
-              <Link to={'/contribute'}>
-                Contribute
-              </Link>
-            </li>
-          </ul>
+          <div className="col-12">
+            <ul>
+              <li className="navAnach">
+                <Link to={'/top-books'}>
+                  Top Books
+                </Link>
+              </li>
+              <li className="navAnach">
+                <Link to={'/people'}>
+                  People
+                </Link>
+              </li>
+              <li className="navAnach">
+                <Link to={'/collections'}>
+                  Collections
+                </Link>
+              </li>
+              <li className="navAnach">
+                <Link to={'/contribute'}>
+                  Contribute
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           <div className="col-12">
             <span id="copyr">
