@@ -98,6 +98,26 @@
   src: local("Playfair Display Black"), local("PlayfairDisplay-Black"), url("../fonts/playfair-display-v14-latin-900.eot?#iefix") format("embedded-opentype"), url("../fonts/playfair-display-v14-latin-900.woff2") format("woff2"), url("../fonts/playfair-display-v14-latin-900.woff") format("woff"), url("../fonts/playfair-display-v14-latin-900.ttf") format("truetype"), url("../fonts/playfair-display-v14-latin-900.svg#PlayfairDisplay") format("svg");
   /* Legacy iOS */ }
 
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/lato-v15-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Regular"), local("Lato-Regular"), url("../fonts/lato-v15-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-v15-latin-regular.woff2") format("woff2"), url("../fonts/lato-v15-latin-regular.woff") format("woff"), url("../fonts/lato-v15-latin-regular.ttf") format("truetype"), url("../fonts/lato-v15-latin-regular.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/lato-v15-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local("Lato Bold"), local("Lato-Bold"), url("../fonts/lato-v15-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-v15-latin-700.woff2") format("woff2"), url("../fonts/lato-v15-latin-700.woff") format("woff"), url("../fonts/lato-v15-latin-700.ttf") format("truetype"), url("../fonts/lato-v15-latin-700.svg#Lato") format("svg");
+  /* Legacy iOS */ }
+
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -531,12 +551,19 @@ input, textarea {
     color: rgba(0, 0, 0, 0.35); }
 
 .sect-header {
-  color: #000722;
-  font-family: "Playfair Display", serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  color: rgba(0, 7, 34, 0.9);
+  font-family: "Lato", sans-serif;
   font-weight: 700;
   text-align: center;
   width: 100%; }
+  .sect-header_s1 {
+    color: rgba(0, 7, 34, 0.9);
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    font-size: 1.438rem; }
 
 .navAnach {
   display: inline-block;
@@ -597,51 +624,6 @@ input, textarea {
     color: rgba(0, 7, 34, 0.5);
     text-transform: uppercase;
     z-index: 1; }
-  .person-bckbooks {
-    width: 300px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: absolute;
-    top: -95px;
-    z-index: -1;
-    opacity: 0;
-    margin: auto;
-    left: 0;
-    right: 0; }
-    .person-bckbooks .book-cover {
-      display: inline-block;
-      height: 136px;
-      width: 90px;
-      overflow: hidden;
-      opacity: 0.7;
-      margin-top: 0px;
-      transition: opacity 0.3s, margin 0.35s; }
-      .person-bckbooks .book-cover__inner {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-color: #fafafa;
-        background-size: cover; }
-  .person-bckname {
-    z-index: -2;
-    display: block;
-    display: none;
-    position: absolute;
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    color: rgba(0, 7, 34, 0.02);
-    font-size: 4.2rem;
-    white-space: nowrap;
-    top: 12%;
-    right: 0;
-    margin: auto;
-    opacity: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw; }
 
 #peopleSect .swiper-slide-active {
   width: 350px;
@@ -662,17 +644,6 @@ input, textarea {
     margin-top: 2px;
     opacity: 1;
     transition: opacity 0.55s, margin 0.4s; }
-  #peopleSect .swiper-slide-active .person-bckbooks {
-    margin-top: 0px;
-    opacity: 1;
-    transition: opacity 0.5s, margin 0.5s; }
-    #peopleSect .swiper-slide-active .person-bckbooks .book-cover:hover {
-      transition: opacity 0.2s, margin 0.45s;
-      opacity: .9;
-      margin-top: -12px; }
-  #peopleSect .swiper-slide-active .person-bckname {
-    opacity: 1;
-    transition: opacity 0.45s; }
 
 .collection {
   display: inline-block;
@@ -936,54 +907,32 @@ input, textarea {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 50px; }
-  #header-inner {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    justify-content: center; }
+  margin-top: 40px; }
   #header #tagline {
     width: 100%;
     display: block;
-    text-align: center;
-    margin-bottom: 50px; }
+    text-align: center; }
     #header #tagline h1 {
       font-family: "Playfair Display", serif;
       font-weight: 700;
-      color: #000722;
-      font-size: 2.563rem; }
+      color: rgba(0, 7, 34, 0.95);
+      font-size: 2.313rem; }
     #header #tagline p {
-      font-weight: 500;
-      color: #3636368c;
-      margin-top: 15px;
+      font-weight: 400;
+      color: rgba(0, 7, 34, 0.46);
+      margin-top: 12px;
       margin-bottom: 0px;
       font-size: 1.063rem; }
 
 #peopleSect {
   width: 100%;
   display: block;
-  margin: auto;
-  margin-top: 215px; }
+  margin: auto; }
   #peopleSect ul {
     display: inline-block;
-    white-space: nowrap;
-    margin-left: -109px; }
-    #peopleSect ul.loading {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin-left: 0; }
+    white-space: nowrap; }
     #peopleSect ul li {
-      display: inline-block;
-      width: 171px;
-      text-align: center;
-      white-space: normal; }
-      #peopleSect ul li.loading {
-        margin-right: 80px; }
-        #peopleSect ul li.loading:last-child {
-          margin-right: 0px; }
+      width: 100%; }
 
 #todaysRecomm {
   margin-top: 181px;
@@ -1059,22 +1008,6 @@ input, textarea {
         color: rgba(0, 7, 34, 0.43);
         font-size: 1rem;
         margin-top: 6px; }
-  #todaysRecomm .bckname {
-    z-index: 0;
-    display: block;
-    position: absolute;
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    color: #ffffff;
-    font-size: 9vw;
-    white-space: nowrap;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    width: 100vw;
-    transform: translateY(26%); }
 
 #searchSect {
   display: block;
@@ -1086,10 +1019,6 @@ input, textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-between; }
-    #searchSect .search-center .search-btn {
-      font-size: 0.875rem;
-      width: 172px;
-      margin-top: 8px; }
     #searchSect .search-center .search-input {
       flex: 1;
       margin: 0 50px; }
@@ -1097,10 +1026,6 @@ input, textarea {
         margin: auto;
         max-width: 555px;
         box-sizing: border-box; }
-      #searchSect .search-center .search-input button {
-        display: block;
-        margin: auto;
-        margin-top: 40px; }
 
 #blogSect {
   padding: 0;
@@ -1341,12 +1266,12 @@ input, textarea {
     display: inline-block; }
     .topbar header #tpb-logoi {
       display: inline-block;
-      height: 20px;
+      height: 22px;
       width: auto; }
     .topbar header #tpb-logot {
       display: inline-block;
       width: auto;
-      height: 22px;
+      height: 23px;
       margin-left: 18px; }
   .topbar .nav-toggle {
     display: none;

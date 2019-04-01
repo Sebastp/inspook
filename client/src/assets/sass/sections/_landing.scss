@@ -2,35 +2,26 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 50px;
-
-  &-inner{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    justify-content: center;
-  }
-
+  margin-top: 40px;
 
   #tagline{
     width: 100%;
     display: block;
     text-align: center;
-    margin-bottom: 50px;
 
     h1{
       font-family: $playfair;
       font-weight: $bold;
-      color: $dark2;
-      font-size: 2.563rem;
+      color: rgba($dark2,0.95);
+      font-size: 2.313rem;
     }
 
     p{
-      font-weight: $medium;
-      color: #3636368c;
-      margin-top: 15px;
+      font-weight: $regular;
+      // font-weight: $medium;
+      // color: #3636368c;
+      color: rgba($dark2,0.46);
+      margin-top: 12px;
       margin-bottom: 0px;
       font-size: 1.063rem;
     }
@@ -43,33 +34,13 @@
   width: 100%;
   display: block;
   margin: auto;
-  margin-top: 215px;
 
   ul{
     display: inline-block;
     white-space: nowrap;
-    margin-left: -109px;
-
-    &.loading{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin-left: 0;
-    }
 
     li{
-      display: inline-block;
-      width: 171px;
-      text-align: center;
-      white-space: normal;
-
-      &.loading{
-        margin-right: 80px;
-
-        &:last-child{
-          margin-right: 0px;
-        }
-      }
+      width: 100%;
     }
   }
 }
@@ -175,24 +146,6 @@
       }
     }
   }
-
-  .bckname{
-    z-index: 0;
-    display: block;
-    position: absolute;
-    font-family: $playfair;
-    font-weight: $bold;
-    color: $white;
-    font-size: 9vw;
-    white-space: nowrap;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    width: 100vw;
-    transform: translateY(26%);
-  }
 }
 
 
@@ -211,12 +164,6 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .search-btn{
-      font-size: 0.875rem;
-      width: 172px;
-      margin-top: 8px;
-    }
-
     .search-input{
       flex: 1;
       margin: 0 50px;
@@ -225,12 +172,6 @@
         margin: auto;
         max-width: 555px;
         box-sizing: border-box;
-      }
-
-      button{
-        display: block;
-        margin: auto;
-        margin-top: 40px;
       }
     }
   }

@@ -6,15 +6,15 @@ import Swiper from 'swiper';
 
 import Topbar from './Topbar'
 import Footer from './Footer'
+import MostRecomBooksHeader from './LandingTopBooks'
+import TopReadersHeader from './LandingTopReaders'
+
 import BookThird from './BookThird'
 import BookBlog from './BookBlog'
-import PersonMini from './PersonMini'
 import Collection from './Collection'
 
-import { getChosenReaders } from '../graphql'
 
 
-const PopularReadersArr = ["elon-musk", "richard-branson", "tony-robbins", "naval-ravikant", "bill-gates", "barack-obama", "seth-godin"]
 
 const BlogPosts = [
   {person: "elon-musk", bookId: '9780804139021', text:'Mark Watney is a steely-eyed missile man. A man\'s man. A badass mechanical engineer botanist astronaut who is stranded on Mars during a Nasa mission gone wrong, and left to fend for himself. I listened to this on audio on a roadtrip, and it flew by - what a fun story. Not surprised at all it\'s being made into a movie directed by Ridley Scott starring Matt Damon. Also pretty amazing is that it was self-published.'},
@@ -27,40 +27,10 @@ const BlogPosts = [
 export default class Landing extends Component {
   state = {
     loadedPeople: false,
-    sliderSlides: (
-      <Fragment>
-        {PopularReadersArr.map((item,i)=>(
-          <li className="swiper-slide loading" key={i}>
-            <PersonMini/>
-          </li>
-        ))}
-      </Fragment>
-    )
-  }
-  mySwiper=null
-
-
-
-  componentDidUpdate(){
-    this.initializeSwiper();
   }
 
 
-  initializeSwiper(){
-    // setTimeout(() => {
-      this.mySwiper = new Swiper ('.swiper-container', {
-        // Optional parameters
-        direction: 'horizontal',
-        slidesPerView: 'auto',
-        spaceBetween: 80,
-        centeredSlides: true,
-        slidesOffsetBefore: 0,
-        slidesOffsetAfter: 0,
-        initialSlide: 3
-      })
-      this.mySwiper.off('resize');
-    // }, 200)
-  }
+
 
   render() {
     return (
@@ -68,54 +38,17 @@ export default class Landing extends Component {
         <Topbar/>
 
         <header id="header" className="cont-width_0">
-          <section id="header-inner">
-            <div id="tagline">
-              <h1>Get Inspired By The Best</h1>
-              <p>See the most Recommended Books by Successful People</p>
-            </div>
-          </section>
+          <div id="tagline">
+            <h1>Get Inspired By The Best</h1>
+            <p>See the most Recommended Books by Successful People</p>
+          </div>
         </header>
 
-        <section id="peopleSect" className="swiper-container">
-          <ul className={"swiper-wrapper"+(this.state.loadedPeople?'':' loading')}>
-            {this.state.sliderSlides}
-            <Query query={getChosenReaders} skip={this.state.loadedPeople} variables={{uidsArr: PopularReadersArr, howManyBooks: 3}}>
-              {
-                ({loading, error, data}) => {
-                  if (loading){
-                    return 'loading'
-                  }
-                  if (error) {
-                    return error.toString()
-                  }
 
-                  if (!data) {
-                    return '';
-                  }
+        <MostRecomBooksHeader/>
 
-                  const peopleArr = data.getChosenReaders
-                  // peopleArr.concat( peopleArr)
-                  var sliderSlides = peopleArr.map((item,i)=>(
-                    <li key={i} className="swiper-slide" >
-                      <PersonMini personObj={item}/>
-                    </li>
-                  ))
+        <TopReadersHeader/>
 
-                  setTimeout(() => {
-
-                    this.setState({
-                      loadedPeople: true,
-                      sliderSlides
-                    })
-                  }, 2000)
-
-
-                  return ''
-                }
-              }
-            </Query>
-          </ul>
-        </section>
 
 
         <section id="todaysRecomm">
@@ -124,14 +57,11 @@ export default class Landing extends Component {
 
             <ul className="books-gallery row">
               {
-                ['9780813595832','9780470627600','9780743264730'].map((item,i)=>(
+                ['9780813595832','9780470627600','9780743264730','9780743264730'].map((item,i)=>(
                   <BookThird bookId={item} key={i}/>
                 ))
               }
             </ul>
-          </div>
-          <div className="bckname">
-            Discover New Stories
           </div>
         </section>
 
@@ -140,22 +70,10 @@ export default class Landing extends Component {
           <h2 className="sect-header">Discover new Shelves</h2>
 
           <div className="search-center">
-            <span className="search-btn navAnach">
-              <Link to={'/people'}>
-                inspiring People
-              </Link>
-            </span>
-
             <div className="search-input">
               <input placeholder="Search Inspirations..."/>
-              <button className="button-filled wide">Search</button>
             </div>
-
-            <span className="search-btn navAnach">
-              <Link to={'/top-books'}>
-                top recommendations
-              </Link>
-            </span>
+            <span>Type name of a reader</span>
           </div>
         </section>
 

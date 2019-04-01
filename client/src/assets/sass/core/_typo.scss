@@ -1,10 +1,19 @@
-.sect-header {
-  color: $dark2;
-  font-family: $playfair;
-  font-size: 2rem;
+@mixin theader{
+  color: rgba($dark2, 0.9);
+  font-family: $lato;
   font-weight: $bold;
   text-align: center;
   width: 100%;
+}
+
+.sect-header {
+  font-size: 1.75rem;
+  @include theader;
+
+  &_s1{
+    @include theader;
+    font-size: 1.438rem;
+  }
 }
 
 .navAnach {

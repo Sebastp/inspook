@@ -7,11 +7,6 @@ import {bookReviews} from '../helpers/goodreads'
 
 
 export default class PersonMini extends Component {
-  state = {
-    bookObjs: [1,2,3]
-  };
-
-
   async componentWillReceiveProps(nextProps){
     var personObj = nextProps.personObj
     if(personObj){
@@ -56,24 +51,6 @@ export default class PersonMini extends Component {
             />
         </Link>
 
-        {personObj.books && personObj.books.length>0?
-          <div className="person-bckbooks">
-            {this.state.bookObjs.map((bookObj,i)=>(
-              bookObj.cover ? (
-                <Link key={i} to={'/book/'+bookObj.bookId} className="book-cover">
-                  <div className="book-cover__inner"
-                    style={{backgroundImage: `url(${bookObj.cover})`}}
-                    />
-                </Link>
-              ):(
-                <div key={i} className="book-cover">
-                  <div className="book-cover__inner gradient-loadAnim"/>
-                </div>
-              )
-            ))}
-          </div>
-          :''
-        }
 
 
         <span className="person-name">
@@ -98,11 +75,6 @@ export default class PersonMini extends Component {
             {personObj.booksCount} Books
           </Link>
         </span>
-
-        <div className="person-bckname">
-          {personObj.displayName}
-        </div>
-
       </div>
     )
   }

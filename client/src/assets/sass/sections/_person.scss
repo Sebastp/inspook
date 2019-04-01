@@ -61,63 +61,6 @@
     z-index: 1;
   }
 
-  &-bckbooks{
-    width: 300px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: absolute;
-    top: -95px;
-    z-index: -1;
-    opacity: 0;
-
-    margin: auto;
-    left: 0;
-    right: 0;
-
-    .book-cover{
-      display: inline-block;
-      // height: 160px;
-      // width: 106px;
-      height: 136px;
-      width: 90px;
-      overflow: hidden;
-      // margin: auto;
-      opacity: 0.7;
-      margin-top: 0px;
-      transition: opacity 0.3s, margin 0.35s;
-
-      &__inner{
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-color: $grey2;
-        background-size: cover;
-      }
-    }
-  }
-
-  &-bckname{
-    z-index: -2;
-    display: block;
-    display: none;
-    position: absolute;
-    font-family: $playfair;
-    font-weight: $bold;
-    color: rgba($dark2, 0.02);
-    font-size: 4.2rem;
-    white-space: nowrap;
-    top: 12%;
-    right: 0;
-    margin: auto;
-    opacity: 0;
-
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-  }
 }
 
 
@@ -153,26 +96,6 @@
         margin-top: 2px;
         opacity: 1;
         transition: opacity 0.55s, margin 0.4s;
-      }
-
-
-      &-bckbooks{
-        margin-top: 0px;
-        opacity: 1;
-        transition: opacity 0.5s, margin 0.5s;
-
-        .book-cover{
-          &:hover{
-            transition: opacity 0.2s, margin 0.45s;
-            opacity: .9;
-            margin-top: -12px;
-          }
-        }
-      }
-
-      &-bckname{
-        opacity: 1;
-        transition: opacity 0.45s;
       }
     }
   }
