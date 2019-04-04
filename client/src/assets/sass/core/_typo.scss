@@ -16,6 +16,22 @@
   }
 }
 
+
+.info_brand{
+  font-family: $poppins;
+  font-weight: $medium;
+  color: $brandCol2;
+
+  &_v1{
+    font-family: $poppins;
+    font-weight: $medium;
+    color: rgba($brandCol2, 0.85);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+}
+
+
 .navAnach {
   display: inline-block;
   color: rgba($dark2, 0.8);

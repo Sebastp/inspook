@@ -499,7 +499,7 @@ body {
   height: 1px;
   width: 100%;
   display: inline-block;
-  background: linear-gradient(90deg, #3af1ea, #ff004e); }
+  background: linear-gradient(90deg, #3af1ea, #007fe9, #ff004e); }
 
 .cont-width_0 {
   margin: auto;
@@ -564,6 +564,17 @@ input, textarea {
     text-align: center;
     width: 100%;
     font-size: 1.438rem; }
+
+.info_brand {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #ff004e; }
+  .info_brand_v1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: rgba(255, 0, 78, 0.85);
+    text-transform: uppercase;
+    font-size: 0.75rem; }
 
 .navAnach {
   display: inline-block;
@@ -969,12 +980,11 @@ input, textarea {
         margin-top: 15px; }
         #todaysRecomm .books-gallery li .book-center .book-cover {
           display: block;
-          width: 120px;
-          height: 190px;
+          width: 90px;
+          height: 140px;
           overflow: hidden;
           z-index: 2;
-          margin: auto;
-          box-shadow: 10px 8px 25px 0px rgba(0, 0, 0, 0.2); }
+          margin: auto; }
           #todaysRecomm .books-gallery li .book-center .book-cover__inner {
             display: inline-block;
             width: 100%;
@@ -1001,7 +1011,7 @@ input, textarea {
         font-weight: 700;
         color: #000722;
         font-size: 1.188rem;
-        margin-top: 23px; }
+        margin-top: 20px; }
       #todaysRecomm .books-gallery li .book-author {
         display: block;
         font-weight: 500;
@@ -1086,6 +1096,80 @@ input, textarea {
       display: block; }
   #todaysRecomm .bckname {
     display: none; } }
+
+#mostRBooksSect {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 80px; }
+  #mostRBooksSect ul {
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    #mostRBooksSect ul .book-cover {
+      width: 83px;
+      height: 130px;
+      display: inline-block;
+      overflow: hidden;
+      margin: 0 6px;
+      box-shadow: 1px 4px 11px 0px rgba(2, 12, 20, 0.25);
+      opacity: 0.34;
+      transition: opacity .25s;
+      cursor: pointer;
+      flex-shrink: 0; }
+      #mostRBooksSect ul .book-cover__inner {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: #fafafa;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover; }
+      #mostRBooksSect ul .book-cover.activeBook {
+        opacity: 1; }
+      #mostRBooksSect ul .book-cover:hover:not(.activeBook) {
+        transition: opacity .4s;
+        opacity: 0.8; }
+  #mostRBooksSect .bookDown {
+    height: 75px; }
+    #mostRBooksSect .bookDown .book-title {
+      display: block;
+      font-family: "Merriweather", serif;
+      font-weight: 700;
+      color: #000722;
+      font-size: 1.25rem;
+      margin: auto;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 500px;
+      transition: color 0.2s; }
+    #mostRBooksSect .bookDown .book-author {
+      display: block;
+      font-weight: 400;
+      font-weight: 500;
+      color: rgba(0, 7, 34, 0.37);
+      font-size: 0.9375rem;
+      margin-top: 0px;
+      transition: margin-top 0.2s, opacity 0.25s;
+      transition-delay: 0.1s; }
+    #mostRBooksSect .bookDown .book-spec {
+      display: block;
+      margin-top: 8px;
+      transition: opacity 0.25s;
+      transition-delay: 0.1s; }
+    #mostRBooksSect .bookDown.hovered .book-title {
+      color: rgba(0, 7, 34, 0.3);
+      transition: color 0.2s; }
+    #mostRBooksSect .bookDown.hovered .book-author {
+      margin-top: -3px;
+      opacity: 0;
+      transition: margin-top 0.12s, opacity 0.12s; }
+    #mostRBooksSect .bookDown.hovered .book-spec {
+      opacity: 0;
+      transition: opacity 0.12s; }
 
 .reader-top {
   display: flex;
