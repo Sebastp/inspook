@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import {bookReviews} from '../helpers/goodreads'
 
+import {onShelves} from '../helpers/textTransf'
 
 
 export default class BookHalf extends Component {
@@ -29,27 +30,37 @@ export default class BookHalf extends Component {
 
 
     return (
-      <li className="col-12 col-md-6 bookHalf">
-        <p className="book-recomm"><span>Recommended By</span>Bill Gates, Charles Schwab +43 others</p>
-        <Link to={'/book/'+bookUrl} className="book-canvas">
-          <div className="book-cover">
-            <div className="book-cover__inner"
-              style={{
-                backgroundImage: bookObj?`url(${bookObj.image_url[0]})`:`url(${require('../assets/img/demo/cover1.jpg')})`
-              }}
-              />
-          </div>
-        </Link>
-        <h5 className="book-title">{bookObj?bookObj.title[0]:'Loading Title...'}</h5>
-        <span className="book-author">{bookObj?bookObj.authors[0].author[0].name[0]:'Loading Author...'}</span>
-        <div className="book-midrow">
-          <div className="book-rate"><span>{bookObj?bookObj.average_rating[0]:'0.0'}</span>on goodreads</div>
+      <div className="bookHalf">
+        <div className="book-top">
+          <Link to={'/book/'+bookUrl} className="book-canvas">
+            <div className="book-cover">
+              <div className="book-cover__inner"
+                style={{
+                  backgroundImage: bookObj?`url(${bookObj.image_url[0]})`:`url(${require('../assets/img/demo/cover1.jpg')})`
+                }}
+                />
+            </div>
+          </Link>
 
-          <div className="book-buy">
-            <span>Buy on</span>
-            <a target="_blank" href='https://www.amazon.com'>
-              Amazon
-            </a>
+
+
+          <div className="book-content">
+            <h5 className="book-title">{bookObj?bookObj.title[0]:'Loading Title...'}</h5>
+            <span className="book-author">{bookObj?bookObj.authors[0].author[0].name[0]:'Loading Author...'}</span>
+            <div className="book-midrow">
+              <div className="book-rate"><span>{bookObj?bookObj.average_rating[0]:'0.0'}</span>on goodreads</div>
+            </div>
+
+            <div className="book-bottom">
+              <div className="book-buy">
+                <span>Buy on</span>
+                <a target="_blank" href='https://www.amazon.com'>
+                  Amazon
+                </a>
+              </div>
+
+              <span className="book-spec info_brand_v1">{onShelves(bookObj.shelves)}</span>
+            </div>
           </div>
         </div>
 
@@ -68,7 +79,8 @@ export default class BookHalf extends Component {
             </div>
           </div>
         ):''}
-      </li>
+
+      </div>
     )
   }
 }

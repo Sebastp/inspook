@@ -7,24 +7,6 @@ import {bookReviews} from '../helpers/goodreads'
 
 
 export default class PersonMini extends Component {
-  async componentWillReceiveProps(nextProps){
-    var personObj = nextProps.personObj
-    if(personObj){
-      var personObjBooks = personObj.books
-      if (personObjBooks.length>0) {
-        for (var b in personObjBooks){
-          await bookReviews(personObjBooks[b].bookId).then(res=>{
-            res.bookId = personObjBooks[b].bookId
-            personObjBooks[b] = res
-          });
-        }
-        this.setState({
-          bookObjs: personObjBooks
-        });
-      }
-    }
-  }
-
   render() {
     const {personObj} = this.props;
 
@@ -51,30 +33,28 @@ export default class PersonMini extends Component {
             />
         </Link>
 
+        <div className="person-info">
+          <h5 className="person-name">
+            <Link to={'/reader/'+personObj.uid}>
+              <Dotdotdot clamp={1}>
+                {personObj.displayName}
+              </Dotdotdot>
+            </Link>
+          </h5>
+
+          <span className="person-subtitle">
+            <Link to={'/reader/'+personObj.uid}>
+              {personObj.booksCount} Books
+            </Link>
+          </span>
+        </div>
 
 
-        <span className="person-name">
+        <Dotdotdot tagName='p' className="person-desc" clamp={1}>
           <Link to={'/reader/'+personObj.uid}>
-            <Dotdotdot clamp={1}>
-              {personObj.displayName}
-            </Dotdotdot>
+              {personObj.desc}
           </Link>
-        </span>
-
-
-
-        <p className="person-desc">
-          <Link to={'/reader/'+personObj.uid}>
-            <Dotdotdot tagName='span' clamp={1}>
-              Entrepreneur, Investor, Philanthropist
-            </Dotdotdot>
-          </Link>
-        </p>
-        <span className="person-subtitle">
-          <Link to={'/reader/'+personObj.uid}>
-            {personObj.booksCount} Books
-          </Link>
-        </span>
+        </Dotdotdot>
       </div>
     )
   }

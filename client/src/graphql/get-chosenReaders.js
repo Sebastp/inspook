@@ -5,6 +5,7 @@ export const getChosenReaders = gql`
     getChosenReaders(uidsArr: $uidsArr, getBooksCount: $getBooksCount, howManyBooks: $howManyBooks) {
       uid
       displayName
+      desc
       avatar
       booksCount
       books{

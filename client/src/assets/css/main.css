@@ -515,11 +515,18 @@ body {
   width: 100%;
   display: block; }
 
-.cont-width_fullp {
+.cont-width_2 {
   margin: auto;
   padding: 0px 40px;
+  max-width: 635px;
   width: 100%;
   display: block; }
+  .cont-width_2__scroll {
+    margin: auto;
+    padding: 0px 20px;
+    max-width: 595px;
+    width: 100%;
+    display: block; }
 
 .button-filled {
   border-radius: 500px;
@@ -549,6 +556,19 @@ input, textarea {
   color: rgba(0, 0, 0, 0.9); }
   input::placeholder, textarea::placeholder {
     color: rgba(0, 0, 0, 0.35); }
+
+.scrollbar_1::-webkit-scrollbar {
+  background: none;
+  width: 3px; }
+
+.scrollbar_1::-webkit-scrollbar-track {
+  background: none;
+  width: 3px; }
+
+.scrollbar_1::-webkit-scrollbar-thumb {
+  background-color: #eef0f3;
+  border-radius: 50px;
+  width: 3px; }
 
 .sect-header {
   font-size: 1.75rem;
@@ -586,19 +606,44 @@ input, textarea {
     opacity: 0.9;
     transition: opacity 0.3s; }
 
-.person {
+.subMoreSpan {
   display: block;
+  font-weight: 600;
+  color: rgba(0, 7, 34, 0.3);
+  text-transform: uppercase;
+  transition: color 0.2s;
   text-align: center;
+  font-size: 0.75rem; }
+  .subMoreSpan.hovEfct {
+    cursor: pointer; }
+    .subMoreSpan.hovEfct:hover {
+      color: rgba(0, 7, 34, 0.43);
+      transition: color 0.3s; }
+
+.search-center .search-input {
+  display: block;
+  margin: auto; }
+  .search-center .search-input input {
+    margin: auto;
+    max-width: 555px;
+    box-sizing: border-box; }
+
+.search-center .subMoreSpan {
+  text-align: center;
+  display: block;
+  margin-top: 20px; }
+
+.person {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   position: relative;
-  z-index: 0;
-  user-select: none;
-  cursor: pointer; }
+  width: 100%; }
   .person-cover {
     display: block;
     margin: auto;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 16px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
     z-index: 2;
     position: relative; }
@@ -610,51 +655,32 @@ input, textarea {
       border-radius: 100%;
       width: 100%;
       height: 100%; }
+  .person-info {
+    display: inline-block;
+    text-align: left;
+    flex: 1;
+    margin-left: 12px; }
   .person-name {
     display: block;
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    color: #ff004e;
-    font-size: 1.25rem;
-    width: calc(100% + 50px);
-    margin-left: -25px;
-    z-index: 1; }
-  .person-desc {
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    color: rgba(0, 7, 34, 0.5);
-    z-index: 1;
-    margin-bottom: 4px;
-    margin-top: -30px;
-    opacity: 0;
-    height: 24px; }
-  .person-subtitle {
-    font-size: 0.8125rem;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
-    color: rgba(0, 7, 34, 0.5);
-    text-transform: uppercase;
-    z-index: 1; }
-
-#peopleSect .swiper-slide-active {
-  width: 350px;
-  height: 160px;
-  vertical-align: bottom;
-  padding: 0 20px;
-  box-sizing: content-box; }
-  #peopleSect .swiper-slide-active .person-cover {
-    height: 100px;
-    width: 100px;
-    box-shadow: 5px 7px 25px 0px rgba(0, 0, 0, 0.18);
-    transition: width 0.3s, height 0.3s, box-shadow 0.3s; }
-  #peopleSect .swiper-slide-active .person-name {
-    font-size: 1.313rem;
-    transition: font-size 0.3s; }
-  #peopleSect .swiper-slide-active .person-desc {
+    font-size: 0.9375rem;
+    color: #000722; }
+  .person-subtitle {
     display: block;
-    margin-top: 2px;
-    opacity: 1;
-    transition: opacity 0.55s, margin 0.4s; }
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: rgba(0, 7, 34, 0.4); }
+  .person-desc {
+    text-align: right;
+    flex: 1;
+    max-width: 280px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    color: #ff004e;
+    margin: auto; }
 
 .collection {
   display: inline-block;
@@ -706,79 +732,82 @@ input, textarea {
     color: rgba(0, 7, 34, 0.5); }
 
 .bookHalf {
-  width: 100%;
-  margin-bottom: 70px; }
-  .bookHalf:nth-child(even) {
-    padding-left: 40px; }
-  .bookHalf:not(:nth-child(even)) {
-    padding-right: 40px; }
-  .bookHalf .book-recomm {
-    font-weight: 500;
-    color: rgba(0, 7, 34, 0.5);
-    font-size: 0.875rem; }
-    .bookHalf .book-recomm span {
-      margin-right: 15px;
-      color: rgba(0, 7, 34, 0.65); }
-  .bookHalf .book-canvas {
+  width: 100%; }
+  .bookHalf .book-top {
     width: 100%;
-    background-color: #f5f5f5;
-    display: block; }
-    .bookHalf .book-canvas .book-cover {
-      height: 220px;
-      width: 140px;
-      display: block;
-      padding: 30px 30px;
-      box-sizing: content-box;
-      margin: auto; }
-      .bookHalf .book-canvas .book-cover__inner {
-        width: 100%;
-        height: 100%;
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: 11px 10px 26px 0px rgba(0, 0, 0, 0.25); }
-  .bookHalf .book-title {
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    color: #000722;
-    font-size: 1.5rem;
-    margin-bottom: 6px;
-    margin-top: 20px;
-    text-align: center;
-    width: 100%; }
-  .bookHalf .book-author {
-    display: block;
-    font-weight: 500;
-    color: rgba(0, 7, 34, 0.5);
-    font-size: 1rem;
-    text-align: center;
-    width: 100%; }
-  .bookHalf .book-midrow {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-top: 10px; }
-    .bookHalf .book-midrow .book-rate {
-      font-weight: 500;
-      color: rgba(0, 7, 34, 0.4);
-      font-size: 0.875rem; }
-      .bookHalf .book-midrow .book-rate span {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: rgba(0, 7, 34, 0.9);
-        margin-right: 9px; }
-    .bookHalf .book-midrow .book-buy {
-      display: inline-block; }
-      .bookHalf .book-midrow .book-buy a {
+    justify-content: flex-start; }
+    .bookHalf .book-top .book-canvas {
+      height: 130px;
+      width: 83px;
+      display: block; }
+      .bookHalf .book-top .book-canvas .book-cover {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #f5f5f5; }
+        .bookHalf .book-top .book-canvas .book-cover__inner {
+          width: 100%;
+          height: 100%;
+          background-position: top center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          box-shadow: 4px 5px 8px 0px rgba(2, 12, 20, 0.16); }
+    .bookHalf .book-top .book-content {
+      display: flex;
+      flex-direction: column;
+      margin-left: 18px;
+      flex: 1; }
+      .bookHalf .book-top .book-content .book-title {
         font-family: "Merriweather", serif;
         font-weight: 700;
         color: #000722;
-        font-size: 1rem; }
-      .bookHalf .book-midrow .book-buy span {
+        font-size: 1.313rem;
+        margin-top: 2px;
+        text-align: left;
+        width: 100%; }
+      .bookHalf .book-top .book-content .book-author {
+        display: block;
+        font-weight: 400;
         font-weight: 500;
-        color: rgba(0, 7, 34, 0.4);
-        font-size: 0.875rem;
-        margin-right: 10px; }
+        color: rgba(0, 7, 34, 0.37);
+        font-size: 0.9375rem;
+        width: 100%; }
+      .bookHalf .book-top .book-content .book-midrow {
+        flex: 1;
+        margin-top: 6px; }
+        .bookHalf .book-top .book-content .book-midrow .book-rate {
+          font-weight: 500;
+          color: rgba(0, 7, 34, 0.4);
+          font-size: 0.875rem; }
+          .bookHalf .book-top .book-content .book-midrow .book-rate span {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: rgba(0, 7, 34, 0.9);
+            margin-right: 9px; }
+      .bookHalf .book-top .book-content .book-bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end; }
+        .bookHalf .book-top .book-content .book-bottom .book-buy {
+          display: inline-block; }
+          .bookHalf .book-top .book-content .book-bottom .book-buy a {
+            font-family: "Merriweather", serif;
+            font-weight: 700;
+            color: rgba(0, 7, 34, 0.9);
+            font-size: 1rem;
+            transition: color 0.2s; }
+            .bookHalf .book-top .book-content .book-bottom .book-buy a:hover {
+              color: #000722;
+              transition: color 0.25s; }
+          .bookHalf .book-top .book-content .book-bottom .book-buy span {
+            font-weight: 500;
+            color: rgba(0, 7, 34, 0.4);
+            font-size: 0.875rem;
+            margin-right: 10px; }
   .bookHalf .book-review {
     width: 100%;
     margin-top: 20px; }
@@ -806,114 +835,6 @@ input, textarea {
           left: auto;
           top: 0; }
 
-.bookBlog {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  position: relative;
-  padding-bottom: 133px; }
-  .bookBlog .book-center {
-    width: 100%;
-    text-align: center;
-    position: relative;
-    display: block; }
-    .bookBlog .book-center .book-cover {
-      display: block;
-      width: 130px;
-      height: 204px;
-      overflow: hidden;
-      z-index: 2;
-      margin: auto;
-      box-shadow: 12px 11px 24px 0px rgba(0, 0, 0, 0.21); }
-      .bookBlog .book-center .book-cover__inner {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        background-color: #fafafa;
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: cover; }
-    .bookBlog .book-center .circle {
-      width: auto;
-      height: 100%;
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      z-index: -1;
-      padding: 2px 0; }
-  .bookBlog .book-title {
-    display: block;
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    color: #000722;
-    font-size: 1.438rem;
-    margin-top: 30px; }
-  .bookBlog .book-author {
-    display: block;
-    font-weight: 500;
-    color: rgba(0, 7, 34, 0.43);
-    font-size: 1rem;
-    margin-top: 4px; }
-  .bookBlog .book-story {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    color: rgba(0, 7, 34, 0.5);
-    margin-top: 20px;
-    margin-bottom: 0px; }
-  .bookBlog-person {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0; }
-    .bookBlog-person .person-cover {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 0px; }
-    .bookBlog-person .person-name {
-      text-align: center;
-      font-size: 1.188rem;
-      margin-top: 10px; }
-
-@media (max-width: 992px) {
-  .bookHalf:nth-child(even) {
-    padding-left: 20px; }
-  .bookHalf:not(:nth-child(even)) {
-    padding-right: 20px; }
-  .bookHalf .book-canvas .book-cover {
-    height: 200px;
-    width: 127px; }
-  .bookBlog {
-    padding-bottom: 138px; } }
-
-@media (max-width: 992px) and (min-width: 768px) {
-  .bookHalf .book-recomm {
-    font-size: 0.8125rem; }
-  .bookHalf .book-canvas .book-cover {
-    height: 185px;
-    width: 118px; }
-  .bookHalf .book-review__inner {
-    font-size: 0.9375rem; } }
-
-@media (max-width: 768px) {
-  .bookHalf {
-    padding: 0 15px; } }
-
-@media (max-width: 500px) {
-  .bookHalf .book-recomm {
-    margin-left: -15px;
-    margin-right: -15px;
-    text-align: center; }
-  .bookHalf .book-canvas {
-    margin-left: -40px;
-    margin-right: -40px;
-    width: auto; } }
-
 #header {
   display: flex;
   flex-direction: column;
@@ -935,20 +856,17 @@ input, textarea {
       margin-bottom: 0px;
       font-size: 1.063rem; }
 
-#peopleSect {
-  width: 100%;
+#searchSect {
   display: block;
-  margin: auto; }
-  #peopleSect ul {
-    display: inline-block;
-    white-space: nowrap; }
-    #peopleSect ul li {
-      width: 100%; }
+  width: 100%;
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 120px; }
+  #searchSect .search-center {
+    margin-top: 60px; }
 
 #todaysRecomm {
-  margin-top: 181px;
   width: 100%;
-  background-color: #fafafa;
   padding-top: 80px;
   padding-bottom: 80px;
   position: relative; }
@@ -984,7 +902,8 @@ input, textarea {
           height: 140px;
           overflow: hidden;
           z-index: 2;
-          margin: auto; }
+          margin: auto;
+          box-shadow: 4px 5px 8px 0px rgba(2, 12, 20, 0.16); }
           #todaysRecomm .books-gallery li .book-center .book-cover__inner {
             display: inline-block;
             width: 100%;
@@ -1010,44 +929,36 @@ input, textarea {
         font-family: "Merriweather", serif;
         font-weight: 700;
         color: #000722;
-        font-size: 1.188rem;
-        margin-top: 20px; }
+        font-size: 1.25rem;
+        margin-top: 18px; }
       #todaysRecomm .books-gallery li .book-author {
         display: block;
+        font-weight: 400;
         font-weight: 500;
-        color: rgba(0, 7, 34, 0.43);
-        font-size: 1rem;
-        margin-top: 6px; }
-
-#searchSect {
-  display: block;
-  width: 100%;
-  margin: auto;
-  margin-top: 100px; }
-  #searchSect .search-center {
-    margin-top: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; }
-    #searchSect .search-center .search-input {
-      flex: 1;
-      margin: 0 50px; }
-      #searchSect .search-center .search-input input {
-        margin: auto;
-        max-width: 555px;
-        box-sizing: border-box; }
+        color: rgba(0, 7, 34, 0.37);
+        font-size: 0.9375rem;
+        margin-top: 2px; }
+  #todaysRecomm .bck {
+    height: 100%;
+    width: 100vw;
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: -1;
+    background: linear-gradient(0deg, #fcf5f7, #ffffff); }
 
 #blogSect {
   padding: 0;
   margin-top: 150px; }
   #blogSect ul {
     width: 100%;
-    justify-content: center;
     margin: auto; }
     #blogSect ul li {
       display: inline-block;
-      max-width: 460px;
-      padding: 0 40px; }
+      width: 100%;
+      margin-bottom: 50px; }
 
 #collectionsSect {
   margin-top: 150px; }
@@ -1059,49 +970,16 @@ input, textarea {
       display: inline-block; }
 
 @media (max-width: 992px) {
-  #searchSect .search-center .search-btn {
-    display: none; }
   #searchSect .search-center .search-input {
     margin: auto; } }
-
-@media (min-width: 1225px) {
-  #todaysRecomm .bckname {
-    font-size: 7rem; } }
-
-@media (max-width: 1100px) and (min-width: 992px) {
-  #blogSect ul {
-    padding: 0 10px; }
-    #blogSect ul li {
-      padding: 0 30px; } }
-
-@media (max-width: 991px) {
-  #todaysRecomm ul li:last-child {
-    display: none; }
-  #blogSect ul li:last-child {
-    display: none; } }
-
-@media (max-width: 767px) {
-  #blogSect ul li {
-    margin-bottom: 100px; }
-    #blogSect ul li:last-child {
-      margin-bottom: 0px;
-      display: block; }
-  #todaysRecomm ul li {
-    margin-bottom: 90px; }
-    #todaysRecomm ul li .book-title {
-      max-width: 400px;
-      margin: auto; }
-    #todaysRecomm ul li:last-child {
-      margin-bottom: 0px;
-      display: block; }
-  #todaysRecomm .bckname {
-    display: none; } }
 
 #mostRBooksSect {
   width: 100%;
   display: block;
   text-align: center;
-  margin-top: 80px; }
+  margin-top: 80px;
+  position: relative;
+  padding-bottom: 60px; }
   #mostRBooksSect ul {
     margin: auto;
     margin-top: 40px;
@@ -1170,6 +1048,40 @@ input, textarea {
     #mostRBooksSect .bookDown.hovered .book-spec {
       opacity: 0;
       transition: opacity 0.12s; }
+  #mostRBooksSect .bck {
+    background-color: #f8f7f8;
+    height: 100vh;
+    width: 100vw;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: -1; }
+
+#tReadersSect {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 100px; }
+  #tReadersSect ul {
+    margin: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 350px; }
+    #tReadersSect ul li {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 30px; }
+      #tReadersSect ul li:last-child {
+        margin-bottom: 0px; }
+    #tReadersSect ul .subMoreSpan {
+      padding-top: 10px;
+      margin-bottom: 20px; }
 
 .reader-top {
   display: flex;

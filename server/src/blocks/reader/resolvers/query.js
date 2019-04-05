@@ -38,7 +38,7 @@ const Query = {
 
 
   getChosenReaders: async (_, { uidsArr, getBooksCount = true, howManyBooks = 0 }) => {
-    var excFields = {uid: 1, displayName: 1, avatar: 1}
+    var excFields = {uid: 1, displayName: 1, desc: 1, avatar: 1}
     if (getBooksCount) {
       excFields['books.bookId'] = 1
     }
@@ -56,6 +56,13 @@ const Query = {
     return result;
   },
 
+
+
+  shelvesOfBookNr: async (_, { bookid }) => {
+    let result = await Reader.find({'books.bookId': bookid}, {_id: 0}).exec()
+    console.log(result);
+    return Reader.findOne({uid}).exec()
+  },
 
   getBookAsInfo: async (_, { bookid }) => {
     let result = await Reader.find({'books.bookId': bookid}, {displayName: 1, books: 1, _id: 0}).exec(),

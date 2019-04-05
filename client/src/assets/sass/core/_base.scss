@@ -51,11 +51,20 @@ body {
   display: block;
 }
 
-.cont-width_fullp{//blog posts on landing
+.cont-width_2{//one column
   margin: auto;
   padding: 0px 40px;
+  max-width: 635px;//555
   width: 100%;
   display: block;
+
+  &__scroll{
+    margin: auto;
+    padding: 0px 20px;
+    max-width: 595px;//555
+    width: 100%;
+    display: block;
+  }
 }
 
 

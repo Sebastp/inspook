@@ -75,7 +75,7 @@ export default class MostRecomBooksHeader extends Component {
             <Link to={'/book/'+booksArr[currBook].id}>
               {/* {bookObj?bookObj.title[0]:'Loading Title...'}*/}
               {(hoveredBook==currBook)?(
-                booksArr[currBook].title
+                booksArr[currBook].title+booksArr[currBook].title+booksArr[currBook].title
               ):(
                 booksArr[hoveredBook].title
               )}
@@ -88,6 +88,8 @@ export default class MostRecomBooksHeader extends Component {
           </Dotdotdot>
           <span className="book-spec info_brand_v1">{onShelves(booksArr[currBook].shelves)}</span>
         </div>
+
+        <div className="bck"/>
       </section>
     )
   }

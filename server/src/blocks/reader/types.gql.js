@@ -7,6 +7,7 @@ export default gql`
     getRandomReaders(numToGet: Int!): [Reader]
     getBookReviewers(bookid: String!, numToGet: Int!): [String]
     getChosenReaders(uidsArr: [String!], getBooksCount: Boolean, howManyBooks: Int): [Reader]
+    shelvesOfBookNr(bookid: String!): Int
     getBookAsInfo(bookid: String!): BookAsInfo
     getTopBooks(pageSize: Int, page: Int): [topBook]
   }

@@ -1,0 +1,18 @@
+.search-center {
+  .search-input{
+    display: block;
+    margin: auto;
+
+    input{
+      margin: auto;
+      max-width: 555px;
+      box-sizing: border-box;
+    }
+  }
+
+  .subMoreSpan{
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+  }
+}

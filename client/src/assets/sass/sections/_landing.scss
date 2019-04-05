@@ -30,28 +30,25 @@
 
 
 
-#peopleSect{
-  width: 100%;
+#searchSect{
   display: block;
+  width: 100%;
   margin: auto;
+  margin-top: 120px;
+  margin-bottom: 120px;
 
-  ul{
-    display: inline-block;
-    white-space: nowrap;
 
-    li{
-      width: 100%;
-    }
+  .search-center{
+    margin-top: 60px;
   }
 }
 
 
 
 
+
 #todaysRecomm{
-  margin-top: 181px;
   width: 100%;
-  background-color: $grey2;
   padding-top: 80px;
   padding-bottom: 80px;
   position: relative;
@@ -98,6 +95,7 @@
           overflow: hidden;
           z-index: 2;
           margin: auto;
+          box-shadow: 4px 5px 8px 0px rgba(2, 12, 20, 0.16);
           &__inner{
             display: inline-block;
             width: 100%;
@@ -130,51 +128,40 @@
         font-family: $merriweather;
         font-weight: $bold;
         color: $dark2;
-        font-size: 1.188rem;
-        margin-top: 20px;
+        font-size: 1.25rem;
+        margin-top: 18px;
       }
 
       .book-author{
         display: block;
-        // font-weight: $regular;
-        // color: rgba($dark2, 0.5);
+        font-weight: $regular;
         font-weight: $medium;
-        color: rgba($dark2, 0.43);
-        font-size: 1rem;
-        margin-top: 6px;
+        color: rgba($dark2, 0.37);
+        font-size: 0.9375rem;
+        margin-top: 2px;
       }
     }
+  }
+
+
+  .bck{
+    height: 100%;
+    width: 100vw;
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: -1;
+
+    background: linear-gradient(0deg, #fcf5f7, $white);
   }
 }
 
 
 
 
-#searchSect{
-  display: block;
-  width: 100%;
-  margin: auto;
-  margin-top: 100px;
 
-
-  .search-center{
-    margin-top: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .search-input{
-      flex: 1;
-      margin: 0 50px;
-
-      input{
-        margin: auto;
-        max-width: 555px;
-        box-sizing: border-box;
-      }
-    }
-  }
-}
 
 
 #blogSect{
@@ -183,14 +170,12 @@
 
   ul{
     width: 100%;
-    justify-content: center;
     margin: auto;
 
     li{
       display: inline-block;
-      // max-width: 380px;
-      max-width: 460px;
-      padding: 0 40px;
+      width: 100%;
+      margin-bottom: 50px;
     }
   }
 }
@@ -226,77 +211,9 @@
 // Large
 @media (max-width: 992px) {
   #searchSect .search-center{
-    .search-btn{
-      display: none;
-    }
     .search-input{
       margin: auto;
     }
   }
 }
 // Extra large
-
-
-@media (min-width: 1225px) {
-  #todaysRecomm{
-    .bckname{
-      font-size: 7rem;
-    }
-  }
-}
-
-@media (max-width: 1100px) and (min-width: 992px) {
-  #blogSect ul{
-    padding: 0 10px;
-    li{
-      padding: 0 30px;
-    }
-  }
-}
-
-
-@media (max-width: 991px) {
-  #todaysRecomm ul li{
-    &:last-child{
-      display: none;
-    }
-  }
-
-
-  #blogSect ul li{
-    &:last-child{
-      display: none;
-    }
-  }
-}
-
-
-@media (max-width: 767px) {
-  #blogSect ul li{
-    margin-bottom: 100px;
-    &:last-child{
-      margin-bottom: 0px;
-      display: block;
-    }
-  }
-
-  #todaysRecomm{
-    ul li{
-      margin-bottom: 90px;
-
-      .book-title{
-        max-width: 400px;
-        margin: auto;
-      }
-
-      &:last-child{
-        margin-bottom: 0px;
-        display: block;
-      }
-    }
-
-    .bckname{
-      display: none;
-    }
-  }
-}

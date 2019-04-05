@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Query} from 'react-apollo'
+import { Link } from 'react-router-dom'
 
 import PersonMini from './PersonMini'
 
@@ -13,40 +14,50 @@ export default class TopReadersHeader extends Component {
     loadedPeople: false,
   }
 
+
   render() {
     return(
-      <section id="peopleSect" className="swiper-container">
-        <ul className={"swiper-wrapper"+(this.state.loadedPeople?'':' loading')}>
-          <Query query={getChosenReaders} skip={this.state.loadedPeople} variables={{uidsArr: PopularReadersArr}}>
-            {
-              ({loading, error, data}) => {
-                if (loading){
-                  return 'loading'
-                }
-                if (error) {
-                  return error.toString()
-                }
+      <section id="tReadersSect">
+        <h3 className="sect-header_s1">
+          <Link to='/top-readers'>
+            Top Readers
+          </Link>
+        </h3>
 
-                if (!data) {
-                  return '';
+          <ul className={'cont-width_2__scroll scrollbar_1'+(this.state.loadedPeople?'':' loading')}>
+            <Query query={getChosenReaders} skip={this.state.loadedPeople} variables={{uidsArr: PopularReadersArr}}>
+              {
+                ({loading, error, data}) => {
+                  if (loading){
+                    return 'loading'
+                  }
+                  if (error) {
+                    return error.toString()
+                  }
+
+                  if (!data) {
+                    return '';
+                  }
+
+
+                  const peopleArr = data.getChosenReaders
+                  // peopleArr.concat( peopleArr)
+                  var sliderSlides = peopleArr.map((item,i)=>(
+                    <li key={i}>
+                      <PersonMini personObj={item}/>
+                    </li>
+                  ))
+
+                  return sliderSlides
                 }
-
-                const peopleArr = data.getChosenReaders
-                // peopleArr.concat( peopleArr)
-                var sliderSlides = peopleArr.map((item,i)=>(
-                  <li key={i}>
-                    <PersonMini personObj={item}/>
-                  </li>
-                ))
-
-                this.setState({
-                  loadedPeople: true
-                })
-                return sliderSlides
               }
-            }
-          </Query>
-        </ul>
+            </Query>
+            <span className="subMoreSpan hovEfct">
+              <Link to='/top-readers'>
+                See More
+              </Link>
+            </span>
+          </ul>
       </section>
     )
   }

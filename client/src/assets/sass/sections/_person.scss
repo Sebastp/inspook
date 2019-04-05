@@ -1,17 +1,15 @@
 .person {
-  display: block;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   position: relative;
-  z-index: 0;
-  user-select: none;
-  cursor: pointer;
+  width: 100%;
 
   &-cover{
     display: block;
     margin: auto;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 16px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
     z-index: 2;
     position: relative;
@@ -28,75 +26,39 @@
     }
   }
 
-  &-name{
-    display: block;
-    font-family: $merriweather;
-    font-weight: $bold;
-    color: $brandCol2;
-    font-size: 1.25rem;
-    // width: 221px;
-    width: calc(100% + 50px);
-    margin-left: -25px;
-    z-index: 1;
+  &-info{
+    display: inline-block;
+    text-align: left;
+    flex: 1;
+    margin-left: 12px;
   }
 
-  &-desc{
+  &-name{
     display: block;
-    font-size: 1rem;
-    font-weight: $regular;
-    color: rgba($dark2, 0.5);
-    z-index: 1;
-    margin-bottom: 4px;
-    margin-top: -30px;
-    opacity: 0;
-    height: 24px;
+    font-family: $poppins;
+    font-weight: $medium;
+    font-size: 0.9375rem;
+    color: rgba($dark2, 1);
   }
 
   &-subtitle{
-    font-size: 0.8125rem;
+    display: block;
+    font-family: $poppins;
     font-weight: $medium;
-    // font-weight: $semi-bold;
-    color: rgba($dark2, 0.5);
-    text-transform: uppercase;
-    z-index: 1;
+    font-size: 0.75rem;
+    color: rgba($dark2, 0.4);
   }
 
-}
-
-
-#peopleSect{
-  .swiper-slide-active{
-    // width: 362px;
-    width: 350px;
-
-    height: 160px;
-    vertical-align: bottom;
-
-    padding: 0 20px;
-    box-sizing: content-box;
-
-
-    .person {
-      &-cover{
-        height: 100px;
-        width: 100px;
-        box-shadow: 5px 7px 25px 0px rgba(0, 0, 0, 0.18);
-        transition: width 0.3s, height 0.3s, box-shadow 0.3s;
-      }
-
-
-      &-name{
-        font-size: 1.313rem;
-        transition: font-size 0.3s;
-      }
-
-
-      &-desc{
-        display: block;
-        margin-top: 2px;
-        opacity: 1;
-        transition: opacity 0.55s, margin 0.4s;
-      }
-    }
+  &-desc{
+    text-align: right;
+    flex: 1;
+    max-width: 280px;
+    // width: 200px;
+    font-family: $poppins;
+    font-weight: $medium;
+    font-size: 0.8125rem;
+    color: $brandCol2;
+    margin: auto;
   }
+
 }
