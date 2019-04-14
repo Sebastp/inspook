@@ -6,6 +6,7 @@ node_modules
 /client/build
 /server/build
 
+/client/src/env.js
 .env
 
 npm-debug.log*

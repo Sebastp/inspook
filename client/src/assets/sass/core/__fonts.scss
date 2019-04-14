@@ -148,6 +148,19 @@
        url('../fonts/lato-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../fonts/lato-v15-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
 }
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/LatoLatin-Medium.eot'); /* IE9 Compat Modes */
+  src: local('Lato Medium'), local('Lato-Medium'),
+       url('../fonts/LatoLatin-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/LatoLatin-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/LatoLatin-Medium.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/LatoLatin-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
 /* lato-700 - latin */
 @font-face {
   font-family: 'Lato';

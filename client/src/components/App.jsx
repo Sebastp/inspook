@@ -9,6 +9,7 @@ import Landing from './Landing'
 import TopBooks from './TopBooks'
 import Reader from './Reader'
 import Book from './Book'
+import Collection from './Collection'
 
 export default class App extends Component {
   render() {
@@ -22,22 +23,28 @@ export default class App extends Component {
               )}
             />
 
-          <Route exact path="/top-books"
-              component={props => (
-                <TopBooks {...props}/>
-              )}
+            <Route exact path="/top-books"
+                component={props => (
+                  <TopBooks {...props}/>
+                )}
+              />
+
+              <Route exact path="/reader/:urlUid"
+                component={props => (
+                  <Reader {...props}/>
+                )}
+              />
+
+            <Route exact path="/book/:urlBookId"
+                component={props => (
+                  <Book {...props}/>
+                )}
             />
 
-            <Route exact path="/reader/:urlUid"
-              component={props => (
-                <Reader {...props}/>
-              )}
-            />
-
-          <Route exact path="/book/:urlBookId"
-              component={props => (
-                <Book {...props}/>
-              )}
+            <Route exact path="/collection/:uId"
+                component={props => (
+                  <Collection {...props}/>
+                )}
             />
           </Switch>
         </Fragment>

@@ -14,5 +14,8 @@
     background-color: #eef0f3;
     border-radius: 50px;
     width: $srWidth;
+    &:active{
+      background-color: rgba($brandCol1, 0.5);
+    }
   }
 }

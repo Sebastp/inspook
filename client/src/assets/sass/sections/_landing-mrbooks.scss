@@ -4,6 +4,7 @@
   text-align: center;
   margin-top: 80px;
   position: relative;
+  padding: 0;
   padding-bottom: 60px;
 
 
@@ -13,20 +14,26 @@
     margin-top: 40px;
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+    // margin-left: -250px;
 
     .book-cover{
       width: 83px;
       height: 130px;
       display: inline-block;
       overflow: hidden;
-      margin: 0 6px;
+      // margin: 0 6px;
       box-shadow: 1px 4px 11px 0px rgba(2, 12, 20, 0.25);
       opacity: 0.34;
       transition: opacity .25s;
       cursor: pointer;
       flex-shrink: 0;
+      margin-right: 12px;
+
+      &:last-child{
+        margin-right: 0px;
+      }
 
 
       &__inner{
@@ -51,7 +58,7 @@
   }
 
   .bookDown{
-    height: 75px;
+    height: 79px;
 
     .book-title{
       display: block;
@@ -73,7 +80,7 @@
       font-weight: $medium;
       color: rgba($dark2, 0.37);
       font-size: 0.9375rem;
-      margin-top: 0px;
+      margin-top: 4px;
       transition: margin-top 0.2s, opacity 0.25s;
       transition-delay: 0.1s;
     }
@@ -107,7 +114,7 @@
 
   .bck{
     background-color: #f8f7f8;
-    height: 100vh;
+    height: 200vh;
     width: 100vw;
     bottom: 0;
     left: 50%;

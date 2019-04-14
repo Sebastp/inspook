@@ -49,7 +49,7 @@ export default class BookThird extends Component {
 
 
     return (
-      <li className="col-12 col-md-6 col-lg-3">
+      <li className="col-12 col-sm-6 col-md-4 col-lg-3">
         <Query query={getBookReviewers} variables={{bookid: this.props.bookId, numToGet: 1}}>
           {
             ({loading, error, data}) => {

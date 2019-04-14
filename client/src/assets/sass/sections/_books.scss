@@ -1,147 +1,111 @@
-.bookHalf{
+.bookPage{
   width: 100%;
 
-  .book-top{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  header{
+    display: block;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    margin-top: 40px;
 
-    .book-canvas{
-      height: 130px;
-      width: 83px;
+
+    .bookPage-top{
+      position: relative;
       display: block;
 
-      .book-cover{
+      .bookPage-cover{
+        background-size: cover;
+        background-color: $grey2;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 96px; //83px
+        height: 150px; //130px
+        margin: 0 auto;
+        box-shadow: $shadow1;
+      }
+
+      .bookPage-bck{
         width: 100%;
-        height: 100%;
-        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
         background-color: $grey3;
-
-        &__inner{
-          width: 100%;
-          height: 100%;
-          background-position: top center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          box-shadow: 4px 5px 8px 0px rgba(2, 12, 20, 0.16);
-        }
+        margin: 25px auto;
+        max-width: 183px;
       }
     }
 
 
-    .book-content{
-      display: flex;
-      flex-direction: column;
-      margin-left: 18px;
-      flex: 1;
 
-      .book-title{
-        font-family: $merriweather;
-        font-weight: $bold;
-        color: $dark2;
-        font-size: 1.313rem;
-        margin-top: 2px;
-        text-align: left;
-        width: 100%;
-      }
-
-      .book-author{
-        display: block;
-        font-weight: $regular;
-        font-weight: $medium;
-        color: rgba($dark2, 0.37);
-        font-size: 0.9375rem;
-        width: 100%;
-      }
-
-
-
-      .book-midrow{
-        flex: 1;
-        margin-top: 6px;
-
-        .book-rate{
-          font-weight: $medium;
-          color: rgba($dark2, 0.4);
-          font-size: 0.875rem;
-
-          span{
-            font-size: 1.125rem;
-            font-weight: $semi-bold;
-            color: rgba($dark2, 0.9);
-            margin-right: 9px;
-          }
-        }
-      }
-
-      .book-bottom{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-
-        .book-buy{
-          display: inline-block;
-          a{
-            font-family: $merriweather;
-            font-weight: $bold;
-            color: rgba($dark2, 0.9);
-            font-size: 1rem;
-            transition: color 0.2s;
-
-            &:hover{
-              color: $dark2;
-              transition: color 0.25s;
-            }
-          }
-
-          span{
-            font-weight: $medium;
-            color: rgba($dark2, 0.4);
-            font-size: 0.875rem;
-            margin-right: 10px;
-          }
-        }
-      }
+    .bookPage-title{
+      font-family: $merriweather;
+      font-weight: $bold;
+      color: $dark2;
+      font-size: 1.563rem;
+      margin-top: 15px;
+      text-align: center;
     }
+
+    .bookPage-author{
+      display: block;
+      text-align: center;
+      margin-top: 5px;
+      font-weight: $medium;
+      color: rgba($dark2, 0.37);
+      font-size: 1rem;
+    }
+
+
+    .bookPage-desc{
+      display: block;
+      margin-top: 5px;
+      font-weight: $medium;
+      color: rgba($dark2, 0.37);
+      font-size: 1rem;
+      text-align: center;
+
+      font-family: $lato;
+      font-weight: $medium;
+      color: rgba($dark2, 0.42);
+      font-size: 1rem;
+      line-height: 1.45em;
+      margin-top: 15px;
+    }
+  }
+
+  .midRow{
+    margin-top: 35px;
   }
 
 
 
   .book-review{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
+    text-align: center;
+
+    &__name{
+      font-size: 0.8125rem;
+      font-weight: $semi-bold;
+    }
 
     &__inner{
+      display: block;
       width: 100%;
       position: relative;
-      font-family: $merriweather;
-      font-weight: $bold;
-      color: rgba($dark2, 0.9);
-      font-size: 1rem;
-      margin-top: 25px;
+      margin-top: 9px;
+      padding: 0 30px;
 
       p{
+        font-family: $lato;
+        font-weight: $medium;
+        color: rgba($dark2, 0.42);
+        font-size: 1rem;
         text-align: center;
-        padding: 0 30px;
-      }
-
-      img{
-        display: block;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 16px;
-        transform: translateY(30%);
-
-        &:nth-child(3){
-          transform: translateY(-30%);
-          right: 0;
-          left: auto;
-          top: 0;
-        }
+        line-height: 1.45em;
       }
     }
   }

@@ -11,7 +11,11 @@ export default class Search extends Component {
     return (
       <div className="search-center">
         <div className="search-input">
-          <input placeholder="Search Inspirations..."/>
+          <label htmlFor="sinputTag" className="search-input__icon"
+            style={{ backgroundImage: `url(${require('../assets/img/icons/search.svg')})` }}
+            />
+
+          <input placeholder="Search Inspirations..." id="sinputTag"/>
         </div>
         <span className="subMoreSpan">
           {bottomMsg}

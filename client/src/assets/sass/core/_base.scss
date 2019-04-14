@@ -69,15 +69,34 @@ body {
 
 
 
+
+
+
+
 // =====================================================
 //    MEDIA QUERIES
 // =====================================================
 // Small
 @media (min-width: 544px) {}
+
+@media (max-width: 544px) {
+  .cont-width_0, .cont-width_2, .cont-width_2__scroll{
+    padding: 0px 20px;
+  }
+}
+
 // Medium
 @media (min-width: 768px) {}
 // Large
 @media (max-width: 992px) {}
 // Extra large
 @media (max-width: 1225px) {
+}
+
+
+@media (max-width: 1300px) {
+  .cont-width_1{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }

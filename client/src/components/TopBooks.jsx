@@ -5,8 +5,10 @@ import {Query} from 'react-apollo'
 
 
 import Topbar from './Topbar'
-import Footer from './Footer'
+
 import BookHalf from './BookHalf'
+import Search from './Search'
+import ChapterListQuery from './hocs/ChapterListQuery'
 
 
 import { getTopBooks } from '../graphql'
@@ -14,29 +16,32 @@ import { getTopBooks } from '../graphql'
 
 export default class TopBooks extends Component {
   state = {
-    bookObj: false
+    loadPage: 1
   }
 
+  loadNextPage(){
+    this.setState({ loadPage: this.state.loadPage+1 });
+  }
 
 
   render() {
     return (
       <Fragment>
-        <header id="header">
-          <Topbar/>
+        <Topbar/>
+        <header className="pageTop cont-width_2">
+          <div className="pageTop__tagline">
+            <h1>Most Recommended Books</h1>
+            <p>Search our Database to find your Inspiration</p>
+          </div>
 
-          <section id="header-inner">
-            <div id="tagline">
-              <h1>Most Recommended Books</h1>
-              <p>See the most Recommended Books by Successful People</p>
-            </div>
-          </section>
+          <Search bottomMsg="Type a Book Title"/>
         </header>
 
-
-        <div className="reader-books">
-          <ul className="row">
-            <Query query={getTopBooks} variables={{page: 1}}>
+        <section className="pageMain">
+          <ul className="cont-width_2">
+            <ChapterListQuery/>
+            {/*
+            <Query query={getTopBooks} variables={{page: this.state.loadPage}}>
               {
                 ({loading, error, data}) => {
                   if (loading){
@@ -51,15 +56,23 @@ export default class TopBooks extends Component {
 
 
                   return (
-                    booksData.map((item, i) => (<BookHalf key={i} bookinfo={item}/>))
+                    booksData.map((item, i) => (
+                      <li className="pageMain__bookLi" key={i}>
+                        <BookHalf onShelvesProp={item.onShelves} bookId={item.bookId}/>
+                      </li>
+                    ))
                   )
                 }
               }
             </Query>
+            */}
           </ul>
-        </div>
 
-        <Footer />
+          <span className="subMoreSpan hovEfct" onClick={()=>{this.loadNextPage()}}>
+            See More
+          </span>
+        </section>
+
       </Fragment>
     )
   }

@@ -35,7 +35,6 @@
   width: 100%;
   margin: auto;
   margin-top: 120px;
-  margin-bottom: 120px;
 
 
   .search-center{
@@ -45,128 +44,9 @@
 
 
 
-
-
-#todaysRecomm{
-  width: 100%;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  position: relative;
-
-  .books-gallery{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 -25px;
-    margin-top: 40px;
-    z-index: 2;
-
-    li{
-      display: inline-block;
-      text-align: center;
-      // flex: 1;
-      // max-width: 270px;
-      padding: 0 25px;
-
-      .book-recom{
-        font-size: 0.875rem;
-        color: rgba($dark2, 0.5);
-        font-weight: $regular;
-        font-weight: $medium;
-
-        &__placholder{
-          height: 20px;
-          display: block;
-        }
-      }
-
-      .book-center{
-        width: 100%;
-        text-align: center;
-        position: relative;
-        display: block;
-        margin-top: 15px;
-
-        .book-cover{
-          display: block;
-          width: 90px; //130px
-          height: 140px; //204px
-          overflow: hidden;
-          z-index: 2;
-          margin: auto;
-          box-shadow: 4px 5px 8px 0px rgba(2, 12, 20, 0.16);
-          &__inner{
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            background-color: $grey2;
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: cover;
-          }
-        }
-
-
-        .circle{
-          width: auto;
-          height: 100%;
-          display: block;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          margin: auto;
-          z-index: -1;
-          padding: 2px 0;
-        }
-      }
-
-      .book-title{
-        display: block;
-        font-family: $merriweather;
-        font-weight: $bold;
-        color: $dark2;
-        font-size: 1.25rem;
-        margin-top: 18px;
-      }
-
-      .book-author{
-        display: block;
-        font-weight: $regular;
-        font-weight: $medium;
-        color: rgba($dark2, 0.37);
-        font-size: 0.9375rem;
-        margin-top: 2px;
-      }
-    }
-  }
-
-
-  .bck{
-    height: 100%;
-    width: 100vw;
-    bottom: 0;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: -1;
-
-    background: linear-gradient(0deg, #fcf5f7, $white);
-  }
-}
-
-
-
-
-
-
-
 #blogSect{
   padding: 0;
-  margin-top: 150px;
+  margin-top: 120px;
 
   ul{
     width: 100%;
@@ -183,15 +63,17 @@
 
 
 #collectionsSect{
-  margin-top: 150px;
+  margin-top: 120px;
 
   ul{
-    width: 100%;
-    margin-top: 100px;
+    margin-top: 60px;
     li{
-      width: 50%;
       display: inline-block;
     }
+  }
+
+  .subMoreSpan{
+    margin-top: 35px;
   }
 }
 
@@ -206,10 +88,22 @@
 // =====================================================
 // Small
 @media (min-width: 544px) {}
+
+
 // Medium
 @media (min-width: 768px) {}
 // Large
 @media (max-width: 992px) {
+  #header #tagline{
+    h1{
+      font-size: 2rem;
+    }
+    p{
+      font-size: 1rem;
+    }
+  }
+
+
   #searchSect .search-center{
     .search-input{
       margin: auto;
@@ -217,3 +111,24 @@
   }
 }
 // Extra large
+
+
+@media (max-width: 544px) {
+  #header{
+    margin-top: 55px;
+
+    #tagline{
+      h1{
+        font-size: 1.875rem;
+      }
+      p{
+        font-size: 0.9375rem;
+      }
+    }
+  }
+
+  #mostRBooksSect{
+    margin-top: 70px;
+    padding-bottom: 70px;
+  }
+}

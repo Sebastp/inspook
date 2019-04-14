@@ -1,0 +1,71 @@
+.collectionMini {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+
+  &-top{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    position: relative;
+    max-width: 185px;
+
+    .collectionMini-cover{
+      background-size: cover;
+      background-color: $grey2;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 83px;
+      height: 130px;
+      margin: 0 auto;
+      box-shadow: $shadow1;
+    }
+
+    .collectionMini-bck{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: -1;
+      margin: 26px 0;
+      background-color: $grey3;
+
+      &__inner{
+        top: 0;
+        bottom: 0;
+        left: 24px;
+        right: 24px;
+        position: absolute;
+        margin: -13px auto;
+        background-color: $brandCol2__1;
+      }
+    }
+  }
+
+
+  &-name{
+    display: block;
+    font-family: $merriweather;
+    font-weight: $bold;
+    color: $dark2;
+    font-size: 1.313rem;
+    margin-top: 13px;
+  }
+
+  &-subtitle{
+    display: block;
+    font-weight: $medium;
+    color: rgba($dark2, 0.4);
+    font-size: 0.875rem;
+    margin-top: 1px;
+  }
+
+
+  &-spec{
+    display: block;
+    color: $brandCol2;
+    margin-top: 10px;
+    white-space: pre;
+  }
+}

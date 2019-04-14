@@ -4,10 +4,7 @@ export const getTopBooks = gql`
   query getTopBooks($pageSize: Int, $page: Int) {
     getTopBooks(pageSize: $pageSize, page: $page) {
       bookId
-      reviews{
-        name
-        review
-      }
+      onShelves
     }
   }
 `
