@@ -5,7 +5,7 @@ import Dotdotdot from 'react-clamp'
 
 
 const BookReview__2 = (props) => {
-  const {displayName, review, uid} = props.revOjb
+  const {displayName, review, uid, clampLine = 4} = props.revOjb
   if (!review) return null
 
   return (
@@ -17,7 +17,7 @@ const BookReview__2 = (props) => {
       </span>
 
       <Link to={'/reader/'+uid} className="book-review__inner">
-        <Dotdotdot tagName="p" clamp={4}>
+        <Dotdotdot tagName="p" clamp={clampLine}>
           {review}
         </Dotdotdot>
       </Link>

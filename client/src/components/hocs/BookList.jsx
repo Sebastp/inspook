@@ -8,6 +8,7 @@ import BookHalf_loading from './../BookHalf_loading';
 export default class BookList extends Component {
   componentDidMount() {
     window.addEventListener("scroll", this.handleOnScroll);
+
   }
 
   componentWillUnmount() {
@@ -43,12 +44,12 @@ export default class BookList extends Component {
     )
 
     const { lItems } = this.props
-    console.log(lItems);
+    
     return(
       <ul className="cont-width_2">
         {lItems.map(( item, i ) => (
           <li className="pageMain__bookLi" key={i}>
-            <BookHalf onShelvesProp={item.onShelves} bookId={item.bookId}/>
+            <BookHalf onShelvesProp={item.onShelves} reviewsList={[ item ]} bookId={item.bookId}/>
           </li>
         ))}
       </ul>

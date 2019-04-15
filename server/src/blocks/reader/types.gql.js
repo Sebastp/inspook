@@ -6,7 +6,7 @@ export default gql`
     getByUid(uid: String!): Reader
     getRandomReaders(numToGet: Int!): [Reader]
     getBookReviewers(bookid: String!, numToGet: Int!): [String]
-    getChosenReaders(uidsArr: [String!], getBooksCount: Boolean, howManyBooks: Int): [Reader]
+    getChosenReaders(uidsArr: [String!], bookId: String, getBooksCount: Boolean, howManyBooks: Int): [Reader]
     nrOfShelves(bookid: String!): Int
     getBookReviews(bookid: String!, readerIds: [String]): [BookReview]
     getTopBooks(pageSize: Int, page: Int): [topBook]

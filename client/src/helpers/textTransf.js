@@ -1,8 +1,8 @@
 export function onShelves(nr){
   if (nr>1) {
-    return 'on '+nr+' shelves'
+    return 'On '+nr+' Shelves'
   }else {
-    return 'on '+nr+' shelve'
+    return 'On '+nr+' Shelve'
   }
 }
 

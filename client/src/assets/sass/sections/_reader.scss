@@ -33,7 +33,7 @@
       font-weight: $bold;
       color: $dark2;
       font-size: 1.563rem;
-      margin-top: 15px;
+      margin-top: 16px;
       text-align: center;
     }
 
@@ -44,10 +44,15 @@
       font-weight: $medium;
       color: rgba($dark2, 0.37);
       font-size: 1rem;
+      margin-bottom: 0px;
     }
 
     .readerPage-tags{
-      margin-top: 15px;
+      display: block;
+      margin-top: 13px;
+      white-space: pre;
+      font-size: 0.8125rem;
+      font-weight: $semi-bold;
     }
   }
 

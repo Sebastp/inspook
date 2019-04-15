@@ -60,13 +60,19 @@ const Query = {
     })
   },
 
-
-  getChosenReaders: async (_, { uidsArr, getBooksCount = true, howManyBooks = 0 }) => {
+  // bookid when wanna get reader of certain book
+  // bookid = string
+  getChosenReaders: async (_, { uidsArr, bookId=false, getBooksCount = true, howManyBooks = 0 }) => {
     var excFields = {uid: 1, displayName: 1, desc: 1, avatar: 1}
     if (getBooksCount) {
       excFields['books.bookId'] = 1
     }
-    let result = await Reader.find({uid: { $in: uidsArr }}, excFields).exec()
+    if (uidsArr) {
+      var filters = {uid: { $in: uidsArr }}
+    }else {
+      var filters = {'books.bookId': bookId}
+    }
+    let result = await Reader.find(filters, excFields).exec()
 
     for (var i = 0; i < result.length; i++) {
       if (getBooksCount) {

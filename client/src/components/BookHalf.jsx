@@ -4,6 +4,7 @@ import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
 import Dotdotdot from 'react-clamp'
 
+import { ModalConsumer } from './ModalContext';
 
 import BookHalf_loading from './BookHalf_loading';
 import BookReview__2 from './BookReview__2';
@@ -103,7 +104,14 @@ export default class BookHalf extends Component {
                     }
 
                     return (
-                      <span className="book-spec info_brand_v1">{onShelves(shelves)}</span>
+                      <ModalConsumer>
+                        {({ showModal, props }) => (
+                          <span className="book-spec info_brand_v1"
+                            onClick={() => {if(shelves>0) showModal( 'mShelves', { shelves, bookId })}} >
+                            {onShelves(shelves)}
+                          </span>
+                        )}
+                      </ModalConsumer>
                     )
                   }
                 }

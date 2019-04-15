@@ -4,49 +4,56 @@ import { Query } from 'react-apollo'
 
 import { getReader } from '../graphql'
 
-
 import Landing from './Landing'
 import TopBooks from './TopBooks'
 import Reader from './Reader'
 import Book from './Book'
 import Collection from './Collection'
+import { ModalProvider, ModalConsumer } from './ModalContext';
+
+
+
 
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Fragment>
-          <Switch>
-            <Route exact path="/"
-              component={props => (
-                <Landing {...props}/>
-              )}
-            />
 
-            <Route exact path="/top-books"
+          <ModalProvider>
+            <Switch>
+              <Route exact path="/"
+                component={props => (
+                  <Landing {...props}/>
+                )}
+                />
+
+              <Route exact path="/top-books"
                 component={props => (
                   <TopBooks {...props}/>
                 )}
-              />
+                />
 
               <Route exact path="/reader/:urlUid"
                 component={props => (
                   <Reader {...props}/>
                 )}
-              />
+                />
 
-            <Route exact path="/book/:urlBookId"
+              <Route exact path="/book/:urlBookId"
                 component={props => (
                   <Book {...props}/>
                 )}
-            />
+                />
 
-            <Route exact path="/collection/:uId"
+              <Route exact path="/collection/:uId"
                 component={props => (
                   <Collection {...props}/>
                 )}
-            />
-          </Switch>
+                />
+            </Switch>
+          </ModalProvider>
+
         </Fragment>
       </Router>
     )

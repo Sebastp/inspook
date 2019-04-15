@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export const getChosenReaders = gql`
-  query getChosenReaders($uidsArr: [String!], $getBooksCount: Boolean, $howManyBooks: Int) {
-    getChosenReaders(uidsArr: $uidsArr, getBooksCount: $getBooksCount, howManyBooks: $howManyBooks) {
+  query getChosenReaders($uidsArr: [String!], $bookId: String, $getBooksCount: Boolean, $howManyBooks: Int) {
+    getChosenReaders(uidsArr: $uidsArr, bookId: $bookId, getBooksCount: $getBooksCount, howManyBooks: $howManyBooks) {
       uid
       displayName
       desc

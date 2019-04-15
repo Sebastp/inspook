@@ -105,6 +105,10 @@
             margin-right: 10px;
           }
         }
+
+        .book-spec{
+          cursor: pointer;
+        }
       }
     }
   }
@@ -135,6 +139,7 @@
         font-size: 1rem;
         text-align: center;
         line-height: 1.45em;
+        margin: auto;
       }
     }
   }

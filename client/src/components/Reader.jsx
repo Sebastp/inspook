@@ -8,10 +8,18 @@ import {Link} from 'react-router-dom'
 import Topbar from './Topbar'
 import PersonMini from './PersonMini'
 import BookHalf from './BookHalf'
+import BookList from './hocs/BookList'
+
 
 import { getReaderPage, getRandomReaders } from '../graphql'
 
+
 export default class Reader extends Component {
+  state = {
+    currPage: 1
+  }
+  PAGE_SIZE = 20
+
   render() {
     const urlUid = this.props.match.params.urlUid
 
@@ -46,6 +54,7 @@ export default class Reader extends Component {
                 reader_books.map(e => {
                   e.uid = reader_uid
                   e.displayName = reader_name
+                  e.clampLine = 0
                   return e;
                 })
 
@@ -87,16 +96,18 @@ export default class Reader extends Component {
                     </div>
 
                     <section className="pageMain">
-                      <h3 className="sect-header_s1">Bookshelf</h3>
+                      <h3 className="sect-header_s1 pageMain__header">Bookshelf</h3>
 
                       <ul className="cont-width_2">
-                        {
-                          reader_books.map((bid,i)=>(
-                            <li className="pageMain__bookLi" key={i}>
-                              <BookHalf reviewsList={[ bid ]} bookId={bid.bookId}/>
-                            </li>
-                          ))
-                        }
+                        <BookList
+                          lItems={reader_books.slice(0, this.PAGE_SIZE*this.state.currPage)}
+                          onLoadMore={() =>{
+                              if (this.PAGE_SIZE*this.state.currPage < reader_books.length) {
+                                this.setState({ currPage: this.state.currPage+1 });
+                              }
+                            }
+                          }
+                        />
                       </ul>
                     </section>
                   </div>

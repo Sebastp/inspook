@@ -619,7 +619,8 @@ input, textarea {
         font-weight: 600;
         color: rgba(0, 7, 34, 0.9); }
     .midRow__item .itmScm {
-      height: 16px;
+      margin-left: 5px;
+      height: 15px;
       display: inline-block; }
       .midRow__item .itmScm div, .midRow__item .itmScm img {
         display: inline-block;
@@ -627,21 +628,25 @@ input, textarea {
         background-position: center;
         background-size: cover;
         background-color: transparent;
-        margin-right: 12px;
+        margin-right: 13px;
         opacity: 0.18;
-        cursor: pointer; }
+        cursor: pointer;
+        transition: opacity 0.2s; }
         .midRow__item .itmScm div:hover, .midRow__item .itmScm img:hover {
-          opacity: 0.3; }
+          opacity: 0.3;
+          transition: opacity 0.2s; }
         .midRow__item .itmScm div:last-child, .midRow__item .itmScm img:last-child {
           margin-right: 0px; }
   .midRow-break {
     height: 25px;
     width: 1px;
     background-color: #e5e6e8;
-    margin: auto 15px; }
+    margin: auto 20px; }
 
 .pageMain {
   margin-top: 80px; }
+  .pageMain__header {
+    margin-bottom: 60px; }
   .pageMain__bookLi {
     display: inline-block;
     width: 100%;
@@ -845,13 +850,15 @@ input, textarea {
     margin-top: 5px;
     font-weight: 500;
     color: rgba(0, 7, 34, 0.37);
-    font-size: 1rem; }
+    font-size: 1rem;
+    margin-bottom: 0; }
   .collection-spec {
     display: block;
     color: #ff004e;
-    margin-top: 15px;
+    margin-top: 13px;
     white-space: pre;
-    font-size: 0.8125rem; }
+    font-size: 0.8125rem;
+    font-weight: 600; }
   .collection ul {
     width: 100%;
     margin: auto; }
@@ -1074,6 +1081,8 @@ input, textarea {
             color: rgba(0, 7, 34, 0.4);
             font-size: 0.875rem;
             margin-right: 10px; }
+        .bookHalf .book-top .book-content .book-bottom .book-spec {
+          cursor: pointer; }
   .bookHalf .book-review {
     width: 100%;
     margin-top: 30px;
@@ -1093,7 +1102,8 @@ input, textarea {
         color: rgba(0, 7, 34, 0.42);
         font-size: 1rem;
         text-align: center;
-        line-height: 1.45em; }
+        line-height: 1.45em;
+        margin: auto; }
   .bookHalf.loading .book-top .book-canvas .book-cover .book-cover__inner {
     opacity: 0.2; }
   .bookHalf.loading .book-top .book-title, .bookHalf.loading .book-top .book-author {
@@ -1413,7 +1423,7 @@ input, textarea {
       font-weight: 700;
       color: #000722;
       font-size: 1.563rem;
-      margin-top: 15px;
+      margin-top: 16px;
       text-align: center; }
     .readerPage header .readerPage-desc {
       display: block;
@@ -1421,9 +1431,14 @@ input, textarea {
       margin-top: 5px;
       font-weight: 500;
       color: rgba(0, 7, 34, 0.37);
-      font-size: 1rem; }
+      font-size: 1rem;
+      margin-bottom: 0px; }
     .readerPage header .readerPage-tags {
-      margin-top: 15px; }
+      display: block;
+      margin-top: 13px;
+      white-space: pre;
+      font-size: 0.8125rem;
+      font-weight: 600; }
   .readerPage .midRow {
     margin-top: 35px; }
 
@@ -1642,6 +1657,30 @@ input, textarea {
 @media (max-width: 380px) {
   .topbar header #tpb-logot {
     display: none; } }
+
+.modalCont {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 100;
+  display: none; }
+  .modalCont.shown {
+    display: block; }
+  .modalCont .modal__inner {
+    margin-top: 120px; }
+  .modalCont .modal__bck {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.96);
+    top: 0;
+    margin-top: 0;
+    display: block;
+    position: absolute;
+    z-index: -1; }
 
 footer {
   width: 100%;

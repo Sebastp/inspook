@@ -10,7 +10,7 @@ import { getChosenReaders } from '../graphql'
 
 export default class PersonMini extends Component {
   render() {
-    const {readerUid} = this.props;
+    const {readerUid, personObj} = this.props;
 
     const loadingObj = (
       <div className="person">
@@ -23,25 +23,22 @@ export default class PersonMini extends Component {
       </div>
     )
 
-
-
     return(
-      <Query query={getChosenReaders} variables={{uidsArr: [readerUid]}}>
+      <Query query={getChosenReaders} skip={personObj} variables={{uidsArr: [readerUid]}}>
         {
           ({loading, error, data}) => {
             if (loading){
               return loadingObj
             }
-            if (error || !data) {
-              console.log(error.toString());
+            error && ( console.log(error.toString()) )
+
+            if ((error || !data) && !personObj) {
               return null;
             }
 
-
-
-
-            const personObj = data.getChosenReaders[0]
-
+            if (!personObj) {
+              const personObj = data.getChosenReaders[0]
+            }
 
             return (
               <div className="person">
