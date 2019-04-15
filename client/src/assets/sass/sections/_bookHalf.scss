@@ -138,4 +138,33 @@
       }
     }
   }
+
+
+
+
+
+
+
+  &.loading{
+    .book-top{
+      .book-canvas .book-cover{
+        .book-cover__inner{
+          opacity: 0.2;
+        }
+      }
+
+      .book-title, .book-author{
+        width: 100%;
+        height: 24px;
+        border-radius: 3px;
+        margin-left: 5px;
+      }
+
+      .book-author{
+        margin-top: 14px;
+        height: 22px;
+        max-width: 220px;
+      }
+    }
+  }
 }

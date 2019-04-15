@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
-
 import Dotdotdot from 'react-clamp'
+
+
+import BookHalf_loading from './BookHalf_loading';
+import BookReview__2 from './BookReview__2';
+
 
 import {bookReviews} from '../helpers/goodreads'
 import {onShelves, friendlyBookUrl} from '../helpers/textTransf'
@@ -26,7 +30,7 @@ export default class BookHalf extends Component {
   }
 
   render() {
-    const {bookId, onShelvesProp, viewReviews} = this.props
+    const {bookId, onShelvesProp, viewReviews, reviewsList} = this.props
     const {bookObj} = this.state
 
 
@@ -37,8 +41,7 @@ export default class BookHalf extends Component {
           book_author = bookObj.authors[0].author[0].name[0],
           book_cover = bookObj.cover
     }else {
-      var bookUrl = bookId,
-          book_cover = require('../assets/img/noBookCover.jpg')
+      return (<BookHalf_loading/>)
     }
 
 
@@ -60,17 +63,17 @@ export default class BookHalf extends Component {
             <h5 className="book-title">
               <Link to={'/book/'+bookUrl}>
                 <Dotdotdot clamp={2}>
-                  {bookObj?book_title:'Loading Title...'}
+                  {book_title}
                 </Dotdotdot>
               </Link>
             </h5>
             <span className="book-author">
               <Dotdotdot clamp={1}>
-                {bookObj?book_author:'Loading Author...'}
+                {book_author}
               </Dotdotdot>
             </span>
             <div className="book-midrow">
-              <div className="book-rate"><span>{bookObj?book_rating:'0.0'}</span>Rating On GoodReads</div>
+              <div className="book-rate"><span>{book_rating}</span>Rating On GoodReads</div>
             </div>
 
             <div className="book-bottom">
@@ -92,7 +95,7 @@ export default class BookHalf extends Component {
                     if (loading) {
                       return <span className="book-spec info_brand_v1"/>;
                     }
-                    
+
                     if (typeof onShelvesProp != "undefined" && !data) {
                       var shelves = onShelvesProp
                     }else {
@@ -126,27 +129,20 @@ export default class BookHalf extends Component {
                 const reviews = data.getBookReviews;
                 return (
                   reviews.map((rev,i)=>(
-                    <div className="book-review" key={i}>
-                      <span className="book-review__name info_brand_v1">
-                        <Link to={'/reader/'+rev.uid}>
-                          {rev.displayName}
-                        </Link>
-                      </span>
-
-                      <Link to={'/reader/'+rev.uid} className="book-review__inner">
-                        <Dotdotdot tagName="p" clamp={4}>
-                          {rev.review}
-                        </Dotdotdot>
-                      </Link>
-                    </div>
+                    <BookReview__2 revOjb={rev}/>
                   ))
                 )
 
               }
             }
           </Query>
-        ):''}
-
+        ):(
+          reviewsList && (
+            reviewsList.map((rev,i)=>(
+              <BookReview__2 key={i} revOjb={rev}/>
+            ))
+          )
+        )}
       </div>
     )
   }

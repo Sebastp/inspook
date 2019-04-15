@@ -1,3 +1,61 @@
+.readerPage{
+  width: 100%;
+
+  header{
+    display: block;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    margin-top: 40px;
+
+
+    .readerPage-top{
+      position: relative;
+      display: block;
+
+      .readerPage-cover{
+        background-size: cover;
+        background-color: $grey2;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 85px;
+        height: 85px;
+        margin: 0 auto;
+        box-shadow: $shadow1;
+        border-radius: 500px;
+      }
+    }
+
+
+
+    .readerPage-name{
+      font-family: $merriweather;
+      font-weight: $bold;
+      color: $dark2;
+      font-size: 1.563rem;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .readerPage-desc{
+      display: block;
+      text-align: center;
+      margin-top: 5px;
+      font-weight: $medium;
+      color: rgba($dark2, 0.37);
+      font-size: 1rem;
+    }
+
+    .readerPage-tags{
+      margin-top: 15px;
+    }
+  }
+
+  .midRow{
+    margin-top: 35px;
+  }
+}
+
 .reader-top{
   display: flex;
   flex-direction: column;

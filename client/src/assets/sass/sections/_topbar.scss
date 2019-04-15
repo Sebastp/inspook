@@ -146,7 +146,7 @@
 @media (max-width: 840px) {
   .topbar{
     padding-bottom: 0px;
-    
+
     &__inner{
       padding-bottom: 40px;
     }
@@ -162,5 +162,37 @@
     nav{
       display: none;
     }
+  }
+}
+
+@media (max-width: 544px) {
+  .cont-width_1{
+    padding: 35px 30px;
+  }
+
+
+  .topbar header{
+    #tpb-logoi{
+      height: 21px;
+    }
+    #tpb-logot{
+      height: 21px;
+      margin-left: 15px;
+      margin-top: 1px;
+    }
+  }
+}
+
+
+@media (max-width: 460px) {
+  .topbar header #tpb-logoi{
+    height: 24px;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .topbar header #tpb-logot{
+    display: none;
   }
 }

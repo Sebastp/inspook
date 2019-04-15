@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 
 
 import Topbar from './Topbar'
-import Footer from './Footer'
 import PersonMini from './PersonMini'
 import BookHalf from './BookHalf'
 
@@ -16,87 +15,120 @@ export default class Reader extends Component {
   render() {
     const urlUid = this.props.match.params.urlUid
 
-    return (<Fragment>
-      <Query query={getReaderPage} variables={{uid: urlUid}}>
-        {
-          ({loading, error, data}) => {
-            if (loading){
-              return 'loading'
-            }
+    return (
+      <Fragment>
+        <Topbar/>
+          <Query query={getReaderPage} variables={{uid: urlUid}}>
+            {
+              ({loading, error, data}) => {
+                if (loading){
+                  return 'loading'
+                }
 
-            if (error) {
-              return error.toString()
-            }
-            var reader = data.getByUid;
-            if (reader.avatar) {
-              this.ravatar = reader.avatar
-            }else {
-              this.ravatar = reader.uid
-            }
+                if (error) {
+                  return error.toString()
+                }
+                var readerObj = data.getByUid;
+                if (!readerObj) {
+                  return null
+                }
 
 
 
-            return (
-              <Fragment>
-              <header className="reader-top">
-                <Topbar/>
-                <section className="top-inner">
-                  <div className="top-person">
-                    <Link to='/reader/' className="top-person-cover">
-                      <div className="person-cover__inner" style={{
-                          backgroundImage: `url(${require('../assets/img/readers/'+this.ravatar+'.jpg')})`
-                        }}/>
-                    </Link>
+                var reader_uid = readerObj.uid,
+                    reader_name = readerObj.displayName,
+                    reader_desc = readerObj.desc,
+                    reader_tags = 'Entrepreneur',
+                    reader_books = readerObj.books,
+                    reader_avatarName = readerObj.avatar ? readerObj.avatar : readerObj.uid,
+                    reader_avatar = require('../assets/img/readers/'+ reader_avatarName +'.jpg')
 
-                    <span className="top-person-name">
-                      <Link to='/reader/'>
-                        {reader.displayName}
-                      </Link>
-                    </span>
-                    <span className="top-person-subtitle">{reader.desc}</span>
-                  </div>
+                reader_books.map(e => {
+                  e.uid = reader_uid
+                  e.displayName = reader_name
+                  return e;
+                })
 
-                  <div className="sugestions">
-                    <div className="heading">
-                      <hr/>
-                      <span>You Should also see</span>
-                      <hr/>
+
+
+                return (
+                  <div className="readerPage">
+                    <header className="cont-width_2">
+                      <div className="readerPage-top">
+                        <div className="readerPage-cover"
+                          style={{
+                            backgroundImage: `url(${reader_avatar})`
+                          }}
+                        />
+                      </div>
+
+
+                      <h1 className="readerPage-name">{reader_name}</h1>
+                      <p className="readerPage-desc">{reader_desc}</p>
+                      <span className="readerPage-tags info_brand_v1">{reader_tags}</span>
+                    </header>
+
+                    <div className="midRow cont-width_2">
+                      <div className="midRow__item">
+                        <span className="itmDesc">Books</span>
+                        <span className="itmNum">{reader_books.length}</span>
+                      </div>
+
+                      <div className="midRow-break"/>
+
+                      <div className="midRow__item">
+                        <span className="itmDesc">Share</span>
+                        <div className="itmScm">
+                          <img src={ require('../assets/img/icons/fb.png') }/>
+                          <img src={ require('../assets/img/icons/twt.png') }/>
+                          <img src={ require('../assets/img/icons/in.png') }/>
+                        </div>
+                      </div>
                     </div>
 
-                    <ul>
-                      <Query query={getRandomReaders} variables={{numToGet: 4}}>
+                    <section className="pageMain">
+                      <h3 className="sect-header_s1">Bookshelf</h3>
+
+                      <ul className="cont-width_2">
                         {
-                          ({loading, error, data}) => {
-                            if (loading){
-                              return 'loading'
-                            }
-                            const randSuggestion = data.getRandomReaders;
-                            console.log(randSuggestion);
-                            return randSuggestion.map((item, i) => (<li key={i}>
-                              <PersonMini personObj={item}/>
-                            </li>))
-                          }
+                          reader_books.map((bid,i)=>(
+                            <li className="pageMain__bookLi" key={i}>
+                              <BookHalf reviewsList={[ bid ]} bookId={bid.bookId}/>
+                            </li>
+                          ))
                         }
-                      </Query>
-                    </ul>
+                      </ul>
+                    </section>
                   </div>
-                </section>
+                )
+              }
+            }
+          </Query>
 
-              </header>
 
-              <div className="reader-books">
-                <ul className="row">
-                  {reader.books.map((item, i) => (<BookHalf key={i} bookinfo={item}/>))}
-                </ul>
-              </div>
-            </Fragment>
-          )
-          }
-        }
-      </Query>
 
-      <Footer/>
-    </Fragment>
-  )
+          {/*
+          <ul>
+            <Query query={getRandomReaders} variables={{numToGet: 4}}>
+              {
+                ({loading, error, data}) => {
+                  if (loading){
+                    return 'loading'
+                  }
+                  const randSuggestion = data.getRandomReaders;
+                  console.log(randSuggestion);
+                  return randSuggestion.map((item, i) => (
+                    <li key={i}>
+                      <PersonMini personObj={item}/>
+                    </li>
+                  ))
+                }
+              }
+            </Query>
+          </ul>
+          */}
+
+      </Fragment>
+    )
   }
 }

@@ -80,7 +80,7 @@ export default class Collection extends Component {
                     <ul className="collection-list cont-width_2">
                       {
                         collectionObj.books.map((bid,i)=>(
-                          <li key={i}>
+                          <li className="pageMain__bookLi" key={i}>
                             <BookHalf viewReviews={true} bookId={bid}/>
                           </li>
                         ))

@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 
 import { Link } from 'react-router-dom'
 
@@ -75,7 +75,7 @@ export default class MostRecomBooksHeader extends Component {
 
 
   changeCurrBook = (i) =>{
-    if (this.mySwiper.realIndex != i) {
+    if (this.mySwiper.realIndex !== i) {
       this.mySwiper.slideTo(i)
     }
     this.setState({ currBook: i });
@@ -128,7 +128,7 @@ export default class MostRecomBooksHeader extends Component {
               booksArr.map((bitm,i)=>(
                 <li key={i} className={
                     "book-cover swiper-slide"+(
-                      this.state.currBook==i?' activeBook':''
+                      this.state.currBook===i?' activeBook':''
                     )
                   }
                   onClick={()=>{this.changeCurrBook(i)}}
@@ -136,7 +136,7 @@ export default class MostRecomBooksHeader extends Component {
                   onMouseLeave={()=>{this.hoverOff()}}
                 >
                   {
-                    this.createCoverTag(this.state.currBook==i, booksArr[i])
+                    this.createCoverTag(this.state.currBook===i, booksArr[i])
                   }
                 </li>
               ))
@@ -145,10 +145,10 @@ export default class MostRecomBooksHeader extends Component {
         </div>
 
 
-        <div className={'bookDown'+(hoveredBook==currBook?'':' hovered')}>
+        <div className={'bookDown'+(hoveredBook===currBook?'':' hovered')}>
           <Dotdotdot clamp={1} className="book-title" tagName="h5">
             <Link to={'/book/'+booksArr[currBook].id}>
-              {(hoveredBook==currBook)?(
+              {(hoveredBook===currBook)?(
                 booksArr[currBook].title
               ):(
                 booksArr[hoveredBook].title

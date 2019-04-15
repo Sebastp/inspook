@@ -90,7 +90,6 @@ const Query = {
   getTopBooks: async (_, { pageSize = 20, page = 1 }) => {
     const docs = await Reader.find({official:true}, {displayName:1, 'books.bookId': 1, _id: 0})
       // .skip(((page || 1) - 1) * pageSize)
-      // .limit(pageSize)
       .exec()
     var allBooks = []
 
@@ -109,12 +108,11 @@ const Query = {
       })
     })
 
-
     await allBooks.sort((a, b) => b.onShelves - a.onShelves)
 
     const pageStart = ((page || 1) - 1) * pageSize
     allBooks = allBooks.slice(pageStart, pageStart+pageSize)
-    console.log(allBooks);
+
     return allBooks
   }
 }

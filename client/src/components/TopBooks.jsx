@@ -8,21 +8,16 @@ import Topbar from './Topbar'
 
 import BookHalf from './BookHalf'
 import Search from './Search'
-import ChapterListQuery from './hocs/ChapterListQuery'
+import BookList from './hocs/BookList'
 
 
 import { getTopBooks } from '../graphql'
 
 
 export default class TopBooks extends Component {
-  state = {
-    loadPage: 1
+  componentDidMount() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-  loadNextPage(){
-    this.setState({ loadPage: this.state.loadPage+1 });
-  }
-
 
   render() {
     return (
@@ -37,36 +32,46 @@ export default class TopBooks extends Component {
           <Search bottomMsg="Type a Book Title"/>
         </header>
 
+
         <section className="pageMain">
-          <ul className="cont-width_2">
-            <ChapterListQuery/>
-            {/*
-            <Query query={getTopBooks} variables={{page: this.state.loadPage}}>
-              {
-                ({loading, error, data}) => {
-                  if (loading){
-                    return 'loading'
-                  }
-                  if (error) {
-                    return error.toString()
-                  }
+          <Query query={getTopBooks} variables={{page: 1}} notifyOnNetworkStatusChange>
+            {({ loading, data, networkStatus, fetchMore }) => {
+              var booksData = data.getTopBooks
 
-                  var booksData = data.getTopBooks
-                  console.log(booksData);
-
-
-                  return (
-                    booksData.map((item, i) => (
-                      <li className="pageMain__bookLi" key={i}>
-                        <BookHalf onShelvesProp={item.onShelves} bookId={item.bookId}/>
-                      </li>
-                    ))
-                  )
-                }
+              if (!booksData) {
+                console.error('No Data Returned');
+                return null
               }
-            </Query>
-            */}
-          </ul>
+
+
+              var pageSize = 20,
+                  page2get = (booksData.length/pageSize)+1
+
+              return (
+                <BookList
+                  loading={loading}
+                  lItems={booksData}
+                  onLoadMore={() =>{
+                    fetchMore({
+                      variables: {
+                        page: page2get
+                      },
+                      updateQuery: (prev, { fetchMoreResult }) => {
+                        if (!fetchMoreResult || fetchMoreResult.getTopBooks.length === 0 || !Number.isInteger(page2get)){
+                          return prev
+                        }
+                        return Object.assign({}, prev, {
+                          getTopBooks: [...prev.getTopBooks, ...fetchMoreResult.getTopBooks]
+                        });
+                      }
+                    })
+                  }
+                  }
+                />
+              )
+            }}
+          </Query>
+
 
           <span className="subMoreSpan hovEfct" onClick={()=>{this.loadNextPage()}}>
             See More
