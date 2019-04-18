@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react'
 import {Query} from 'react-apollo'
-import {Link} from 'react-router-dom'
 
 import Dotdotdot from 'react-clamp'
 

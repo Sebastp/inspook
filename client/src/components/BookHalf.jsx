@@ -137,7 +137,7 @@ export default class BookHalf extends Component {
                 const reviews = data.getBookReviews;
                 return (
                   reviews.map((rev,i)=>(
-                    <BookReview__2 revOjb={rev}/>
+                    <BookReview__2 key={i} revOjb={rev}/>
                   ))
                 )
 

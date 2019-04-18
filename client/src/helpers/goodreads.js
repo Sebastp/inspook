@@ -18,7 +18,7 @@ export async function bookReviews(isbn){
       parseString(res.data, function (err, result) {
         var res = result.GoodreadsResponse.book[0]
 
-        if (res.image_url[0] == noImgUrl) {
+        if (res.image_url[0] === noImgUrl) {
           res.cover = createOpenLibUrl(isbn)
           // res.cover = require('../assets/img/noBookCover.jpg')
         }else {

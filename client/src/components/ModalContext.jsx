@@ -35,7 +35,8 @@ export class ModalProvider extends Component {
 
   render() {
     const { modalVisible, props } = this.state
-    console.log(props);
+
+
     return (
       <ModalContext.Provider value={this.state}>
         <ModalShelves

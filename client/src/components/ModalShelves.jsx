@@ -36,7 +36,7 @@ export default class ModalShelves extends Component {
                   }
 
                   var readers = data.getChosenReaders
-                  console.log(readers);
+                  
 
                   return (
                     readers.map((persObj,i)=>(

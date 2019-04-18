@@ -27,6 +27,24 @@
       font-size: 1.063rem;
     }
   }
+
+
+  &__nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-top: 10px;
+    cursor: pointer;
+
+    .navAnach{
+      font-size: 0.8125rem;
+    }
+
+    :not(.active){
+      color: rgba($dark2, 0.45);
+    }
+  }
 }
 
 

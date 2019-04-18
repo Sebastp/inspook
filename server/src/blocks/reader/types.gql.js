@@ -10,14 +10,15 @@ export default gql`
     nrOfShelves(bookid: String!): Int
     getBookReviews(bookid: String!, readerIds: [String]): [BookReview]
     getTopBooks(pageSize: Int, page: Int): [topBook]
+    getPeople(pageSize: Int, page: Int): [Reader]
   }
 
 
   type Reader {
-    uid: String!
-    displayName: String!
-    avatar: String!
-    desc: String!
+    uid: String
+    displayName: String
+    avatar: String
+    desc: String
     books: [BookRef]
     booksCount: Int
     official: Boolean

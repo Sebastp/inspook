@@ -120,6 +120,17 @@ const Query = {
     allBooks = allBooks.slice(pageStart, pageStart+pageSize)
 
     return allBooks
+  },
+
+  getPeople: async (_, { pageSize = 20, page = 1 }) => {
+    var docs = await Reader.find({}, {displayName:1, desc:1, uid:1, avatar: 1, 'books.bookId': 1, _id: 0})
+      .skip(((page || 1) - 1) * pageSize)
+      .limit(pageSize)
+      .exec()
+    console.log(docs);
+    return docs
+    docs.map(a => a.booksCount = a.length)
+    return docs
   }
 }
 

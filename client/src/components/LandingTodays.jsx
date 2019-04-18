@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 
 import BookThird from './BookThird'
@@ -23,5 +22,5 @@ const LandingTodays = (props) => {
   )
 }
 
- 
+
 export default LandingTodays

@@ -1,15 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Query } from 'react-apollo'
 
-import { getReader } from '../graphql'
 
 import Landing from './Landing'
-import TopBooks from './TopBooks'
+import TopBooksPage from './TopBooksPage'
+import PeoplePage from './PeoplePage'
 import Reader from './Reader'
 import Book from './Book'
 import Collection from './Collection'
-import { ModalProvider, ModalConsumer } from './ModalContext';
+import { ModalProvider } from './ModalContext';
 
 
 
@@ -26,31 +25,37 @@ export default class App extends Component {
                 component={props => (
                   <Landing {...props}/>
                 )}
-                />
+              />
 
               <Route exact path="/top-books"
                 component={props => (
-                  <TopBooks {...props}/>
+                  <TopBooksPage {...props}/>
                 )}
-                />
+              />
+
+              <Route exact path="/people"
+                component={props => (
+                  <PeoplePage {...props}/>
+                )}
+              />
 
               <Route exact path="/reader/:urlUid"
                 component={props => (
                   <Reader {...props}/>
                 )}
-                />
+              />
 
               <Route exact path="/book/:urlBookId"
                 component={props => (
                   <Book {...props}/>
                 )}
-                />
+              />
 
               <Route exact path="/collection/:uId"
                 component={props => (
                   <Collection {...props}/>
                 )}
-                />
+              />
             </Switch>
           </ModalProvider>
 

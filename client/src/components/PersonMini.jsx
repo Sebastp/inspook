@@ -4,31 +4,25 @@ import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
 import Dotdotdot from 'react-clamp'
 
+
 import {bookReviews} from '../helpers/goodreads'
 import { getChosenReaders } from '../graphql'
+
+import PersonMini_loading from './PersonMini_loading'
 
 
 export default class PersonMini extends Component {
   render() {
     const {readerUid, personObj} = this.props;
 
-    const loadingObj = (
-      <div className="person">
-        <div className="person-cover">
-          <div className="person-cover__inner gradient-loadAnim"/>
-        </div>
-        <span className="person-name">
-          Loading Reader...
-        </span>
-      </div>
-    )
+
 
     return(
       <Query query={getChosenReaders} skip={personObj} variables={{uidsArr: [readerUid]}}>
         {
           ({loading, error, data}) => {
             if (loading){
-              return loadingObj
+              return <PersonMini_loading/>
             }
             error && ( console.log(error.toString()) )
 
@@ -36,40 +30,42 @@ export default class PersonMini extends Component {
               return null;
             }
 
-            if (!personObj) {
-              const personObj = data.getChosenReaders[0]
-            }
+            const personData = personObj ? personObj : data.getChosenReaders[0]
+
+
+
+
 
             return (
               <div className="person">
-                <Link to={'/reader/'+personObj.uid} className="person-cover">
+                <Link to={'/reader/'+personData.uid} className="person-cover">
                   <div className="person-cover__inner"
                     style={{
-                      backgroundImage: `url(${require('../assets/img/readers/'+personObj.avatar+'.jpg')})`
+                      backgroundImage: `url(${require('../assets/img/readers/'+personData.avatar+'.jpg')})`
                     }}
                     />
                 </Link>
 
                 <div className="person-info">
                   <h5 className="person-name">
-                    <Link to={'/reader/'+personObj.uid}>
+                    <Link to={'/reader/'+personData.uid}>
                       <Dotdotdot clamp={1}>
-                        {personObj.displayName}
+                        {personData.displayName}
                       </Dotdotdot>
                     </Link>
                   </h5>
 
                   <span className="person-subtitle">
-                    <Link to={'/reader/'+personObj.uid}>
-                      {personObj.booksCount} Books
+                    <Link to={'/reader/'+personData.uid}>
+                      {personData.booksCount} Books
                     </Link>
                   </span>
                 </div>
 
 
                 <Dotdotdot tagName='p' className="person-desc" clamp={1}>
-                  <Link to={'/reader/'+personObj.uid}>
-                      {personObj.desc}
+                  <Link to={'/reader/'+personData.uid}>
+                      {personData.desc}
                   </Link>
                 </Dotdotdot>
               </div>

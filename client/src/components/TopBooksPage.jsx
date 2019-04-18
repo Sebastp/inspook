@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import {Query} from 'react-apollo'
 
 
 
 import Topbar from './Topbar'
 
-import BookHalf from './BookHalf'
 import Search from './Search'
 import BookList from './hocs/BookList'
 
@@ -14,7 +12,7 @@ import BookList from './hocs/BookList'
 import { getTopBooks } from '../graphql'
 
 
-export default class TopBooks extends Component {
+export default class TopBooksPage extends Component {
   componentDidMount() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

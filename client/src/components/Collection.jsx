@@ -8,11 +8,18 @@ import { getCollectionByUid } from '../graphql'
 
 import Topbar from './Topbar'
 import BookHalf from './BookHalf'
+import BookList from './hocs/BookList'
 
 
 
 export default class Collection extends Component {
+  state = {
+    currPage: 1
+  }
+
   collectionIdProp = this.props.match.params.uId
+  PAGE_SIZE = 20
+
 
   render() {
 
@@ -29,11 +36,11 @@ export default class Collection extends Component {
               if (error) {
                 return error.toString()
               }
-              var collectionObj = data.collectionByUid
+              var collectionObj = data.collectionByUid,
+                  collection__books = (collectionObj.books).map(a=> a={bookId: a})
 
               collectionObj.tagsStr = (collectionObj.tags).join('  -  ')
 
-              console.log(collectionObj)
 
 
 
@@ -78,13 +85,15 @@ export default class Collection extends Component {
 
                   <section className="pageMain">
                     <ul className="collection-list cont-width_2">
-                      {
-                        collectionObj.books.map((bid,i)=>(
-                          <li className="pageMain__bookLi" key={i}>
-                            <BookHalf viewReviews={true} bookId={bid}/>
-                          </li>
-                        ))
-                      }
+                      <BookList
+                        lItems={collection__books.slice(0, this.PAGE_SIZE*this.state.currPage)}
+                        onLoadMore={() =>{
+                            if (this.PAGE_SIZE*this.state.currPage < collection__books.length) {
+                              this.setState({ currPage: this.state.currPage+1 });
+                            }
+                          }
+                        }
+                      />
                     </ul>
                   </section>
 
