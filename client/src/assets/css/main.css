@@ -662,6 +662,8 @@ input, textarea {
     display: inline-block;
     width: 100%;
     margin-bottom: 50px; }
+  .pageMain__personLi {
+    margin-bottom: 30px; }
 
 .scrollbar_1::-webkit-scrollbar {
   background: none;
@@ -732,7 +734,8 @@ input, textarea {
 .search-center .search-input {
   display: block;
   margin: auto;
-  position: relative; }
+  position: relative;
+  max-width: 555px; }
   .search-center .search-input__icon {
     position: absolute;
     right: 5px;

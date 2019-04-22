@@ -19,10 +19,12 @@ import CollectionMini from './CollectionMini'
 
 
 export default class Landing extends Component {
-  state = {
-    loadedPeople: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      loadedPeople: false,
+    }
   }
-
 
 
 

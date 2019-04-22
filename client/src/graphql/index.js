@@ -8,3 +8,5 @@ export * from './get-randomReaders'
 export * from './get-reader'
 export * from './get-readerPage'
 export * from './get-topBooks'
+
+export * from './search-string'

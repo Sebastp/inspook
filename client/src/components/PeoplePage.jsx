@@ -46,7 +46,6 @@ export default class PeoplePage extends Component {
         <section className="pageMain">
           <Query query={getPeople} variables={{page: 1}} notifyOnNetworkStatusChange>
             {({ loading, data, error, networkStatus, fetchMore }) => {
-              console.log(data, loading, networkStatus);
               if (error) {
                 console.log(error.toString());
                 return null

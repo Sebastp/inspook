@@ -3,7 +3,8 @@
     display: block;
     margin: auto;
     position: relative;
-
+    max-width: 555px;
+    
     &__icon{
       position: absolute;
       right: 5px;

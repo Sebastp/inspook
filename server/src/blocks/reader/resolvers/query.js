@@ -127,9 +127,7 @@ const Query = {
       .skip(((page || 1) - 1) * pageSize)
       .limit(pageSize)
       .exec()
-    console.log(docs);
-    return docs
-    docs.map(a => a.booksCount = a.length)
+    docs.map(a => {a.booksCount = a.books.length; return a})
     return docs
   }
 }

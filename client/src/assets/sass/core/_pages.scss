@@ -118,7 +118,7 @@
 
 .pageMain{
   margin-top: 80px;
-
+  
   &__header{
     margin-bottom: 60px;
   }
@@ -127,6 +127,10 @@
     display: inline-block;
     width: 100%;
     margin-bottom: 50px;
+  }
+
+  &__personLi{
+    margin-bottom: 30px;
   }
 }
 

@@ -9,26 +9,6 @@ import {bookReviews} from '../helpers/goodreads'
 
 import { getBookReviewers } from '../graphql'
 
-/*
-var amazon = require('amazon-product-api');
-
-var client = amazon.createClient({
-  awsId: "AKIAI6H4Z2ZNNG4N2FNA",
-  awsSecret: "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",
-  awsTag: "inspook-20"
-});
-
-client.itemLookup({
-  ItemId: '9781585425648',
-  IdType: 'ISBN',
-  responseGroup: 'ItemAttributes,Offers,Images'
-}).then(function(results){
-  console.log(results);
-}).catch(function(err){
-  console.log(err);
-});
-*/
-
 
 export default class BookThird extends Component {
   state = {

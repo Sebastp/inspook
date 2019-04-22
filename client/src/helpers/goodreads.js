@@ -14,7 +14,7 @@ export async function bookReviews(isbn){
   var url = "https://www.goodreads.com/book/isbn/"+isbn+"?key="+grCredentials.key;
   return new Promise((resolve, reject) => {
 
-    axios.get('http://192.168.1.2:8081/'+url).then(res=>{
+    axios.get('http://localhost:8081/'+url).then(res=>{
       parseString(res.data, function (err, result) {
         var res = result.GoodreadsResponse.book[0]
 

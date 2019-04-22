@@ -7,18 +7,22 @@ import { getCollectionByUid } from '../graphql'
 
 
 import Topbar from './Topbar'
+import Footer from './Footer'
 import BookHalf from './BookHalf'
 import BookList from './hocs/BookList'
 
 
 
 export default class Collection extends Component {
-  state = {
-    currPage: 1
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      currPage: 1
+    }
 
-  collectionIdProp = this.props.match.params.uId
-  PAGE_SIZE = 20
+    this.collectionIdProp = this.props.match.params.uId
+    this.PAGE_SIZE = 20
+  }
 
 
   render() {
@@ -103,6 +107,7 @@ export default class Collection extends Component {
             }
           }
         </Query>
+        <Footer/>
       </Fragment>
     )
   }
