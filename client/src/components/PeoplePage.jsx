@@ -32,10 +32,10 @@ export default class PeoplePage extends Component {
               Artists
             </div>
             <div className="navAnach">
-              POLITICIANS
+              Politicians
             </div>
             <div className="navAnach">
-              SCIENTISTS
+              Scientists
             </div>
           </nav>
 

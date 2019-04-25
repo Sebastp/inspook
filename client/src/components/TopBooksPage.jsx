@@ -34,7 +34,7 @@ export default class TopBooksPage extends Component {
         <section className="pageMain">
           <Query query={getTopBooks} variables={{page: 1}} notifyOnNetworkStatusChange>
             {({ loading, data, error, networkStatus, fetchMore }) => {
-              if (!data || !data.length) {
+              if (!data && !loading) {
                 console.error('No Data Returned');
                 return null
               }
@@ -43,8 +43,12 @@ export default class TopBooksPage extends Component {
                 console.log(error.toString());
                 return null
               }
-              console.log(data);
-              var booksData = data.getTopBooks
+
+              if (loading) {
+                var booksData = []
+              }else {
+                var booksData = data.getTopBooks
+              }
 
 
               var pageSize = 20,
