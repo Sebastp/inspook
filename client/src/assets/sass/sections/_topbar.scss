@@ -1,30 +1,23 @@
 .topbar{
   width: 100%;
   position: relative;
-  padding-bottom: 50px;
 
-  .grad-line{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 2px;
-  }
 
   &__inner{
-    padding-top: 50px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
   }
 
   header{
     display: inline-block;
     #tpb-logoi{
       display: inline-block;
-      height: 22px;
+      height: 20px;
       width: auto;
     }
 
@@ -48,7 +41,6 @@
     width: 30px;
     position: relative;
     z-index: 100;
-    // transition: all .6s cubic-bezier(.785,.135,.15,.86);
     cursor: pointer;
 
     &:after, &:before{
@@ -83,17 +75,6 @@
     span{
       margin-right: 42px;
     }
-
-    .nav-search{
-      img{
-        width: auto;
-        height: 21px;
-      }
-    }
-
-    div{
-      display: inline-block;
-    }
   }
 }
 
@@ -119,23 +100,9 @@
       padding-top: 40px;
     }
 
-    header{
-      #tpb-logoi{
-        height: 23px;
-      }
-
-      #tpb-logot{
-        height: 24px;
-      }
-    }
-
-
     nav{
       span{
         margin-right: 35px;
-      }
-      .button-filled{
-        margin-left: 5px;
       }
     }
   }
@@ -145,8 +112,6 @@
 
 @media (max-width: 840px) {
   .topbar{
-    padding-bottom: 0px;
-
     &__inner{
       padding-bottom: 40px;
     }
@@ -166,27 +131,8 @@
 }
 
 @media (max-width: 544px) {
-  .cont-width_1{
+  .topbar__inner{
     padding: 35px 30px;
-  }
-
-
-  .topbar header{
-    #tpb-logoi{
-      height: 21px;
-    }
-    #tpb-logot{
-      height: 21px;
-      margin-left: 15px;
-      margin-top: 1px;
-    }
-  }
-}
-
-
-@media (max-width: 460px) {
-  .topbar header #tpb-logoi{
-    height: 24px;
   }
 }
 

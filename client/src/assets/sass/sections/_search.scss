@@ -4,10 +4,10 @@
     margin: auto;
     position: relative;
     max-width: 555px;
-    
+
     &__icon{
       position: absolute;
-      right: 5px;
+      left: 5px;
       bottom: 7px;
       width: 20px;
       height: 20px;
@@ -18,18 +18,12 @@
     }
 
     input{
-      padding-right: 35px;
+      padding-left: 35px;
       margin: auto;
       max-width: 555px;
       box-sizing: border-box;
       text-align: inherit;
     }
-  }
-
-  .subMoreSpan{
-    text-align: center;
-    display: block;
-    margin-top: 20px;
   }
 }
 

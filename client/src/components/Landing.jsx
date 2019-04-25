@@ -35,8 +35,8 @@ export default class Landing extends Component {
 
         <header id="header" className="cont-width_0">
           <div id="tagline">
-            <h1>Get Inspired By The Best</h1>
-            <p>See the most Recommended Books by Successful People</p>
+            <p>Get Inspired By The Best</p>
+            <h1>See Book Recommendations<br/>From <span className="hdr-light">Entrepreneurs</span></h1>
           </div>
         </header>
 

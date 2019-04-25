@@ -31,7 +31,7 @@ export default class Search extends Component {
         <label htmlFor="sinputTag" className="search-input__icon"
           style={{ backgroundImage: `url(${require('../assets/img/icons/search.svg')})` }}
         />
-        <input placeholder="Search Inspirations..." id="sinputTag" onChange={(e)=>this.searchChange(e)}/>
+        <input placeholder={bottomMsg} id="sinputTag" onChange={(e)=>this.searchChange(e)}/>
 
         <Query query={searchString} variables={{phrase: searchPhrase}}>
           {
@@ -48,9 +48,6 @@ export default class Search extends Component {
           }
         </Query>
         </div>
-        <span className="subMoreSpan">
-          {bottomMsg}
-        </span>
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 
+import Search from './Search'
 
 
 export default class Topbar extends Component {
@@ -9,9 +10,6 @@ export default class Topbar extends Component {
 
     return (
       <div className='topbar'>
-        <div className="grad-line"/>
-
-
         <div className="topbar__inner cont-width_1">
           <header>
             <Link to={'/'}>
@@ -23,28 +21,32 @@ export default class Topbar extends Component {
           </header>
 
 
+          <div>
+            <Search bottomMsg="Search..."/>
+          </div>
+
+
           <button className="nav-toggle"></button>
           <nav>
-            <span className="nav-search">
-              <img alt="Search" src={require('../assets/img/icons/search.svg')}/>
-            </span>
 
             <span className="navAnach">
               <Link to={'/top-books'}>
-                Top Books
+                Books
               </Link>
             </span>
 
 
             <span className="navAnach">
               <Link to={'/people'}>
-                People
+                Readers
               </Link>
             </span>
 
-            <button className="button-filled">
-              Sign In
-            </button>
+            <span className="navAnach">
+              <Link to={'/collections'}>
+                Collections
+              </Link>
+            </span>
           </nav>
         </div>
       </div>
