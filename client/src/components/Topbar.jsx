@@ -28,7 +28,6 @@ export default class Topbar extends Component {
 
           <button className="nav-toggle"></button>
           <nav>
-
             <span className="navAnach">
               <Link to={'/top-books'}>
                 Books

@@ -1,4 +1,5 @@
 .search-center {
+  position: relative;
   .search-input{
     display: block;
     margin: auto;
@@ -7,22 +8,77 @@
 
     &__icon{
       position: absolute;
-      left: 5px;
-      bottom: 7px;
-      width: 20px;
-      height: 20px;
-      opacity: 0.2;
+      left: 20px;
+      top: 16px;
+      width: 17px;
+      height: 17px;
+      opacity: 0.6;
       background-size: contain;
       margin: 0;
       cursor: text;
     }
 
     input{
-      padding-left: 35px;
+      padding-left: 52px;
       margin: auto;
       max-width: 555px;
       box-sizing: border-box;
       text-align: inherit;
+      font-size: 0.9375rem;
+    }
+  }
+
+  .search-result{
+    width: 100%;
+    display: block;
+    max-width: 555px;
+    margin: auto;
+
+    .result-itm{
+      border-bottom: 1px solid $grey2;
+      padding: 25px 0px;
+      margin: 0 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      font-family: $poppins;
+      font-weight: $medium;
+      color: $dark2;
+
+
+
+      &__left{
+        text-align: left;
+        .itm-name{
+          font-size: 0.9375rem;
+        }
+
+        .itm-subtitle{
+          font-size: 0.75rem;
+          color: rgba($dark2, 0.4);
+        }
+      }
+
+
+      &__right{
+        text-transform: capitalize;
+        font-family: $poppins;
+        font-weight: $medium;
+        color: rgba($black, 0.83);
+        font-size: 12px;
+      }
+
+
+      &:first-child{
+        margin-top: 10px;
+      }
+
+      &:last-child{
+        border-bottom: none;
+        padding-bottom: 0px;
+      }
     }
   }
 }

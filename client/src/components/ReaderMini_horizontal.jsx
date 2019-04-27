@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-
+import React, { Component, Fragment } from 'react'
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
 import Dotdotdot from 'react-clamp'
@@ -11,7 +10,7 @@ import { getChosenReaders } from '../graphql'
 import PersonMini_loading from './PersonMini_loading'
 
 
-export default class PersonMini extends Component {
+export default class ReaderMini_horizontal extends Component {
   render() {
     const {readerUid, personObj} = this.props;
 
@@ -37,7 +36,7 @@ export default class PersonMini extends Component {
 
 
             return (
-              <div className="person">
+              <div className="person person__horiz">
                 <Link to={'/reader/'+personData.uid} className="person-cover">
                   <div className="person-cover__inner"
                     style={{
@@ -61,7 +60,6 @@ export default class PersonMini extends Component {
                     </Link>
                   </span>
                 </div>
-
               </div>
             )
           }

@@ -1,6 +1,7 @@
 @mixin theader{
   color: rgba($black, 0.9);
   font-family: $lora;
+  font-weight: $regular;
   text-align: left;
   width: 100%;
 }
@@ -11,29 +12,27 @@
 
   &_s1{
     @include theader;
-    font-size: 1.438rem;
+    font-size: 1.625rem;
   }
 }
+
+
+.sub-header{
+  font-family: $poppins;
+  font-weight: $regular;
+  color: rgba($dark1, 0.5);
+  font-size: 1rem;
+  margin-top: 25px;
+  text-align: left;
+  padding-right: 25%;
+}
+
 
 
 .hdr-light{
   color: #8b8b8b;
 }
 
-
-.info_brand{
-  font-family: $poppins;
-  font-weight: $medium;
-  color: rgba($black, 0.95);
-  font-size: 0.75rem;
-
-  &_v1{
-    font-family: $poppins;
-    font-weight: $regular;
-    color: rgba($black, 0.83);
-    font-size: 0.75rem;
-  }
-}
 
 
 .navAnach {
@@ -51,24 +50,37 @@
 }
 
 .subMoreSpan {
-  text-align: center;
   display: block;
   font-family: $poppins;
-  font-weight: $medium;
-  color: rgba($black, 0.9);
+  font-weight: $regular;
+  color: rgba($dark1, 0.45);
   transition: color 0.2s;
-  text-align: center;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  white-space: nowrap;
 
 
   &.hovEfct{
     cursor: pointer;
     &:hover{
-      color: rgba($black, 1);
+      color: rgba($dark1, 0.9);
       transition: color 0.3s;
     }
   }
 }
+
+.subAnach {
+  font-family: $poppins;
+  font-weight: $medium;
+  color: rgba($dark2, 0.9);
+  transition: color 0.2s;
+  font-size: 0.875rem;
+
+  &:hover{
+    color: rgba($dark1, 0.95);
+    transition: color 0.3s;
+  }
+}
+
 
 
 

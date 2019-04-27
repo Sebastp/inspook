@@ -17,7 +17,7 @@ export default class CollectionMini extends Component {
           <div className="person-cover__inner gradient-loadAnim"/>
         </div>
         <span className="person-name">
-          Loading Reader...
+          Loading Collection...
         </span>
       </div>
     )
@@ -36,10 +36,10 @@ export default class CollectionMini extends Component {
               return null;
             }
 
-            const collectionObj = data.collectionByUid
+            var collectionObj = data.collectionByUid
 
-
-            var tagsStr = (collectionObj.tags).join('  -  ')
+            var tagsStr = collectionObj.tags.map(a=> { return a.charAt(0).toUpperCase() + a.slice(1) })
+            tagsStr = tagsStr.join('  -  ')
             return (
               <div className="collectionMini">
                 <Link to={'/collection/'+collectionObj.uid} className="collectionMini-top">
@@ -49,9 +49,7 @@ export default class CollectionMini extends Component {
                     }}
                   />
 
-                  <div className="collectionMini-bck">
-                    <div className="collectionMini-bck__inner"/>
-                  </div>
+                  <div className="collectionMini-bck"/>
                 </Link>
 
 
@@ -65,7 +63,7 @@ export default class CollectionMini extends Component {
                     {collectionObj.booksCount} Books
                   </Link>
                 </span>
-                <span className="collectionMini-spec info_brand_v1">{tagsStr}</span>
+                <span className="collectionMini-spec">{tagsStr}</span>
               </div>
             )
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Query} from 'react-apollo'
+import { Link } from 'react-router-dom'
+import Dotdotdot from 'react-clamp'
 
 import { searchString } from '../graphql'
 
@@ -18,20 +20,22 @@ export default class Search extends Component {
     this.setState({
       searchPhrase: phrase
     });
-    console.log(phrase);
   }
 
   render() {
-    const {bottomMsg} = this.props;
+    var {bottomMsg, maxResults} = this.props;
     const {searchPhrase} = this.state;
+
+    var bottomMsg = bottomMsg?bottomMsg:'Search...'
 
     return (
       <div className="search-center">
         <div className="search-input">
-        <label htmlFor="sinputTag" className="search-input__icon"
-          style={{ backgroundImage: `url(${require('../assets/img/icons/search.svg')})` }}
-        />
-        <input placeholder={bottomMsg} id="sinputTag" onChange={(e)=>this.searchChange(e)}/>
+          <label className="search-input__icon"
+            style={{ backgroundImage: `url(${require('../assets/img/icons/search.svg')})` }}
+          />
+          <input placeholder={bottomMsg} autoComplete="off" spellCheck="false" onChange={(e)=>this.searchChange(e)}/>
+        </div>
 
         <Query query={searchString} variables={{phrase: searchPhrase}}>
           {
@@ -41,13 +45,45 @@ export default class Search extends Component {
               }
 
               if (error) return error.toString()
-              console.log(data);
+              if (searchPhrase=='') {
+                return null
+              }
+              var searchRes = data.searchString
+
+              if (maxResults) {
+                searchRes = searchRes.slice(0, maxResults)
+              }
+
+              return(
+                <ul className="search-result">
+                  {searchRes.map((resultItm,i)=>(
+                    <li className="result-itm" key={i}>
+                      <div className="result-itm__left">
+                        <h5 className="itm-name">
+                          <Link to={'/reader/'+resultItm.uid}>
+                            <Dotdotdot clamp={1}>
+                              {resultItm.name}
+                            </Dotdotdot>
+                          </Link>
+                        </h5>
+
+                        <span className="itm-subtitle">
+                          <Link to={'/reader/'+resultItm.uid}>
+                            {resultItm.booksCount} Books
+                          </Link>
+                        </span>
+                      </div>
+
+                      <span className="result-itm__right">{resultItm.type}</span>
+                    </li>
+                  ))}
+                </ul>
+              )
 
               return null
             }
           }
         </Query>
-        </div>
       </div>
     )
   }

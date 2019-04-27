@@ -6,9 +6,6 @@ import Dotdotdot from 'react-clamp'
 import Swiper from 'swiper';
 
 import {onShelves} from '../helpers/textTransf'
-// import {createOpenLibUrl} from '../helpers/openlibrary'
-
-
 
 
 
@@ -43,10 +40,11 @@ export default class MostRecomBooksHeader extends Component {
         // Optional parameters
         direction: 'horizontal',
         slidesPerView: 'auto',
-        centeredSlides: true,
+        // centeredSlides: true,
+        spaceBetween: 80,
         slidesOffsetBefore: 0,
         slidesOffsetAfter: 0,
-        initialSlide: 3,
+        initialSlide: 0,
         slideActiveClass: 'activeBook'
       })
 
@@ -55,17 +53,15 @@ export default class MostRecomBooksHeader extends Component {
       //swiper does not calculate correctly transition cords
       var nowSize = this.mySwiper.width+17,
           offSite = (nowSize-682)/2;
-      document.getElementsByClassName('swiper-wrapper')[0].style.marginLeft = (offSite*-1)+'px';
+      // document.getElementsByClassName('swiper-wrapper')[0].style.marginLeft = (offSite*-1)+'px';
 
 
 
       this.mySwiper.on('slideChange', () => {
         this.changeCurrBook(this.mySwiper.realIndex)
-        this.hoverOff()
       });
       this.mySwiper.on('touchEnd', () => {
         this.changeCurrBook(this.mySwiper.realIndex)
-        this.hoverOff()
       });
     }, 200)
 
@@ -81,37 +77,8 @@ export default class MostRecomBooksHeader extends Component {
     this.setState({ currBook: i });
   }
 
-  hoverOn(e){
-    this.setState({ hoveredBook: e });
-  }
-
-  hoverOff(){
-    this.setState({ hoveredBook: this.state.currBook });
-  }
 
 
-
-  createCoverTag(isLink, bookObj){
-    if (isLink) {
-      return(
-        <Link to={'/book/'+bookObj.id} className="book-cover__inner"
-          style={{
-            backgroundImage: 1?`url(${require('../assets/img/demo/'+bookObj.cover)})`:
-            `url(${require('../assets/img/demo/cover1.jpg')})`
-          }}
-        />
-      )
-    }else {
-      return(
-        <div className="book-cover__inner"
-          style={{
-            backgroundImage: 1?`url(${require('../assets/img/demo/'+bookObj.cover)})`:
-            `url(${require('../assets/img/demo/cover1.jpg')})`
-          }}
-        />
-      )
-    }
-  }
 
 
   render() {
@@ -120,51 +87,50 @@ export default class MostRecomBooksHeader extends Component {
 
     return(
       <section id="mostRBooksSect" className="cont-width_0">
-        <h3 className="sect-header_s1">Most Recommended Books</h3>
-
         <div className="swiper-container">
           <ul className="swiper-wrapper">
             {
               booksArr.map((bitm,i)=>(
+
                 <li key={i} className={
-                    "book-cover swiper-slide"+(
+                    "swiper-slide"+(
                       this.state.currBook===i?' activeBook':''
                     )
                   }
                   onClick={()=>{this.changeCurrBook(i)}}
-                  onMouseEnter={()=>{this.hoverOn(i)}}
-                  onMouseLeave={()=>{this.hoverOff()}}
                 >
-                  {
-                    this.createCoverTag(this.state.currBook===i, booksArr[i])
-                  }
+                  <div className="book-cover">
+                    <Link to={'/book/'+bitm.id} className="book-cover__inner"
+                      style={{
+                        backgroundImage: 1?`url(${require('../assets/img/demo/'+bitm.cover)})`:
+                        `url(${require('../assets/img/demo/cover1.jpg')})`
+                      }}
+                      />
+                  </div>
+
+                  <div className='bookDown'>
+                    <Dotdotdot clamp={1} className="book-title" tagName="h5">
+                      <Link to={'/book/'+bitm.id}>
+                        {bitm.title}
+                      </Link>
+                    </Dotdotdot>
+                    <Dotdotdot clamp={1} className="book-author" tagName="span">
+                      <Link to={'/book/'+bitm.id}>
+                        {bitm.author}
+                      </Link>
+                    </Dotdotdot>
+                    <span className="book-spec">
+                      <Link to={'/book/'+bitm.id}>
+                        {onShelves(bitm.shelves)}
+                      </Link>
+                    </span>
+                  </div>
                 </li>
+
+
               ))
             }
           </ul>
-        </div>
-
-
-        <div className={'bookDown'+(hoveredBook===currBook?'':' hovered')}>
-          <Dotdotdot clamp={1} className="book-title" tagName="h5">
-            <Link to={'/book/'+booksArr[currBook].id}>
-              {(hoveredBook===currBook)?(
-                booksArr[currBook].title
-              ):(
-                booksArr[hoveredBook].title
-              )}
-            </Link>
-          </Dotdotdot>
-          <Dotdotdot clamp={1} className="book-author" tagName="span">
-            <Link to={'/book/'+booksArr[currBook].id}>
-              {booksArr[hoveredBook].author}
-            </Link>
-          </Dotdotdot>
-          <span className="book-spec info_brand_v1">
-            <Link to={'/book/'+booksArr[currBook].id}>
-              {onShelves(booksArr[currBook].shelves)}
-            </Link>
-          </span>
         </div>
 
         <div className="bck"/>
