@@ -113,7 +113,7 @@ export default class MostRecomBooksHeader extends Component {
                     </div>
 
                     <div className='bookDown'>
-                      <h5 clamp={1} className="book-title" tagName="h5">
+                      <h5 className="book-title">
                         <Link to={'/book/'+bitm.id}>
                           {bitm.title}
                         </Link>

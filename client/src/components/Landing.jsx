@@ -95,13 +95,13 @@ export default class Landing extends Component {
 
         <section className="cont-width_0" id="searchSect">
           <div className="row" id="searchSect__inner">
-            <div className="col-1"/>
+            <div className="col-0 col-lg-1"/>
 
-            <div className="col-5">
+            <div className="col-6 col-lg-5">
               <Search maxResults={3}/>
             </div>
 
-            <div className="col-5 colBigPading-left">
+            <div className="col-6 col-lg-5 colBigPading-left">
               <h2 className="sect-header">Discover new Shelves</h2>
               <p className="sub-header">
                 Search Our Database and find
@@ -110,7 +110,7 @@ export default class Landing extends Component {
               </p>
             </div>
 
-            <div className="col-1"/>
+            <div className="col-0 col-lg-1"/>
           </div>
         </section>
 
@@ -135,7 +135,7 @@ export default class Landing extends Component {
 
           <ul className='row'>
             {['best-leadership-books', 'top-pulitzer-winners', 'best-young-adult', 'best-leadership-books', 'top-pulitzer-winners', 'best-young-adult'].map((item,i)=>(
-              <li key={i} className="col-12 col-sm-6 col-md-4">
+              <li key={i} className="col-12 col-sm-6 col-lg-4">
                 <CollectionMini collId={item}/>
               </li>
             ))}
@@ -146,9 +146,9 @@ export default class Landing extends Component {
 
         <section className="cont-width_0" id="tReadersSect">
           <div className="row" id="tReadersSect__inner">
-            <div className="col-1"/>
+            <div className="col-0 col-lg-1"/>
 
-            <div className="col-5 colBigPading-right" id="tReadersSect__left">
+            <div className="col-6 col-lg-5 colBigPading-right" id="tReadersSect__left">
               <div>
                 <h2 className="sect-header">Find Your Bookmate</h2>
                 <p className="sub-header">
@@ -164,10 +164,10 @@ export default class Landing extends Component {
               </span>
             </div>
 
-            <div className="col-1"  id="tReadersSect__cent">
+            <div className="col-0 col-md-1"  id="tReadersSect__cent">
               <div className="bck"/>
             </div>
-            <div className="col-4" id="tReadersSect__right">
+            <div className="col-6 col-md-5 col-lg-4" id="tReadersSect__right">
               <ul>
                 {PopularReadersArr.map((persUid,i)=>(
                   <li key={i}>
@@ -175,10 +175,11 @@ export default class Landing extends Component {
                   </li>
                 ))}
               </ul>
+              <div className="bck"/>
             </div>
 
 
-            <div className="col-1"/>
+            <div className="col-0 col-lg-1"/>
           </div>
         </section>
 

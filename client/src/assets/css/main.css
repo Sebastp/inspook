@@ -1026,7 +1026,8 @@ input, textarea {
     font-style: "Poppins", sans-serif;
     font-size: 0.75rem;
     margin-top: 14px;
-    white-space: pre; }
+    white-space: pre;
+    text-align: center; }
   .collectionMini.loading .collectionMini-top {
     height: 190px; }
   .collectionMini.loading .collectionMini-name {
@@ -1364,14 +1365,21 @@ input, textarea {
       padding-left: 0px; }
   #mostRBooksSect {
     margin-top: 80px; }
-  #searchSect .search-center .search-input {
-    margin: auto; } }
+  #searchSect {
+    margin-top: 100px; }
+    #searchSect .search-center .search-input {
+      margin: auto; } }
 
 @media (max-width: 768px) {
   #header #header__people {
     justify-content: space-between; }
     #header #header__people li {
-      flex: 0 0 33.33%; } }
+      flex: 0 0 33.33%; }
+      #header #header__people li .person__horiz .person-cover {
+        height: 50px;
+        width: 50px; }
+  #tReadersSect__cent {
+    display: none; } }
 
 @media (max-width: 544px) {
   #header {
