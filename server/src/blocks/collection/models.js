@@ -7,6 +7,7 @@ export const Collection = model({
     title: String,
     desc: String, // description
     cover: String, // book cover
+    color: String, // bck color
     tags: Array,
     books: Array // NIBNs 13
   }

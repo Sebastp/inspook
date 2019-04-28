@@ -4,7 +4,7 @@
     display: block;
     margin: auto;
     position: relative;
-    max-width: 555px;
+    max-width: 460px;
 
     &__icon{
       position: absolute;
@@ -80,22 +80,29 @@
         padding-bottom: 0px;
       }
     }
-  }
-}
 
 
+    &.loading .result-itm{
+      .result-itm__left{
+        flex: 1;
 
-@media (max-width: 544px) {
-  .search-center .search-input{
-    text-align: center;
-
-
-    &__icon{
-      display: none;
-    }
-
-    input{
-      padding-right: 5px;
+        .itm-name{
+          display: block;
+          height: 24px;
+          width: 80%;
+          max-width: 220px;
+          border-radius: 2px;
+        }
+        .itm-subtitle{
+          display: block;
+          margin-top: 14px;
+          width: 60%;
+          max-width: 160px;
+          margin-top: 10px;
+          height: 16px;
+          border-radius: 2px;
+        }
+      }
     }
   }
 }

@@ -20,7 +20,7 @@
 .sub-header{
   font-family: $poppins;
   font-weight: $regular;
-  color: rgba($dark1, 0.5);
+  color: rgba($dark1, 0.45);
   font-size: 1rem;
   margin-top: 25px;
   text-align: left;
@@ -40,12 +40,12 @@
   font-family: $poppins;
   font-weight: $regular;
   color: rgba($black, 0.45);
-  transition: opacity 0.2s;
-  font-size: 1rem;
+  transition: color 0.3s;
+  font-size: 0.9375rem;
 
   &:hover{
-    opacity: 0.9;
-    transition: opacity 0.3s;
+    color: rgba($black, 0.9);
+    transition: color 0.4s;
   }
 }
 

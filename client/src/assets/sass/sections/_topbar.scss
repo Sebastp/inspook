@@ -15,6 +15,8 @@
 
   header{
     display: inline-block;
+    width: 314px;
+
     #tpb-logoi{
       display: inline-block;
       height: 20px;
@@ -26,6 +28,36 @@
       width: auto;
       height: 23px;
       margin-left: 18px;
+    }
+  }
+
+  .searchCont{
+    max-width: 340px;
+    flex: 1;
+
+    .search-center {
+      .search-input{
+        &__icon{
+          left: 17px;
+          top: 14px;
+          width: 16px;
+          height: 16px;
+        }
+
+        input{
+          font-size: 0.875rem;
+          padding: 14px 17px 13px 17px;
+          padding-left: 46px;
+        }
+      }
+
+      .search-result{
+        position: absolute;
+        background-color: rgba($white, 0.95);
+        box-shadow: 3px 4px 10px 0px rgba(2, 12, 20, 0.06);
+        z-index: 8;
+        padding-bottom: 25px;
+      }
     }
   }
 
@@ -98,6 +130,10 @@
   .topbar{
     &__inner{
       padding-top: 40px;
+
+      header{
+        width: auto;
+      }
     }
 
     nav{
@@ -108,18 +144,14 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .topbar .searchCont{
+    max-width: 290px;
+  }
+}
 
-
-@media (max-width: 840px) {
+@media (max-width: 992px) {
   .topbar{
-    &__inner{
-      padding-bottom: 40px;
-    }
-
-    &-bck{
-      display: block;
-    }
-
     .nav-toggle{
       display: block;
     }
@@ -129,6 +161,22 @@
     }
   }
 }
+
+
+@media (max-width: 840px) {
+  .topbar{
+    &__inner{
+      padding-bottom: 40px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .topbar .searchCont{
+    display: none;
+  }
+}
+
 
 @media (max-width: 544px) {
   .topbar__inner{

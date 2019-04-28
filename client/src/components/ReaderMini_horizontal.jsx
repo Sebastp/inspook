@@ -23,6 +23,7 @@ export default class ReaderMini_horizontal extends Component {
             if (loading){
               return <PersonMini_loading/>
             }
+            if(error) {return error.toString()}
             error && ( console.log(error.toString()) )
 
             if ((error || !data) && !personObj) {

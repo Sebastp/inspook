@@ -3,6 +3,7 @@
   text-align: center;
   width: 100%;
   margin-bottom: 60px;
+  font-family: $poppins;
 
   &-top{
     display: flex;
@@ -29,25 +30,25 @@
       bottom: 0;
       margin: auto;
       z-index: -1;
-      background-color: #ceecec;
+      background-color: $grey1;
     }
   }
 
 
   &-name{
     display: block;
-    font-family: $poppins;
     font-weight: $medium;
     color: $dark2;
     font-size: 1.188rem;
-    margin-top: 25px;
+    margin-top: 21px;
   }
 
   &-subtitle{
     display: block;
-    font-weight: $medium;
+    font-weight: $regular;
     color: rgba($dark2, 0.5);
     font-size: 0.875rem;
+    font-size: 0.75rem;
     margin-top: 2px;
   }
 
@@ -58,7 +59,31 @@
     font-weight: $medium;
     font-style: $poppins;
     font-size: 0.75rem;
-    margin-top: 10px;
+    margin-top: 14px;
     white-space: pre;
+  }
+
+
+
+
+  &.loading{
+    .collectionMini-top{
+      height: 190px;
+    }
+
+    .collectionMini-name{
+      display: block;
+      height: 24px;
+      border-radius: 2px;
+      margin: 20px 5% 0 5%;
+    }
+    .collectionMini-subtitle{
+      display: block;
+      margin-top: 14px;
+      margin: 0 19%;
+      margin-top: 10px;
+      height: 16px;
+      border-radius: 2px;
+    }
   }
 }

@@ -10,7 +10,7 @@ export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchPhrase: 'asd'
+      searchPhrase: ''
     }
   }
 
@@ -40,19 +40,29 @@ export default class Search extends Component {
         <Query query={searchString} variables={{phrase: searchPhrase}}>
           {
             ({loading, error, data}) => {
+              if (searchPhrase=='') { return null }
+
               if (loading){
-                return 'loading'
+                return (
+                  <ul className="search-result loading">
+                    <li className="result-itm">
+                      <div className="result-itm__left">
+                        <div className="itm-name gradient-loadAnim"/>
+                        <div className="itm-subtitle gradient-loadAnim"/>
+                      </div>
+                    </li>
+                  </ul>
+                )
               }
 
               if (error) return error.toString()
-              if (searchPhrase=='') {
-                return null
-              }
+
               var searchRes = data.searchString
 
               if (maxResults) {
                 searchRes = searchRes.slice(0, maxResults)
               }
+              if (!searchRes.length) { return null }
 
               return(
                 <ul className="search-result">

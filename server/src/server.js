@@ -13,8 +13,7 @@ var cors_proxy = require('cors-anywhere');
 
 const {
   PORT = 8080,
-  MONGODB_URL,
-  MONGODB_PASSWORD
+  MONGODB_URL
 } = process.env
 
 // MONGODB_URL.replace('<PASSWORD>', MONGODB_PASSWORD)

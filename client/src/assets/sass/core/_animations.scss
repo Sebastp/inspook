@@ -8,9 +8,12 @@
 	}
 }
 
+
+$loadingColor: #494949;
+
 .gradient-loadAnim {
 	background-color: white !important;
-  background: linear-gradient(90deg, rgba($grey1, 0.02), rgba($grey1, 0.05), rgba($grey1, 0.02), rgba($grey1, 0.05)) !important;
+  background: linear-gradient(90deg, rgba($loadingColor, 0.02), rgba($loadingColor, 0.05), rgba($loadingColor, 0.02), rgba($loadingColor, 0.05)) !important;
   background-size: 300% 300% !important;
-  animation: Gradient 3s linear infinite;
+  animation: Gradient 4s linear infinite;
 }

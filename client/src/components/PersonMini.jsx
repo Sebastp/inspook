@@ -62,6 +62,10 @@ export default class PersonMini extends Component {
                   </span>
                 </div>
 
+                <Link to={'/reader/'+personData.uid}>
+                  <img src={ require('../assets/img/icons/arrowr.svg') } className="person-iconr"/>
+                </Link>
+
               </div>
             )
           }

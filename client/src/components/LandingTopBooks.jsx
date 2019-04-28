@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 
 import { Link } from 'react-router-dom'
 
@@ -40,6 +40,9 @@ export default class MostRecomBooksHeader extends Component {
         // Optional parameters
         direction: 'horizontal',
         slidesPerView: 'auto',
+        freeMode: true,
+        freeModeSticky: true,
+        freeModeMomentumRatio: 0.5,
         // centeredSlides: true,
         spaceBetween: 80,
         slidesOffsetBefore: 0,
@@ -86,55 +89,58 @@ export default class MostRecomBooksHeader extends Component {
 
 
     return(
-      <section id="mostRBooksSect" className="cont-width_0">
-        <div className="swiper-container">
-          <ul className="swiper-wrapper">
-            {
-              booksArr.map((bitm,i)=>(
+      <Fragment>
+        <section id="mostRBooksSect" className="cont-width_0">
+          <div className="swiper-container">
+            <ul className="swiper-wrapper">
+              {
+                booksArr.map((bitm,i)=>(
 
-                <li key={i} className={
-                    "swiper-slide"+(
-                      this.state.currBook===i?' activeBook':''
-                    )
-                  }
-                  onClick={()=>{this.changeCurrBook(i)}}
-                >
-                  <div className="book-cover">
-                    <Link to={'/book/'+bitm.id} className="book-cover__inner"
-                      style={{
-                        backgroundImage: 1?`url(${require('../assets/img/demo/'+bitm.cover)})`:
-                        `url(${require('../assets/img/demo/cover1.jpg')})`
-                      }}
-                      />
-                  </div>
+                  <li key={i} className={
+                      "swiper-slide"+(
+                        this.state.currBook===i?' activeBook':''
+                      )
+                    }
+                    onClick={()=>{this.changeCurrBook(i)}}
+                  >
+                    <div className="book-cover">
+                      <Link to={'/book/'+bitm.id} className="book-cover__inner"
+                        style={{
+                          backgroundImage: 1?`url(${require('../assets/img/demo/'+bitm.cover)})`:
+                          `url(${require('../assets/img/demo/cover1.jpg')})`
+                        }}
+                        />
+                    </div>
 
-                  <div className='bookDown'>
-                    <Dotdotdot clamp={1} className="book-title" tagName="h5">
-                      <Link to={'/book/'+bitm.id}>
-                        {bitm.title}
-                      </Link>
-                    </Dotdotdot>
-                    <Dotdotdot clamp={1} className="book-author" tagName="span">
-                      <Link to={'/book/'+bitm.id}>
-                        {bitm.author}
-                      </Link>
-                    </Dotdotdot>
-                    <span className="book-spec">
-                      <Link to={'/book/'+bitm.id}>
-                        {onShelves(bitm.shelves)}
-                      </Link>
-                    </span>
-                  </div>
-                </li>
+                    <div className='bookDown'>
+                      <h5 clamp={1} className="book-title" tagName="h5">
+                        <Link to={'/book/'+bitm.id}>
+                          {bitm.title}
+                        </Link>
+                      </h5>
+                      <Dotdotdot clamp={1} className="book-author" tagName="span">
+                        <Link to={'/book/'+bitm.id}>
+                          {bitm.author}
+                        </Link>
+                      </Dotdotdot>
+                      <span className="book-spec">
+                        <Link to={'/book/'+bitm.id}>
+                          {onShelves(bitm.shelves)}
+                        </Link>
+                      </span>
+                    </div>
+                  </li>
 
 
-              ))
-            }
-          </ul>
-        </div>
+                ))
+              }
+            </ul>
+          </div>
 
-        <div className="bck"/>
-      </section>
+          <div className="bck"/>
+        </section>
+        <p id="mostRBooksSect-subparagraph">Most Recommended Books</p>
+      </Fragment>
     )
   }
 }

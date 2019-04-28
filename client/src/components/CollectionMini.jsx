@@ -6,21 +6,13 @@ import Dotdotdot from 'react-clamp'
 
 import { getCollectionByUid } from '../graphql'
 
+import CollectionMini_loading from './CollectionMini_loading'
+
 
 export default class CollectionMini extends Component {
   render() {
     const {collId} = this.props;
 
-    const loadingObj = (
-      <div className="collectionMini">
-        <div className="person-cover">
-          <div className="person-cover__inner gradient-loadAnim"/>
-        </div>
-        <span className="person-name">
-          Loading Collection...
-        </span>
-      </div>
-    )
 
 
 
@@ -29,7 +21,7 @@ export default class CollectionMini extends Component {
         {
           ({loading, error, data}) => {
             if (loading){
-              return loadingObj
+              return <CollectionMini_loading/>
             }
             if (error || !data) {
               console.log(error.toString());
@@ -49,7 +41,11 @@ export default class CollectionMini extends Component {
                     }}
                   />
 
-                  <div className="collectionMini-bck"/>
+                  <div className="collectionMini-bck"
+                    style={{
+                      backgroundColor: '#'+collectionObj.color
+                    }}
+                  />
                 </Link>
 
 

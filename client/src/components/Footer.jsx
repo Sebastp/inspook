@@ -9,7 +9,7 @@ const Footer = (props) => {
           <h3>Read who You want to be</h3>
         </div>
 
-        <div className="col-4">
+        <div className="col-4 footer__right">
           <div className="findus">
             <h4>
               Find Us

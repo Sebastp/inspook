@@ -1,6 +1,23 @@
+@keyframes moveTopHeaderType0 {
+  50%{
+    transform: translateY(-100%);
+    opacity: 0.1;
+  }
+  100%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes moveTopHeaderType1 {
+  100%{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
 #header{
   position: relative;
-  margin-top: 40px;
+  margin-top: 50px;
 
   .header__inner{
     justify-content: space-between;
@@ -11,19 +28,41 @@
     display: block;
     text-align: left;
 
-    h1{
-      font-family: $lora;
-      font-weight: $regular;
-      color: rgba($dark2, 0.95);
-      font-size: 1.875rem;
-    }
-
     p{
       font-weight: $regular;
       color: rgba($dark1, 0.5);
       margin-top: 0px;
       margin-bottom: 30px;
       font-size: 1rem;
+    }
+
+    h1{
+      font-family: $lora;
+      font-weight: $regular;
+      color: rgba($dark2, 0.95);
+      font-size: 1.875rem;
+
+      .hdr-lightCont{
+        display: inline;
+        margin-left: 10px;
+        position: relative;
+        color: transparent;
+        overflow: hidden;
+
+        #hdrType-0, #hdrType-1{
+          position: absolute;
+          left: 0;
+          animation: moveTopHeaderType0 1s linear forwards;
+          z-index: -1;
+        }
+
+        #hdrType-1{
+          opacity: 0;
+          // top: 34px;
+          transform: translateY(100%);
+          animation: moveTopHeaderType1 1s linear forwards;
+        }
+      }
     }
   }
 
@@ -41,8 +80,7 @@
   display: block;
   width: 100%;
   margin: auto;
-  margin-top: 120px;
-
+  margin-top: 130px;
 }
 
 
@@ -75,7 +113,7 @@
   margin-top: 100px;
 
   &__left{
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -88,15 +126,19 @@
 
   &__right{
     position: relative;
+  }
+
+  &__cent{
     .bck{
       background-color: $grey3;
       position: absolute;
       width: 100vw;
       height: 100%;
-      left: 0;
+      left: 15px;
       top: 0;
       z-index: -1;
     }
+
   }
 
   ul{
@@ -136,17 +178,30 @@
 @media (min-width: 544px) {}
 
 
-// Medium
-@media (min-width: 768px) {}
+
 // Large
 @media (max-width: 992px) {
-  #header #tagline{
-    h1{
-      font-size: 2rem;
+  #header{
+    margin-top: 30px;
+    #header__tagline{
+      h1{
+        font-size: 2rem;
+      }
+      p{
+        font-size: 1rem;
+      }
     }
-    p{
-      font-size: 1rem;
+
+    #header__people{
+      justify-content: space-around;
+      margin: 60px auto 0 auto;
+      padding-right: 0px;
+      padding-left: 0px;
     }
+  }
+
+  #mostRBooksSect{
+    margin-top: 80px;
   }
 
 
@@ -159,22 +214,39 @@
 // Extra large
 
 
+
+// Medium
+@media (max-width: 768px) {
+  #header #header__people{
+    justify-content: space-between;
+    li{
+      flex: 0 0 33.33%;
+    }
+  }
+}
+
+
 @media (max-width: 544px) {
   #header{
-    margin-top: 55px;
+    margin-top: 25px;
 
-    #tagline{
+    #header__tagline{
+      text-align: center;
       h1{
-        font-size: 1.875rem;
+        font-size: 1.625rem;
       }
       p{
         font-size: 0.9375rem;
+        margin-bottom: 23px;
       }
     }
-  }
 
-  #mostRBooksSect{
-    margin-top: 70px;
-    padding-bottom: 70px;
+    #header__people li{
+      flex: 0 0 50%;
+
+      &:last-child{
+        display: none;
+      }
+    }
   }
 }

@@ -21,8 +21,8 @@ export default class Topbar extends Component {
           </header>
 
 
-          <div>
-            <Search bottomMsg="Search..."/>
+          <div className="searchCont">
+            <Search bottomMsg="Search..." maxResults={4}/>
           </div>
 
 

@@ -14,9 +14,18 @@ footer{
     text-align: left;
   }
 
+  .footer__right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
   .findus{
     display: inline-block;
     text-align: left;
+    vertical-align: super;
+
 
     h4{
       font-family: $poppins;
@@ -47,6 +56,7 @@ footer{
     .navAnach{
       display: block;
       font-size: 0.9375rem;
+      margin-bottom: 6px;
     }
   }
 }
