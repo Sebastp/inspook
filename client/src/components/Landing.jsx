@@ -18,7 +18,14 @@ import ReaderMini_horizontal from './ReaderMini_horizontal'
 
 
 const PopularReadersArr = ["elon-musk", "richard-branson", "bill-gates", "seth-godin"],
-      readerTypes = ["Entrepreneurs", "Artists", "Politicians", "Scientists"]
+      readerTypes = {
+        "Entrepreneurs": ['bill-gates', 'grant-cardone', 'elon-musk'],
+        "Artists": ['robert-greene', 'ernest-hemingway', 'stephen-king'],
+        "Celebrities": ['casey-neistat', 'oprah-winfrey', 'tim-ferriss'],
+        "Scientists": ['neil-degrasse-tyson', 'steven-pinker', 'brene-brown']
+      },
+      readerTypesKeys = Object.keys(readerTypes)
+
 
 
 export default class Landing extends Component {
@@ -26,25 +33,27 @@ export default class Landing extends Component {
     super(props);
     this.state = {
       loadedPeople: false,
-      currTypesNum: 0,
-      currTypes: [readerTypes[0], readerTypes[1]],
+      currTypesNum: 1,
+      currTypes: [readerTypesKeys[0], readerTypesKeys[1]],
     }
   }
 
   componentDidMount() {
+    setInterval(this.changeType.bind(this), 8000)
+    /*
     setTimeout(
       function() {
-        setInterval(this.changeType.bind(this), 4000)
+        setInterval(this.changeType.bind(this), 8000)
       }
       .bind(this),
-      4000
-    )
+      8000
+    )*/
   }
 
   changeType() {
      var {currTypesNum} = this.state,
-         nextNum = (currTypesNum+1)%readerTypes.length,
-         typesToView = [readerTypes[currTypesNum], readerTypes[nextNum]]
+         nextNum = (currTypesNum+1)%readerTypesKeys.length,
+         typesToView = [readerTypesKeys[currTypesNum], readerTypesKeys[nextNum]]
 
      this.setState({
        currTypesNum: nextNum,
@@ -54,6 +63,9 @@ export default class Landing extends Component {
 
   render() {
     const {currTypes} = this.state
+    var readersType1 = readerTypes[currTypes[0]],
+        readersType2 = readerTypes[currTypes[1]]
+
     return (
       <Fragment>
         <Topbar/>
@@ -64,10 +76,10 @@ export default class Landing extends Component {
               <p>Get Inspired By The Best</p>
               <h1>See Book Recommendations<br/>From
                 <div className="hdr-lightCont">
-                  Entrepreneurs
+                  {currTypes[0]}
                   {
                     currTypes.map((type,i)=>(
-                      <span className="hdr-light" id={'hdrType-'+i} key={i}>{type}</span>
+                      <span className="hdr-light" id={'hdrType-'+i} key={Math.random(8)}>{type}</span>
                     ))
                   }
                 </div>
@@ -76,9 +88,10 @@ export default class Landing extends Component {
 
             <ul className="col-12 col-lg-6" id="header__people">
               {
-                ['bill-gates', 'warren-buffett', 'richard-branson'].map((rid,i)=>(
-                  <li key={i}>
+                readersType1.map((rid,i)=>(
+                  <li key={Math.random(8)}>
                     <ReaderMini_horizontal readerUid={rid}/>
+                    <ReaderMini_horizontal readerUid={readersType2[i]}/>
                   </li>
                 ))
               }
@@ -97,11 +110,11 @@ export default class Landing extends Component {
           <div className="row" id="searchSect__inner">
             <div className="col-0 col-lg-1"/>
 
-            <div className="col-6 col-lg-5">
+            <div className="col-12 col-md-6 col-lg-5">
               <Search maxResults={3}/>
             </div>
 
-            <div className="col-6 col-lg-5 colBigPading-left">
+            <div className="col-12 col-md-6 col-lg-5 colBigPading-left">
               <h2 className="sect-header">Discover new Shelves</h2>
               <p className="sub-header">
                 Search Our Database and find
@@ -120,7 +133,7 @@ export default class Landing extends Component {
 
         <section id="collectionsSect" className="cont-width_0">
           <div className="row">
-            <div className="col-1"/>
+            <div className="col-0 col-lg-1"/>
             <div className="col sectHeader">
               <h2 className="sect-header_s1">Book Collections</h2>
 
@@ -130,7 +143,7 @@ export default class Landing extends Component {
                 </Link>
               </span>
             </div>
-            <div className="col-1"/>
+            <div className="col-0 col-lg-1"/>
           </div>
 
           <ul className='row'>

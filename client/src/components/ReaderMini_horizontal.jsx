@@ -47,6 +47,7 @@ export default class ReaderMini_horizontal extends Component {
                 </Link>
 
                 <div className="person-info">
+                  <div className="person-info__white"/>
                   <h5 className="person-name">
                     <Link to={'/reader/'+personData.uid}>
                       <Dotdotdot clamp={1}>

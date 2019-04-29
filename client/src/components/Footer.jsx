@@ -5,11 +5,11 @@ const Footer = (props) => {
   return (
     <footer className="cont-width_0">
       <div className="row">
-        <div className="col">
+        <div className="col footer__left">
           <h3>Read who You want to be</h3>
         </div>
 
-        <div className="col-4 footer__right">
+        <div className="col-5 col-md-4 footer__right">
           <div className="findus">
             <h4>
               Find Us
