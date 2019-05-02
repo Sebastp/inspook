@@ -36,21 +36,6 @@
     flex: 1;
 
     .search-center {
-      .search-input{
-        &__icon{
-          left: 17px;
-          top: 14px;
-          width: 16px;
-          height: 16px;
-        }
-
-        input{
-          font-size: 0.875rem;
-          padding: 14px 17px 13px 17px;
-          padding-left: 46px;
-        }
-      }
-
       .search-result{
         position: absolute;
         background-color: rgba($white, 0.95);

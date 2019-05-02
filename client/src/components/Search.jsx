@@ -23,13 +23,19 @@ export default class Search extends Component {
   }
 
   render() {
-    var {bottomMsg, maxResults} = this.props;
+    var {bottomMsg, maxResults, type} = this.props;
     const {searchPhrase} = this.state;
 
     var bottomMsg = bottomMsg?bottomMsg:'Search...'
 
+    if (type) {
+      var contType = 'search-center__'+type
+    }else {
+      var contType = ''
+    }
+
     return (
-      <div className="search-center">
+      <div className={"search-center "+contType}>
         <div className="search-input">
           <label className="search-input__icon"
             style={{ backgroundImage: `url(${require('../assets/img/icons/search.svg')})` }}

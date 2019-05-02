@@ -567,16 +567,41 @@ body {
 
 .button-filled {
   border-radius: 500px;
-  background-color: #000722;
-  color: #ffffff;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
   border: none;
-  padding: 14px 34px;
-  font-size: 0.75rem;
   cursor: pointer;
-  letter-spacing: 0.025em; }
+  background-color: #f6f6f4;
+  font-size: 0.75rem;
+  padding: 7px 20px 7px 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+  transition: background-color 0.25s;
+  white-space: nowrap; }
+  .button-filled:hover {
+    background-color: #eeeeee;
+    color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.4s; }
+
+.button-scm {
+  padding: 11px 0;
+  height: 35px;
+  width: 35px;
+  display: inline-block; }
+  .button-scm img {
+    display: block;
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    opacity: 0.18;
+    cursor: pointer;
+    margin: auto;
+    transition: opacity 0.2s; }
+    .button-scm img:hover {
+      opacity: 0.3;
+      transition: opacity 0.2s; }
+  .button-scm img {
+    height: 17px;
+    height: 100%; }
 
 input, textarea {
   display: block;
@@ -633,49 +658,81 @@ input, textarea {
     .pageTop__nav :not(.active) {
       color: rgba(0, 7, 34, 0.45); }
 
+.pagebcpTop {
+  position: relative;
+  text-align: left;
+  display: block;
+  margin: auto; }
+  .pagebcpTop .bcp-canvas {
+    position: relative;
+    display: block;
+    text-align: center; }
+    .pagebcpTop .bcp-canvas__cover {
+      display: block;
+      background-size: cover;
+      background-color: #eeeeee;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 auto; }
+    .pagebcpTop .bcp-canvas__bck {
+      width: 100vw;
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      background-color: #fafafa; }
+  .pagebcpTop .bcp-info {
+    text-align: left;
+    padding-right: 35px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column; }
+    .pagebcpTop .bcp-info .bcp-infoCenter {
+      display: block;
+      margin: auto;
+      width: 100%; }
+    .pagebcpTop .bcp-info .bcp-title {
+      display: block;
+      font-family: "Lora", serif;
+      font-weight: 400;
+      color: rgba(0, 7, 34, 0.95);
+      font-size: 1.875rem;
+      margin-top: 8px; }
+    .pagebcpTop .bcp-info .bcp-desc {
+      display: block;
+      font-weight: 400;
+      color: rgba(16, 16, 16, 0.5);
+      font-size: 1rem; }
+    .pagebcpTop .bcp-info .bcp-spec {
+      text-align: right;
+      display: block;
+      white-space: pre;
+      font-size: 0.75rem;
+      white-space: pre; }
+
 .midRow {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 25px auto; }
+  margin: 25px auto;
+  width: 100%; }
   .midRow__item {
     display: inline-block; }
-    .midRow__item span {
-      display: inline-block; }
-      .midRow__item span.itmDesc {
-        font-weight: 500;
-        color: rgba(0, 7, 34, 0.4);
-        font-size: 0.875rem;
-        margin-right: 8px; }
-      .midRow__item span.itmNum {
-        font-size: 1rem;
-        font-weight: 600;
-        color: rgba(0, 7, 34, 0.9); }
+    .midRow__item .itmDesc {
+      vertical-align: middle;
+      display: inline-block;
+      font-weight: 500;
+      color: rgba(0, 7, 34, 0.9);
+      font-size: 0.875rem;
+      margin-right: 20px; }
     .midRow__item .itmScm {
-      margin-left: 5px;
-      height: 15px;
       display: inline-block; }
-      .midRow__item .itmScm div, .midRow__item .itmScm img {
-        display: inline-block;
-        height: 100%;
-        background-position: center;
-        background-size: cover;
-        background-color: transparent;
-        margin-right: 13px;
-        opacity: 0.18;
-        cursor: pointer;
-        transition: opacity 0.2s; }
-        .midRow__item .itmScm div:hover, .midRow__item .itmScm img:hover {
-          opacity: 0.3;
-          transition: opacity 0.2s; }
-        .midRow__item .itmScm div:last-child, .midRow__item .itmScm img:last-child {
+      .midRow__item .itmScm .button-scm {
+        margin-right: 13px; }
+        .midRow__item .itmScm .button-scm:last-child {
           margin-right: 0px; }
-  .midRow-break {
-    height: 25px;
-    width: 1px;
-    background-color: #eeeeee;
-    margin: auto 20px; }
 
 .pageMain {
   margin-top: 80px; }
@@ -839,6 +896,15 @@ input, textarea {
         margin-top: 10px;
         height: 16px;
         border-radius: 2px; }
+  .search-center__sml .search-input__icon {
+    left: 17px;
+    top: 14px;
+    width: 16px;
+    height: 16px; }
+  .search-center__sml .search-input input {
+    font-size: 0.875rem;
+    padding: 14px 17px 13px 17px;
+    padding-left: 46px; }
 
 .person {
   display: flex;
@@ -924,61 +990,23 @@ input, textarea {
   display: inline-block;
   width: 100%; }
   .collection header {
-    display: block;
-    margin: auto;
-    position: relative;
-    text-align: center;
     margin-top: 40px; }
-    .collection header .collection-top {
-      position: relative;
-      display: block; }
-      .collection header .collection-top .collection-cover {
-        background-size: cover;
-        background-color: #eeeeee;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 83px;
-        height: 130px;
-        margin: 0 auto;
-        box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15); }
-      .collection header .collection-top .collection-bck {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        z-index: -1;
-        background-color: #fafafa;
-        margin: 21px auto; }
-        .collection header .collection-top .collection-bck__inner {
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          max-width: 120px;
-          position: absolute;
-          margin: -10px auto;
-          background-color: #ff1f64; }
-  .collection-title {
-    display: block;
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    color: #000722;
-    font-size: 1.563rem;
-    margin-top: 15px; }
-  .collection-desc {
-    display: block;
-    margin-top: 5px;
-    font-weight: 500;
-    color: rgba(0, 7, 34, 0.37);
-    font-size: 1rem;
-    margin-bottom: 0; }
-  .collection-spec {
-    display: block;
-    color: #ff004e;
-    margin-top: 13px;
-    white-space: pre;
-    font-size: 0.8125rem;
-    font-weight: 600; }
+    .collection header .collection-canvas .collection-cover {
+      width: 90px;
+      height: 141px;
+      box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
+      margin: 30px auto; }
+    .collection header .collection-info {
+      text-align: left;
+      padding-right: 35px; }
+      .collection header .collection-info .collection-desc {
+        margin-top: 30px; }
+      .collection header .collection-info .collection-spec {
+        text-align: right;
+        display: block;
+        white-space: pre;
+        font-size: 0.75rem;
+        white-space: pre; }
   .collection ul {
     width: 100%;
     margin: auto; }
@@ -1031,7 +1059,7 @@ input, textarea {
     margin-top: 2px; }
   .collectionMini-spec {
     display: block;
-    color: #000000;
+    color: rgba(0, 0, 0, 0.9);
     font-weight: 500;
     font-style: "Poppins", sans-serif;
     font-size: 0.75rem;
@@ -1056,63 +1084,24 @@ input, textarea {
 .bookPage {
   width: 100%; }
   .bookPage header {
-    display: block;
-    margin: auto;
-    position: relative;
-    text-align: center;
     margin-top: 40px; }
-    .bookPage header .bookPage-top {
-      position: relative;
-      display: block; }
-      .bookPage header .bookPage-top .bookPage-cover {
-        background-size: cover;
-        background-color: #eeeeee;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 96px;
-        height: 150px;
-        margin: 0 auto;
-        box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15); }
-      .bookPage header .bookPage-top .bookPage-bck {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        background-color: #fafafa;
-        margin: 25px auto;
-        max-width: 183px; }
-    .bookPage header .bookPage-title {
-      font-family: "Merriweather", serif;
-      font-weight: 700;
-      color: #000722;
-      font-size: 1.563rem;
-      margin-top: 15px;
-      text-align: center; }
-    .bookPage header .bookPage-author {
-      display: block;
-      text-align: center;
-      margin-top: 5px;
-      font-weight: 500;
-      color: rgba(0, 7, 34, 0.37);
-      font-size: 1rem; }
-    .bookPage header .bookPage-desc {
-      display: block;
-      margin-top: 5px;
-      font-weight: 500;
-      color: rgba(0, 7, 34, 0.37);
-      font-size: 1rem;
-      text-align: center;
-      font-family: "Lato", sans-serif;
-      font-weight: 500;
-      color: rgba(0, 7, 34, 0.42);
-      font-size: 1rem;
-      line-height: 1.45em;
-      margin-top: 15px; }
-  .bookPage .midRow {
-    margin-top: 35px; }
+    .bookPage header .bookPage-canvas .bookPage-cover {
+      width: 100px;
+      height: 157px;
+      box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
+      margin: 100px auto; }
+    .bookPage header .bookPage-info {
+      text-align: left;
+      padding-right: 35px; }
+      .bookPage header .bookPage-info .bookPage-author {
+        margin-top: 13px; }
+      .bookPage header .bookPage-info .bookPage-specs {
+        color: rgba(0, 7, 34, 0.45); }
+        .bookPage header .bookPage-info .bookPage-specs p {
+          display: inline-block;
+          margin-right: 30px; }
+          .bookPage header .bookPage-info .bookPage-specs p:last-child {
+            margin-right: 0px; }
   .bookPage .book-review {
     width: 100%;
     margin-top: 30px;
@@ -1160,36 +1149,36 @@ input, textarea {
     .bookHalf .book-top .book-content {
       display: flex;
       flex-direction: column;
-      margin-left: 16px;
+      margin-left: 18px;
       flex: 1; }
       .bookHalf .book-top .book-content .book-title {
-        font-family: "Merriweather", serif;
-        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
         color: #000722;
         font-size: 1.313rem;
-        margin-top: 2px;
         text-align: left;
         width: 100%; }
       .bookHalf .book-top .book-content .book-author {
         display: block;
         font-weight: 400;
-        font-weight: 500;
-        color: rgba(0, 7, 34, 0.37);
-        font-size: 0.9375rem;
+        color: rgba(16, 16, 16, 0.5);
+        font-size: 0.875rem;
         width: 100%;
-        margin-top: 1px; }
+        margin-top: 4px; }
       .bookHalf .book-top .book-content .book-midrow {
         flex: 1;
-        margin-top: 5px; }
+        margin-top: 5px;
+        font-family: "Poppins", sans-serif; }
         .bookHalf .book-top .book-content .book-midrow .book-rate {
-          font-weight: 500;
-          color: rgba(0, 7, 34, 0.4);
+          font-weight: 400;
+          color: rgba(0, 7, 34, 0.45);
           font-size: 0.875rem; }
           .bookHalf .book-top .book-content .book-midrow .book-rate span {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.9375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
             color: rgba(0, 7, 34, 0.9);
-            margin-right: 8px; }
+            margin-right: 6px; }
       .bookHalf .book-top .book-content .book-bottom {
         width: 100%;
         display: flex;
@@ -1198,22 +1187,13 @@ input, textarea {
         align-items: flex-end; }
         .bookHalf .book-top .book-content .book-bottom .book-buy {
           display: inline-block; }
-          .bookHalf .book-top .book-content .book-bottom .book-buy a {
-            font-family: "Merriweather", serif;
-            font-weight: 700;
-            color: rgba(0, 7, 34, 0.9);
-            font-size: 1rem;
-            transition: color 0.2s; }
-            .bookHalf .book-top .book-content .book-bottom .book-buy a:hover {
-              color: #000722;
-              transition: color 0.25s; }
-          .bookHalf .book-top .book-content .book-bottom .book-buy span {
-            font-weight: 500;
-            color: rgba(0, 7, 34, 0.4);
-            font-size: 0.875rem;
-            margin-right: 10px; }
         .bookHalf .book-top .book-content .book-bottom .book-spec {
-          cursor: pointer; }
+          cursor: pointer;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 0.75rem;
+          color: rgba(0, 0, 0, 0.83);
+          vertical-align: middle; }
   .bookHalf .book-review {
     width: 100%;
     margin-top: 30px;
@@ -1247,6 +1227,98 @@ input, textarea {
     margin-top: 14px;
     height: 22px;
     max-width: 220px; }
+
+#searchSect {
+  display: block;
+  width: 100%;
+  margin: auto;
+  margin-top: 130px; }
+
+#collectionsSect {
+  margin-top: 120px; }
+  #collectionsSect .sectHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+  #collectionsSect ul {
+    margin-top: 60px; }
+    #collectionsSect ul li {
+      display: inline-block; }
+
+#tReadersSect {
+  width: 100%;
+  display: block;
+  margin-top: 100px;
+  display: none; }
+  #tReadersSect__left {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    #tReadersSect__left .subAnach {
+      text-align: right; }
+  #tReadersSect__right {
+    position: relative; }
+  #tReadersSect__cent .bck {
+    background-color: #fafafa;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    left: 15px;
+    top: 0;
+    z-index: -1; }
+  #tReadersSect ul {
+    margin: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow-x: hidden; }
+    #tReadersSect ul li {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 30px; }
+      #tReadersSect ul li:last-child {
+        margin-bottom: 0px; }
+    #tReadersSect ul .subMoreSpan {
+      padding-top: 10px;
+      margin-bottom: 20px; }
+
+@media (max-width: 1175px) {
+  #searchSect .colBigPading-left p {
+    padding-right: 0%; }
+    #searchSect .colBigPading-left p br {
+      display: none; } }
+
+@media (max-width: 992px) {
+  #mostRBooksSect {
+    margin-top: 80px; }
+  #searchSect {
+    margin-top: 100px; }
+    #searchSect .search-center .search-input {
+      margin: auto; } }
+
+@media (max-width: 768px) {
+  .sub-header {
+    font-size: 0.9375rem; }
+  #searchSect {
+    margin-top: 80px; }
+    #searchSect #searchSect__inner {
+      flex-direction: column-reverse; }
+      #searchSect #searchSect__inner .colBigPading-left {
+        padding-left: 15px;
+        margin-bottom: 50px; }
+        #searchSect #searchSect__inner .colBigPading-left h2, #searchSect #searchSect__inner .colBigPading-left p {
+          text-align: center;
+          padding-right: 0px; }
+          #searchSect #searchSect__inner .colBigPading-left h2 br, #searchSect #searchSect__inner .colBigPading-left p br {
+            display: block; }
+  #tReadersSect__cent {
+    display: none; } }
 
 @keyframes moveTopHeaderType0 {
   30% {
@@ -1358,66 +1430,6 @@ input, textarea {
           animation: personFadeDown1 0.4s ease-in forwards;
           animation-delay: 6.5s; }
 
-#searchSect {
-  display: block;
-  width: 100%;
-  margin: auto;
-  margin-top: 130px; }
-
-#collectionsSect {
-  margin-top: 120px; }
-  #collectionsSect .sectHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center; }
-  #collectionsSect ul {
-    margin-top: 60px; }
-    #collectionsSect ul li {
-      display: inline-block; }
-
-#tReadersSect {
-  width: 100%;
-  display: block;
-  margin-top: 100px;
-  display: none; }
-  #tReadersSect__left {
-    margin-top: 40px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
-    #tReadersSect__left .subAnach {
-      text-align: right; }
-  #tReadersSect__right {
-    position: relative; }
-  #tReadersSect__cent .bck {
-    background-color: #fafafa;
-    position: absolute;
-    width: 100vw;
-    height: 100%;
-    left: 15px;
-    top: 0;
-    z-index: -1; }
-  #tReadersSect ul {
-    margin: auto;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    overflow-x: hidden; }
-    #tReadersSect ul li {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      margin-bottom: 30px; }
-      #tReadersSect ul li:last-child {
-        margin-bottom: 0px; }
-    #tReadersSect ul .subMoreSpan {
-      padding-top: 10px;
-      margin-bottom: 20px; }
-
 @media (max-width: 992px) {
   #header {
     margin-top: 30px; }
@@ -1429,36 +1441,16 @@ input, textarea {
       justify-content: space-around;
       margin: 60px auto 0 auto;
       padding-right: 0px;
-      padding-left: 0px; }
-  #mostRBooksSect {
-    margin-top: 80px; }
-  #searchSect {
-    margin-top: 100px; }
-    #searchSect .search-center .search-input {
-      margin: auto; } }
+      padding-left: 0px; } }
 
 @media (max-width: 768px) {
-  .sub-header {
-    font-size: 0.9375rem; }
   #header #header__people {
     justify-content: space-between; }
     #header #header__people li {
       flex: 0 0 33.33%; }
       #header #header__people li .person__horiz .person-cover {
         height: 50px;
-        width: 50px; }
-  #searchSect {
-    margin-top: 80px; }
-    #searchSect #searchSect__inner {
-      flex-direction: column-reverse; }
-      #searchSect #searchSect__inner .colBigPading-left {
-        padding-left: 15px;
-        margin-bottom: 50px; }
-        #searchSect #searchSect__inner .colBigPading-left h2, #searchSect #searchSect__inner .colBigPading-left p {
-          text-align: center;
-          padding-right: 0px; }
-  #tReadersSect__cent {
-    display: none; } }
+        width: 50px; } }
 
 @media (max-width: 544px) {
   #header {
@@ -1742,15 +1734,6 @@ input, textarea {
   .topbar .searchCont {
     max-width: 340px;
     flex: 1; }
-    .topbar .searchCont .search-center .search-input__icon {
-      left: 17px;
-      top: 14px;
-      width: 16px;
-      height: 16px; }
-    .topbar .searchCont .search-center .search-input input {
-      font-size: 0.875rem;
-      padding: 14px 17px 13px 17px;
-      padding-left: 46px; }
     .topbar .searchCont .search-center .search-result {
       position: absolute;
       background-color: rgba(255, 255, 255, 0.95);

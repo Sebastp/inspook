@@ -1,3 +1,4 @@
+//all people, collections etc.
 .pageTop{
   display: flex;
   flex-direction: column;
@@ -50,54 +51,113 @@
 
 
 
+//bcp = book, collection, person
+.pagebcpTop{
+  position: relative;
+  text-align: left;
+  display: block;
+  margin: auto;
+
+  .bcp-canvas{
+    position: relative;
+    display: block;
+    text-align: center;
+
+    &__cover{
+      display: block;
+      background-size: cover;
+      background-color: $grey2;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+    }
+
+    &__bck{
+      width: 100vw;
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      background-color: $grey3;
+    }
+  }
+
+
+  .bcp-info{
+    text-align: left;
+    padding-right: 35px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .bcp-infoCenter{
+      display: block;
+      margin: auto;
+      width: 100%;
+      // flex: 1;
+    }
+
+    .bcp-pname{
+      // font-size: 0.75rem;
+    }
+
+    .bcp-title{
+      display: block;
+      font-family: $lora;
+      font-weight: $regular;
+      color: rgba($dark2, 0.95);
+      font-size: 1.875rem;
+      margin-top: 8px;
+    }
+
+    .bcp-desc{
+      display: block;
+      font-weight: $regular;
+      color: rgba($dark0, 0.5);
+      font-size: 1rem;
+    }
+
+
+    .bcp-spec{
+      text-align: right;
+      display: block;
+      white-space: pre;
+      font-size: 0.75rem;
+      white-space: pre;
+    }
+  }
+}
+
+
+
+
+
 .midRow{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: 25px auto;
+  width: 100%;
 
   &__item{
     display: inline-block;
 
-    span{
+    .itmDesc{
+      vertical-align: middle;
       display: inline-block;
-
-      &.itmDesc{
-        font-weight: $medium;
-        color: rgba($dark2, 0.4);
-        font-size: 0.875rem;
-        margin-right: 8px;
-      }
-
-      &.itmNum{
-        font-size: 1rem;
-        font-weight: $semi-bold;
-        color: rgba($dark2, 0.9);
-      }
-
+      font-weight: $medium;
+      color: rgba($dark2, 0.9);
+      font-size: 0.875rem;
+      margin-right: 20px;
     }
 
     .itmScm{
-      margin-left: 5px;
-      height: 15px;
       display: inline-block;
 
-      div, img{
-        display: inline-block;
-        height: 100%;
-        background-position: center;
-        background-size: cover;
-        background-color: transparent;
+      .button-scm{
         margin-right: 13px;
-        opacity: 0.18;
-        cursor: pointer;
-        transition: opacity 0.2s;
-
-        &:hover{
-          opacity: 0.3;
-          transition: opacity 0.2s;
-        }
 
         &:last-child{
           margin-right: 0px;
@@ -106,12 +166,6 @@
     }
   }
 
-  &-break{
-    height: 25px;
-    width: 1px;
-    background-color: $grey2;
-    margin: auto 20px;
-  }
 }
 
 

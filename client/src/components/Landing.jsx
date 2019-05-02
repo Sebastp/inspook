@@ -18,6 +18,10 @@ import ReaderMini_horizontal from './ReaderMini_horizontal'
 
 
 const PopularReadersArr = ["elon-musk", "richard-branson", "bill-gates", "seth-godin"],
+      PopularCollectionsArr = [
+        'reading-for-success', 'top-pulitzer-winners', 'best-young-adult',
+        'modern-business-books', 'best-leadership-books', 'motivation-self-improvement'
+      ],
       readerTypes = {
         "Entrepreneurs": ['bill-gates', 'grant-cardone', 'elon-musk'],
         "Artists": ['robert-greene', 'ernest-hemingway', 'stephen-king'],
@@ -147,7 +151,7 @@ export default class Landing extends Component {
           </div>
 
           <ul className='row'>
-            {['best-leadership-books', 'top-pulitzer-winners', 'best-young-adult', 'best-leadership-books', 'top-pulitzer-winners', 'best-young-adult'].map((item,i)=>(
+            {PopularCollectionsArr.map((item,i)=>(
               <li key={i} className="col-12 col-sm-6 col-lg-4">
                 <CollectionMini collId={item}/>
               </li>

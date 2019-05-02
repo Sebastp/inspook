@@ -1,12 +1,14 @@
 import React, {Component, Fragment} from 'react'
+
 import {Query} from 'react-apollo'
-
 import Dotdotdot from 'react-clamp'
-
 import stripHtml from "string-strip-html";
 
 
+import { getLink } from '../helpers/amazonAff'
+
 import Topbar from './Topbar'
+import ScmButtons from './partials/ScmButtons'
 import BookReview from './BookReview'
 
 
@@ -57,67 +59,76 @@ export default class Book extends Component {
         <Topbar/>
 
         <div className="bookPage">
-          <header className="cont-width_2">
-            <div className="bookPage-top">
-              <div className="bookPage-cover"
-                style={{ backgroundImage: `url(${book_cover})` }}
-              />
-              <div className="bookPage-bck"/>
+          <header className="cont-width_0 pagebcpTop">
+            <div className="row">
+              <div className="col-0 col-lg-1"/>
+
+              <div className="bookPage-info bcp-info col-7 col-lg-6">
+                <div className="bcp-infoCenter">
+                  <span className="subAnach bcp-pname">Book</span>
+                  <h1 className="bookPage-title bcp-title">{book_title}</h1>
+                  <span className="bookPage-author bcp-desc">{book_author}</span>
+                </div>
+
+                <div className="bookPage-specs bcp-spec">
+                  <p>On Shelves
+                    <Query query={nrOfShelves} variables={{bookid: this.bookId}}>
+                      {
+                        ({loading, error, data}) => {
+                          if (loading){
+                            return null
+                          }
+
+                          if (error) {
+                            console.log(error.toString());
+                            return null
+                          }
+
+                          var shelves = data.nrOfShelves
+
+                          return ' '+shelves
+                        }
+                      }
+                    </Query>
+                  </p>
+                  <p>Stars on GoodReads {book_rating}</p>
+                </div>
+              </div>
+
+
+              <div className="bookPage-canvas bcp-canvas col-5 col-lg-4">
+                <div className="bookPage-cover bcp-canvas__cover"
+                  style={{ backgroundImage: `url(${book_cover})` }}
+                  />
+                <div className="bookPage-bck bcp-canvas__bck"
+                    style={{
+                      backgroundColor: '#bde9fb'
+                    }}
+                  />
+              </div>
+
+              <div className="col-0 col-lg-1"/>
             </div>
-
-
-            <h1 className="bookPage-title">{book_title}</h1>
-            <span className="bookPage-author">{book_author}</span>
-            <p className="bookPage-desc">
-              <Dotdotdot clamp={3}>
-                {stripHtml(book_desc)}
-              </Dotdotdot>
-            </p>
           </header>
-
 
 
 
           <div className="midRow cont-width_2">
             <div className="midRow__item">
-              <span className="itmDesc">Rating on Goodreads</span>
-              <span className="itmNum">{book_rating}</span>
+              <span className="itmDesc">Buy on</span>
+
+              <a className="button-filled" target="_blank" href={getLink(this.bookId)}>
+                Amazon
+              </a>
+              <a className="button-filled" target="_blank" href={getLink(this.bookId)}>
+                Book Depository
+              </a>
             </div>
-
-            <div className="midRow-break"/>
-
-            <div className="midRow__item">
-              <span className="itmDesc">On Shelves</span>
-              <span className="itmNum">
-                <Query query={nrOfShelves} variables={{bookid: this.bookId}}>
-                  {
-                    ({loading, error, data}) => {
-                      if (loading){
-                        return null
-                      }
-
-                      if (error) {
-                        console.log(error.toString());
-                        return null
-                      }
-
-                      var shelves = data.nrOfShelves
-
-                      return shelves
-                    }
-                  }
-                </Query>
-              </span>
-            </div>
-
-            <div className="midRow-break"/>
 
             <div className="midRow__item">
               <span className="itmDesc">Share</span>
               <div className="itmScm">
-                <img src={ require('../assets/img/icons/fb.png') }/>
-                <img src={ require('../assets/img/icons/twt.png') }/>
-                <img src={ require('../assets/img/icons/in.png') }/>
+                <ScmButtons shareUrl={window.location.href}/>
               </div>
             </div>
           </div>
@@ -126,36 +137,46 @@ export default class Book extends Component {
 
 
 
-          <section className="pageMain">
-            <h3 className="sect-header_s1">Reviews</h3>
+          <section className="pageMain cont-width_0">
+            <div className="row">
+              <h3 className="sect-header_s1">Reviews</h3>
 
-            <ul className="cont-width_2">
-              <Query query={getBookReviews} variables={{bookid: this.bookId}}>
-                {
-                  ({loading, error, data}) => {
-                    if (loading){
-                      return 'loading'
+              <div className="col-6">
+                <p className="bookPage-desc">
+                  <Dotdotdot clamp={3}>
+                    {stripHtml(book_desc)}
+                  </Dotdotdot>
+                </p>
+              </div>
+
+              <ul className="col-6">
+                <Query query={getBookReviews} variables={{bookid: this.bookId}}>
+                  {
+                    ({loading, error, data}) => {
+                      if (loading){
+                        return 'loading'
+                      }
+
+                      if (error) {
+                        return error.toString()
+                      }
+
+                      var bookData = data.getBookReviews
+
+
+
+                      return (
+                        bookData.map((rev,i)=>(
+                          <li>
+                            <BookReview revOjb={rev}/>
+                          </li>
+                        ))
+                      )
                     }
-
-                    if (error) {
-                      return error.toString()
-                    }
-
-                    var bookData = data.getBookReviews
-
-
-
-                    return (
-                      bookData.map((rev,i)=>(
-                        <li>
-                          <BookReview revOjb={rev}/>
-                        </li>
-                      ))
-                    )
                   }
-                }
-              </Query>
-            </ul>
+                </Query>
+              </ul>
+            </div>
           </section>
         </div>
       </Fragment>

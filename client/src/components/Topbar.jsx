@@ -22,7 +22,7 @@ export default class Topbar extends Component {
 
 
           <div className="searchCont">
-            <Search bottomMsg="Search..." maxResults={4}/>
+            <Search bottomMsg="Search..." type="sml" maxResults={4}/>
           </div>
 
 

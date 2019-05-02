@@ -5,6 +5,7 @@ import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
 import { createServer } from 'http'
+import basicAuth from 'express-basic-auth'
 
 import router from '~/core/router'
 import apollo from '~/core/apollo'
@@ -34,6 +35,8 @@ mongoose
 const app = express()
 
 
+
+
 // Parse cookies
 app.use(cookieParser())
 
@@ -54,11 +57,22 @@ app.use(
 // Enable GZIP compression
 app.use(compression())
 
+
+
 apollo.applyMiddleware({ app })
 
+/*
+//add auth
+const siteLock = basicAuth({
+  challenge: true,
+  users: { dev: 'SITELOCK_PASSWORD' }
+})
+app.use(siteLock)
+*/
 
 // Handle routes
 app.use('/', router)
+
 
 
 const httpServer = createServer(app)

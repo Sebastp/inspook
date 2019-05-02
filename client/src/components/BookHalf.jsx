@@ -74,18 +74,10 @@ export default class BookHalf extends Component {
               </Dotdotdot>
             </span>
             <div className="book-midrow">
-              <div className="book-rate"><span>{book_rating}</span>Rating On GoodReads</div>
+              <div className="book-rate"><span>{book_rating}</span>Stars on GoodReads</div>
             </div>
 
             <div className="book-bottom">
-              <div className="book-buy">
-                <span>Buy on</span>
-                <a target="_blank" href={getLink(bookId)}>
-                  Amazon
-                </a>
-              </div>
-
-
               <Query query={nrOfShelves} skip={typeof onShelvesProp != "undefined"} variables={{bookid: bookId, numToGet: 1}}>
                 {
                   ({loading, error, data}) => {
@@ -116,6 +108,13 @@ export default class BookHalf extends Component {
                   }
                 }
               </Query>
+
+
+              <div className="book-buy">
+                <a className="button-filled" target="_blank" href={getLink(bookId)}>
+                  Buy on Amazon
+                </a>
+              </div>
             </div>
           </div>
         </div>

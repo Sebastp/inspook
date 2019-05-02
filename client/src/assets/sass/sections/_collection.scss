@@ -3,78 +3,34 @@
   width: 100%;
 
   header{
-    display: block;
-    margin: auto;
-    position: relative;
-    text-align: center;
     margin-top: 40px;
 
-    .collection-top{
-      position: relative;
-      display: block;
+    .collection-canvas .collection-cover{
+      width: 90px;
+      height: 141px;
+      box-shadow: $shadow1;
+      margin: 30px auto;
+    }
 
-      .collection-cover{
-        background-size: cover;
-        background-color: $grey2;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 83px;
-        height: 130px;
-        margin: 0 auto;
-        box-shadow: $shadow1;
+    .collection-info{
+      text-align: left;
+      padding-right: 35px;
+
+      .collection-desc{
+        margin-top: 30px;
       }
 
-      .collection-bck{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        z-index: -1;
-        background-color: $grey3;
-        margin: 21px auto;
 
-        &__inner{
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          max-width: 120px;
-          position: absolute;
-          margin: -10px auto;
-          background-color: $brandCol2__1;
-        }
+      .collection-spec{
+        text-align: right;
+        display: block;
+        white-space: pre;
+        font-size: 0.75rem;
+        white-space: pre;
       }
     }
   }
 
-  &-title{
-    display: block;
-    font-family: $merriweather;
-    font-weight: $bold;
-    color: $dark2;
-    font-size: 1.563rem;
-    margin-top: 15px;
-  }
-
-  &-desc{
-    display: block;
-    margin-top: 5px;
-
-    font-weight: $medium;
-    color: rgba($dark2, 0.37);
-    font-size: 1rem;
-    margin-bottom: 0;
-  }
-
-
-  &-spec{
-    display: block;
-    color: $brandCol2;
-    margin-top: 13px;
-    white-space: pre;
-    font-size: 0.8125rem;
-    font-weight: $semi-bold;
-  }
 
 
 
