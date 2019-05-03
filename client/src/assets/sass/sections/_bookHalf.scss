@@ -33,15 +33,15 @@
     .book-content{
       display: flex;
       flex-direction: column;
-      margin-left: 16px;
+      margin-left: 18px;
       flex: 1;
 
       .book-title{
-        font-family: $merriweather;
-        font-weight: $bold;
+        font-family: $poppins;
+        font-weight: $medium;
         color: $dark2;
         font-size: 1.313rem;
-        margin-top: 2px;
+        // margin-top: 2px;
         text-align: left;
         width: 100%;
       }
@@ -49,11 +49,10 @@
       .book-author{
         display: block;
         font-weight: $regular;
-        font-weight: $medium;
-        color: rgba($dark2, 0.37);
-        font-size: 0.9375rem;
+        color: rgba($dark0, 0.5);
+        font-size: 0.875rem;
         width: 100%;
-        margin-top: 1px;
+        margin-top: 4px;
       }
 
 
@@ -61,17 +60,19 @@
       .book-midrow{
         flex: 1;
         margin-top: 5px;
+        font-family: $poppins;
 
         .book-rate{
-          font-weight: $medium;
-          color: rgba($dark2, 0.4);
+          font-weight: $regular;
+          color: rgba($dark2, 0.45);
           font-size: 0.875rem;
 
           span{
-            font-size: 1rem;
-            font-weight: $semi-bold;
+            font-size: 0.9375rem;
+            font-size: 0.875rem;
+            font-weight: $medium;
             color: rgba($dark2, 0.9);
-            margin-right: 8px;
+            margin-right: 6px;
           }
         }
       }
@@ -85,29 +86,15 @@
 
         .book-buy{
           display: inline-block;
-          a{
-            font-family: $merriweather;
-            font-weight: $bold;
-            color: rgba($dark2, 0.9);
-            font-size: 1rem;
-            transition: color 0.2s;
-
-            &:hover{
-              color: $dark2;
-              transition: color 0.25s;
-            }
-          }
-
-          span{
-            font-weight: $medium;
-            color: rgba($dark2, 0.4);
-            font-size: 0.875rem;
-            margin-right: 10px;
-          }
         }
 
         .book-spec{
           cursor: pointer;
+          text-transform: uppercase;
+          font-weight: $medium;
+          font-size: 0.75rem;
+          color: rgba($black, 0.83);
+          vertical-align: middle;
         }
       }
     }
@@ -166,6 +153,7 @@
       }
 
       .book-author{
+        border-radius: 3px;
         margin-top: 14px;
         height: 22px;
         max-width: 220px;

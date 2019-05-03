@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-
+import React, { Component, Fragment } from 'react'
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
 import Dotdotdot from 'react-clamp'
@@ -11,7 +10,7 @@ import { getChosenReaders } from '../graphql'
 import PersonMini_loading from './PersonMini_loading'
 
 
-export default class PersonMini extends Component {
+export default class ReaderMini_horizontal extends Component {
   render() {
     const {readerUid, personObj} = this.props;
 
@@ -24,6 +23,7 @@ export default class PersonMini extends Component {
             if (loading){
               return <PersonMini_loading/>
             }
+            if(error) {return error.toString()}
             error && ( console.log(error.toString()) )
 
             if ((error || !data) && !personObj) {
@@ -37,7 +37,7 @@ export default class PersonMini extends Component {
 
 
             return (
-              <div className="person">
+              <div className="person person__horiz">
                 <Link to={'/reader/'+personData.uid} className="person-cover">
                   <div className="person-cover__inner"
                     style={{
@@ -47,6 +47,7 @@ export default class PersonMini extends Component {
                 </Link>
 
                 <div className="person-info">
+                  <div className="person-info__white"/>
                   <h5 className="person-name">
                     <Link to={'/reader/'+personData.uid}>
                       <Dotdotdot clamp={1}>
@@ -61,11 +62,6 @@ export default class PersonMini extends Component {
                     </Link>
                   </span>
                 </div>
-
-                <Link to={'/reader/'+personData.uid}>
-                  <img src={ require('../assets/img/icons/arrowr.svg') } className="person-iconr"/>
-                </Link>
-
               </div>
             )
           }

@@ -5,18 +5,136 @@ footer{
   padding-bottom: 100px !important;
   margin-top: 200px !important;
 
-  ul{
-    padding-bottom: 100px;
+
+  h3{
+    color: rgba($black, 0.9);
+    font-family: $lora;
+    font-weight: $regular;
+    font-size: 1.5rem;
+    text-align: left;
+  }
+
+  .footer__right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .findus{
+    display: inline-block;
+    text-align: left;
+    vertical-align: super;
 
 
-    li{
-      font-size: 0.875rem;
+    h4{
+      font-family: $poppins;
+      font-weight: $medium;
+      color: rgba($dark2, 0.9);
+      font-size: 1.125rem;
+    }
+
+    .findus-sm{
+      margin-top: 15px;
+      .findus-icon{
+        display: inline-block;
+        height: 15px;
+        width: auto;
+        opacity: 0.13;
+        margin-right: 10px;
+
+        &:last-child{
+          margin-right: 0px !important;
+        }
+      }
     }
   }
 
-  #copyr{
-    font-size: 1rem;
-    color: rgba($dark2, 0.5);
-    font-weight: $regular;
+  nav{
+    display: inline-block;
+    text-align: left;
+    .navAnach{
+      display: block;
+      font-size: 0.9375rem;
+      margin-bottom: 6px;
+    }
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  footer{
+    padding-bottom: 60px !important;
+    margin-top: 160px !important;
+    h3{
+      font-size: 1.313rem;
+    }
+  }
+}
+
+@media (max-width: 660px) {
+  footer{
+    margin-top: 140px !important;
+    padding-bottom: 75px !important;
+    .footer__left{
+      margin-bottom: 40px;
+      h3{
+        text-align: center;
+        font-size: 1.75rem;
+      }
+    }
+
+    .col, .footer__right{
+      flex: 0 0 100%;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .footer__right{
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+      .findus{
+        display: inline-block;
+        margin-right: 16px;
+        vertical-align: middle;
+        h4{
+          display: none;
+        }
+        .findus-sm{
+          display: inline-block;
+          .findus-icon{
+            height: 18px;
+            opacity: 0.15;
+            margin-right: 20px;
+          }
+        }
+      }
+
+      nav{
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        width: 100%;
+        margin-top: 40px;
+        .navAnach{
+          margin-bottom: 0px;
+          flex: 33.33%;
+          display: inline-block;
+
+          font-weight: $medium;
+          color: rgba($dark2, 0.9);
+          transition: color 0.2s;
+          font-size: 1rem;
+
+          &:hover{
+            color: rgba($dark1, 0.95);
+            transition: color 0.3s;
+          }
+        }
+      }
+    }
+
   }
 }

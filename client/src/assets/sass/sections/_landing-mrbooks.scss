@@ -2,119 +2,99 @@
   width: 100%;
   display: block;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 100px;
   position: relative;
-  padding: 0;
-  padding-bottom: 60px;
+  // padding: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
 
 
 
   ul{
-    margin: auto;
-    margin-top: 40px;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    // margin-left: -250px;
+    display: inline-block;
+    white-space: nowrap;
 
-    .book-cover{
-      width: 83px;
-      height: 130px;
+    li{
       display: inline-block;
-      overflow: hidden;
-      // margin: 0 6px;
-      box-shadow: 1px 4px 11px 0px rgba(2, 12, 20, 0.25);
-      opacity: 0.34;
-      transition: opacity .25s;
-      cursor: pointer;
+      height: 232px;
+      width: 235px;
       flex-shrink: 0;
-      margin-right: 12px;
+      background-color: rgba($white, 0.9);
+      padding: 30px 25px;
+      box-shadow: 4px 4px 9px 0px rgba(2, 12, 20, 0.08);
 
-      &:last-child{
-        margin-right: 0px;
+      .book-cover{
+        width: 64px;
+        height: 100px;
+        display: block;
+        overflow: hidden;
+        margin: auto;
+
+        transition: opacity .25s;
+        cursor: pointer;
+        flex-shrink: 0;
+
+        &:last-child{
+          margin-right: 0px;
+        }
+
+        &__inner{
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          background-color: $grey2;
+          background-repeat: no-repeat;
+          background-position: top center;
+          background-size: cover;
+        }
       }
 
 
-      &__inner{
-        display: inline-block;
+      .bookDown{
         width: 100%;
-        height: 100%;
-        background-color: $grey2;
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: cover;
-      }
+        font-family: $poppins;
 
-      &.activeBook{
-        opacity: 1;
-      }
+        .book-title{
+          display: block;
+          font-weight: $medium;
+          color: $dark2;
+          font-size: 0.9375rem;
+          font-size: 1rem;
+          margin: auto;
+          margin-top: 15px;
+          width: 100%;
+          max-width: 185px;
+          transition: color 0.2s;
 
-      &:hover:not(.activeBook){
-        transition: opacity .4s;
-        opacity: 0.8;
-      }
-    }
-  }
+          text-overflow: ellipsis;
+          /* Needed to make it work */
+          overflow: hidden;
+          white-space: nowrap;
+        }
 
-  .bookDown{
-    height: 79px;
-
-    .book-title{
-      display: block;
-      font-family: $merriweather;
-      font-weight: $bold;
-      color: $dark2;
-      font-size: 1.25rem;
-      margin: auto;
-      margin-top: 20px;
-      width: 100%;
-      max-width: 500px;
-      transition: color 0.2s;
-    }
-
-
-    .book-author{
-      display: block;
-      font-weight: $regular;
-      font-weight: $medium;
-      color: rgba($dark2, 0.37);
-      font-size: 0.9375rem;
-      margin-top: 4px;
-      transition: margin-top 0.2s, opacity 0.25s;
-      transition-delay: 0.1s;
-    }
-
-    .book-spec{
-      display: block;
-      margin-top: 8px;
-      transition: opacity 0.25s;
-      transition-delay: 0.1s;
-    }
-
-
-    &.hovered{
-      .book-title{
-        color: rgba($dark2, 0.3);
-        transition: color 0.2s;
-      }
-
-      .book-author{
-        margin-top: -3px;
-        opacity: 0;
-        transition: margin-top 0.12s, opacity 0.12s;
-      }
-      .book-spec{
-        opacity: 0;
-        transition: opacity 0.12s;
+        .book-author{
+          display: block;
+          font-weight: $regular;
+          color: rgba($dark1, 0.5);
+          font-size: 0.75rem;
+          margin-top: 4px;
+        }
+        .book-spec{
+          display: block;
+          font-weight: $regular;
+          color: rgba($dark1, 0.5);
+          margin-top: 8px;
+          font-size: 0.75rem;
+        }
       }
     }
   }
+
 
 
   .bck{
-    background-color: #f8f7f8;
-    height: 200vh;
+    background-color: #fff1e4;
+    height: 100%;
     width: 100vw;
     bottom: 0;
     left: 50%;
@@ -122,4 +102,14 @@
     position: absolute;
     z-index: -1;
   }
+}
+
+#mostRBooksSect-subparagraph{
+  display: block;
+  text-align: center;
+  font-family: $poppins;
+  font-weight: $regular;
+  color: rgba($dark1, 0.3);
+  font-size: 1rem;
+  margin-top: 35px;
 }

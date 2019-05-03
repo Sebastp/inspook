@@ -1,15 +1,32 @@
 import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http';
+import { ApolloLink, split } from 'apollo-link'
+import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { getMainDefinition } from 'apollo-utilities'
+import {LOCAL_SERVER_IP} from '../env'
 
-// http://http://localhost:8080/graphql
+
 const httpLink = new HttpLink({
-  uri: 'http://localhost:8080/graphql' // or 192.168.99.1
+  uri: 'http://'+LOCAL_SERVER_IP+':8080/graphql',
+  options: {
+    reconnect: true
+  }
 })
+
+const terminatingLink = split(
+  ({ query }) => {
+    const { kind, operation } = getMainDefinition(query)
+    return kind === 'OperationDefinition' && operation === 'subscription'
+  },
+  httpLink
+)
+
+const link = ApolloLink.from([terminatingLink])
+const cache = new InMemoryCache()
 
 const apollo = new ApolloClient({
   link: httpLink,
-  cache: new InMemoryCache(),
+  cache,
   credentials: 'include'
 })
 

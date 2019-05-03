@@ -24,7 +24,7 @@ export default class BookList extends Component {
       document.body.scrollHeight;
     var clientHeight =
       document.documentElement.clientHeight || window.innerHeight;
-    var scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+    var scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight-500;
 
 
     if (scrolledToBottom) {
@@ -44,7 +44,7 @@ export default class BookList extends Component {
     )
 
     const { lItems } = this.props
-    
+
     return(
       <ul className="cont-width_2">
         {lItems.map(( item, i ) => (

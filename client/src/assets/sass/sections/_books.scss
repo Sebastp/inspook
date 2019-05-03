@@ -2,110 +2,75 @@
   width: 100%;
 
   header{
-    display: block;
-    margin: auto;
-    position: relative;
-    text-align: center;
     margin-top: 40px;
+    .bookPage-canvas .bookPage-cover{
+      width: 100px;
+      height: 157px;
+      box-shadow: $shadow1;
+      margin: 100px auto;
+    }
 
 
-    .bookPage-top{
-      position: relative;
-      display: block;
+    .bookPage-info{
+      text-align: left;
+      padding-right: 35px;
 
-      .bookPage-cover{
-        background-size: cover;
-        background-color: $grey2;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 96px; //83px
-        height: 150px; //130px
-        margin: 0 auto;
-        box-shadow: $shadow1;
+
+      .bookPage-author{
+        margin-top: 13px;
       }
 
-      .bookPage-bck{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        background-color: $grey3;
-        margin: 25px auto;
-        max-width: 183px;
+
+      .bookPage-specs{
+        color: rgba($dark2, 0.4);
+        p{
+          display: inline-block;
+          margin-right: 30px;
+          &:last-child{
+            margin-right: 0px;
+          }
+        }
       }
-    }
-
-
-
-    .bookPage-title{
-      font-family: $merriweather;
-      font-weight: $bold;
-      color: $dark2;
-      font-size: 1.563rem;
-      margin-top: 15px;
-      text-align: center;
-    }
-
-    .bookPage-author{
-      display: block;
-      text-align: center;
-      margin-top: 5px;
-      font-weight: $medium;
-      color: rgba($dark2, 0.37);
-      font-size: 1rem;
-    }
-
-
-    .bookPage-desc{
-      display: block;
-      margin-top: 5px;
-      font-weight: $medium;
-      color: rgba($dark2, 0.37);
-      font-size: 1rem;
-      text-align: center;
-
-      font-family: $lato;
-      font-weight: $medium;
-      color: rgba($dark2, 0.42);
-      font-size: 1rem;
-      line-height: 1.45em;
-      margin-top: 15px;
     }
   }
 
-  .midRow{
-    margin-top: 35px;
-  }
 
+  .bookPage-revUl{
+    li{
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid $grey2;
+      // margin-top: 30px;
 
-
-  .book-review{
-    width: 100%;
-    margin-top: 30px;
-    text-align: center;
-
-    &__name{
-      font-size: 0.8125rem;
-      font-weight: $semi-bold;
+      &:last-child{
+        padding-bottom: 0px;
+        border-bottom: 0px;
+        margin-bottom: 0px;
+      }
     }
 
-    &__inner{
-      display: block;
+    .book-review{
       width: 100%;
-      position: relative;
-      margin-top: 9px;
-      padding: 0 30px;
+      text-align: left;
 
-      p{
-        font-family: $lato;
-        font-weight: $medium;
-        color: rgba($dark2, 0.42);
-        font-size: 1rem;
-        text-align: center;
-        line-height: 1.45em;
+      &__name{
+        font-weight: $regular;
+        font-family: $lora;
+        font-size: 1.188rem;
+      }
+
+      &__inner{
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-top: 10px;
+
+        p{
+          font-weight: $regular;
+          color: rgba($dark2, 0.5);
+          font-size: 0.875rem;
+          // line-height: 1.45em;
+        }
       }
     }
   }

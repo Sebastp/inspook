@@ -10,6 +10,7 @@ import Topbar from './Topbar'
 import Footer from './Footer'
 import BookHalf from './BookHalf'
 import BookList from './hocs/BookList'
+import PageSeeNext from './partials/PageSeeNext'
 
 
 
@@ -43,29 +44,42 @@ export default class Collection extends Component {
               var collectionObj = data.collectionByUid,
                   collection__books = (collectionObj.books).map(a=> a={bookId: a})
 
-              collectionObj.tagsStr = (collectionObj.tags).join('  -  ')
-
+              collectionObj.tagsStr = collectionObj.tags.map(a=> { return a.charAt(0).toUpperCase() + a.slice(1) })
+              collectionObj.tagsStr = collectionObj.tagsStr.join('  -  ')
 
 
 
               return (
                 <div className="collection">
-                  <header className="cont-width_2">
-                    <div className="collection-top">
-                      <div className="collection-cover"
-                        style={{
-                          backgroundImage: `url(${require('../assets/img/collections/'+collectionObj.cover+'.jpg')})`
-                        }}
-                      />
+                  <header className="cont-width_0 pagebcpTop">
+                    <div className="row">
+                      <div className="col-0 col-lg-1"/>
 
-                      <div className="collection-bck">
-                        <div className="collection-bck__inner"/>
+                      <div className="collection-info col-7 col-lg-6">
+                        <span className="subAnach bcp-pname">Collection</span>
+                        <h1 className="collection-title bcp-title">{collectionObj.title}</h1>
+                        <p className="collection-desc bcp-desc">{collectionObj.desc}</p>
+
+
+                        <span className="collection-spec bcp-spec subAnach">{collectionObj.tagsStr}</span>
                       </div>
-                    </div>
 
-                    <h1 className="collection-title">{collectionObj.title}</h1>
-                    <p className="collection-desc">{collectionObj.desc}</p>
-                    <span className="collection-spec info_brand_v1">{collectionObj.tagsStr}</span>
+
+                      <div className="collection-canvas bcp-canvas col-5 col-lg-4">
+                        <div className="collection-cover bcp-canvas__cover"
+                          style={{
+                            backgroundImage: `url(${require('../assets/img/collections/'+collectionObj.cover+'.jpg')})`
+                          }}
+                          />
+                        <div className="collection-bck bcp-canvas__bck"
+                            style={{
+                              backgroundColor: '#'+collectionObj.color
+                            }}
+                          />
+                      </div>
+
+                      <div className="col-0 col-lg-1"/>
+                    </div>
                   </header>
 
                   <div className="midRow cont-width_2">
@@ -107,6 +121,7 @@ export default class Collection extends Component {
             }
           }
         </Query>
+        <PageSeeNext ignoreUid={this.collectionIdProp}/>
         <Footer/>
       </Fragment>
     )

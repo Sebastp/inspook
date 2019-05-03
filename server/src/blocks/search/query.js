@@ -1,12 +1,29 @@
 import { Collection } from '../collection/models'
 import { Reader } from '../reader/models'
+import Fuse from 'fuse.js'
+
+
+
+var options = {
+  shouldSort: true,
+  threshold: 0.6,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: [
+    "name"
+  ]
+};
+
+
 
 const Query = {
   searchString: async (_, { phrase='', type }) => {
     phrase = phrase.trim()
 
     var docsReaders = await Reader.find(
-      { displayName: { $regex: phrase} },
+      { displayName: { $regex: phrase , $options : 'i'} },
       {uid: 1, displayName: 1, 'books.bookId': 1}
     ).limit(4).exec()
 
@@ -18,22 +35,24 @@ const Query = {
     })
 
     var docsCollections = await Collection.find({$or:[
-      {"title":{$regex:phrase}},
-      {"desc":{$regex:phrase}}
-    ]}, {uid: 1, title: 1, desc: 1})
+      {"title":{$regex:phrase, $options : 'i'}},
+      {"desc":{$regex:phrase, $options : 'i'}}
+    ]}, {uid: 1, title: 1, 'books': 1})
     .limit(4).exec()
 
 
     docsCollections.map((a)=>{
       a.name = a.title
+      a.booksCount = a.books.length
       a.type = 'collection'
       return a
     })
-
-
+    
     var finalArr = docsReaders.concat(docsCollections)
 
-    return finalArr
+    var fuse = new Fuse(finalArr, options)
+
+    return fuse.search(phrase)
   }
 }
 

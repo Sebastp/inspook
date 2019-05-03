@@ -1,69 +1,91 @@
 @mixin theader{
-  color: rgba($dark2, 0.9);
-  font-family: $lato;
-  font-weight: $bold;
-  text-align: center;
+  color: rgba($black, 0.9);
+  font-family: $lora;
+  font-weight: $regular;
+  text-align: left;
   width: 100%;
 }
 
 .sect-header {
   font-size: 1.75rem;
+  // font-size: 1.625rem;
   @include theader;
 
   &_s1{
     @include theader;
-    font-size: 1.438rem;
+    font-size: 1.625rem;
+    // font-size: 1.5rem;
   }
 }
 
 
-.info_brand{
+.sub-header{
   font-family: $poppins;
-  font-weight: $medium;
-  color: $brandCol2;
-
-  &_v1{
-    font-family: $poppins;
-    font-weight: $medium;
-    color: rgba($brandCol2, 0.9);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-  }
+  font-weight: $regular;
+  color: rgba($dark1, 0.45);
+  font-size: 1rem;
+  margin-top: 25px;
+  text-align: left;
+  padding-right: 25%;
 }
+
+
+
+.hdr-light{
+  color: #8b8b8b;
+}
+
 
 
 .navAnach {
   display: inline-block;
-  color: rgba($dark2, 0.8);
-  font-weight: $semi-bold;
-  transition: opacity 0.2s;
-  text-transform: uppercase;
-  font-size: 0.75rem;
+  font-family: $poppins;
+  font-weight: $regular;
+  color: rgba($black, 0.45);
+  transition: color 0.3s;
+  font-size: 0.9375rem;
 
   &:hover{
-    opacity: 0.9;
-    transition: opacity 0.3s;
+    color: rgba($black, 0.9);
+    transition: color 0.4s;
   }
 }
 
 .subMoreSpan {
   display: block;
-  font-weight: $semi-bold;
-  color: rgba($dark2, 0.25);
-  text-transform: uppercase;
+  font-family: $poppins;
+  font-weight: $regular;
+  color: rgba($dark1, 0.45);
   transition: color 0.2s;
-  text-align: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  white-space: nowrap;
 
 
   &.hovEfct{
     cursor: pointer;
     &:hover{
-      color: rgba($dark2, 0.4);
+      color: rgba($dark1, 0.9);
       transition: color 0.3s;
     }
   }
 }
+
+.subAnach {
+  font-family: $poppins;
+  font-weight: $medium;
+  color: rgba($dark2, 0.9);
+  transition: color 0.2s;
+  font-size: 0.875rem;
+
+  &:hover{
+    color: rgba($dark1, 0.95);
+    transition: color 0.3s;
+  }
+}
+
+
+
+
 
 
 

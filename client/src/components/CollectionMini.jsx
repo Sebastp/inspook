@@ -6,22 +6,16 @@ import Dotdotdot from 'react-clamp'
 
 import { getCollectionByUid } from '../graphql'
 
+import CollectionMini_loading from './CollectionMini_loading'
+
 
 export default class CollectionMini extends Component {
   render() {
     const {collId} = this.props;
 
-    const loadingObj = (
-      <div className="collectionMini">
-        <div className="person-cover">
-          <div className="person-cover__inner gradient-loadAnim"/>
-        </div>
-        <span className="person-name">
-          Loading Reader...
-        </span>
-      </div>
-    )
-
+    if (!collId) {
+      return (<CollectionMini_loading/>)
+    }
 
 
     return(
@@ -29,17 +23,17 @@ export default class CollectionMini extends Component {
         {
           ({loading, error, data}) => {
             if (loading){
-              return loadingObj
+              return <CollectionMini_loading/>
             }
             if (error || !data) {
               console.log(error.toString());
               return null;
             }
 
-            const collectionObj = data.collectionByUid
+            var collectionObj = data.collectionByUid
 
-
-            var tagsStr = (collectionObj.tags).join('  -  ')
+            var tagsStr = collectionObj.tags.map(a=> { return a.charAt(0).toUpperCase() + a.slice(1) })
+            tagsStr = tagsStr.join('  -  ')
             return (
               <div className="collectionMini">
                 <Link to={'/collection/'+collectionObj.uid} className="collectionMini-top">
@@ -49,9 +43,11 @@ export default class CollectionMini extends Component {
                     }}
                   />
 
-                  <div className="collectionMini-bck">
-                    <div className="collectionMini-bck__inner"/>
-                  </div>
+                  <div className="collectionMini-bck"
+                    style={{
+                      backgroundColor: '#'+collectionObj.color
+                    }}
+                  />
                 </Link>
 
 
@@ -65,7 +61,7 @@ export default class CollectionMini extends Component {
                     {collectionObj.booksCount} Books
                   </Link>
                 </span>
-                <span className="collectionMini-spec info_brand_v1">{tagsStr}</span>
+                <span className="collectionMini-spec">{tagsStr}</span>
               </div>
             )
 

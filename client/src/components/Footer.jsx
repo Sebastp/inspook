@@ -5,36 +5,44 @@ const Footer = (props) => {
   return (
     <footer className="cont-width_0">
       <div className="row">
-        <div className="col-12">
-          <ul>
-            <li className="navAnach">
+        <div className="col footer__left">
+          <h3>Read who You want to be</h3>
+        </div>
+
+        <div className="col-5 col-md-4 footer__right">
+          <div className="findus">
+            <h4>
+              Find Us
+            </h4>
+            <div className="findus-sm">
+              <img src={ require('../assets/img/icons/fb.png') } className="findus-icon"/>
+              <img src={ require('../assets/img/icons/twt.png') } className="findus-icon"/>
+              <img src={ require('../assets/img/icons/in.png') } className="findus-icon"/>
+            </div>
+          </div>
+
+          <nav>
+            <span className="navAnach">
               <Link to={'/top-books'}>
-                Top Books
+                Books
               </Link>
-            </li>
-            <li className="navAnach">
+            </span>
+
+
+            <span className="navAnach">
               <Link to={'/people'}>
-                People
+                Readers
               </Link>
-            </li>
-            <li className="navAnach">
+            </span>
+
+            <span className="navAnach">
               <Link to={'/collections'}>
                 Collections
               </Link>
-            </li>
-            <li className="navAnach">
-              <Link to={'/contribute'}>
-                Contribute
-              </Link>
-            </li>
-          </ul>
+            </span>
+          </nav>
         </div>
 
-        <div className="col-12">
-          <span id="copyr">
-            © 2019 Inspook. All rights reserved.
-          </span>
-        </div>
       </div>
     </footer>
   )

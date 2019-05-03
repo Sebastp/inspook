@@ -7,6 +7,7 @@ export const getCollectionByUid = gql`
       title
       desc
       cover
+      color
       tags
       booksCount
       books
