@@ -1,7 +1,7 @@
 .topbar{
   width: 100%;
   position: relative;
-  padding-bottom: 60px;
+  padding-bottom: 50px;
 
   .grad-line{
     position: absolute;
@@ -12,7 +12,7 @@
   }
 
   &__inner{
-    padding-top: 60px;
+    padding-top: 50px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -24,14 +24,14 @@
     display: inline-block;
     #tpb-logoi{
       display: inline-block;
-      height: 20px;
+      height: 22px;
       width: auto;
     }
 
     #tpb-logot{
       display: inline-block;
       width: auto;
-      height: 22px;
+      height: 23px;
       margin-left: 18px;
     }
   }
@@ -105,19 +105,11 @@
 
 
 
-@media (max-width: 1300px) {
-  .topbar__inner{
-    padding-left: 80px;
-    padding-right: 80px;
-  }
-}
 
-@media (max-width: 1300px) {
-  .topbar__inner{
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
+
+
+
+
 
 
 
@@ -153,6 +145,8 @@
 
 @media (max-width: 840px) {
   .topbar{
+    padding-bottom: 0px;
+
     &__inner{
       padding-bottom: 40px;
     }
@@ -168,5 +162,37 @@
     nav{
       display: none;
     }
+  }
+}
+
+@media (max-width: 544px) {
+  .cont-width_1{
+    padding: 35px 30px;
+  }
+
+
+  .topbar header{
+    #tpb-logoi{
+      height: 21px;
+    }
+    #tpb-logot{
+      height: 21px;
+      margin-left: 15px;
+      margin-top: 1px;
+    }
+  }
+}
+
+
+@media (max-width: 460px) {
+  .topbar header #tpb-logoi{
+    height: 24px;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .topbar header #tpb-logot{
+    display: none;
   }
 }

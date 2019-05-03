@@ -2,35 +2,26 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 50px;
-
-  &-inner{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    justify-content: center;
-  }
-
+  margin-top: 40px;
 
   #tagline{
     width: 100%;
     display: block;
     text-align: center;
-    margin-bottom: 50px;
 
     h1{
       font-family: $playfair;
       font-weight: $bold;
-      color: $dark2;
-      font-size: 2.563rem;
+      color: rgba($dark2,0.95);
+      font-size: 2.313rem;
     }
 
     p{
-      font-weight: $medium;
-      color: #3636368c;
-      margin-top: 15px;
+      font-weight: $regular;
+      // font-weight: $medium;
+      // color: #3636368c;
+      color: rgba($dark2,0.46);
+      margin-top: 12px;
       margin-bottom: 0px;
       font-size: 1.063rem;
     }
@@ -39,218 +30,32 @@
 
 
 
-#peopleSect{
-  width: 100%;
-  display: block;
-  margin: auto;
-  margin-top: 215px;
-
-  ul{
-    display: inline-block;
-    white-space: nowrap;
-    margin-left: -109px;
-
-    &.loading{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin-left: 0;
-    }
-
-    li{
-      display: inline-block;
-      width: 171px;
-      text-align: center;
-      white-space: normal;
-
-      &.loading{
-        margin-right: 80px;
-
-        &:last-child{
-          margin-right: 0px;
-        }
-      }
-    }
-  }
-}
-
-
-
-
-#todaysRecomm{
-  margin-top: 181px;
-  width: 100%;
-  background-color: $grey2;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  position: relative;
-
-  .books-gallery{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 -25px;
-    margin-top: 40px;
-    z-index: 2;
-
-    li{
-      display: inline-block;
-      text-align: center;
-      // flex: 1;
-      // max-width: 270px;
-      padding: 0 25px;
-
-      .book-recom{
-        font-size: 0.875rem;
-        color: rgba($dark2, 0.5);
-        font-weight: $regular;
-        font-weight: $medium;
-
-        &__placholder{
-          height: 20px;
-          display: block;
-        }
-      }
-
-      .book-center{
-        width: 100%;
-        text-align: center;
-        position: relative;
-        display: block;
-        margin-top: 15px;
-
-        .book-cover{
-          display: block;
-          width: 120px; //130px
-          height: 190px; //204px
-          overflow: hidden;
-          z-index: 2;
-          margin: auto;
-          box-shadow: 10px 8px 25px 0px rgba(0,0,0,0.2);
-          &__inner{
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            background-color: $grey2;
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: cover;
-          }
-        }
-
-
-        .circle{
-          width: auto;
-          height: 100%;
-          display: block;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          margin: auto;
-          z-index: -1;
-          padding: 2px 0;
-        }
-      }
-
-      .book-title{
-        display: block;
-        font-family: $merriweather;
-        font-weight: $bold;
-        color: $dark2;
-        font-size: 1.188rem;
-        margin-top: 23px;
-      }
-
-      .book-author{
-        display: block;
-        // font-weight: $regular;
-        // color: rgba($dark2, 0.5);
-        font-weight: $medium;
-        color: rgba($dark2, 0.43);
-        font-size: 1rem;
-        margin-top: 6px;
-      }
-    }
-  }
-
-  .bckname{
-    z-index: 0;
-    display: block;
-    position: absolute;
-    font-family: $playfair;
-    font-weight: $bold;
-    color: $white;
-    font-size: 9vw;
-    white-space: nowrap;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    width: 100vw;
-    transform: translateY(26%);
-  }
-}
-
-
-
-
 #searchSect{
   display: block;
   width: 100%;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 120px;
 
 
   .search-center{
-    margin-top: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .search-btn{
-      font-size: 0.875rem;
-      width: 172px;
-      margin-top: 8px;
-    }
-
-    .search-input{
-      flex: 1;
-      margin: 0 50px;
-
-      input{
-        margin: auto;
-        max-width: 555px;
-        box-sizing: border-box;
-      }
-
-      button{
-        display: block;
-        margin: auto;
-        margin-top: 40px;
-      }
-    }
+    margin-top: 60px;
   }
 }
 
 
+
 #blogSect{
   padding: 0;
-  margin-top: 150px;
+  margin-top: 120px;
 
   ul{
     width: 100%;
-    justify-content: center;
     margin: auto;
 
     li{
       display: inline-block;
-      // max-width: 380px;
-      max-width: 460px;
-      padding: 0 40px;
+      width: 100%;
+      margin-bottom: 50px;
     }
   }
 }
@@ -258,15 +63,17 @@
 
 
 #collectionsSect{
-  margin-top: 150px;
+  margin-top: 120px;
 
   ul{
-    width: 100%;
-    margin-top: 100px;
+    margin-top: 60px;
     li{
-      width: 50%;
       display: inline-block;
     }
+  }
+
+  .subMoreSpan{
+    margin-top: 35px;
   }
 }
 
@@ -281,14 +88,23 @@
 // =====================================================
 // Small
 @media (min-width: 544px) {}
+
+
 // Medium
 @media (min-width: 768px) {}
 // Large
 @media (max-width: 992px) {
-  #searchSect .search-center{
-    .search-btn{
-      display: none;
+  #header #tagline{
+    h1{
+      font-size: 2rem;
     }
+    p{
+      font-size: 1rem;
+    }
+  }
+
+
+  #searchSect .search-center{
     .search-input{
       margin: auto;
     }
@@ -297,66 +113,22 @@
 // Extra large
 
 
-@media (min-width: 1225px) {
-  #todaysRecomm{
-    .bckname{
-      font-size: 7rem;
-    }
-  }
-}
+@media (max-width: 544px) {
+  #header{
+    margin-top: 55px;
 
-@media (max-width: 1100px) and (min-width: 992px) {
-  #blogSect ul{
-    padding: 0 10px;
-    li{
-      padding: 0 30px;
-    }
-  }
-}
-
-
-@media (max-width: 991px) {
-  #todaysRecomm ul li{
-    &:last-child{
-      display: none;
-    }
-  }
-
-
-  #blogSect ul li{
-    &:last-child{
-      display: none;
-    }
-  }
-}
-
-
-@media (max-width: 767px) {
-  #blogSect ul li{
-    margin-bottom: 100px;
-    &:last-child{
-      margin-bottom: 0px;
-      display: block;
-    }
-  }
-
-  #todaysRecomm{
-    ul li{
-      margin-bottom: 90px;
-
-      .book-title{
-        max-width: 400px;
-        margin: auto;
+    #tagline{
+      h1{
+        font-size: 1.875rem;
       }
-
-      &:last-child{
-        margin-bottom: 0px;
-        display: block;
+      p{
+        font-size: 0.9375rem;
       }
     }
+  }
 
-    .bckname{
-      display: none;
-    }
+  #mostRBooksSect{
+    margin-top: 70px;
+    padding-bottom: 70px;
   }
 }

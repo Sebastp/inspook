@@ -1,22 +1,27 @@
 import React, {Component, Fragment} from 'react'
 import {Query} from 'react-apollo'
-import {Link} from 'react-router-dom'
+
+import Dotdotdot from 'react-clamp'
+
+import stripHtml from "string-strip-html";
 
 
 import Topbar from './Topbar'
-import Footer from './Footer'
+import BookReview from './BookReview'
+
 
 import {bookReviews} from '../helpers/goodreads'
 
-import { getBookAsInfo } from '../graphql'
+import { nrOfShelves, getBookReviews } from '../graphql'
 
-export default class Reader extends Component {
+export default class Book extends Component {
   state = {
     bookObj: false
   }
 
   BookIdProp = this.props.match.params.urlBookId
-  bookId = this.BookIdProp.split('_').slice(-1)[0]
+  urlArr = this.BookIdProp.split('_')
+  bookId = this.urlArr[this.urlArr.length-1]
 
   componentDidMount(){
     bookReviews(this.bookId).then(res=>{
@@ -30,88 +35,130 @@ export default class Reader extends Component {
   render() {
     const {bookObj} = this.state
 
-    console.log(this.bookId);
-    console.log(bookObj);
 
-    return (<Fragment>
-      <Query query={getBookAsInfo} variables={{bookid: this.bookId}}>
-        {
-          ({loading, error, data}) => {
-            if (loading){
-              return 'loading'
-            }
-
-            if (error) {
-              return error.toString()
-            }
-            var bookData = data.getBookAsInfo,
-                bRecomms = bookData.recomms
-            console.log(bookData.recomms);
+    if (bookObj) {
+      var book_rating = parseFloat(bookObj.average_rating[0]).toFixed(1),
+          book_title = bookObj.title[0],
+          book_author = bookObj.authors[0].author[0].name[0],
+          book_desc = bookObj.description[0],
+          book_cover = bookObj.cover
+    }else {
+      var book_cover = require('../assets/img/noBookCover.jpg'),
+          book_title = 'Loading Title',
+          book_author = 'Loading Author',
+          book_desc = '',
+          book_rating = 5.0
+    }
 
 
 
-            return (
-              <Fragment>
-              <header className="reader-top">
-                <Topbar/>
-                <section className="top-inner">
+    return (
+      <Fragment>
+        <Topbar/>
 
-                  <div className="book-canvas">
-                    <div className="book-cover">
-                      <div className="book-cover__inner"
-                        style={{
-                          backgroundImage: bookObj?`url(${bookObj.image_url[0]})`:`url(${require('../assets/img/demo/cover1.jpg')})`
-                        }}
-                        />
-                    </div>
-                  </div>
-                  <h5 className="book-title">{bookObj?bookObj.title[0]:'Loading Title...'}</h5>
-                  <span className="book-author">{bookObj?bookObj.authors[0].author[0].name[0]:'Loading Author...'}</span>
-                  <div className="book-midrow">
-                    <div className="book-rate"><span>{bookObj?bookObj.average_rating[0]:'0.0'}</span>on goodreads</div>
-                    <div className="book-recomm"><span>{bookObj?bRecomms.length:'0'}</span>recommendation</div>
-
-                    <div className="book-buy">
-                      <span>Buy on</span>
-                      <a target="_blank" href='https://www.amazon.com'>
-                        Amazon
-                      </a>
-                    </div>
-                  </div>
-                </section>
-
-              </header>
+        <div className="bookPage">
+          <header className="cont-width_2">
+            <div className="bookPage-top">
+              <div className="bookPage-cover"
+                style={{ backgroundImage: `url(${book_cover})` }}
+              />
+              <div className="bookPage-bck"/>
+            </div>
 
 
-              {bRecomms.length?(
-                <div className="row book-revies">
-                  <div className="heading col-12">
-                    <hr/>
-                    <span>Reviews</span>
-                    <hr/>
-                  </div>
-
-                  {bRecomms.map((item, i) => (
-                    <div className="book-review__li col-12 col-md-6">
-                      <img src={require('../assets/img/icons/qmark1.svg')}/>
-                      <p>{item.review}</p>
-                      <img src={require('../assets/img/icons/qmark2.svg')}/>
-                      <span>{'- '+item.name}</span>
-                    </div>
-                  ))}
-
-                </div>
-              ):''}
+            <h1 className="bookPage-title">{book_title}</h1>
+            <span className="bookPage-author">{book_author}</span>
+            <p className="bookPage-desc">
+              <Dotdotdot clamp={3}>
+                {stripHtml(book_desc)}
+              </Dotdotdot>
+            </p>
+          </header>
 
 
-            </Fragment>
-          )
-          }
-        }
-      </Query>
 
-      <Footer/>
-    </Fragment>
-  )
+
+          <div className="midRow cont-width_2">
+            <div className="midRow__item">
+              <span className="itmDesc">Rating on Goodreads</span>
+              <span className="itmNum">{book_rating}</span>
+            </div>
+
+            <div className="midRow-break"/>
+
+            <div className="midRow__item">
+              <span className="itmDesc">On Shelves</span>
+              <span className="itmNum">
+                <Query query={nrOfShelves} variables={{bookid: this.bookId}}>
+                  {
+                    ({loading, error, data}) => {
+                      if (loading){
+                        return null
+                      }
+
+                      if (error) {
+                        console.log(error.toString());
+                        return null
+                      }
+
+                      var shelves = data.nrOfShelves
+
+                      return shelves
+                    }
+                  }
+                </Query>
+              </span>
+            </div>
+
+            <div className="midRow-break"/>
+
+            <div className="midRow__item">
+              <span className="itmDesc">Share</span>
+              <div className="itmScm">
+                <img src={ require('../assets/img/icons/fb.png') }/>
+                <img src={ require('../assets/img/icons/twt.png') }/>
+                <img src={ require('../assets/img/icons/in.png') }/>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <section className="pageMain">
+            <h3 className="sect-header_s1">Reviews</h3>
+
+            <ul className="cont-width_2">
+              <Query query={getBookReviews} variables={{bookid: this.bookId}}>
+                {
+                  ({loading, error, data}) => {
+                    if (loading){
+                      return 'loading'
+                    }
+
+                    if (error) {
+                      return error.toString()
+                    }
+
+                    var bookData = data.getBookReviews
+
+
+
+                    return (
+                      bookData.map((rev,i)=>(
+                        <li>
+                          <BookReview revOjb={rev}/>
+                        </li>
+                      ))
+                    )
+                  }
+                }
+              </Query>
+            </ul>
+          </section>
+        </div>
+      </Fragment>
+    )
   }
 }

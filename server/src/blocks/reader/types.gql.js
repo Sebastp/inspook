@@ -6,25 +6,24 @@ export default gql`
     getByUid(uid: String!): Reader
     getRandomReaders(numToGet: Int!): [Reader]
     getBookReviewers(bookid: String!, numToGet: Int!): [String]
-    getChosenReaders(uidsArr: [String!], getBooksCount: Boolean, howManyBooks: Int): [Reader]
-    getBookAsInfo(bookid: String!): BookAsInfo
+    getChosenReaders(uidsArr: [String!], bookId: String, getBooksCount: Boolean, howManyBooks: Int): [Reader]
+    nrOfShelves(bookid: String!): Int
+    getBookReviews(bookid: String!, readerIds: [String]): [BookReview]
     getTopBooks(pageSize: Int, page: Int): [topBook]
+    getPeople(pageSize: Int, page: Int): [Reader]
   }
 
 
   type Reader {
-    uid: String!
-    displayName: String!
-    avatar: String!
-    desc: String!
+    uid: String
+    displayName: String
+    avatar: String
+    desc: String
     books: [BookRef]
     booksCount: Int
     official: Boolean
   }
 
-  type BookAsInfo {
-    recomms: [BookReview]
-  }
 
   type BookRef {
     bookId: String
@@ -32,12 +31,15 @@ export default gql`
   }
 
   type BookReview {
-    name: String
+    uid: String
+    displayName: String
+    avatar: String
+    booksCount: Int
     review: String
   }
 
   type topBook {
     bookId: String
-    reviews: [BookReview]
+    onShelves: Int
   }
 `

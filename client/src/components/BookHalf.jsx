@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 
+import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
-import {bookReviews} from '../helpers/goodreads'
+import Dotdotdot from 'react-clamp'
 
+import { ModalConsumer } from './ModalContext';
+
+import BookHalf_loading from './BookHalf_loading';
+import BookReview__2 from './BookReview__2';
+
+
+import {bookReviews} from '../helpers/goodreads'
+import {onShelves, friendlyBookUrl} from '../helpers/textTransf'
+import { getLink } from '../helpers/amazonAff'
+
+import { nrOfShelves, getBookReviews } from '../graphql'
 
 
 export default class BookHalf extends Component {
@@ -11,7 +23,7 @@ export default class BookHalf extends Component {
   };
 
   componentDidMount(){
-    bookReviews(this.props.bookinfo.bookId).then(res=>{
+    bookReviews(this.props.bookId).then(res=>{
       this.setState({
         bookObj: res
       });
@@ -19,56 +31,127 @@ export default class BookHalf extends Component {
   }
 
   render() {
-    const {bookinfo} = this.props
+    const {bookId, onShelvesProp, viewReviews, reviewsList} = this.props
     const {bookObj} = this.state
+
+
     if (bookObj) {
-      var bookUrl = bookObj.title[0].replace(/ /g,"-") + '_' + bookinfo.bookId;
+      var bookUrl = friendlyBookUrl(bookObj.title[0], bookId),
+          book_rating = parseFloat(bookObj.average_rating[0]).toFixed(1),
+          book_title = bookObj.title[0],
+          book_author = bookObj.authors[0].author[0].name[0],
+          book_cover = bookObj.cover
     }else {
-      var bookUrl = bookinfo.bookId;
+      return (<BookHalf_loading/>)
     }
 
 
-    return (
-      <li className="col-12 col-md-6 bookHalf">
-        <p className="book-recomm"><span>Recommended By</span>Bill Gates, Charles Schwab +43 others</p>
-        <Link to={'/book/'+bookUrl} className="book-canvas">
-          <div className="book-cover">
-            <div className="book-cover__inner"
-              style={{
-                backgroundImage: bookObj?`url(${bookObj.image_url[0]})`:`url(${require('../assets/img/demo/cover1.jpg')})`
-              }}
-              />
-          </div>
-        </Link>
-        <h5 className="book-title">{bookObj?bookObj.title[0]:'Loading Title...'}</h5>
-        <span className="book-author">{bookObj?bookObj.authors[0].author[0].name[0]:'Loading Author...'}</span>
-        <div className="book-midrow">
-          <div className="book-rate"><span>{bookObj?bookObj.average_rating[0]:'0.0'}</span>on goodreads</div>
 
-          <div className="book-buy">
-            <span>Buy on</span>
-            <a target="_blank" href='https://www.amazon.com'>
-              Amazon
-            </a>
+    return (
+      <div className="bookHalf">
+        <div className="book-top">
+          <Link to={'/book/'+bookUrl} className="book-canvas">
+            <div className="book-cover">
+              <div className="book-cover__inner"
+                style={{ backgroundImage: `url(${book_cover})` }}
+              />
+            </div>
+          </Link>
+
+
+
+          <div className="book-content">
+            <h5 className="book-title">
+              <Link to={'/book/'+bookUrl}>
+                <Dotdotdot clamp={2}>
+                  {book_title}
+                </Dotdotdot>
+              </Link>
+            </h5>
+            <span className="book-author">
+              <Dotdotdot clamp={1}>
+                {book_author}
+              </Dotdotdot>
+            </span>
+            <div className="book-midrow">
+              <div className="book-rate"><span>{book_rating}</span>Rating On GoodReads</div>
+            </div>
+
+            <div className="book-bottom">
+              <div className="book-buy">
+                <span>Buy on</span>
+                <a target="_blank" href={getLink(bookId)}>
+                  Amazon
+                </a>
+              </div>
+
+
+              <Query query={nrOfShelves} skip={typeof onShelvesProp != "undefined"} variables={{bookid: bookId, numToGet: 1}}>
+                {
+                  ({loading, error, data}) => {
+                    if (error) {
+                      console.log(error.toString());
+                      return null;
+                    }
+                    if (loading) {
+                      return <span className="book-spec info_brand_v1"/>;
+                    }
+
+                    if (typeof onShelvesProp != "undefined" && !data) {
+                      var shelves = onShelvesProp
+                    }else {
+                      var shelves = data.nrOfShelves
+                    }
+
+                    return (
+                      <ModalConsumer>
+                        {({ showModal, props }) => (
+                          <span className="book-spec info_brand_v1"
+                            onClick={() => {if(shelves>0) showModal( 'mShelves', { shelves, bookId })}} >
+                            {onShelves(shelves)}
+                          </span>
+                        )}
+                      </ModalConsumer>
+                    )
+                  }
+                }
+              </Query>
+            </div>
           </div>
         </div>
 
-        {bookinfo.review?(
-          <div className="book-review">
-            <div className="heading">
-              <hr/>
-              <span>Elon’s Review</span>
-              <hr/>
-            </div>
 
-            <div className="book-review__inner">
-              <img src={require('../assets/img/icons/qmark1.svg')}/>
-              <p>{bookinfo.review}</p>
-              <img src={require('../assets/img/icons/qmark2.svg')}/>
-            </div>
-          </div>
-        ):''}
-      </li>
+        {viewReviews?(
+          <Query query={getBookReviews} variables={{bookid: bookId, readerIds: ['elon-musk']}}>
+            {
+              ({loading, error, data}) => {
+                if (error) {
+                  console.log(error.toString());
+                  return null
+                }
+
+                if (loading) {
+                  return null
+                }
+
+                const reviews = data.getBookReviews;
+                return (
+                  reviews.map((rev,i)=>(
+                    <BookReview__2 key={i} revOjb={rev}/>
+                  ))
+                )
+
+              }
+            }
+          </Query>
+        ):(
+          reviewsList && (
+            reviewsList.map((rev,i)=>(
+              <BookReview__2 key={i} revOjb={rev}/>
+            ))
+          )
+        )}
+      </div>
     )
   }
 }

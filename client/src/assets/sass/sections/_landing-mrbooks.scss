@@ -1,0 +1,125 @@
+#mostRBooksSect{
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 80px;
+  position: relative;
+  padding: 0;
+  padding-bottom: 60px;
+
+
+
+  ul{
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    // margin-left: -250px;
+
+    .book-cover{
+      width: 83px;
+      height: 130px;
+      display: inline-block;
+      overflow: hidden;
+      // margin: 0 6px;
+      box-shadow: 1px 4px 11px 0px rgba(2, 12, 20, 0.25);
+      opacity: 0.34;
+      transition: opacity .25s;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-right: 12px;
+
+      &:last-child{
+        margin-right: 0px;
+      }
+
+
+      &__inner{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: $grey2;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+      }
+
+      &.activeBook{
+        opacity: 1;
+      }
+
+      &:hover:not(.activeBook){
+        transition: opacity .4s;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .bookDown{
+    height: 79px;
+
+    .book-title{
+      display: block;
+      font-family: $merriweather;
+      font-weight: $bold;
+      color: $dark2;
+      font-size: 1.25rem;
+      margin: auto;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 500px;
+      transition: color 0.2s;
+    }
+
+
+    .book-author{
+      display: block;
+      font-weight: $regular;
+      font-weight: $medium;
+      color: rgba($dark2, 0.37);
+      font-size: 0.9375rem;
+      margin-top: 4px;
+      transition: margin-top 0.2s, opacity 0.25s;
+      transition-delay: 0.1s;
+    }
+
+    .book-spec{
+      display: block;
+      margin-top: 8px;
+      transition: opacity 0.25s;
+      transition-delay: 0.1s;
+    }
+
+
+    &.hovered{
+      .book-title{
+        color: rgba($dark2, 0.3);
+        transition: color 0.2s;
+      }
+
+      .book-author{
+        margin-top: -3px;
+        opacity: 0;
+        transition: margin-top 0.12s, opacity 0.12s;
+      }
+      .book-spec{
+        opacity: 0;
+        transition: opacity 0.12s;
+      }
+    }
+  }
+
+
+  .bck{
+    background-color: #f8f7f8;
+    height: 200vh;
+    width: 100vw;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: -1;
+  }
+}

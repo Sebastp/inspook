@@ -31,7 +31,7 @@ body {
   height: 1px;
   width: 100%;
   display: inline-block;
-  background: linear-gradient(90deg, $brandCol1, $brandCol2);
+  background: linear-gradient(90deg, $brandCol1, $blue, $brandCol2);
 }
 
 
@@ -51,12 +51,25 @@ body {
   display: block;
 }
 
-.cont-width_fullp{//blog posts on landing
+.cont-width_2{//one column
   margin: auto;
   padding: 0px 40px;
+  max-width: 635px;//555
   width: 100%;
   display: block;
+
+  &__scroll{
+    margin: auto;
+    padding: 0px 20px;
+    max-width: 595px;//555
+    width: 100%;
+    display: block;
+  }
 }
+
+
+
+
 
 
 
@@ -65,10 +78,25 @@ body {
 // =====================================================
 // Small
 @media (min-width: 544px) {}
+
+@media (max-width: 544px) {
+  .cont-width_0, .cont-width_2, .cont-width_2__scroll{
+    padding: 0px 20px;
+  }
+}
+
 // Medium
 @media (min-width: 768px) {}
 // Large
 @media (max-width: 992px) {}
 // Extra large
 @media (max-width: 1225px) {
+}
+
+
+@media (max-width: 1300px) {
+  .cont-width_1{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }

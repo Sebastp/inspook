@@ -26,7 +26,7 @@ export default class Topbar extends Component {
           <button className="nav-toggle"></button>
           <nav>
             <span className="nav-search">
-              <img src={require('../assets/img/icons/search.svg')}/>
+              <img alt="Search" src={require('../assets/img/icons/search.svg')}/>
             </span>
 
             <span className="navAnach">

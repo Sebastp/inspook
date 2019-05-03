@@ -9,26 +9,6 @@ import {bookReviews} from '../helpers/goodreads'
 
 import { getBookReviewers } from '../graphql'
 
-/*
-var amazon = require('amazon-product-api');
-
-var client = amazon.createClient({
-  awsId: "AKIAI6H4Z2ZNNG4N2FNA",
-  awsSecret: "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",
-  awsTag: "inspook-20"
-});
-
-client.itemLookup({
-  ItemId: '9781585425648',
-  IdType: 'ISBN',
-  responseGroup: 'ItemAttributes,Offers,Images'
-}).then(function(results){
-  console.log(results);
-}).catch(function(err){
-  console.log(err);
-});
-*/
-
 
 export default class BookThird extends Component {
   state = {
@@ -49,7 +29,7 @@ export default class BookThird extends Component {
 
 
     return (
-      <li className="col-12 col-md-6 col-lg-4">
+      <li className="col-12 col-sm-6 col-md-4 col-lg-3">
         <Query query={getBookReviewers} variables={{bookid: this.props.bookId, numToGet: 1}}>
           {
             ({loading, error, data}) => {

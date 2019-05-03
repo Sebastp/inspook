@@ -1,0 +1,149 @@
+.pageTop{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 40px;
+
+  &__tagline{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 90px;
+
+    h1{
+      font-family: $playfair;
+      font-weight: $bold;
+      color: rgba($dark2,0.95);
+      font-size: 2.313rem;
+    }
+
+    p{
+      font-weight: $regular;
+      // font-weight: $medium;
+      // color: #3636368c;
+      color: rgba($dark2,0.46);
+      margin-top: 12px;
+      margin-bottom: 0px;
+      font-size: 1.063rem;
+    }
+  }
+
+
+  &__nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-top: 10px;
+    cursor: pointer;
+
+    .navAnach{
+      font-size: 0.8125rem;
+    }
+
+    :not(.active){
+      color: rgba($dark2, 0.45);
+    }
+  }
+}
+
+
+
+
+.midRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+
+  &__item{
+    display: inline-block;
+
+    span{
+      display: inline-block;
+
+      &.itmDesc{
+        font-weight: $medium;
+        color: rgba($dark2, 0.4);
+        font-size: 0.875rem;
+        margin-right: 8px;
+      }
+
+      &.itmNum{
+        font-size: 1rem;
+        font-weight: $semi-bold;
+        color: rgba($dark2, 0.9);
+      }
+
+    }
+
+    .itmScm{
+      margin-left: 5px;
+      height: 15px;
+      display: inline-block;
+
+      div, img{
+        display: inline-block;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-color: transparent;
+        margin-right: 13px;
+        opacity: 0.18;
+        cursor: pointer;
+        transition: opacity 0.2s;
+
+        &:hover{
+          opacity: 0.3;
+          transition: opacity 0.2s;
+        }
+
+        &:last-child{
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  &-break{
+    height: 25px;
+    width: 1px;
+    background-color: $grey4;
+    margin: auto 20px;
+  }
+}
+
+
+
+.pageMain{
+  margin-top: 80px;
+  
+  &__header{
+    margin-bottom: 60px;
+  }
+
+  &__bookLi{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  &__personLi{
+    margin-bottom: 30px;
+  }
+}
+
+
+// =====================================================
+//    MEDIA QUERIES
+// =====================================================
+// Small
+@media (min-width: 544px) {}
+// Medium
+@media (min-width: 768px) {}
+// Large
+@media (max-width: 992px) {}
+// Extra large
+@media (max-width: 1225px) {
+}
