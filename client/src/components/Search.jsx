@@ -23,7 +23,7 @@ export default class Search extends Component {
   }
 
   render() {
-    var {bottomMsg, maxResults, type} = this.props;
+    var {bottomMsg, maxResults, type, expendedHeight} = this.props;
     const {searchPhrase} = this.state;
 
     var bottomMsg = bottomMsg?bottomMsg:'Search...'
@@ -34,8 +34,16 @@ export default class Search extends Component {
       var contType = ''
     }
 
+    if (expendedHeight && searchPhrase!='') {
+      var addStyle = {height: expendedHeight+'px'}
+    }else {
+      var addStyle = {height: '48px'}
+    }
+
     return (
-      <div className={"search-center "+contType}>
+      <div className={"search-center "+contType}
+          style={addStyle}
+      >
         <div className="search-input">
           <label className="search-input__icon"
             style={{ backgroundImage: `url(${require('../assets/img/icons/search.svg')})` }}

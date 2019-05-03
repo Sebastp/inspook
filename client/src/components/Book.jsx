@@ -4,14 +4,18 @@ import {Query} from 'react-apollo'
 import Dotdotdot from 'react-clamp'
 import stripHtml from "string-strip-html";
 
+import { ModalConsumer } from './ModalContext';
 
-import { getLink } from '../helpers/amazonAff'
 
 import Topbar from './Topbar'
 import ScmButtons from './partials/ScmButtons'
-import BookReview from './BookReview'
+import PageSeeNext from './partials/PageSeeNext'
+import BookReview__2 from './BookReview__2'
+import Footer from './Footer'
 
 
+import { getLink } from '../helpers/amazonAff'
+import {onShelves} from '../helpers/textTransf'
 import {bookReviews} from '../helpers/goodreads'
 
 import { nrOfShelves, getBookReviews } from '../graphql'
@@ -36,7 +40,7 @@ export default class Book extends Component {
 
   render() {
     const {bookObj} = this.state
-
+    const {bookId} = this
 
     if (bookObj) {
       var book_rating = parseFloat(bookObj.average_rating[0]).toFixed(1),
@@ -71,26 +75,32 @@ export default class Book extends Component {
                 </div>
 
                 <div className="bookPage-specs bcp-spec">
-                  <p>On Shelves
-                    <Query query={nrOfShelves} variables={{bookid: this.bookId}}>
-                      {
-                        ({loading, error, data}) => {
-                          if (loading){
-                            return null
-                          }
-
-                          if (error) {
-                            console.log(error.toString());
-                            return null
-                          }
-
-                          var shelves = data.nrOfShelves
-
-                          return ' '+shelves
+                  <Query query={nrOfShelves} variables={{bookid: bookId}}>
+                    {
+                      ({loading, error, data}) => {
+                        if (loading){
+                          return <p/>
                         }
+
+                        if (error) {
+                          console.log(error.toString());
+                          return null
+                        }
+
+                        var shelves = data.nrOfShelves
+
+                        return (
+                          <ModalConsumer>
+                            {({ showModal, props }) => (
+                              <p onClick={() => {if(shelves>0) showModal( 'mShelves', { shelves, bookId })}} >
+                                {onShelves(shelves)}
+                              </p>
+                            )}
+                          </ModalConsumer>
+                        )
                       }
-                    </Query>
-                  </p>
+                    }
+                  </Query>
                   <p>Stars on GoodReads {book_rating}</p>
                 </div>
               </div>
@@ -113,16 +123,17 @@ export default class Book extends Component {
 
 
 
-          <div className="midRow cont-width_2">
+          <div className="midRow cont-width_0">
             <div className="midRow__item">
               <span className="itmDesc">Buy on</span>
-
-              <a className="button-filled" target="_blank" href={getLink(this.bookId)}>
-                Amazon
-              </a>
-              <a className="button-filled" target="_blank" href={getLink(this.bookId)}>
-                Book Depository
-              </a>
+              <div className="itmRight">
+                <a className="button-filled" target="_blank" href={getLink(this.bookId)}>
+                  Amazon
+                </a>
+                <a className="button-filled" target="_blank" href={getLink(this.bookId)}>
+                  Book Depository
+                </a>
+              </div>
             </div>
 
             <div className="midRow__item">
@@ -133,23 +144,17 @@ export default class Book extends Component {
             </div>
           </div>
 
-
-
-
-
-          <section className="pageMain cont-width_0">
+          <section className="pagebcpMain cont-width_0">
             <div className="row">
-              <h3 className="sect-header_s1">Reviews</h3>
+              <div className="col-6 colBigPading-right">
 
-              <div className="col-6">
-                <p className="bookPage-desc">
-                  <Dotdotdot clamp={3}>
-                    {stripHtml(book_desc)}
-                  </Dotdotdot>
-                </p>
+                <Dotdotdot clamp={3} className="pagebcpMain-leftDesc" tagName="p">
+                  {stripHtml(book_desc)}
+                </Dotdotdot>
+                <span className="subAnach pagebcpMain-leftSub">Goodreads Description</span>
               </div>
 
-              <ul className="col-6">
+              <ul className="col-6 bookPage-revUl">
                 <Query query={getBookReviews} variables={{bookid: this.bookId}}>
                   {
                     ({loading, error, data}) => {
@@ -167,8 +172,8 @@ export default class Book extends Component {
 
                       return (
                         bookData.map((rev,i)=>(
-                          <li>
-                            <BookReview revOjb={rev}/>
+                          <li key={i}>
+                            <BookReview__2 revOjb={rev}/>
                           </li>
                         ))
                       )
@@ -179,6 +184,9 @@ export default class Book extends Component {
             </div>
           </section>
         </div>
+        
+        <PageSeeNext/>
+        <Footer/>
       </Fragment>
     )
   }

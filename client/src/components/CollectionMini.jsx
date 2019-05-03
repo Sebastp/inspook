@@ -13,7 +13,9 @@ export default class CollectionMini extends Component {
   render() {
     const {collId} = this.props;
 
-
+    if (!collId) {
+      return (<CollectionMini_loading/>)
+    }
 
 
     return(

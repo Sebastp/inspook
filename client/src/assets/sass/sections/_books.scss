@@ -22,7 +22,7 @@
 
 
       .bookPage-specs{
-        color: rgba($dark2, 0.45);
+        color: rgba($dark2, 0.4);
         p{
           display: inline-block;
           margin-right: 30px;
@@ -35,31 +35,42 @@
   }
 
 
+  .bookPage-revUl{
+    li{
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid $grey2;
+      // margin-top: 30px;
 
-  .book-review{
-    width: 100%;
-    margin-top: 30px;
-    text-align: center;
-
-    &__name{
-      font-size: 0.8125rem;
-      font-weight: $semi-bold;
+      &:last-child{
+        padding-bottom: 0px;
+        border-bottom: 0px;
+        margin-bottom: 0px;
+      }
     }
 
-    &__inner{
-      display: block;
+    .book-review{
       width: 100%;
-      position: relative;
-      margin-top: 9px;
-      padding: 0 30px;
+      text-align: left;
 
-      p{
-        font-family: $lato;
-        font-weight: $medium;
-        color: rgba($dark2, 0.42);
-        font-size: 1rem;
-        text-align: center;
-        line-height: 1.45em;
+      &__name{
+        font-weight: $regular;
+        font-family: $lora;
+        font-size: 1.188rem;
+      }
+
+      &__inner{
+        display: block;
+        width: 100%;
+        position: relative;
+        margin-top: 10px;
+
+        p{
+          font-weight: $regular;
+          color: rgba($dark2, 0.5);
+          font-size: 0.875rem;
+          // line-height: 1.45em;
+        }
       }
     }
   }

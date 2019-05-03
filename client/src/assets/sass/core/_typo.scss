@@ -8,11 +8,13 @@
 
 .sect-header {
   font-size: 1.75rem;
+  // font-size: 1.625rem;
   @include theader;
 
   &_s1{
     @include theader;
     font-size: 1.625rem;
+    // font-size: 1.5rem;
   }
 }
 

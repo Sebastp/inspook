@@ -115,7 +115,7 @@ export default class Landing extends Component {
             <div className="col-0 col-lg-1"/>
 
             <div className="col-12 col-md-6 col-lg-5">
-              <Search maxResults={3}/>
+              <Search maxResults={3} expendedHeight={311}/>
             </div>
 
             <div className="col-12 col-md-6 col-lg-5 colBigPading-left">

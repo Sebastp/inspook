@@ -3,8 +3,8 @@ import gql from 'graphql-tag'
 export default gql`
   extend type Query {
     collectionByUid(uid: String!): Collection
+    getRandomCollections(numToGet: Int!, ignore: [String]): [randCollections]
   }
-
 
   type Collection {
     uid: String!
@@ -15,5 +15,10 @@ export default gql`
     tags: [String]
     books: [String]
     booksCount: Int
+  }
+
+  type randCollections {
+    uid: String!
+    title: String
   }
 `

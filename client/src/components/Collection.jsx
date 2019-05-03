@@ -10,6 +10,7 @@ import Topbar from './Topbar'
 import Footer from './Footer'
 import BookHalf from './BookHalf'
 import BookList from './hocs/BookList'
+import PageSeeNext from './partials/PageSeeNext'
 
 
 
@@ -120,6 +121,7 @@ export default class Collection extends Component {
             }
           }
         </Query>
+        <PageSeeNext ignoreUid={this.collectionIdProp}/>
         <Footer/>
       </Fragment>
     )
