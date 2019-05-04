@@ -27,6 +27,7 @@ export default class CollectionMini extends Component {
             }
             if (error || !data) {
               console.log(error.toString());
+              return <CollectionMini_loading/>
               return null;
             }
 

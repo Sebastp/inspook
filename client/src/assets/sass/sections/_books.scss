@@ -19,57 +19,46 @@
       .bookPage-author{
         margin-top: 13px;
       }
-
-
-      .bookPage-specs{
-        color: rgba($dark2, 0.4);
-        p{
-          display: inline-block;
-          margin-right: 30px;
-          &:last-child{
-            margin-right: 0px;
-          }
-        }
-      }
     }
   }
 
+  .pagebcpMain{
+    .bookPage-revUl{
+      li{
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid $grey2;
+        // margin-top: 30px;
 
-  .bookPage-revUl{
-    li{
-      padding-bottom: 40px;
-      margin-bottom: 40px;
-      border-bottom: 1px solid $grey2;
-      // margin-top: 30px;
-
-      &:last-child{
-        padding-bottom: 0px;
-        border-bottom: 0px;
-        margin-bottom: 0px;
-      }
-    }
-
-    .book-review{
-      width: 100%;
-      text-align: left;
-
-      &__name{
-        font-weight: $regular;
-        font-family: $lora;
-        font-size: 1.188rem;
+        &:last-child{
+          padding-bottom: 0px;
+          border-bottom: 0px;
+          margin-bottom: 0px;
+        }
       }
 
-      &__inner{
-        display: block;
+      .book-review{
         width: 100%;
-        position: relative;
-        margin-top: 10px;
+        text-align: left;
 
-        p{
+        &__name{
           font-weight: $regular;
-          color: rgba($dark2, 0.5);
-          font-size: 0.875rem;
-          // line-height: 1.45em;
+          font-family: $lora;
+          font-size: 1.188rem;
+        }
+
+        &__inner{
+          display: block;
+          width: 100%;
+          position: relative;
+          margin-top: 10px;
+
+          p{
+            font-weight: $regular;
+            color: rgba($dark2, 0.5);
+            font-size: 0.875rem;
+            // line-height: 1.45em;
+          }
         }
       }
     }

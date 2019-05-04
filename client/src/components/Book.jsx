@@ -114,7 +114,7 @@ export default class Book extends Component {
                     style={{
                       backgroundColor: '#bde9fb'
                     }}
-                  />
+                />
               </div>
 
               <div className="col-0 col-lg-1"/>
@@ -168,7 +168,7 @@ export default class Book extends Component {
 
                       var bookData = data.getBookReviews
 
-
+                      bookData = bookData.filter(rev => rev.review);
 
                       return (
                         bookData.map((rev,i)=>(
@@ -184,7 +184,7 @@ export default class Book extends Component {
             </div>
           </section>
         </div>
-        
+
         <PageSeeNext/>
         <Footer/>
       </Fragment>

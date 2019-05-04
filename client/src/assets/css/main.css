@@ -684,7 +684,6 @@ input, textarea {
       background-color: #fafafa; }
   .pagebcpTop .bcp-info {
     text-align: left;
-    padding-right: 35px;
     padding-bottom: 20px;
     display: flex;
     flex-direction: column; }
@@ -711,7 +710,21 @@ input, textarea {
       display: block;
       white-space: pre;
       font-size: 0.75rem;
-      white-space: pre; }
+      white-space: pre;
+      color: rgba(0, 7, 34, 0.4); }
+      .pagebcpTop .bcp-info .bcp-spec p {
+        display: inline-block;
+        margin-right: 30px; }
+        .pagebcpTop .bcp-info .bcp-spec p:last-child {
+          margin-right: 0px; }
+  .pagebcpTop .bcp-subparagraph {
+    display: block;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: rgba(32, 32, 32, 0.45);
+    font-size: 1rem;
+    margin-top: 30px; }
 
 .midRow {
   display: flex;
@@ -756,19 +769,20 @@ input, textarea {
   .pageMain__personLi {
     margin-bottom: 30px; }
 
-.pagebcpMain-leftDesc {
-  display: block;
-  text-align: left;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  color: rgba(32, 32, 32, 0.42);
-  font-size: 1rem;
-  font-size: 0.9375rem; }
-
-.pagebcpMain-leftSub {
-  display: block;
-  text-align: right;
-  margin-top: 20px; }
+.pagebcpMain {
+  margin-top: 100px; }
+  .pagebcpMain-leftDesc {
+    display: block;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: rgba(32, 32, 32, 0.42);
+    font-size: 1rem;
+    font-size: 0.9375rem; }
+  .pagebcpMain-leftSub {
+    display: block;
+    text-align: right;
+    margin-top: 20px; }
 
 .pagebcpSeeNext {
   position: relative;
@@ -1046,31 +1060,40 @@ input, textarea {
     .person__horiz .person-info .person-name {
       font-size: 1rem; }
 
-.collection {
+.collectionPage {
   display: inline-block;
   width: 100%; }
-  .collection header {
+  .collectionPage header {
     margin-top: 40px; }
-    .collection header .collection-canvas .collection-cover {
-      width: 90px;
-      height: 141px;
-      box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
-      margin: 30px auto; }
-    .collection header .collection-info {
+    .collectionPage header .collection-canvas {
+      width: 100%;
+      display: inline-block; }
+      .collectionPage header .collection-canvas .collection-cover {
+        width: 90px;
+        height: 141px;
+        box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
+        margin: 30px auto; }
+      .collectionPage header .collection-canvas .collection-bck {
+        left: 50%;
+        transform: translateX(-50%); }
+    .collectionPage header .collection-info {
       text-align: left;
-      padding-right: 35px; }
-      .collection header .collection-info .collection-desc {
-        margin-top: 30px; }
-      .collection header .collection-info .collection-spec {
+      padding-right: 35px;
+      /*
+      .collection-spec{
         text-align: right;
         display: block;
         white-space: pre;
         font-size: 0.75rem;
-        white-space: pre; }
-  .collection ul {
+        white-space: pre;
+      }
+*/ }
+      .collectionPage header .collection-info .collection-desc {
+        margin-top: 30px; }
+  .collectionPage ul {
     width: 100%;
     margin: auto; }
-    .collection ul li {
+    .collectionPage ul li {
       display: inline-block;
       width: 100%;
       margin-bottom: 50px; }
@@ -1155,34 +1178,27 @@ input, textarea {
       padding-right: 35px; }
       .bookPage header .bookPage-info .bookPage-author {
         margin-top: 13px; }
-      .bookPage header .bookPage-info .bookPage-specs {
-        color: rgba(0, 7, 34, 0.4); }
-        .bookPage header .bookPage-info .bookPage-specs p {
-          display: inline-block;
-          margin-right: 30px; }
-          .bookPage header .bookPage-info .bookPage-specs p:last-child {
-            margin-right: 0px; }
-  .bookPage .bookPage-revUl li {
+  .bookPage .pagebcpMain .bookPage-revUl li {
     padding-bottom: 40px;
     margin-bottom: 40px;
     border-bottom: 1px solid #eeeeee; }
-    .bookPage .bookPage-revUl li:last-child {
+    .bookPage .pagebcpMain .bookPage-revUl li:last-child {
       padding-bottom: 0px;
       border-bottom: 0px;
       margin-bottom: 0px; }
-  .bookPage .bookPage-revUl .book-review {
+  .bookPage .pagebcpMain .bookPage-revUl .book-review {
     width: 100%;
     text-align: left; }
-    .bookPage .bookPage-revUl .book-review__name {
+    .bookPage .pagebcpMain .bookPage-revUl .book-review__name {
       font-weight: 400;
       font-family: "Lora", serif;
       font-size: 1.188rem; }
-    .bookPage .bookPage-revUl .book-review__inner {
+    .bookPage .pagebcpMain .bookPage-revUl .book-review__inner {
       display: block;
       width: 100%;
       position: relative;
       margin-top: 10px; }
-      .bookPage .bookPage-revUl .book-review__inner p {
+      .bookPage .pagebcpMain .bookPage-revUl .book-review__inner p {
         font-weight: 400;
         color: rgba(0, 7, 34, 0.5);
         font-size: 0.875rem; }

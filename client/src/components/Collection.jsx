@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react'
 
 import { Link } from 'react-router-dom'
 import {Query} from 'react-apollo'
+import Dotdotdot from 'react-clamp'
+
 
 import { getCollectionByUid } from '../graphql'
 
@@ -50,70 +52,63 @@ export default class Collection extends Component {
 
 
               return (
-                <div className="collection">
+                <div className="collectionPage">
                   <header className="cont-width_0 pagebcpTop">
                     <div className="row">
                       <div className="col-0 col-lg-1"/>
-
-                      <div className="collection-info col-7 col-lg-6">
+                      <div className="collection-info bcp-info col">
                         <span className="subAnach bcp-pname">Collection</span>
                         <h1 className="collection-title bcp-title">{collectionObj.title}</h1>
                         <p className="collection-desc bcp-desc">{collectionObj.desc}</p>
 
-
-                        <span className="collection-spec bcp-spec subAnach">{collectionObj.tagsStr}</span>
+                        <div className="collectionPage-specs bcp-spec">
+                          <p>Books {collectionObj.booksCount}</p>
+                        </div>
+                        {/*<span className="collection-spec bcp-spec subAnach">{collectionObj.tagsStr}</span>*/}
                       </div>
-
-
-                      <div className="collection-canvas bcp-canvas col-5 col-lg-4">
-                        <div className="collection-cover bcp-canvas__cover"
-                          style={{
-                            backgroundImage: `url(${require('../assets/img/collections/'+collectionObj.cover+'.jpg')})`
-                          }}
-                          />
-                        <div className="collection-bck bcp-canvas__bck"
-                            style={{
-                              backgroundColor: '#'+collectionObj.color
-                            }}
-                          />
-                      </div>
-
                       <div className="col-0 col-lg-1"/>
                     </div>
+
+                    <div className="collection-canvas bcp-canvas">
+                      <div className="collection-cover bcp-canvas__cover"
+                        style={{
+                          backgroundImage: `url(${require('../assets/img/collections/'+collectionObj.cover+'.jpg')})`
+                        }}
+                      />
+                      <div className="collection-bck bcp-canvas__bck"
+                        style={{ backgroundColor: '#'+collectionObj.color }}
+                      />
+                    </div>
+
+                    <p className="bcp-subparagraph">{collectionObj.desc}</p>
                   </header>
 
-                  <div className="midRow cont-width_2">
-                    <div className="midRow__item">
-                      <span className="itmDesc">Books</span>
-                      <span className="itmNum">{collectionObj.booksCount}</span>
-                    </div>
 
-                    <div className="midRow-break"/>
 
-                    <div className="midRow__item">
-                      <span className="itmDesc">Share</span>
-                      <div className="itmScm">
-                        <img src={ require('../assets/img/icons/fb.png') }/>
-                        <img src={ require('../assets/img/icons/twt.png') }/>
-                        <img src={ require('../assets/img/icons/in.png') }/>
+                  <section className="pagebcpMain cont-width_0">
+                    <div className="row">
+                      <div className="col-6 colBigPading-right">
+
+                        <Dotdotdot clamp={3} className="pagebcpMain-leftDesc" tagName="p">
+                          {collectionObj.desc}
+                        </Dotdotdot>
                       </div>
-                    </div>
-                  </div>
 
-
-                  <section className="pageMain">
-                    <ul className="collection-list cont-width_2">
-                      <BookList
-                        lItems={collection__books.slice(0, this.PAGE_SIZE*this.state.currPage)}
-                        onLoadMore={() =>{
-                            if (this.PAGE_SIZE*this.state.currPage < collection__books.length) {
-                              this.setState({ currPage: this.state.currPage+1 });
+                      <ul className="col-6 bookPage-revUl">
+                        <BookList
+                          lItems={collection__books.slice(0, this.PAGE_SIZE*this.state.currPage)}
+                          onLoadMore={() =>{
+                              if (this.PAGE_SIZE*this.state.currPage < collection__books.length) {
+                                this.setState({ currPage: this.state.currPage+1 });
+                              }
                             }
                           }
-                        }
-                      />
-                    </ul>
+                        />
+                      </ul>
+                    </div>
                   </section>
+
+
 
                 </div>
               )

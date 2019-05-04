@@ -86,7 +86,6 @@
 
   .bcp-info{
     text-align: left;
-    padding-right: 35px;
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -125,7 +124,26 @@
       white-space: pre;
       font-size: 0.75rem;
       white-space: pre;
+
+      color: rgba($dark2, 0.4);
+      p{
+        display: inline-block;
+        margin-right: 30px;
+        &:last-child{
+          margin-right: 0px;
+        }
+      }
     }
+  }
+
+  .bcp-subparagraph{
+    display: block;
+    text-align: center;
+    font-family: $poppins;
+    font-weight: $regular;
+    color: rgba($dark1, 0.45);
+    font-size: 1rem;
+    margin-top: 30px;
   }
 }
 
@@ -204,6 +222,7 @@
 
 
 .pagebcpMain{
+  margin-top: 100px;
   &-leftDesc{
     display: block;
     text-align: left;

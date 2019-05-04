@@ -1,15 +1,25 @@
-.collection {
+.collectionPage {
   display: inline-block;
   width: 100%;
 
   header{
     margin-top: 40px;
 
-    .collection-canvas .collection-cover{
-      width: 90px;
-      height: 141px;
-      box-shadow: $shadow1;
-      margin: 30px auto;
+    .collection-canvas{
+      width: 100%;
+      display: inline-block;
+
+      .collection-cover{
+        width: 90px;
+        height: 141px;
+        box-shadow: $shadow1;
+        margin: 30px auto;
+      }
+
+      .collection-bck{
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     .collection-info{
@@ -20,7 +30,7 @@
         margin-top: 30px;
       }
 
-
+/*
       .collection-spec{
         text-align: right;
         display: block;
@@ -28,6 +38,7 @@
         font-size: 0.75rem;
         white-space: pre;
       }
+*/
     }
   }
 
