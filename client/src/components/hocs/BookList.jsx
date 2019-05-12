@@ -50,6 +50,7 @@ export default class BookList extends Component {
         {lItems.map(( item, i ) => (
           <li className="pageMain__bookLi" key={i}>
             <BookHalf onShelvesProp={item.onShelves} reviewsList={[ item ]} bookId={item.bookId}/>
+            <hr/>
           </li>
         ))}
       </Fragment>

@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import {Query} from 'react-apollo'
 import Dotdotdot from 'react-clamp'
-
+import Sticky from 'react-sticky-el';
 
 import { getCollectionByUid } from '../graphql'
 
@@ -29,6 +29,8 @@ export default class Collection extends Component {
   }
 
 
+
+
   render() {
 
     return (
@@ -48,7 +50,7 @@ export default class Collection extends Component {
                   collection__books = (collectionObj.books).map(a=> a={bookId: a})
 
               collectionObj.tagsStr = collectionObj.tags.map(a=> { return a.charAt(0).toUpperCase() + a.slice(1) })
-              collectionObj.tagsStr = collectionObj.tagsStr.join('  -  ')
+              collectionObj.tagsStr = collectionObj.tagsStr.join('    ')
 
 
 
@@ -84,35 +86,32 @@ export default class Collection extends Component {
                       />
                     </div>
 
-                    <p className="bcp-subparagraph">{collectionObj.desc}</p>
+                    <p className="bcp-subparagraph">{collectionObj.tagsStr}</p>
                   </header>
 
 
 
                   <section className="pagebcpMain cont-width_0">
-                    <div className="row">
-                      <div className="col-6 colBigPading-right">
-                        <Dotdotdot clamp={3} className="pagebcpMain-leftDesc sect-header_s1" tagName="p">
-                          {collectionObj.tagsStr}
-                        </Dotdotdot>
+                    <div className="row rowCont">
+                      <div className="col-0 col-lg-1"/>
+                      <Sticky className="shareBtns" topOffset={-100} boundaryElement=".pagebcpMain">
+                        <ScmButtons shareUrl={window.location.href}/>
+                      </Sticky>
 
-                        <span className="itmDesc">Share</span>
-                        <div className="itmScm">
-                          <ScmButtons shareUrl={window.location.href}/>
-                        </div>
-                      </div>
-
-                      <ul className="col-6 bookPage-revUl">
-                        <BookList
-                          lItems={collection__books.slice(0, this.PAGE_SIZE*this.state.currPage)}
-                          onLoadMore={() =>{
-                              if (this.PAGE_SIZE*this.state.currPage < collection__books.length) {
-                                this.setState({ currPage: this.state.currPage+1 });
+                      <div className="col col-md-8 col-lg-6 centColumn">
+                        <ul>
+                            <BookList
+                              lItems={collection__books.slice(0, this.PAGE_SIZE*this.state.currPage)}
+                              onLoadMore={() =>{
+                                if (this.PAGE_SIZE*this.state.currPage < collection__books.length) {
+                                  this.setState({ currPage: this.state.currPage+1 });
+                                }
                               }
                             }
-                          }
-                        />
-                      </ul>
+                            />
+                        </ul>
+                      </div>
+                      <div className="col-0 col-lg-1"/>
                     </div>
                   </section>
 

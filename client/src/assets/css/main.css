@@ -667,11 +667,11 @@ input, textarea {
     display: block;
     text-align: center;
     font-family: "Poppins", sans-serif;
+    white-space: pre;
     font-weight: 400;
-    color: rgba(32, 32, 32, 0.4);
-    font-size: 1rem;
+    color: rgba(32, 32, 32, 0.37);
     font-size: 0.9375rem;
-    margin-top: 30px; }
+    margin-top: 27px; }
 
 .midRow {
   display: flex;
@@ -711,13 +711,26 @@ input, textarea {
     margin-bottom: 60px; }
   .pageMain__bookLi {
     display: inline-block;
-    width: 100%;
-    margin-bottom: 50px; }
+    width: 100%; }
+    .pageMain__bookLi hr {
+      display: block;
+      height: 1px;
+      background-color: #eeeeee;
+      border: 0;
+      margin: 55px -30px; }
+    .pageMain__bookLi:last-child hr {
+      display: none; }
   .pageMain__personLi {
     margin-bottom: 30px; }
 
 .pagebcpMain {
-  margin-top: 100px; }
+  margin-top: 100px;
+  position: relative; }
+  .pagebcpMain .rowCont {
+    position: relative; }
+    .pagebcpMain .rowCont .centColumn {
+      max-width: 555px;
+      margin: auto; }
   .pagebcpMain-leftDesc {
     display: block;
     text-align: left;
@@ -733,9 +746,9 @@ input, textarea {
 
 .pagebcpSeeNext {
   position: relative;
-  padding-top: 80px;
+  padding-top: 60px;
   padding-bottom: 30px;
-  margin-top: 130px; }
+  margin-top: 150px; }
   .pagebcpSeeNext .sectHeader {
     display: flex;
     flex-direction: row;
@@ -754,6 +767,24 @@ input, textarea {
     transform: translateX(-50%);
     position: absolute;
     z-index: -2; }
+
+@media (max-width: 991px) {
+  .col-0.col-lg-1 {
+    display: none; } }
+
+@media (max-width: 840px) {
+  .pageMain__bookLi hr {
+    margin: 50px 0px; } }
+
+@media (max-width: 768px) {
+  .pagebcpMain {
+    margin-top: 85px; } }
+
+@media (max-width: 544px) {
+  .pagebcpMain {
+    margin-top: 75px; }
+  .pageMain__bookLi hr {
+    margin: 50px -20px; } }
 
 .scrollbar_1::-webkit-scrollbar {
   background: none;
@@ -1018,7 +1049,7 @@ input, textarea {
       .collectionPage header .collection-canvas .collection-cover {
         width: 90px;
         height: 141px;
-        box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
+        box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
         margin: 40px auto; }
       .collectionPage header .collection-canvas .collection-bck {
         left: 50%;
@@ -1036,13 +1067,35 @@ input, textarea {
       .collectionPage header .collection-info .collection-specs {
         display: inline-block;
         padding-bottom: 3px; }
+  .collectionPage .shareBtns {
+    position: absolute;
+    top: 0;
+    transition: opacity 0.2s; }
+    .collectionPage .shareBtns .button-scm {
+      display: block;
+      margin-top: 15px; }
+      .collectionPage .shareBtns .button-scm:first-child {
+        margin-top: 0px; }
+    .collectionPage .shareBtns.sticky {
+      top: 100px !important;
+      opacity: 1;
+      transition: opacity 0.35s; }
+    .collectionPage .shareBtns.hidden {
+      opacity: 0; }
   .collectionPage ul {
     width: 100%;
     margin: auto; }
     .collectionPage ul li {
       display: inline-block;
-      width: 100%;
-      margin-bottom: 50px; }
+      width: 100%; }
+
+@media (max-width: 991px) {
+  .collectionPage .shareBtns {
+    margin-left: 15px; } }
+
+@media (max-width: 768px) {
+  .collectionPage .rowCont .shareBtns {
+    display: none; } }
 
 .collectionMini {
   display: inline-block;
@@ -1063,7 +1116,7 @@ input, textarea {
       width: 83px;
       height: 130px;
       margin: 0 auto;
-      box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
+      box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
       margin: 30px auto; }
     .collectionMini-top .collectionMini-bck {
       width: 100%;
@@ -1117,7 +1170,7 @@ input, textarea {
     .bookPage header .bookPage-canvas .bookPage-cover {
       width: 100px;
       height: 157px;
-      box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
+      box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
       margin: 100px auto; }
     .bookPage header .bookPage-info {
       text-align: left;
@@ -1152,8 +1205,9 @@ input, textarea {
   .bookHalf .book-top {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start; }
+    flex-direction: column;
+    align-items: center;
+    text-align: center; }
     .bookHalf .book-top .book-canvas {
       height: 130px;
       width: 83px;
@@ -1169,18 +1223,18 @@ input, textarea {
           background-position: top center;
           background-repeat: no-repeat;
           background-size: cover;
-          box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15); }
+          box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17); }
     .bookHalf .book-top .book-content {
       display: flex;
       flex-direction: column;
-      margin-left: 18px;
-      flex: 1; }
+      flex: 1;
+      margin-top: 20px;
+      width: 100%; }
       .bookHalf .book-top .book-content .book-title {
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         color: #000722;
         font-size: 1.313rem;
-        text-align: left;
         width: 100%;
         max-height: 50px; }
       .bookHalf .book-top .book-content .book-author {
@@ -1191,34 +1245,36 @@ input, textarea {
         width: 100%;
         margin-top: 4px; }
       .bookHalf .book-top .book-content .book-midrow {
-        flex: 1;
-        margin-top: 5px;
-        font-family: "Poppins", sans-serif; }
-        .bookHalf .book-top .book-content .book-midrow .book-rate {
-          font-weight: 400;
-          color: rgba(0, 7, 34, 0.45);
-          font-size: 0.875rem; }
-          .bookHalf .book-top .book-content .book-midrow .book-rate span {
-            font-size: 0.9375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: rgba(0, 7, 34, 0.9);
-            margin-right: 6px; }
-      .bookHalf .book-top .book-content .book-bottom {
-        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-end; }
-        .bookHalf .book-top .book-content .book-bottom .book-buy {
+        align-items: center;
+        max-width: 360px;
+        flex: 1;
+        width: 100%;
+        margin: 17px auto 0 auto; }
+        .bookHalf .book-top .book-content .book-midrow .book-rate {
+          font-weight: 400;
+          color: rgba(0, 7, 34, 0.45);
+          font-size: 0.875rem;
           display: inline-block; }
-        .bookHalf .book-top .book-content .book-bottom .book-spec {
+          .bookHalf .book-top .book-content .book-midrow .book-rate span {
+            color: rgba(0, 7, 34, 0.5);
+            margin-right: 6px; }
+        .bookHalf .book-top .book-content .book-midrow .book-spec {
           cursor: pointer;
           text-transform: uppercase;
           font-weight: 500;
           font-size: 0.75rem;
-          color: rgba(0, 0, 0, 0.83);
-          vertical-align: middle; }
+          color: rgba(0, 0, 0, 0.78);
+          vertical-align: middle;
+          display: inline-block; }
+      .bookHalf .book-top .book-content .book-bottom {
+        width: 100%;
+        display: block;
+        margin-top: 33px; }
+        .bookHalf .book-top .book-content .book-bottom .book-buy {
+          display: inline-block; }
   .bookHalf .book-review {
     width: 100%;
     margin-top: 30px;
@@ -1236,18 +1292,23 @@ input, textarea {
         font-weight: 400;
         color: rgba(0, 7, 34, 0.5);
         font-size: 0.875rem; }
-  .bookHalf.loading .book-top .book-canvas .book-cover .book-cover__inner {
-    opacity: 0.2; }
-  .bookHalf.loading .book-top .book-title, .bookHalf.loading .book-top .book-author {
-    width: 100%;
-    height: 24px;
-    border-radius: 3px;
-    margin-left: 5px; }
-  .bookHalf.loading .book-top .book-author {
-    border-radius: 3px;
-    margin-top: 14px;
-    height: 22px;
-    max-width: 220px; }
+  .bookHalf.loading .book-top {
+    text-align: center; }
+    .bookHalf.loading .book-top .book-canvas .book-cover .book-cover__inner {
+      opacity: 0.2; }
+    .bookHalf.loading .book-top .book-title, .bookHalf.loading .book-top .book-author {
+      width: 100%;
+      height: 24px;
+      border-radius: 3px;
+      width: 90%;
+      padding: 0 10px;
+      margin: auto;
+      max-width: 270px; }
+    .bookHalf.loading .book-top .book-author {
+      border-radius: 3px;
+      margin-top: 14px;
+      height: 22px;
+      max-width: 200px; }
 
 #searchSect {
   display: block;
@@ -1594,7 +1655,7 @@ input, textarea {
         width: 85px;
         height: 85px;
         margin: 0 auto;
-        box-shadow: 2px 3px 12px 0px rgba(2, 12, 20, 0.15);
+        box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
         border-radius: 500px; }
     .readerPage header .readerPage-name {
       font-family: "Lora", serif;

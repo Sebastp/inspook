@@ -43,7 +43,30 @@
   }
 
 
+  .shareBtns{
+    position: absolute;
+    top: 0;
+    transition: opacity 0.2s;
 
+    .button-scm{
+      display: block;
+      margin-top: 15px;
+
+      &:first-child{
+        margin-top: 0px;
+      }
+    }
+
+    &.sticky{
+      top: 100px !important;
+      opacity: 1;
+      transition: opacity 0.35s;
+    }
+
+    &.hidden{
+      opacity: 0;
+    }
+  }
 
 
 
@@ -54,7 +77,23 @@
     li{
       display: inline-block;
       width: 100%;
-      margin-bottom: 50px;
     }
+  }
+}
+
+
+
+// Large
+@media (max-width: 991px) {
+  .collectionPage .shareBtns{
+    margin-left: 15px;
+  }
+}
+
+
+// Medium
+@media (max-width: 768px) {
+  .collectionPage .rowCont .shareBtns{
+    display: none;
   }
 }
