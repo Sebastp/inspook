@@ -44,6 +44,7 @@
         // margin-top: 2px;
         text-align: left;
         width: 100%;
+        max-height: 50px;
       }
 
       .book-author{
@@ -107,26 +108,24 @@
     margin-top: 30px;
     text-align: center;
 
+
     &__name{
-      font-size: 0.8125rem;
-      font-weight: $semi-bold;
+      font-weight: $regular;
+      font-family: $lora;
+      font-size: 1.188rem;
     }
 
     &__inner{
       display: block;
       width: 100%;
       position: relative;
-      margin-top: 9px;
-      padding: 0 30px;
+      margin-top: 10px;
 
       p{
-        font-family: $lato;
-        font-weight: $medium;
-        color: rgba($dark2, 0.42);
-        font-size: 1rem;
-        text-align: center;
-        line-height: 1.45em;
-        margin: auto;
+        font-weight: $regular;
+        color: rgba($dark2, 0.5);
+        font-size: 0.875rem;
+        // line-height: 1.45em;
       }
     }
   }

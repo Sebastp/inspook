@@ -13,7 +13,7 @@
         width: 90px;
         height: 141px;
         box-shadow: $shadow1;
-        margin: 30px auto;
+        margin: 40px auto;
       }
 
       .collection-bck{
@@ -25,20 +25,20 @@
     .collection-info{
       text-align: left;
       padding-right: 35px;
+      padding-bottom: 45px;
+      flex-direction: row;
+      align-items: flex-end;
 
-      .collection-desc{
-        margin-top: 30px;
+      &__total{
+        display: inline-block;
+        flex: 1;
+        padding-right: 25px;
       }
 
-/*
-      .collection-spec{
-        text-align: right;
-        display: block;
-        white-space: pre;
-        font-size: 0.75rem;
-        white-space: pre;
+      .collection-specs{
+        display: inline-block;
+        padding-bottom: 3px;
       }
-*/
     }
   }
 

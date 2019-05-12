@@ -8,6 +8,7 @@ import PeoplePage from './PeoplePage'
 import Reader from './Reader'
 import Book from './Book'
 import Collection from './Collection'
+import NotFound from './NotFound'
 import { ModalProvider } from './ModalContext';
 
 
@@ -56,6 +57,7 @@ export default class App extends Component {
                   <Collection {...props}/>
                 )}
               />
+              <Route component={NotFound} />
             </Switch>
           </ModalProvider>
 

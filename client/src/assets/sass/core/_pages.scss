@@ -99,6 +99,9 @@
 
     .bcp-pname{
       font-size: 0.75rem;
+      font-size: 0.8125rem;
+      margin-bottom: 12px;
+      display: block;
     }
 
     .bcp-title{
@@ -107,14 +110,14 @@
       font-weight: $regular;
       color: rgba($dark2, 0.9);
       font-size: 1.875rem;
-      margin-top: 8px;
     }
 
     .bcp-desc{
       display: block;
       font-weight: $regular;
-      color: rgba($dark0, 0.5);
+      color: rgba($dark0, 0.45);
       font-size: 1rem;
+      margin-top: 14px;
     }
 
 
@@ -123,9 +126,10 @@
       display: block;
       white-space: pre;
       font-size: 0.75rem;
+      font-size: 0.8125rem;
       white-space: pre;
+      color: rgba($dark2, 0.42);
 
-      color: rgba($dark2, 0.4);
       p{
         display: inline-block;
         margin-right: 30px;
@@ -141,8 +145,9 @@
     text-align: center;
     font-family: $poppins;
     font-weight: $regular;
-    color: rgba($dark1, 0.45);
+    color: rgba($dark1, 0.4);
     font-size: 1rem;
+    font-size: 0.9375rem;
     margin-top: 30px;
   }
 }

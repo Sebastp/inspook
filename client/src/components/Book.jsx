@@ -101,7 +101,7 @@ export default class Book extends Component {
                       }
                     }
                   </Query>
-                  <p>Stars on GoodReads {book_rating}</p>
+                  <p>Stars on GoodReads  {book_rating}</p>
                 </div>
               </div>
 
