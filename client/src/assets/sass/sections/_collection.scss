@@ -43,32 +43,6 @@
   }
 
 
-  .shareBtns{
-    position: absolute;
-    top: 0;
-    transition: opacity 0.2s;
-
-    .button-scm{
-      display: block;
-      margin-top: 15px;
-
-      &:first-child{
-        margin-top: 0px;
-      }
-    }
-
-    &.sticky{
-      top: 100px !important;
-      opacity: 1;
-      transition: opacity 0.35s;
-    }
-
-    &.hidden{
-      opacity: 0;
-    }
-  }
-
-
 
   ul{
     width: 100%;
@@ -83,17 +57,33 @@
 
 
 
-// Large
-@media (max-width: 991px) {
-  .collectionPage .shareBtns{
-    margin-left: 15px;
+
+@media (max-width: 544px) {  
+  .collectionPage header{
+    margin-top: 20px;
   }
 }
 
 
-// Medium
-@media (max-width: 768px) {
-  .collectionPage .rowCont .shareBtns{
-    display: none;
+
+@media (max-width: 480px) {
+  .collectionPage header .collection-info{
+    flex-direction: column;
+    padding-bottom: 35px;
+
+
+    &__total{
+      display: block;
+      text-align: center;
+      padding-right: 0px;
+    }
+
+    .collection-specs{
+      display: block;
+      padding-bottom: 0px;
+      text-align: center;
+      margin: auto;
+      margin-top: 25px;
+    }
   }
 }

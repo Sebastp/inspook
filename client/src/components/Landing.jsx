@@ -7,8 +7,8 @@ import Topbar from './Topbar'
 import Search from './Search'
 import Footer from './Footer'
 
-import PersonMini from './PersonMini'
 import MostRecomBooksHeader from './LandingTopBooks'
+import LandingReaderTypes from './LandingReaderTypes'
 
 import BookHalf from './BookHalf'
 import CollectionMini from './CollectionMini'
@@ -161,44 +161,8 @@ export default class Landing extends Component {
         </section>
 
 
-        <section className="cont-width_0" id="tReadersSect">
-          <div className="row" id="tReadersSect__inner">
-            <div className="col-0 col-lg-1"/>
+        <LandingReaderTypes/>
 
-            <div className="col-6 col-lg-5 colBigPading-right" id="tReadersSect__left">
-              <div>
-                <h2 className="sect-header">Find Your Bookmate</h2>
-                <p className="sub-header">
-                  See our list of Most Popular Readers
-                  and their favorite Books
-                </p>
-              </div>
-
-              <span className="subAnach">
-                <Link to='/top-readers'>
-                  See All Readers
-                </Link>
-              </span>
-            </div>
-
-            <div className="col-0 col-md-1"  id="tReadersSect__cent">
-              <div className="bck"/>
-            </div>
-            <div className="col-6 col-md-5 col-lg-4" id="tReadersSect__right">
-              <ul>
-                {PopularReadersArr.map((persUid,i)=>(
-                  <li key={i}>
-                    <PersonMini readerUid={persUid}/>
-                  </li>
-                ))}
-              </ul>
-              <div className="bck"/>
-            </div>
-
-
-            <div className="col-0 col-lg-1"/>
-          </div>
-        </section>
 
         <Footer/>
       </Fragment>

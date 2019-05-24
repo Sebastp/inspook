@@ -171,7 +171,13 @@
 
 
 @media (max-width: 380px) {
-  .topbar header #tpb-logot{
-    display: none;
+  .topbar header {
+    #tpb-logoi{
+      height: 23px;
+    }
+
+    #tpb-logot{
+      display: none;
+    }
   }
 }

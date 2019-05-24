@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 import PersonMini_loading from './../PersonMini_loading';
-import PersonMini from './../PersonMini'
+import PersonMini_big from './../PersonMini_big'
 
 
 
@@ -35,7 +35,7 @@ export default class PeopleList extends Component {
 
   render() {
     if (!this.props.lItems && this.props.loading) return(
-      <ul className="cont-width_2">
+      <ul>
         {
           [0,1,2,3].map(( item, i ) => (
             <PersonMini_loading/>
@@ -47,10 +47,11 @@ export default class PeopleList extends Component {
     const { lItems } = this.props
 
     return(
-      <ul className="cont-width_2">
+      <ul>
         {lItems.map(( item, i ) => (
           <li className="pageMain__personLi" key={i}>
-            <PersonMini personObj={item}/>
+            <PersonMini_big personObj={item}/>
+              <hr/>
           </li>
         ))}
       </ul>

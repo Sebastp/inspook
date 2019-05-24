@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 
 
 import Topbar from './Topbar'
+import Footer from './Footer'
 import PersonMini from './PersonMini'
 import BookHalf from './BookHalf'
 import BookList from './hocs/BookList'
@@ -62,42 +63,27 @@ export default class Reader extends Component {
 
                 return (
                   <div className="readerPage">
-                    <header className="cont-width_2">
-                      <div className="readerPage-top">
-                        <div className="readerPage-cover"
-                          style={{
-                            backgroundImage: `url(${reader_avatar})`
-                          }}
-                        />
-                      </div>
+                    <header className="cont-width_2 pagebcpTop readerPage-top">
+                      <div className="readerPage-cover"
+                        style={{
+                          backgroundImage: `url(${reader_avatar})`
+                        }}
+                      />
 
-
-                      <h1 className="readerPage-name">{reader_name}</h1>
-                      <p className="readerPage-desc">{reader_desc}</p>
-                      <span className="readerPage-tags info_brand_v1">{reader_tags}</span>
-                    </header>
-
-                    <div className="midRow cont-width_2">
-                      <div className="midRow__item">
-                        <span className="itmDesc">Books</span>
-                        <span className="itmNum">{reader_books.length}</span>
-                      </div>
-
-                      <div className="midRow-break"/>
-
-                      <div className="midRow__item">
-                        <span className="itmDesc">Share</span>
-                        <div className="itmScm">
-                          <img src={ require('../assets/img/icons/fb.png') }/>
-                          <img src={ require('../assets/img/icons/twt.png') }/>
-                          <img src={ require('../assets/img/icons/in.png') }/>
+                      <div className="readerPage-info bcp-info">
+                        <span className="readerPage-tags bcp-pname subAnach">{reader_tags}</span>
+                        <h1 className="readerPage-name bcp-title">{reader_name}</h1>
+                        <p className="readerPage-desc bcp-desc">{reader_desc}</p>
+                        <div className="bcp-spec">
+                          <p>Books  {reader_books.length}</p>
                         </div>
                       </div>
-                    </div>
 
-                    <section className="pageMain">
-                      <h3 className="sect-header_s1 pageMain__header">Bookshelf</h3>
+                      <div className="readerPage-divline"/>
+                    </header>
 
+
+                    <section className="pagebcpMain">
                       <ul className="cont-width_2">
                         <BookList
                           lItems={reader_books.slice(0, this.PAGE_SIZE*this.state.currPage)}
@@ -118,27 +104,9 @@ export default class Reader extends Component {
 
 
 
-          {/*
-          <ul>
-            <Query query={getRandomReaders} variables={{numToGet: 4}}>
-              {
-                ({loading, error, data}) => {
-                  if (loading){
-                    return 'loading'
-                  }
-                  const randSuggestion = data.getRandomReaders;
-                  console.log(randSuggestion);
-                  return randSuggestion.map((item, i) => (
-                    <li key={i}>
-                      <PersonMini personObj={item}/>
-                    </li>
-                  ))
-                }
-              }
-            </Query>
-          </ul>
-          */}
 
+
+          <Footer/>
       </Fragment>
     )
   }

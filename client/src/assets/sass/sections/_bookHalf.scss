@@ -106,38 +106,6 @@
 
 
 
-  .book-review{
-    width: 100%;
-    margin-top: 30px;
-    text-align: center;
-
-
-    &__name{
-      font-weight: $regular;
-      font-family: $lora;
-      font-size: 1.188rem;
-    }
-
-    &__inner{
-      display: block;
-      width: 100%;
-      position: relative;
-      margin-top: 10px;
-
-      p{
-        font-weight: $regular;
-        color: rgba($dark2, 0.5);
-        font-size: 0.875rem;
-        // line-height: 1.45em;
-      }
-    }
-  }
-
-
-
-
-
-
 
   &.loading{
     .book-top{
@@ -164,6 +132,39 @@
         height: 22px;
         max-width: 200px;
       }
+    }
+  }
+
+
+  .book-review{
+    margin-top: 45px;
+  }
+}
+
+
+
+
+.book-review{
+  width: 100%;
+  text-align: center;
+
+
+  &__name{
+    font-family: $poppins;
+    font-weight: $medium;
+    font-size: 1.188rem;
+  }
+
+  &__inner{
+    display: block;
+    width: 100%;
+    position: relative;
+    margin-top: 12px;
+
+    p{
+      font-weight: $regular;
+      color: rgba($dark1, 0.55);
+      font-size: 0.875rem;
     }
   }
 }

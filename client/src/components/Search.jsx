@@ -17,9 +17,13 @@ export default class Search extends Component {
 
   searchChange = (e) => {
     const phrase = e.target.value
-    this.setState({
-      searchPhrase: phrase
-    });
+    if (this.props.getSearchChange) {
+      this.props.getSearchChange(phrase)
+    }else {
+      this.setState({
+        searchPhrase: phrase
+      });
+    }
   }
 
   render() {

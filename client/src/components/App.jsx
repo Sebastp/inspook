@@ -28,7 +28,7 @@ export default class App extends Component {
                 )}
               />
 
-              <Route exact path="/top-books"
+              <Route exact path="/books"
                 component={props => (
                   <TopBooksPage {...props}/>
                 )}

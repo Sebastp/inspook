@@ -1,21 +1,22 @@
 //all people, collections etc.
-.pageTop{
+.pageHeader{
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 40px;
+  margin-top: 70px;
+  max-width: 460px;
+  padding-bottom: 80px;
+
 
   &__tagline{
     width: 100%;
     display: block;
-    text-align: center;
-    margin-bottom: 90px;
 
     h1{
-      font-family: $playfair;
-      font-weight: $bold;
+      font-family: $lora;
+      font-weight: $regular;
       color: rgba($dark2,0.95);
-      font-size: 2.313rem;
+      font-size: 1.625rem;
     }
 
     p{
@@ -23,10 +24,14 @@
       // font-weight: $medium;
       // color: #3636368c;
       color: rgba($dark2,0.46);
-      margin-top: 12px;
+      margin-top: 15px;
       margin-bottom: 0px;
       font-size: 1.063rem;
     }
+  }
+
+  .search-center{
+    margin-top: 50px;
   }
 
 
@@ -46,7 +51,75 @@
       color: rgba($dark2, 0.45);
     }
   }
+
+
+  &-divline{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba($grey2, 0.8);
+  }
 }
+
+
+.stickyHeader{
+  // position: absolute;
+  top: 0;
+
+  &.sticky{
+    top: 70px !important;
+  }
+}
+
+
+.pageMain{
+  margin-top: 60px;
+
+  &__bookLi{
+    display: inline-block;
+    width: 100%;
+
+    &:not(:last-child()){
+      .book-review{
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+  &__personLi{
+    hr{
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+  }
+}
+
+
+
+
+.pageMain__bookLi, .pageMain__personLi{
+  hr{
+    display: block;
+    height: 1px;
+    background-color: $grey2;
+    // margin-left: -30px;
+    // margin-right: -30px;
+    border: 0;
+    margin: 55px -30px;
+  }
+
+  &:last-child{
+    hr{
+      display: none;
+    }
+  }
+}
+
+
 
 
 
@@ -98,10 +171,10 @@
     }
 
     .bcp-pname{
-      font-size: 0.75rem;
       font-size: 0.8125rem;
       margin-bottom: 12px;
       display: block;
+      color: rgba($dark2, 0.7);
     }
 
     .bcp-title{
@@ -125,10 +198,10 @@
       text-align: right;
       display: block;
       white-space: pre;
-      font-size: 0.75rem;
       font-size: 0.8125rem;
       white-space: pre;
-      color: rgba($dark2, 0.42);
+      font-weight: $regular;
+      color: rgba($dark2, 0.44);
 
       p{
         display: inline-block;
@@ -156,88 +229,45 @@
 
 .midRow{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  margin: 50px auto;
+  padding: 45px 15px 55px 15px;
   width: 100%;
+  background-color: $black;
+  text-align: center;
+  margin: 60px 0 50px 0;
 
   &__item{
     display: inline-block;
+    // margin: auto;
 
     .itmDesc{
-      vertical-align: middle;
-      display: inline-block;
+      display: block;
       font-weight: $medium;
-      color: rgba($dark2, 0.9);
-      font-size: 0.875rem;
-      margin-right: 20px;
+      font-family: $lora;
+      color: rgba($white, 0.95);
+      font-size: 1.313rem;
+      margin-bottom: 20px;
     }
 
     .itmRight{
       display: inline-block;
 
       .button-filled{
-        margin-right: 20px;
+        margin-right: 25px;
         &:last-child{
           margin-right: 0
         }
       }
     }
-
-    .itmScm{
-      display: inline-block;
-      vertical-align: middle;
-      height: 35px;
-
-      .button-scm{
-        margin-right: 13px;
-
-        &:last-child{
-          margin-right: 0px;
-        }
-      }
-    }
   }
 
 }
 
 
 
-
-.pageMain{
-  margin-top: 80px;
-
-  &__header{
-    margin-bottom: 60px;
-  }
-
-  &__bookLi{
-    display: inline-block;
-    width: 100%;
-
-    hr{
-      display: block;
-      height: 1px;
-      background-color: $grey2;
-      // margin-left: -30px;
-      // margin-right: -30px;
-      border: 0;
-      margin: 55px -30px;
-    }
-
-    &:last-child{
-      hr{
-        display: none;
-      }
-    }
-  }
-
-  &__personLi{
-    margin-bottom: 30px;
-  }
-}
 
 
 
@@ -267,10 +297,12 @@
 
   &-leftSub{
     display: block;
-    text-align: right;
-    margin-top: 20px;
+    text-align: left;
+    margin-top: 12px;
   }
 }
+
+
 
 
 .pagebcpSeeNext{
@@ -294,7 +326,9 @@
   }
 
   .bck{
-    background-color: #fafbfb;
+    // background-color: #fafbfb;
+    background-color: #fefefe;
+    border-top: 1px solid rgba($grey2, 0.7);
     height: 100%;
     width: 100vw;
     bottom: 0;
@@ -319,7 +353,51 @@
   .col-0.col-lg-1{
     display: none;
   }
+
+  .pageHeader{
+    text-align: center;
+    max-width: none;
+    margin-top: 40px;
+    padding-right: 15px;
+
+    .stickyHeader{
+      position: relative !important;
+      top: 0 !important;
+    }
+
+    &__tagline{
+      p{
+        margin-top: 16px;
+      }
+    }
+
+
+    .search-center{
+      text-align: left;
+    }
+
+    &-divline{
+      display: block;
+    }
+  }
+
+  .pageMain {
+    max-width: 585px;
+    margin-top: 100px;
+  }
+
+  .pagebcpMain .shareBtns{
+    margin-left: 15px;
+  }
+
+  .pagebcpSeeNext ul li:last-child{
+    display: none;
+  }
 }
+
+
+
+
 
 @media (max-width: 840px) {
   .pageMain__bookLi hr{
@@ -331,16 +409,47 @@
 @media (max-width: 768px) {
   .pagebcpMain {
     margin-top: 85px;
+
+    .shareBtns{
+      display: none;
+    }
   }
 }
 
+
+@media (max-width: 645px) {
+  .pagebcpSeeNext ul{
+    li:last-child{
+      display: inline-block;
+    }
+
+    .col-sm-6{
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+
 // Small
 @media (max-width: 544px) {
+  .pagebcpTop .bcp-info{
+    .bcp-title{
+      font-size: 1.75rem;
+    }
+    .bcp-spec{
+      color: rgba($dark2, 0.46);
+    }
+  }
+
   .pagebcpMain {
     margin-top: 75px;
   }
 
-  .pageMain__bookLi hr{
-    margin: 50px -20px;
+  .pageMain {
+    .pageMain__bookLi hr, .pageMain__personLi hr{
+      margin-left: -30px !important;
+      margin-right: -30px !important;
+    }
   }
 }

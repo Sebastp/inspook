@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export default gql`
   extend type Query {
-    searchString(phrase: String!, type: String): [searchResult]
+    searchString(phrase: String!, type: [String]): [searchResult]
   }
 
 
@@ -10,6 +10,7 @@ export default gql`
     uid: String
     name: String
     desc: String
+    cover: String
     booksCount: Int
     type: String
   }

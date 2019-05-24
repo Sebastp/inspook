@@ -510,6 +510,7 @@ body {
 .button-filled {
   border-radius: 500px;
   border: none;
+  display: inline-block;
   cursor: pointer;
   background-color: #f6f6f4;
   font-size: 0.75rem;
@@ -523,6 +524,9 @@ body {
     background-color: #eeeeee;
     color: rgba(0, 0, 0, 0.8);
     transition: background-color 0.4s; }
+  .button-filled.button-filledWhite {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #000000; }
 
 .button-scm {
   padding: 11px 0;
@@ -544,6 +548,22 @@ body {
   .button-scm img {
     height: 17px;
     height: 100%; }
+
+.shareBtns {
+  position: absolute;
+  top: 0;
+  transition: opacity 0.2s; }
+  .shareBtns .button-scm {
+    display: block;
+    margin-top: 15px; }
+    .shareBtns .button-scm:first-child {
+      margin-top: 0px; }
+  .shareBtns.sticky {
+    top: 100px !important;
+    opacity: 1;
+    transition: opacity 0.35s; }
+  .shareBtns.hidden {
+    opacity: 0; }
 
 input, textarea {
   display: block;
@@ -567,38 +587,75 @@ input, textarea {
   input::placeholder, textarea::placeholder {
     color: rgba(0, 0, 0, 0.4); }
 
-.pageTop {
+.pageHeader {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 40px; }
-  .pageTop__tagline {
+  margin-top: 70px;
+  max-width: 460px;
+  padding-bottom: 80px; }
+  .pageHeader__tagline {
     width: 100%;
-    display: block;
-    text-align: center;
-    margin-bottom: 90px; }
-    .pageTop__tagline h1 {
-      font-family: "Playfair Display", serif;
-      font-weight: 700;
+    display: block; }
+    .pageHeader__tagline h1 {
+      font-family: "Lora", serif;
+      font-weight: 400;
       color: rgba(0, 7, 34, 0.95);
-      font-size: 2.313rem; }
-    .pageTop__tagline p {
+      font-size: 1.625rem; }
+    .pageHeader__tagline p {
       font-weight: 400;
       color: rgba(0, 7, 34, 0.46);
-      margin-top: 12px;
+      margin-top: 15px;
       margin-bottom: 0px;
       font-size: 1.063rem; }
-  .pageTop__nav {
+  .pageHeader .search-center {
+    margin-top: 50px; }
+  .pageHeader__nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 60px;
     padding-top: 10px;
     cursor: pointer; }
-    .pageTop__nav .navAnach {
+    .pageHeader__nav .navAnach {
       font-size: 0.8125rem; }
-    .pageTop__nav :not(.active) {
+    .pageHeader__nav :not(.active) {
       color: rgba(0, 7, 34, 0.45); }
+  .pageHeader-divline {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(238, 238, 238, 0.8); }
+
+.stickyHeader {
+  top: 0; }
+  .stickyHeader.sticky {
+    top: 70px !important; }
+
+.pageMain {
+  margin-top: 60px; }
+  .pageMain__bookLi {
+    display: inline-block;
+    width: 100%; }
+    .pageMain__bookLi:not(:last-child()) .book-review {
+      margin-bottom: 60px; }
+  .pageMain__personLi hr {
+    margin-left: 0px !important;
+    margin-right: 0px !important; }
+
+.pageMain__bookLi hr, .pageMain__personLi hr {
+  display: block;
+  height: 1px;
+  background-color: #eeeeee;
+  border: 0;
+  margin: 55px -30px; }
+
+.pageMain__bookLi:last-child hr, .pageMain__personLi:last-child hr {
+  display: none; }
 
 .pagebcpTop {
   position: relative;
@@ -634,10 +691,10 @@ input, textarea {
       margin: auto;
       width: 100%; }
     .pagebcpTop .bcp-info .bcp-pname {
-      font-size: 0.75rem;
       font-size: 0.8125rem;
       margin-bottom: 12px;
-      display: block; }
+      display: block;
+      color: rgba(0, 7, 34, 0.7); }
     .pagebcpTop .bcp-info .bcp-title {
       display: block;
       font-family: "Lora", serif;
@@ -654,10 +711,10 @@ input, textarea {
       text-align: right;
       display: block;
       white-space: pre;
-      font-size: 0.75rem;
       font-size: 0.8125rem;
       white-space: pre;
-      color: rgba(0, 7, 34, 0.42); }
+      font-weight: 400;
+      color: rgba(0, 7, 34, 0.44); }
       .pagebcpTop .bcp-info .bcp-spec p {
         display: inline-block;
         margin-right: 30px; }
@@ -675,53 +732,30 @@ input, textarea {
 
 .midRow {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  margin: 50px auto;
-  width: 100%; }
+  padding: 45px 15px 55px 15px;
+  width: 100%;
+  background-color: #000000;
+  text-align: center;
+  margin: 60px 0 50px 0; }
   .midRow__item {
     display: inline-block; }
     .midRow__item .itmDesc {
-      vertical-align: middle;
-      display: inline-block;
+      display: block;
       font-weight: 500;
-      color: rgba(0, 7, 34, 0.9);
-      font-size: 0.875rem;
-      margin-right: 20px; }
+      font-family: "Lora", serif;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.313rem;
+      margin-bottom: 20px; }
     .midRow__item .itmRight {
       display: inline-block; }
       .midRow__item .itmRight .button-filled {
-        margin-right: 20px; }
+        margin-right: 25px; }
         .midRow__item .itmRight .button-filled:last-child {
           margin-right: 0; }
-    .midRow__item .itmScm {
-      display: inline-block;
-      vertical-align: middle;
-      height: 35px; }
-      .midRow__item .itmScm .button-scm {
-        margin-right: 13px; }
-        .midRow__item .itmScm .button-scm:last-child {
-          margin-right: 0px; }
-
-.pageMain {
-  margin-top: 80px; }
-  .pageMain__header {
-    margin-bottom: 60px; }
-  .pageMain__bookLi {
-    display: inline-block;
-    width: 100%; }
-    .pageMain__bookLi hr {
-      display: block;
-      height: 1px;
-      background-color: #eeeeee;
-      border: 0;
-      margin: 55px -30px; }
-    .pageMain__bookLi:last-child hr {
-      display: none; }
-  .pageMain__personLi {
-    margin-bottom: 30px; }
 
 .pagebcpMain {
   margin-top: 100px;
@@ -741,8 +775,8 @@ input, textarea {
     font-size: 0.9375rem; }
   .pagebcpMain-leftSub {
     display: block;
-    text-align: right;
-    margin-top: 20px; }
+    text-align: left;
+    margin-top: 12px; }
 
 .pagebcpSeeNext {
   position: relative;
@@ -759,7 +793,8 @@ input, textarea {
     .pagebcpSeeNext ul li {
       display: inline-block; }
   .pagebcpSeeNext .bck {
-    background-color: #fafbfb;
+    background-color: #fefefe;
+    border-top: 1px solid rgba(238, 238, 238, 0.7);
     height: 100%;
     width: 100vw;
     bottom: 0;
@@ -770,6 +805,27 @@ input, textarea {
 
 @media (max-width: 991px) {
   .col-0.col-lg-1 {
+    display: none; }
+  .pageHeader {
+    text-align: center;
+    max-width: none;
+    margin-top: 40px;
+    padding-right: 15px; }
+    .pageHeader .stickyHeader {
+      position: relative !important;
+      top: 0 !important; }
+    .pageHeader__tagline p {
+      margin-top: 16px; }
+    .pageHeader .search-center {
+      text-align: left; }
+    .pageHeader-divline {
+      display: block; }
+  .pageMain {
+    max-width: 585px;
+    margin-top: 100px; }
+  .pagebcpMain .shareBtns {
+    margin-left: 15px; }
+  .pagebcpSeeNext ul li:last-child {
     display: none; } }
 
 @media (max-width: 840px) {
@@ -778,13 +834,27 @@ input, textarea {
 
 @media (max-width: 768px) {
   .pagebcpMain {
-    margin-top: 85px; } }
+    margin-top: 85px; }
+    .pagebcpMain .shareBtns {
+      display: none; } }
+
+@media (max-width: 645px) {
+  .pagebcpSeeNext ul li:last-child {
+    display: inline-block; }
+  .pagebcpSeeNext ul .col-sm-6 {
+    flex: 0 0 100%;
+    max-width: 100%; } }
 
 @media (max-width: 544px) {
+  .pagebcpTop .bcp-info .bcp-title {
+    font-size: 1.75rem; }
+  .pagebcpTop .bcp-info .bcp-spec {
+    color: rgba(0, 7, 34, 0.46); }
   .pagebcpMain {
     margin-top: 75px; }
-  .pageMain__bookLi hr {
-    margin: 50px -20px; } }
+  .pageMain .pageMain__bookLi hr, .pageMain .pageMain__personLi hr {
+    margin-left: -30px !important;
+    margin-right: -30px !important; } }
 
 .scrollbar_1::-webkit-scrollbar {
   background: none;
@@ -826,7 +896,7 @@ input, textarea {
   padding-right: 25%; }
 
 .hdr-light {
-  color: #8b8b8b; }
+  color: #aeaeae; }
 
 .navAnach {
   display: inline-block;
@@ -834,10 +904,13 @@ input, textarea {
   font-weight: 400;
   color: rgba(0, 0, 0, 0.45);
   transition: color 0.3s;
-  font-size: 0.9375rem; }
+  font-size: 0.9375rem;
+  cursor: pointer; }
   .navAnach:hover {
     color: rgba(0, 0, 0, 0.9);
     transition: color 0.4s; }
+  .navAnach.active {
+    color: rgba(0, 7, 34, 0.85); }
 
 .subMoreSpan {
   display: block;
@@ -862,6 +935,12 @@ input, textarea {
   .subAnach:hover {
     color: rgba(32, 32, 32, 0.95);
     transition: color 0.3s; }
+
+@media (max-width: 992px) {
+  .sect-header {
+    font-size: 1.625rem; }
+  .sub-header {
+    font-size: 0.9375rem; } }
 
 @keyframes showResultLi {
   0% {
@@ -998,15 +1077,6 @@ input, textarea {
     font-size: 0.75rem;
     color: rgba(0, 7, 34, 0.5);
     margin-top: 1px; }
-  .person-desc {
-    text-align: right;
-    flex: 1;
-    max-width: 280px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 0.8125rem;
-    color: #ff004e;
-    margin: auto; }
   .person-iconr {
     opacity: 0.3;
     transition: opacity 0.2s;
@@ -1038,6 +1108,68 @@ input, textarea {
     .person__horiz .person-info .person-name {
       font-size: 1rem; }
 
+.PersonMini_big {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  width: 100%; }
+  .PersonMini_big-canvas {
+    display: inline-block; }
+    .PersonMini_big-canvas .PersonMini_big-cover {
+      display: block;
+      margin: auto;
+      width: 55px;
+      height: 55px;
+      border-radius: 100%;
+      z-index: 2;
+      position: relative; }
+      .PersonMini_big-canvas .PersonMini_big-cover .PersonMini_big-cover__inner {
+        background-size: cover;
+        background-color: #eeeeee;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        width: 100%;
+        height: 100%; }
+  .PersonMini_big-right {
+    flex: 1;
+    margin-left: 25px; }
+    .PersonMini_big-right .PersonMini_big-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; }
+      .PersonMini_big-right .PersonMini_big-info__left {
+        display: inline-block;
+        flex: 1; }
+  .PersonMini_big-tag {
+    font-size: 0.75rem;
+    font-size: 0.8125rem;
+    margin-bottom: 6px;
+    display: block; }
+  .PersonMini_big-name {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    font-size: 1.188rem;
+    color: rgba(0, 7, 34, 0.95); }
+  .PersonMini_big-subtitle {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: rgba(0, 7, 34, 0.5);
+    margin-top: 1px; }
+  .PersonMini_big-desc {
+    font-weight: 400;
+    color: rgba(32, 32, 32, 0.5);
+    font-size: 0.9375rem;
+    width: 100%;
+    margin-top: 16px; }
+
 .collectionPage {
   display: inline-block;
   width: 100%; }
@@ -1067,21 +1199,6 @@ input, textarea {
       .collectionPage header .collection-info .collection-specs {
         display: inline-block;
         padding-bottom: 3px; }
-  .collectionPage .shareBtns {
-    position: absolute;
-    top: 0;
-    transition: opacity 0.2s; }
-    .collectionPage .shareBtns .button-scm {
-      display: block;
-      margin-top: 15px; }
-      .collectionPage .shareBtns .button-scm:first-child {
-        margin-top: 0px; }
-    .collectionPage .shareBtns.sticky {
-      top: 100px !important;
-      opacity: 1;
-      transition: opacity 0.35s; }
-    .collectionPage .shareBtns.hidden {
-      opacity: 0; }
   .collectionPage ul {
     width: 100%;
     margin: auto; }
@@ -1089,13 +1206,24 @@ input, textarea {
       display: inline-block;
       width: 100%; }
 
-@media (max-width: 991px) {
-  .collectionPage .shareBtns {
-    margin-left: 15px; } }
+@media (max-width: 544px) {
+  .collectionPage header {
+    margin-top: 20px; } }
 
-@media (max-width: 768px) {
-  .collectionPage .rowCont .shareBtns {
-    display: none; } }
+@media (max-width: 480px) {
+  .collectionPage header .collection-info {
+    flex-direction: column;
+    padding-bottom: 35px; }
+    .collectionPage header .collection-info__total {
+      display: block;
+      text-align: center;
+      padding-right: 0px; }
+    .collectionPage header .collection-info .collection-specs {
+      display: block;
+      padding-bottom: 0px;
+      text-align: center;
+      margin: auto;
+      margin-top: 25px; } }
 
 .collectionMini {
   display: inline-block;
@@ -1171,10 +1299,21 @@ input, textarea {
       width: 100px;
       height: 157px;
       box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
-      margin: 100px auto; }
+      margin: 50px auto; }
+    .bookPage header .bookPage-canvas .bookPage-bck {
+      width: auto;
+      left: 0;
+      right: 0;
+      margin: 0 15px;
+      background-color: #fafafa; }
     .bookPage header .bookPage-info {
       text-align: left;
-      padding-right: 35px; }
+      margin-top: 50px;
+      padding-bottom: 0px; }
+      .bookPage header .bookPage-info .bookPage-specs {
+        margin-top: 50px; }
+    .bookPage header .bookPage-desc {
+      margin-top: 50px; }
   .bookPage .pagebcpMain .bookPage-revUl li {
     padding-bottom: 40px;
     margin-bottom: 40px;
@@ -1183,22 +1322,35 @@ input, textarea {
       padding-bottom: 0px;
       border-bottom: 0px;
       margin-bottom: 0px; }
-  .bookPage .pagebcpMain .bookPage-revUl .book-review {
-    width: 100%;
-    text-align: left; }
-    .bookPage .pagebcpMain .bookPage-revUl .book-review__name {
-      font-weight: 400;
-      font-family: "Lora", serif;
-      font-size: 1.188rem; }
-    .bookPage .pagebcpMain .bookPage-revUl .book-review__inner {
-      display: block;
-      width: 100%;
-      position: relative;
-      margin-top: 10px; }
-      .bookPage .pagebcpMain .bookPage-revUl .book-review__inner p {
-        font-weight: 400;
-        color: rgba(0, 7, 34, 0.5);
-        font-size: 0.875rem; }
+  .bookPage .pagebcpMain .bookPage-noRevs {
+    text-align: center;
+    margin-top: -30px; }
+    .bookPage .pagebcpMain .bookPage-noRevs .button-scm {
+      margin-right: 15px; }
+      .bookPage .pagebcpMain .bookPage-noRevs .button-scm:last-child {
+        margin-right: 0px; }
+
+@media (max-width: 768px) {
+  .bookPage header .bookPage-canvas .bookPage-bck {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%); } }
+
+@media (max-width: 480px) {
+  .pagebcpTop {
+    text-align: center; }
+  .bookPage header .bookPage-info {
+    text-align: center; }
+    .bookPage header .bookPage-info .bcp-spec {
+      text-align: center;
+      margin-top: 30px; }
+  .bookPage header .bookPage-desc {
+    margin-top: 75px;
+    padding-left: 15px; }
+    .bookPage header .bookPage-desc .pagebcpMain-leftDesc, .bookPage header .bookPage-desc .subAnach {
+      text-align: center; }
+  .bookPage .midRow {
+    padding: 65px 15px 75px 15px; } }
 
 .bookHalf {
   width: 100%; }
@@ -1275,23 +1427,6 @@ input, textarea {
         margin-top: 33px; }
         .bookHalf .book-top .book-content .book-bottom .book-buy {
           display: inline-block; }
-  .bookHalf .book-review {
-    width: 100%;
-    margin-top: 30px;
-    text-align: center; }
-    .bookHalf .book-review__name {
-      font-weight: 400;
-      font-family: "Lora", serif;
-      font-size: 1.188rem; }
-    .bookHalf .book-review__inner {
-      display: block;
-      width: 100%;
-      position: relative;
-      margin-top: 10px; }
-      .bookHalf .book-review__inner p {
-        font-weight: 400;
-        color: rgba(0, 7, 34, 0.5);
-        font-size: 0.875rem; }
   .bookHalf.loading .book-top {
     text-align: center; }
     .bookHalf.loading .book-top .book-canvas .book-cover .book-cover__inner {
@@ -1309,6 +1444,25 @@ input, textarea {
       margin-top: 14px;
       height: 22px;
       max-width: 200px; }
+  .bookHalf .book-review {
+    margin-top: 45px; }
+
+.book-review {
+  width: 100%;
+  text-align: center; }
+  .book-review__name {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1.188rem; }
+  .book-review__inner {
+    display: block;
+    width: 100%;
+    position: relative;
+    margin-top: 12px; }
+    .book-review__inner p {
+      font-weight: 400;
+      color: rgba(32, 32, 32, 0.55);
+      font-size: 0.875rem; }
 
 #searchSect {
   display: block;
@@ -1331,44 +1485,64 @@ input, textarea {
 #tReadersSect {
   width: 100%;
   display: block;
-  margin-top: 100px;
-  display: none; }
-  #tReadersSect__left {
-    margin-top: 40px;
+  margin-top: 100px; }
+  #tReadersSect__top {
     margin-bottom: 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
-    #tReadersSect__left .subAnach {
-      text-align: right; }
-  #tReadersSect__right {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; }
+    #tReadersSect__top .sub-header {
+      padding-right: 50px; }
+    #tReadersSect__top #tReadersSect__nav {
+      white-space: nowrap;
+      margin-right: -30px; }
+      #tReadersSect__top #tReadersSect__nav .navAnach {
+        margin-right: 30px; }
+  #tReadersSect__main {
     position: relative; }
-  #tReadersSect__cent .bck {
-    background-color: #fafafa;
-    position: absolute;
-    width: 100vw;
-    height: 100%;
-    left: 15px;
-    top: 0;
-    z-index: -1; }
-  #tReadersSect ul {
+    #tReadersSect__main .bck {
+      background-color: #fef3f5;
+      height: 100%;
+      width: 100vw;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      z-index: -1; }
+  #tReadersSect #tReadersSect__main {
     margin: auto;
     width: 100%;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    overflow-x: hidden; }
-    #tReadersSect ul li {
-      display: flex;
-      justify-content: center;
+    padding: 50px 0;
+    max-width: 760px; }
+    #tReadersSect #tReadersSect__main .personCard {
       width: 100%;
-      margin-bottom: 30px; }
-      #tReadersSect ul li:last-child {
+      margin-bottom: 25px;
+      max-width: 395px;
+      /*&:nth-child(1), &:nth-child(3){
+        margin-right: 20px;
+        margin-left: -20px;
+      }
+
+      &:nth-child(2), &:nth-child(4){
+        margin-left: 20px;
+        margin-right: -20px;
+      }*/ }
+      #tReadersSect #tReadersSect__main .personCard__inner {
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 3px 3px 7px 0px rgba(2, 12, 20, 0.07);
+        padding: 18px 24px;
+        border-radius: 3px; }
+      #tReadersSect #tReadersSect__main .personCard:nth-child(3), #tReadersSect #tReadersSect__main .personCard:nth-child(4) {
         margin-bottom: 0px; }
-    #tReadersSect ul .subMoreSpan {
-      padding-top: 10px;
-      margin-bottom: 20px; }
+  #tReadersSect__down {
+    text-align: center; }
+    #tReadersSect__down .subMoreSpan {
+      display: inline-block;
+      margin: auto;
+      margin-top: 30px;
+      font-size: 0.9375rem; }
 
 @media (max-width: 1175px) {
   #searchSect .colBigPading-left p {
@@ -1399,8 +1573,52 @@ input, textarea {
           padding-right: 0px; }
           #searchSect #searchSect__inner .colBigPading-left h2 br, #searchSect #searchSect__inner .colBigPading-left p br {
             display: block; }
-  #tReadersSect__cent {
+  #tReadersSect #tReadersSect__top {
+    flex-direction: column; }
+    #tReadersSect #tReadersSect__top .sect-header {
+      text-align: center; }
+    #tReadersSect #tReadersSect__top .sub-header {
+      padding-right: 0;
+      margin-top: 13px;
+      text-align: center; }
+    #tReadersSect #tReadersSect__top #tReadersSect__nav {
+      margin-top: 45px; }
+  #tReadersSect #tReadersSect__main .personCard {
+    margin-left: auto;
+    margin-right: auto; }
+    #tReadersSect #tReadersSect__main .personCard:nth-child(3) {
+      margin-bottom: 25px; }
+  #tReadersSect #tReadersSect__cent {
     display: none; } }
+
+@media (max-width: 544px) {
+  #collectionsSect ul {
+    margin-right: -22px;
+    margin-left: -22px; }
+    #collectionsSect ul li {
+      padding-left: 0;
+      padding-right: 0; }
+      #collectionsSect ul li .collectionMini-name, #collectionsSect ul li .collectionMini-subtitle, #collectionsSect ul li .collectionMini-spec {
+        padding-left: 20px;
+        padding-right: 20px; } }
+
+@media (max-width: 390px) {
+  #tReadersSect__top #tReadersSect__nav {
+    margin-right: -20px; }
+    #tReadersSect__top #tReadersSect__nav .navAnach {
+      font-size: 0.875rem;
+      margin-right: 20px; } }
+
+@media (max-width: 350px) {
+  #tReadersSect__top #tReadersSect__nav {
+    margin-right: 0px;
+    text-align: center; }
+    #tReadersSect__top #tReadersSect__nav .navAnach {
+      display: block;
+      font-size: 1rem;
+      margin-right: 0px; }
+      #tReadersSect__top #tReadersSect__nav .navAnach:not(:last-child) {
+        margin-bottom: 20px; } }
 
 @keyframes moveTopHeaderType0 {
   30% {
@@ -1638,48 +1856,50 @@ input, textarea {
 
 .readerPage {
   width: 100%; }
-  .readerPage header {
-    display: block;
+  .readerPage .readerPage-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     margin: auto;
     position: relative;
-    text-align: center;
-    margin-top: 40px; }
-    .readerPage header .readerPage-top {
-      position: relative;
-      display: block; }
-      .readerPage header .readerPage-top .readerPage-cover {
-        background-size: cover;
-        background-color: #eeeeee;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 85px;
-        height: 85px;
-        margin: 0 auto;
-        box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
-        border-radius: 500px; }
-    .readerPage header .readerPage-name {
-      font-family: "Lora", serif;
-      font-weight: 400;
-      color: #000722;
-      font-size: 1.563rem;
-      margin-top: 16px;
-      text-align: center; }
-    .readerPage header .readerPage-desc {
-      display: block;
-      text-align: center;
-      margin-top: 5px;
-      font-weight: 500;
-      color: rgba(0, 7, 34, 0.37);
-      font-size: 1rem;
-      margin-bottom: 0px; }
-    .readerPage header .readerPage-tags {
-      display: block;
-      margin-top: 13px;
-      white-space: pre;
-      font-size: 0.8125rem;
-      font-weight: 600; }
-  .readerPage .midRow {
-    margin-top: 35px; }
+    margin-top: 55px;
+    padding-bottom: 80px; }
+    .readerPage .readerPage-top .readerPage-cover {
+      background-size: cover;
+      background-color: #eeeeee;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      border-radius: 500px; }
+    .readerPage .readerPage-top .readerPage-info {
+      text-align: left;
+      flex: 1;
+      margin-left: 33px;
+      padding-bottom: 0; }
+      .readerPage .readerPage-top .readerPage-info .readerPage-tags {
+        margin-bottom: 8px;
+        margin-top: 1px; }
+      .readerPage .readerPage-top .readerPage-info .readerPage-name {
+        color: #000722;
+        font-size: 1.625rem; }
+      .readerPage .readerPage-top .readerPage-info .readerPage-desc {
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 0px; }
+      .readerPage .readerPage-top .readerPage-info .bcp-spec {
+        margin-top: 27px; }
+    .readerPage .readerPage-top .readerPage-divline {
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      height: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(238, 238, 238, 0.8); }
+  .readerPage .pageMain {
+    margin-top: 80px; }
 
 .reader-top {
   display: flex;
@@ -1790,6 +2010,23 @@ input, textarea {
     width: 67%;
     transform: translate(6%, 0%); } }
 
+@media (max-width: 544px) {
+  .readerPage .readerPage-top {
+    flex-direction: column;
+    margin-top: 20px; }
+    .readerPage .readerPage-top .readerPage-info {
+      text-align: center;
+      margin-left: 0px;
+      margin-top: 25px; }
+      .readerPage .readerPage-top .readerPage-info .readerPage-tags {
+        margin-bottom: 4px; }
+      .readerPage .readerPage-top .readerPage-info .bcp-spec {
+        display: block;
+        padding-bottom: 0px;
+        text-align: center;
+        margin: auto;
+        margin-top: 25px; } }
+
 #tpb-logoi {
   display: inline-block;
   height: 20px;
@@ -1887,6 +2124,8 @@ input, textarea {
     padding: 35px 30px; } }
 
 @media (max-width: 380px) {
+  .topbar header #tpb-logoi {
+    height: 23px; }
   .topbar header #tpb-logot {
     display: none; } }
 
@@ -1918,8 +2157,8 @@ footer {
   width: 100%;
   text-align: center;
   justify-content: center;
-  padding-bottom: 100px !important;
-  margin-top: 200px !important; }
+  padding-bottom: 80px !important;
+  margin-top: 170px !important; }
   footer h3 {
     color: rgba(0, 0, 0, 0.9);
     font-family: "Lora", serif;
@@ -1957,6 +2196,15 @@ footer {
       display: block;
       font-size: 0.9375rem;
       margin-bottom: 6px; }
+  footer .downMsg {
+    display: block;
+    font-weight: 400;
+    color: rgba(0, 7, 34, 0.4);
+    transition: color 0.2s;
+    white-space: pre-wrap;
+    font-size: 0.75rem;
+    margin-top: 50px;
+    padding: 0 15px; }
 
 @media (max-width: 768px) {
   footer {
@@ -1984,7 +2232,6 @@ footer {
       align-items: center; }
       footer .footer__right .findus {
         display: inline-block;
-        margin-right: 16px;
         vertical-align: middle; }
         footer .footer__right .findus h4 {
           display: none; }
@@ -2011,6 +2258,13 @@ footer {
           footer .footer__right nav .navAnach:hover {
             color: rgba(32, 32, 32, 0.95);
             transition: color 0.3s; } }
+
+@media (max-width: 544px) {
+  footer .footer__right nav {
+    flex-direction: column; }
+    footer .footer__right nav .navAnach {
+      margin-bottom: 20px;
+      flex: 0; } }
 
 .errorPage {
   width: 100%;

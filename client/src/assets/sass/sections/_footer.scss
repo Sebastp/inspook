@@ -2,8 +2,8 @@ footer{
   width: 100%;
   text-align: center;
   justify-content: center;
-  padding-bottom: 100px !important;
-  margin-top: 200px !important;
+  padding-bottom: 80px !important;
+  margin-top: 170px !important;
 
 
   h3{
@@ -59,6 +59,18 @@ footer{
       margin-bottom: 6px;
     }
   }
+
+
+  .downMsg{
+    display: block;
+    font-weight: $regular;
+    color: rgba($dark2, 0.4);
+    transition: color 0.2s;
+    white-space: pre-wrap;
+    font-size: 0.75rem;
+    margin-top: 50px;
+    padding: 0 15px;
+  }
 }
 
 
@@ -97,7 +109,7 @@ footer{
       align-items: center;
       .findus{
         display: inline-block;
-        margin-right: 16px;
+        // margin-right: 16px;
         vertical-align: middle;
         h4{
           display: none;
@@ -136,5 +148,18 @@ footer{
       }
     }
 
+  }
+}
+
+
+@media (max-width: 544px) {
+  footer .footer__right {
+    nav {
+      flex-direction: column;
+      .navAnach{
+        margin-bottom: 20px;
+        flex: 0;
+      }
+    }
   }
 }

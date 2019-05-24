@@ -1,63 +1,69 @@
 .readerPage{
   width: 100%;
 
-  header{
-    display: block;
+  .readerPage-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     margin: auto;
     position: relative;
-    text-align: center;
-    margin-top: 40px;
+    margin-top: 55px;
+    padding-bottom: 80px;
 
+    .readerPage-cover{
+      background-size: cover;
+      background-color: $grey2;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      // box-shadow: $shadow1;
+      border-radius: 500px;
+    }
 
-    .readerPage-top{
-      position: relative;
-      display: block;
+    .readerPage-info{
+      text-align: left;
+      flex: 1;
+      margin-left: 33px;
+      padding-bottom: 0;
 
-      .readerPage-cover{
-        background-size: cover;
-        background-color: $grey2;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 85px;
-        height: 85px;
-        margin: 0 auto;
-        box-shadow: $shadow1;
-        border-radius: 500px;
+      .readerPage-tags{
+        margin-bottom: 8px;
+        margin-top: 1px;
+      }
+
+      .readerPage-name{
+        color: $dark2;
+        font-size: 1.625rem;
+      }
+
+      .readerPage-desc{
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 0px;
+      }
+
+      .bcp-spec{
+        margin-top: 27px;
       }
     }
 
 
-
-    .readerPage-name{
-      font-family: $lora;
-      font-weight: $regular;
-      color: $dark2;
-      font-size: 1.563rem;
-      margin-top: 16px;
-      text-align: center;
-    }
-
-    .readerPage-desc{
-      display: block;
-      text-align: center;
-      margin-top: 5px;
-      font-weight: $medium;
-      color: rgba($dark2, 0.37);
-      font-size: 1rem;
-      margin-bottom: 0px;
-    }
-
-    .readerPage-tags{
-      display: block;
-      margin-top: 13px;
-      white-space: pre;
-      font-size: 0.8125rem;
-      font-weight: $semi-bold;
+    .readerPage-divline{
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      height: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba($grey2, 0.8);
     }
   }
 
-  .midRow{
-    margin-top: 35px;
+
+  .pageMain{
+    margin-top: 80px;
   }
 }
 
@@ -148,8 +154,6 @@
 // =====================================================
 //    MEDIA QUERIES
 // =====================================================
-// Small
-@media (min-width: 544px) {}
 // Medium
 @media (min-width: 768px) {}
 // Large
@@ -246,5 +250,32 @@
     display: none;
     width: 67%;
     transform: translate(6%, 0%);
+  }
+}
+
+
+// Small
+@media (max-width: 544px) {
+  .readerPage .readerPage-top{
+    flex-direction: column;
+    margin-top: 20px;
+
+    .readerPage-info{
+      text-align: center;
+      margin-left: 0px;
+      margin-top: 25px;
+
+      .readerPage-tags{
+        margin-bottom: 4px;
+      }
+
+      .bcp-spec{
+        display: block;
+        padding-bottom: 0px;
+        text-align: center;
+        margin: auto;
+        margin-top: 25px;
+      }
+    }
   }
 }
