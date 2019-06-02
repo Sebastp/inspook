@@ -591,12 +591,16 @@ input, textarea {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 70px;
-  max-width: 460px;
+  margin-top: 40px;
+  width: 100%;
   padding-bottom: 80px; }
   .pageHeader__tagline {
     width: 100%;
     display: block; }
+    .pageHeader__tagline.centered {
+      text-align: center; }
+      .pageHeader__tagline.centered h1 {
+        font-size: 1.75rem; }
     .pageHeader__tagline h1 {
       font-family: "Lora", serif;
       font-weight: 400;
@@ -604,12 +608,30 @@ input, textarea {
       font-size: 1.625rem; }
     .pageHeader__tagline p {
       font-weight: 400;
-      color: rgba(0, 7, 34, 0.46);
+      color: rgba(0, 7, 34, 0.38);
       margin-top: 15px;
       margin-bottom: 0px;
       font-size: 1.063rem; }
-  .pageHeader .search-center {
-    margin-top: 50px; }
+  .pageHeader__midrow {
+    position: relative;
+    margin-top: 40px; }
+    .pageHeader__midrow .search-center {
+      margin-top: 80px;
+      margin-bottom: 80px; }
+      .pageHeader__midrow .search-center .search-input {
+        max-width: 555px;
+        box-shadow: 3px 4px 9px 0px rgba(2, 12, 20, 0.05); }
+        .pageHeader__midrow .search-center .search-input input {
+          background-color: #ffffff; }
+    .pageHeader__midrow .bck {
+      background: linear-gradient(60deg, #c1e5f4, #d9f2fc);
+      height: 100%;
+      width: 100vw;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      z-index: -1; }
   .pageHeader__nav {
     display: flex;
     flex-direction: row;
@@ -621,15 +643,6 @@ input, textarea {
       font-size: 0.8125rem; }
     .pageHeader__nav :not(.active) {
       color: rgba(0, 7, 34, 0.45); }
-  .pageHeader-divline {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    height: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(238, 238, 238, 0.8); }
 
 .stickyHeader {
   top: 0; }
@@ -647,6 +660,10 @@ input, textarea {
     margin-left: 0px !important;
     margin-right: 0px !important; }
 
+.centColumn {
+  max-width: 555px;
+  margin: auto; }
+
 .pageMain__bookLi hr, .pageMain__personLi hr {
   display: block;
   height: 1px;
@@ -656,6 +673,68 @@ input, textarea {
 
 .pageMain__bookLi:last-child hr, .pageMain__personLi:last-child hr {
   display: none; }
+
+.midRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 45px 15px 55px 15px;
+  background-color: #fafafa;
+  width: 100%;
+  text-align: center;
+  margin: 60px 0 50px 0; }
+  .midRow.black {
+    background-color: #000000; }
+    .midRow.black .midRow__item .itmDesc {
+      color: rgba(255, 255, 255, 0.95); }
+  .midRow__item {
+    display: inline-block; }
+    .midRow__item .itmDesc {
+      display: block;
+      font-weight: 500;
+      font-family: "Lora", serif;
+      color: rgba(0, 0, 0, 0.9);
+      font-size: 1.313rem;
+      margin-bottom: 25px; }
+    .midRow__item .itmRight {
+      display: inline-block; }
+      .midRow__item .itmRight .button-filled {
+        margin-right: 25px; }
+        .midRow__item .itmRight .button-filled:last-child {
+          margin-right: 0; }
+
+@media (max-width: 991px) {
+  .col-0.col-lg-1 {
+    display: none; }
+  .pageHeader {
+    text-align: center;
+    max-width: none;
+    margin-top: 40px; }
+    .pageHeader .stickyHeader {
+      position: relative !important;
+      top: 0 !important; }
+    .pageHeader__tagline p {
+      margin-top: 16px; }
+    .pageHeader .search-center {
+      text-align: left; }
+    .pageHeader-divline {
+      display: block; } }
+
+@media (max-width: 840px) {
+  .pageMain__bookLi hr {
+    margin: 50px 0px; } }
+
+@media (max-width: 768px) {
+  .pageHeader__searchrow .search-center {
+    margin-top: 65px;
+    margin-bottom: 65px; } }
+
+@media (max-width: 544px) {
+  .pageMain .pageMain__bookLi hr, .pageMain .pageMain__personLi hr {
+    margin-left: -30px !important;
+    margin-right: -30px !important; } }
 
 .pagebcpTop {
   position: relative;
@@ -730,41 +809,11 @@ input, textarea {
     font-size: 0.9375rem;
     margin-top: 27px; }
 
-.midRow {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-  padding: 45px 15px 55px 15px;
-  width: 100%;
-  background-color: #000000;
-  text-align: center;
-  margin: 60px 0 50px 0; }
-  .midRow__item {
-    display: inline-block; }
-    .midRow__item .itmDesc {
-      display: block;
-      font-weight: 500;
-      font-family: "Lora", serif;
-      color: rgba(255, 255, 255, 0.95);
-      font-size: 1.313rem;
-      margin-bottom: 20px; }
-    .midRow__item .itmRight {
-      display: inline-block; }
-      .midRow__item .itmRight .button-filled {
-        margin-right: 25px; }
-        .midRow__item .itmRight .button-filled:last-child {
-          margin-right: 0; }
-
 .pagebcpMain {
   margin-top: 100px;
   position: relative; }
   .pagebcpMain .rowCont {
     position: relative; }
-    .pagebcpMain .rowCont .centColumn {
-      max-width: 555px;
-      margin: auto; }
   .pagebcpMain-leftDesc {
     display: block;
     text-align: left;
@@ -804,33 +853,10 @@ input, textarea {
     z-index: -2; }
 
 @media (max-width: 991px) {
-  .col-0.col-lg-1 {
-    display: none; }
-  .pageHeader {
-    text-align: center;
-    max-width: none;
-    margin-top: 40px;
-    padding-right: 15px; }
-    .pageHeader .stickyHeader {
-      position: relative !important;
-      top: 0 !important; }
-    .pageHeader__tagline p {
-      margin-top: 16px; }
-    .pageHeader .search-center {
-      text-align: left; }
-    .pageHeader-divline {
-      display: block; }
-  .pageMain {
-    max-width: 585px;
-    margin-top: 100px; }
   .pagebcpMain .shareBtns {
     margin-left: 15px; }
   .pagebcpSeeNext ul li:last-child {
     display: none; } }
-
-@media (max-width: 840px) {
-  .pageMain__bookLi hr {
-    margin: 50px 0px; } }
 
 @media (max-width: 768px) {
   .pagebcpMain {
@@ -851,10 +877,7 @@ input, textarea {
   .pagebcpTop .bcp-info .bcp-spec {
     color: rgba(0, 7, 34, 0.46); }
   .pagebcpMain {
-    margin-top: 75px; }
-  .pageMain .pageMain__bookLi hr, .pageMain .pageMain__personLi hr {
-    margin-left: -30px !important;
-    margin-right: -30px !important; } }
+    margin-top: 75px; } }
 
 .scrollbar_1::-webkit-scrollbar {
   background: none;
@@ -1113,7 +1136,8 @@ input, textarea {
   flex-direction: row;
   align-items: flex-start;
   position: relative;
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   .PersonMini_big-canvas {
     display: inline-block; }
     .PersonMini_big-canvas .PersonMini_big-cover {
@@ -1295,17 +1319,19 @@ input, textarea {
   width: 100%; }
   .bookPage header {
     margin-top: 40px; }
-    .bookPage header .bookPage-canvas .bookPage-cover {
-      width: 100px;
-      height: 157px;
-      box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
-      margin: 50px auto; }
-    .bookPage header .bookPage-canvas .bookPage-bck {
-      width: auto;
-      left: 0;
-      right: 0;
-      margin: 0 15px;
-      background-color: #fafafa; }
+    .bookPage header .bookPage-canvas {
+      margin-bottom: 30px; }
+      .bookPage header .bookPage-canvas .bookPage-cover {
+        width: 100px;
+        height: 157px;
+        box-shadow: 2px 3px 10px 0px rgba(2, 12, 20, 0.17);
+        margin: auto; }
+      .bookPage header .bookPage-canvas .bookPage-bck {
+        width: auto;
+        left: 0;
+        right: 0;
+        margin: 0 15px;
+        background-color: #fafafa; }
     .bookPage header .bookPage-info {
       text-align: left;
       margin-top: 50px;
@@ -1334,7 +1360,9 @@ input, textarea {
   .bookPage header .bookPage-canvas .bookPage-bck {
     width: 100vw;
     left: 50%;
-    transform: translateX(-50%); } }
+    transform: translateX(-50%); }
+  .bookPage header .bookPage-desc {
+    padding-left: 15px; } }
 
 @media (max-width: 480px) {
   .pagebcpTop {
@@ -1621,10 +1649,10 @@ input, textarea {
         margin-bottom: 20px; } }
 
 @keyframes moveTopHeaderType0 {
-  30% {
-    opacity: 0.3; }
+  50% {
+    opacity: 0.2; }
   100% {
-    transform: translateY(-100%);
+    transform: translateY(-60%);
     opacity: 0; } }
 
 @keyframes moveTopHeaderType1 {
@@ -1693,7 +1721,7 @@ input, textarea {
           transform: translateY(0%); }
         #header__tagline h1 .hdr-lightCont #hdrType-1 {
           opacity: 0;
-          transform: translateY(60%);
+          transform: translateY(30%);
           animation: moveTopHeaderType1 0.4s ease-in forwards;
           animation-delay: 7.6s; }
   #header__people {

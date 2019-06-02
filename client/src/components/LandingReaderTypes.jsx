@@ -89,7 +89,7 @@ export default class LandingReaderTypes extends Component {
 
         <div id="tReadersSect__down">
           <span className="subMoreSpan hovEfct">
-            <Link to='/readers'>
+            <Link to='/people'>
               See All Readers
             </Link>
           </span>

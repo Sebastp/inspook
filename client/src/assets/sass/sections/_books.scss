@@ -4,11 +4,13 @@
   header{
     margin-top: 40px;
     .bookPage-canvas {
+      margin-bottom: 30px;
       .bookPage-cover{
         width: 100px;
         height: 157px;
         box-shadow: $shadow1;
-        margin: 50px auto;
+        margin: auto;
+        // margin: 50px auto;
       }
 
       .bookPage-bck{
@@ -70,10 +72,16 @@
 
 // Medium
 @media (max-width: 768px) {
-  .bookPage header .bookPage-canvas .bookPage-bck{
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
+  .bookPage header{
+    .bookPage-canvas .bookPage-bck{
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .bookPage-desc{
+      padding-left: 15px;
+    }
   }
 }
 

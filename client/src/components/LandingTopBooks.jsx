@@ -41,7 +41,6 @@ export default class MostRecomBooksHeader extends Component {
         direction: 'horizontal',
         slidesPerView: 'auto',
         freeMode: true,
-        freeModeSticky: true,
         freeModeMomentumRatio: 0.4,
         freeModeMomentumVelocityRatio: 0.4,
         // centeredSlides: true,
@@ -68,7 +67,6 @@ export default class MostRecomBooksHeader extends Component {
         this.changeCurrBook(this.mySwiper.realIndex)
       });
     }, 200)
-
   }
 
 

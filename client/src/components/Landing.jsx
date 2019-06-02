@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
-import Swiper from 'swiper';
 
 import Topbar from './Topbar'
 import Search from './Search'

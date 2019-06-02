@@ -1,10 +1,10 @@
 @keyframes moveTopHeaderType0 {
-  30%{
-    opacity: 0.3;
+  50%{
+    opacity: 0.2;
   }
 
   100%{
-    transform: translateY(-100%);
+    transform: translateY(-60%);
     opacity: 0;
   }
 }
@@ -37,6 +37,7 @@
     opacity: 1;
   }
 }
+
 @keyframes personFadeDown0 {
   0%{
     width: 0%;
@@ -82,7 +83,7 @@
       .hdr-lightCont{
         display: inline;
         margin-left: 10px;
-        position: relative; 
+        position: relative;
         color: transparent;
         overflow: hidden;
 
@@ -98,7 +99,7 @@
         #hdrType-1{
           opacity: 0;
           // top: 34px;
-          transform: translateY(60%);
+          transform: translateY(30%);
           animation: moveTopHeaderType1 0.4s ease-in forwards;
           animation-delay: 7.6s;
         }

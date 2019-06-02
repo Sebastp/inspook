@@ -67,18 +67,20 @@ export default class Book extends Component {
 
         <div className="bookPage">
           <header className="cont-width_0 pagebcpTop">
+            {/*
             <div className="row">
               <div className="col-0 col-lg-1"/>
-
-              <div className="bookPage-canvas bcp-canvas col-12 col-lg-10">
+            */}
+              <div className="bookPage-canvas bcp-canvas">
                 <div className="bookPage-cover bcp-canvas__cover"
                   style={{ backgroundImage: `url(${book_cover})` }}
                 />
-                <div className="bookPage-bck bcp-canvas__bck"/>
+                {/*<div className="bookPage-bck bcp-canvas__bck"/>*/}
               </div>
+            {/*
               <div className="col-0 col-lg-1"/>
             </div>
-
+            */}
 
             <div className="row">
               <div className="col-0 col-lg-1"/>

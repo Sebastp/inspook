@@ -1,0 +1,229 @@
+//bcp = book, collection, person
+.pagebcpTop{
+  position: relative;
+  text-align: left;
+  display: block;
+  margin: auto;
+
+  .bcp-canvas{
+    position: relative;
+    display: block;
+    text-align: center;
+
+    &__cover{
+      display: block;
+      background-size: cover;
+      background-color: $grey2;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+    }
+
+    &__bck{
+      width: 100vw;
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      background-color: $grey3;
+    }
+  }
+
+
+  .bcp-info{
+    text-align: left;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .bcp-infoCenter{
+      display: block;
+      margin: auto;
+      width: 100%;
+      // flex: 1;
+    }
+
+    .bcp-pname{
+      font-size: 0.8125rem;
+      margin-bottom: 12px;
+      display: block;
+      color: rgba($dark2, 0.7);
+    }
+
+    .bcp-title{
+      display: block;
+      font-family: $lora;
+      font-weight: $regular;
+      color: rgba($dark2, 0.9);
+      font-size: 1.875rem;
+    }
+
+    .bcp-desc{
+      display: block;
+      font-weight: $regular;
+      color: rgba($dark0, 0.45);
+      font-size: 1rem;
+      margin-top: 14px;
+    }
+
+
+    .bcp-spec{
+      text-align: right;
+      display: block;
+      white-space: pre;
+      font-size: 0.8125rem;
+      white-space: pre;
+      font-weight: $regular;
+      color: rgba($dark2, 0.44);
+
+      p{
+        display: inline-block;
+        margin-right: 30px;
+        &:last-child{
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+
+  .bcp-subparagraph{
+    display: block;
+    text-align: center;
+    font-family: $poppins;
+    white-space: pre;
+    font-weight: $regular;
+    color: rgba($dark1, 0.37);
+    font-size: 0.9375rem;
+    margin-top: 27px;
+  }
+}
+
+
+
+.pagebcpMain{
+  margin-top: 100px;
+  position: relative;
+
+  .rowCont{
+    // justify-content: space-between;
+    position: relative;
+  }
+
+  &-leftDesc{
+    display: block;
+    text-align: left;
+    font-family: $poppins;
+    font-weight: $regular;
+    color: rgba($dark1, 0.42);
+    font-size: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  &-leftSub{
+    display: block;
+    text-align: left;
+    margin-top: 12px;
+  }
+}
+
+
+
+
+.pagebcpSeeNext{
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  margin-top: 150px;
+
+  .sectHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul{
+    margin-top: 60px;
+    li{
+      display: inline-block;
+    }
+  }
+
+  .bck{
+    // background-color: #fafbfb;
+    background-color: #fefefe;
+    border-top: 1px solid rgba($grey2, 0.7);
+    height: 100%;
+    width: 100vw;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: -2;
+  }
+}
+
+// =====================================================
+//    MEDIA QUERIES
+// =====================================================
+
+// Extra large
+@media (max-width: 1225px) {
+}
+
+
+// Large
+@media (max-width: 991px) {
+  .pagebcpMain .shareBtns{
+    margin-left: 15px;
+  }
+
+  .pagebcpSeeNext ul li:last-child{
+    display: none;
+  }
+}
+
+
+
+// Medium
+@media (max-width: 768px) {
+  .pagebcpMain {
+    margin-top: 85px;
+
+    .shareBtns{
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 645px) {
+  .pagebcpSeeNext ul{
+    li:last-child{
+      display: inline-block;
+    }
+
+    .col-sm-6{
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+
+// Small
+@media (max-width: 544px) {
+  .pagebcpTop .bcp-info{
+    .bcp-title{
+      font-size: 1.75rem;
+    }
+    .bcp-spec{
+      color: rgba($dark2, 0.46);
+    }
+  }
+
+  .pagebcpMain {
+    margin-top: 75px;
+  }
+}
