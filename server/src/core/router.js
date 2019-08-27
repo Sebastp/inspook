@@ -8,11 +8,11 @@ const { DOMAIN } = process.env
 
 
 // Serve static frontend
-router.use(express.static(path.join(__dirname, '../../client/build')))
+router.use(express.static(path.join(__dirname, '../../../client/build')))
 
 // Catchall
 router.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/build/index.html'))
+  res.sendFile(path.join(__dirname, '../../../client/build/index.html'))
 })
 
 export default router
