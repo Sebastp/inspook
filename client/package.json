@@ -9,6 +9,11 @@
     "start": "react-scripts start",
     "build": "npm run build-css && react-scripts build"
   },
+  "browserslist": [
+    ">0.2%",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "author": "Sebastian Pobocha",
   "license": "ISC",
   "dependencies": {
