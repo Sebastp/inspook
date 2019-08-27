@@ -1,10 +1,10 @@
 @keyframes moveTopHeaderType0 {
-  30%{
-    opacity: 0.3;
+  50%{
+    opacity: 0.2;
   }
 
   100%{
-    transform: translateY(-100%);
+    transform: translateY(-60%);
     opacity: 0;
   }
 }
@@ -37,6 +37,7 @@
     opacity: 1;
   }
 }
+
 @keyframes personFadeDown0 {
   0%{
     width: 0%;
@@ -98,7 +99,7 @@
         #hdrType-1{
           opacity: 0;
           // top: 34px;
-          transform: translateY(60%);
+          transform: translateY(30%);
           animation: moveTopHeaderType1 0.4s ease-in forwards;
           animation-delay: 7.6s;
         }
@@ -123,17 +124,17 @@
         left: 0;
         right: 0;
 
-
-
         &:first-child{
           z-index: 5;
+          animation: personFade0 0.4s ease-in forwards;
+          animation-delay: 7.5s;
+
           .person-cover{
             opacity: 1;
-            animation: personFade0 0.4s ease-in forwards;
-            animation-delay: 7.5s;
           }
 
           .person-info__white{
+            display: none;
             right: auto;
             animation: personFadeDown0 0.4s ease-in forwards;
             animation-delay: 5s;
@@ -141,12 +142,15 @@
         }
 
         &:last-child{
+          opacity: 0;
+          animation: personFade1 0.4s ease-in forwards;
+          animation-delay: 8s;
+
           .person-cover{
             opacity: 0;
-            animation: personFade1 0.4s ease-in forwards;
-            animation-delay: 0s;
           }
           .person-info__white{
+            display: none;
             width: 100%;
             left: auto;
             animation: personFadeDown1 0.4s ease-in forwards;
@@ -232,5 +236,11 @@
         display: none;
       }
     }
+  }
+}
+
+@media (max-width: 398px) {
+  #header__tagline h1 .hdr-lightCont, #fromSpan{
+    display: none;
   }
 }

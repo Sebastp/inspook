@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
-import Dotdotdot from 'react-clamp'
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 
 import {bookReviews} from '../helpers/goodreads'
@@ -10,6 +11,7 @@ import { getChosenReaders } from '../graphql'
 
 import PersonMini_loading from './PersonMini_loading'
 
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 export default class PersonMini extends Component {
   render() {
@@ -49,9 +51,13 @@ export default class PersonMini extends Component {
                 <div className="person-info">
                   <h5 className="person-name">
                     <Link to={'/reader/'+personData.uid}>
-                      <Dotdotdot clamp={1}>
-                        {personData.displayName}
-                      </Dotdotdot>
+                      <ResponsiveEllipsis
+                        text={personData.displayName}
+                        maxLine='1'
+                        ellipsis='...'
+                        trimRight
+                        basedOn='letters'
+                      />
                     </Link>
                   </h5>
 
@@ -65,7 +71,6 @@ export default class PersonMini extends Component {
                 <Link to={'/reader/'+personData.uid}>
                   <img src={ require('../assets/img/icons/arrowr.svg') } className="person-iconr"/>
                 </Link>
-
               </div>
             )
           }

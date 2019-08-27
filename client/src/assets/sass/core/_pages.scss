@@ -1,33 +1,74 @@
 //all people, collections etc.
-.pageTop{
+.pageHeader{
   display: flex;
   flex-direction: column;
   position: relative;
   margin-top: 40px;
+  width: 100%;
+  padding-bottom: 80px;
+
 
   &__tagline{
     width: 100%;
     display: block;
-    text-align: center;
-    margin-bottom: 90px;
+
+    &.centered{
+      text-align: center;
+      h1{
+        font-size: 1.75rem;
+      }
+    }
 
     h1{
-      font-family: $playfair;
-      font-weight: $bold;
+      font-family: $lora;
+      font-weight: $regular;
       color: rgba($dark2,0.95);
-      font-size: 2.313rem;
+      font-size: 1.625rem;
     }
 
     p{
       font-weight: $regular;
-      // font-weight: $medium;
-      // color: #3636368c;
-      color: rgba($dark2,0.46);
-      margin-top: 12px;
+      color: rgba($dark2,0.38);
+      margin-top: 15px;
       margin-bottom: 0px;
       font-size: 1.063rem;
     }
   }
+
+
+
+
+
+  &__midrow{
+    position: relative;
+    margin-top: 40px;
+
+    .search-center{
+      margin-top: 80px;
+      margin-bottom: 80px;
+
+      .search-input{
+        max-width: 555px;
+        box-shadow: 3px 4px 9px 0px rgba(2, 12, 20, 0.05);
+        input{
+          background-color: $white;
+        }
+      }
+    }
+
+    .bck{
+      // background-color: #fff1e4;
+      background: linear-gradient(60deg, #c1e5f4, #d9f2fc);
+      height: 100%;
+      width: 100vw;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
 
 
   &__nav{
@@ -49,220 +90,211 @@
 }
 
 
+.stickyHeader{
+  // position: absolute;
+  top: 0;
+
+  &.sticky{
+    top: 70px !important;
+  }
+}
 
 
-//bcp = book, collection, person
-.pagebcpTop{
-  position: relative;
-  text-align: left;
-  display: block;
-  margin: auto;
+.pageMain{
+  margin-top: 60px;
 
-  .bcp-canvas{
-    position: relative;
-    display: block;
-    text-align: center;
+  &__bookLi{
+    display: inline-block;
+    width: 100%;
 
-    &__cover{
-      display: block;
-      background-size: cover;
-      background-color: $grey2;
-      background-position: center;
-      background-repeat: no-repeat;
-      margin: 0 auto;
-    }
-
-    &__bck{
-      width: 100vw;
-      position: absolute;
-      left: 15px;
-      top: 0;
-      bottom: 0;
-      z-index: -1;
-      background-color: $grey3;
+    &:not(:last-child()){
+      .book-review{
+        margin-bottom: 60px;
+      }
     }
   }
 
+  &__personLi{
+    hr{
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+    }
+  }
 
-  .bcp-info{
-    text-align: left;
-    padding-right: 35px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+  &__collectionLi{
+    margin-bottom: 100px;
+    .collectionMini{
+      margin-bottom: 0;
 
-    .bcp-infoCenter{
-      display: block;
-      margin: auto;
-      width: 100%;
-      // flex: 1;
+      .collectionMini-top .collectionMini-cover{
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .collectionMini-name{
+        font-size: 1.25rem;
+      }
     }
 
-    .bcp-pname{
-      font-size: 0.75rem;
+    &:last-child{
+      margin-bottom: 0px;
     }
+  }
+}
 
-    .bcp-title{
-      display: block;
-      font-family: $lora;
-      font-weight: $regular;
-      color: rgba($dark2, 0.9);
-      font-size: 1.875rem;
-      margin-top: 8px;
-    }
-
-    .bcp-desc{
-      display: block;
-      font-weight: $regular;
-      color: rgba($dark0, 0.5);
-      font-size: 1rem;
-    }
+.centColumn{
+  max-width: 555px;
+  margin: auto;
+}
 
 
-    .bcp-spec{
-      text-align: right;
-      display: block;
-      white-space: pre;
-      font-size: 0.75rem;
-      white-space: pre;
+.pageMain__bookLi, .pageMain__personLi{
+  hr{
+    display: block;
+    height: 1px;
+    background-color: $grey2;
+    // margin-left: -30px;
+    // margin-right: -30px;
+    border: 0;
+    margin: 55px -30px;
+  }
+
+  &:last-child{
+    hr{
+      display: none;
     }
   }
 }
 
 
 
+
+
+
+
 .midRow{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  margin: 50px auto;
+  padding: 45px 15px 55px 15px;
+  background-color: $grey3;
   width: 100%;
+  text-align: center;
+  margin: 60px 0 50px 0;
+
+  &.black{
+    background-color: $black;
+
+    .midRow__item{
+      .itmDesc{
+        color: rgba($white, 0.95);
+      }
+    }
+  }
 
   &__item{
     display: inline-block;
+    // margin: auto;
 
     .itmDesc{
-      vertical-align: middle;
-      display: inline-block;
+      display: block;
       font-weight: $medium;
-      color: rgba($dark2, 0.9);
-      font-size: 0.875rem;
-      margin-right: 20px;
+      font-family: $lora;
+      color: rgba($black, 0.9);
+      font-size: 1.313rem;
+      margin-bottom: 25px;
     }
 
     .itmRight{
       display: inline-block;
 
       .button-filled{
-        margin-right: 20px;
+        margin-right: 25px;
         &:last-child{
           margin-right: 0
         }
       }
     }
-
-    .itmScm{
-      display: inline-block;
-      vertical-align: middle;
-      height: 35px;
-
-      .button-scm{
-        margin-right: 13px;
-
-        &:last-child{
-          margin-right: 0px;
-        }
-      }
-    }
-  }
-
-}
-
-
-
-
-.pageMain{
-  margin-top: 80px;
-
-  &__header{
-    margin-bottom: 60px;
-  }
-
-  &__bookLi{
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 50px;
-  }
-
-  &__personLi{
-    margin-bottom: 30px;
   }
 }
 
-
-
-.pagebcpMain{
-  &-leftDesc{
-    display: block;
-    text-align: left;
-    font-family: $poppins;
-    font-weight: $regular;
-    color: rgba($dark1, 0.42);
-    font-size: 1rem;
-    font-size: 0.9375rem;
-  }
-
-  &-leftSub{
-    display: block;
-    text-align: right;
-    margin-top: 20px;
-  }
-}
-
-
-.pagebcpSeeNext{
-  position: relative;
-  padding-top: 80px;
-  padding-bottom: 30px;
-  margin-top: 130px;
-
-  .sectHeader{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  ul{
-    margin-top: 60px;
-    li{
-      display: inline-block;
-    }
-  }
-
-  .bck{
-    background-color: #fafbfb;
-    height: 100%;
-    width: 100vw;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: -2;
-  }
-}
 
 // =====================================================
 //    MEDIA QUERIES
 // =====================================================
-// Small
-@media (min-width: 544px) {}
-// Medium
-@media (min-width: 768px) {}
-// Large
-@media (max-width: 992px) {}
+
 // Extra large
 @media (max-width: 1225px) {
+}
+
+
+// Large
+@media (max-width: 991px) {
+  .col-0.col-lg-1{
+    display: none;
+  }
+
+  .pageHeader{
+    text-align: center;
+    max-width: none;
+    margin-top: 40px;
+
+    .stickyHeader{
+      position: relative !important;
+      top: 0 !important;
+    }
+
+    &__tagline{
+      p{
+        margin-top: 16px;
+      }
+    }
+
+
+    .search-center{
+      text-align: left;
+    }
+
+    &-divline{
+      display: block;
+    }
+  }
+
+}
+
+
+
+
+
+@media (max-width: 840px) {
+  .pageMain__bookLi hr{
+    margin: 50px 0px;
+  }
+}
+
+// Medium
+@media (max-width: 768px) {
+  .pageHeader__searchrow .search-center{
+    margin-top: 65px;
+    margin-bottom: 65px;
+  }
+}
+
+
+
+
+// Small
+@media (max-width: 544px) {
+  .pageMain {
+    .pageMain__bookLi hr, .pageMain__personLi hr{
+      margin-left: -30px !important;
+      margin-right: -30px !important;
+    }
+
+    .pageMain__collectionLi .collectionMini .collectionMini-name{
+      font-size: 1.188rem;
+    }
+  }
 }

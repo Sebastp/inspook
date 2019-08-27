@@ -3,40 +3,43 @@
 
   header{
     margin-top: 40px;
-    .bookPage-canvas .bookPage-cover{
-      width: 100px;
-      height: 157px;
-      box-shadow: $shadow1;
-      margin: 100px auto;
+    .bookPage-canvas {
+      margin-bottom: 30px;
+      .bookPage-cover{
+        width: 100px;
+        height: 157px;
+        box-shadow: $shadow1;
+        margin: auto;
+        // margin: 50px auto;
+      }
+
+      .bookPage-bck{
+        width: auto;
+        left: 0;
+        right: 0;
+        margin: 0 15px;
+        background-color: #fafafa;
+      }
     }
 
 
     .bookPage-info{
       text-align: left;
-      padding-right: 35px;
-
-
-      .bookPage-author{
-        margin-top: 13px;
-      }
-
+      margin-top: 50px;
+      padding-bottom: 0px;
 
       .bookPage-specs{
-        color: rgba($dark2, 0.4);
-        p{
-          display: inline-block;
-          margin-right: 30px;
-          &:last-child{
-            margin-right: 0px;
-          }
-        }
+        margin-top: 50px;
       }
+    }
+
+    .bookPage-desc{
+      margin-top: 50px;
     }
   }
 
-
-  .bookPage-revUl{
-    li{
+  .pagebcpMain{
+    .bookPage-revUl li{
       padding-bottom: 40px;
       margin-bottom: 40px;
       border-bottom: 1px solid $grey2;
@@ -49,29 +52,73 @@
       }
     }
 
-    .book-review{
-      width: 100%;
-      text-align: left;
+    .bookPage-noRevs{
+      text-align: center;
+      margin-top: -30px;
 
-      &__name{
-        font-weight: $regular;
-        font-family: $lora;
-        font-size: 1.188rem;
-      }
+      .button-scm{
+        margin-right: 15px;
 
-      &__inner{
-        display: block;
-        width: 100%;
-        position: relative;
-        margin-top: 10px;
-
-        p{
-          font-weight: $regular;
-          color: rgba($dark2, 0.5);
-          font-size: 0.875rem;
-          // line-height: 1.45em;
+        &:last-child{
+          margin-right: 0px;
         }
       }
     }
+  }
+}
+
+
+
+
+// Medium
+@media (max-width: 768px) {
+  .bookPage header{
+    .bookPage-canvas .bookPage-bck{
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .bookPage-desc{
+      padding-left: 15px;
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .pagebcpTop{
+    text-align: center;
+  }
+
+  .bookPage {
+    header {
+      .bookPage-info{
+        text-align: center;
+        .bcp-spec{
+          text-align: center;
+          margin-top: 30px;
+        }
+      }
+      .bookPage-desc{
+        margin-top: 75px;
+        padding-left: 15px;
+        .pagebcpMain-leftDesc, .subAnach{
+          text-align: center;
+        }
+      }
+    }
+    .midRow{
+      padding: 65px 15px 75px 15px;
+    }
+  }
+}
+
+
+@media (max-width: 350px) {
+  .pagebcpTop .bcp-info .bcp-spec p:first-child{
+    margin-right: 0px;
+    margin-bottom: 7px;
+    display: block;
   }
 }

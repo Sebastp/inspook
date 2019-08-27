@@ -2,22 +2,26 @@ import React, {Component, Fragment} from 'react'
 
 import { Link } from 'react-router-dom'
 
-import Dotdotdot from 'react-clamp'
-import Swiper from 'swiper';
+
+import Swiper from 'swiper/dist/js/swiper.js';
 
 import {onShelves} from '../helpers/textTransf'
 
 
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
-// const booksArr = [9780061122415, 9781796356304, 9780739467350, 9780525574460, 9780061122415, 9781796356304, 9780739467350]
+
+
 const booksArr = [
-  {'id': 9780804139298, 'cover': 'cover1.jpg', 'title': 'Zero to One', 'author': 'Peter Thiel', "shelves": 7},
-  {'id': 9781508243243, 'cover': 'cover2.jpg', 'title': 'Principles: Life and Work', 'author': 'Ray Dalio', "shelves": 7},
-  {'id': 9780062316110, 'cover': 'cover3.jpg', 'title': 'Sapiens: A Brief History of Humankind', 'author': 'Yuval Noah Harari', "shelves": 6},
-  {'id': 9781400062751, 'cover': 'cover4.jpg', 'title': 'Mindset: The New Psychology of Success', 'author': 'Carol S. Dweck', "shelves": 5},
-  {'id': 9781524761417, 'cover': 'cover5.jpg', 'title': 'Blitzscaling', 'author': 'Reid Hoffman', "shelves": 5},
-  {'id': 9781501139154, 'cover': 'cover6.jpg', 'title': 'Leonardo da Vinci', 'author': 'Walter Isaacson', "shelves": 5},
-  {'id': 9780307353139, 'cover': 'cover7.jpg', 'title': 'The 4-Hour Workweek', 'author': 'Timothy Ferriss', "shelves": 4}
+  {'id': 9780804139298, 'cover': 'zerotoone.jpg', 'title': 'Zero to One', 'author': 'Peter Thiel', "shelves": 7},
+  {'id': 9781508243243, 'cover': 'principles.jpg', 'title': 'Principles: Life and Work', 'author': 'Ray Dalio', "shelves": 7},
+  {'id': 9780062316110, 'cover': 'sapiens.jpg', 'title': 'Sapiens: A Brief History of Humankind', 'author': 'Yuval Noah Harari', "shelves": 6},
+  {'id': 9781400062751, 'cover': 'mindset.jpg', 'title': 'Mindset', 'author': 'Carol S. Dweck', "shelves": 5},
+  {'id': 9781524761417, 'cover': 'blitzscaling.jpg', 'title': 'Blitzscaling', 'author': 'Reid Hoffman', "shelves": 5},
+  {'id': 9781501139154, 'cover': 'leonardodavinci.jpg', 'title': 'Leonardo da Vinci', 'author': 'Walter Isaacson', "shelves": 5},
+  {'id': 9780307353139, 'cover': '4hourworkweek.jpg', 'title': 'The 4-Hour Workweek', 'author': 'Timothy Ferriss', "shelves": 4}
 ]
 
 
@@ -41,8 +45,8 @@ export default class MostRecomBooksHeader extends Component {
         direction: 'horizontal',
         slidesPerView: 'auto',
         freeMode: true,
-        freeModeSticky: true,
-        freeModeMomentumRatio: 0.5,
+        freeModeMomentumRatio: 0.25,
+        freeModeMomentumVelocityRatio: 0.2,
         // centeredSlides: true,
         spaceBetween: 80,
         slidesOffsetBefore: 0,
@@ -67,7 +71,6 @@ export default class MostRecomBooksHeader extends Component {
         this.changeCurrBook(this.mySwiper.realIndex)
       });
     }, 200)
-
   }
 
 
@@ -106,8 +109,8 @@ export default class MostRecomBooksHeader extends Component {
                     <div className="book-cover">
                       <Link to={'/book/'+bitm.id} className="book-cover__inner"
                         style={{
-                          backgroundImage: 1?`url(${require('../assets/img/demo/'+bitm.cover)})`:
-                          `url(${require('../assets/img/demo/cover1.jpg')})`
+                          backgroundImage: 1?`url(${require('../assets/img/books/'+bitm.cover)})`:
+                          `url(${require('../assets/img/noBookCover.jpg')})`
                         }}
                         />
                     </div>
@@ -118,11 +121,18 @@ export default class MostRecomBooksHeader extends Component {
                           {bitm.title}
                         </Link>
                       </h5>
-                      <Dotdotdot clamp={1} className="book-author" tagName="span">
-                        <Link to={'/book/'+bitm.id}>
-                          {bitm.author}
-                        </Link>
-                      </Dotdotdot>
+                      <Link to={'/book/'+bitm.id}>
+                        <ResponsiveEllipsis
+                          text={bitm.author}
+                          maxLine='1'
+                          ellipsis='...'
+                          trimRight
+                          basedOn='letters'
+                          className="book-author"
+                          component="span"
+                        />
+                      </Link>
+
                       <span className="book-spec">
                         <Link to={'/book/'+bitm.id}>
                           {onShelves(bitm.shelves)}

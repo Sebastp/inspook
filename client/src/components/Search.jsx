@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
-import Dotdotdot from 'react-clamp'
+
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 import { searchString } from '../graphql'
 
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 export default class Search extends Component {
   constructor(props) {
@@ -17,9 +20,13 @@ export default class Search extends Component {
 
   searchChange = (e) => {
     const phrase = e.target.value
-    this.setState({
-      searchPhrase: phrase
-    });
+    if (this.props.getSearchChange) {
+      this.props.getSearchChange(phrase)
+    }else {
+      this.setState({
+        searchPhrase: phrase
+      });
+    }
   }
 
   render() {
@@ -85,9 +92,13 @@ export default class Search extends Component {
                       <div className="result-itm__left">
                         <h5 className="itm-name">
                           <Link to={'/reader/'+resultItm.uid}>
-                            <Dotdotdot clamp={1}>
-                              {resultItm.name}
-                            </Dotdotdot>
+                            <ResponsiveEllipsis
+                              text={resultItm.name}
+                              maxLine='1'
+                              ellipsis='...'
+                              trimRight
+                              basedOn='letters'
+                            />
                           </Link>
                         </h5>
 

@@ -19,6 +19,7 @@ export default gql`
     displayName: String
     avatar: String
     desc: String
+    tag: String
     books: [BookRef]
     booksCount: Int
     official: Boolean
@@ -28,7 +29,14 @@ export default gql`
   type BookRef {
     bookId: String
     review: String
+    source: BookSource
   }
+
+  type BookSource {
+    name: String
+    url: String
+  }
+
 
   type BookReview {
     uid: String

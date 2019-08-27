@@ -1,44 +1,3 @@
-/* merriweather-regular - latin-ext_latin_cyrillic_cyrillic-ext_vietnamese */
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-regular.eot'); /* IE9 Compat Modes */
-  src: local('Merriweather Regular'), local('Merriweather-Regular'),
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-regular.svg#Merriweather') format('svg'); /* Legacy iOS */
-}
-/* merriweather-700 - latin-ext_latin_cyrillic_cyrillic-ext_vietnamese */
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-700.eot'); /* IE9 Compat Modes */
-  src: local('Merriweather Bold'), local('Merriweather-Bold'),
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-700.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-700.svg#Merriweather') format('svg'); /* Legacy iOS */
-}
-/* merriweather-900 - latin-ext_latin_cyrillic_cyrillic-ext_vietnamese */
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 900;
-  src: url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-900.eot'); /* IE9 Compat Modes */
-  src: local('Merriweather Black'), local('Merriweather-Black'),
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-900.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-900.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-900.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/merriweather-v19-latin-ext_latin_cyrillic_cyrillic-ext_vietnamese-900.svg#Merriweather') format('svg'); /* Legacy iOS */
-}
-
-
 /* poppins-regular - latin */
 @font-face {
   font-family: 'Poppins';
@@ -135,45 +94,6 @@
 
 
 
-/* lato-regular - latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/lato-v15-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local('Lato Regular'), local('Lato-Regular'),
-       url('../fonts/lato-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/lato-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/lato-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/lato-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/lato-v15-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../fonts/LatoLatin-Medium.eot'); /* IE9 Compat Modes */
-  src: local('Lato Medium'), local('Lato-Medium'),
-       url('../fonts/LatoLatin-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/LatoLatin-Medium.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/LatoLatin-Medium.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/LatoLatin-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
-}
-
-/* lato-700 - latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/lato-v15-latin-700.eot'); /* IE9 Compat Modes */
-  src: local('Lato Bold'), local('Lato-Bold'),
-       url('../fonts/lato-v15-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/lato-v15-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/lato-v15-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/lato-v15-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/lato-v15-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
-}
 
 
 

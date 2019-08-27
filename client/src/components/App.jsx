@@ -4,22 +4,30 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Landing from './Landing'
 import TopBooksPage from './TopBooksPage'
+import CollectionsPage from './CollectionsPage'
 import PeoplePage from './PeoplePage'
 import Reader from './Reader'
 import Book from './Book'
 import Collection from './Collection'
+import NotFound from './NotFound'
 import { ModalProvider } from './ModalContext';
 
 
 
 
 export default class App extends Component {
+  ScrollToTop() {
+    window.scrollTo(0, 0);
+    return null;
+  }
+
   render() {
     return (
       <Router>
         <Fragment>
-
           <ModalProvider>
+            <Route component={this.ScrollToTop} />
+
             <Switch>
               <Route exact path="/"
                 component={props => (
@@ -27,7 +35,7 @@ export default class App extends Component {
                 )}
               />
 
-              <Route exact path="/top-books"
+              <Route exact path="/books"
                 component={props => (
                   <TopBooksPage {...props}/>
                 )}
@@ -38,6 +46,13 @@ export default class App extends Component {
                   <PeoplePage {...props}/>
                 )}
               />
+
+              <Route exact path="/collections"
+                component={props => (
+                  <CollectionsPage {...props}/>
+                )}
+              />
+
 
               <Route exact path="/reader/:urlUid"
                 component={props => (
@@ -56,6 +71,7 @@ export default class App extends Component {
                   <Collection {...props}/>
                 )}
               />
+              <Route component={NotFound} />
             </Switch>
           </ModalProvider>
 

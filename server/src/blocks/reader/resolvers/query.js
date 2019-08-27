@@ -63,7 +63,7 @@ const Query = {
   // bookid when wanna get reader of certain book
   // bookid = string
   getChosenReaders: async (_, { uidsArr, bookId=false, getBooksCount = true, howManyBooks = 0 }) => {
-    var excFields = {uid: 1, displayName: 1, desc: 1, avatar: 1}
+    var excFields = {uid: 1, displayName: 1, desc: 1, tag: 1, avatar: 1}
     if (getBooksCount) {
       excFields['books.bookId'] = 1
     }
@@ -118,12 +118,11 @@ const Query = {
 
     const pageStart = ((page || 1) - 1) * pageSize
     allBooks = allBooks.slice(pageStart, pageStart+pageSize)
-
     return allBooks
   },
 
   getPeople: async (_, { pageSize = 20, page = 1 }) => {
-    var docs = await Reader.find({}, {displayName:1, desc:1, uid:1, avatar: 1, 'books.bookId': 1, _id: 0})
+    var docs = await Reader.find({}, {displayName:1, desc:1, uid:1, avatar: 1, tag: 1, 'books.bookId': 1, _id: 0})
       .skip(((page || 1) - 1) * pageSize)
       .limit(pageSize)
       .exec()

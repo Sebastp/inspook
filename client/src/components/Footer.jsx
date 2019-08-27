@@ -6,7 +6,7 @@ const Footer = (props) => {
     <footer className="cont-width_0">
       <div className="row">
         <div className="col footer__left">
-          <h3>Read who You want to be</h3>
+          <h3>Read who You<wbr/> want to be</h3>
         </div>
 
         <div className="col-5 col-md-4 footer__right">
@@ -23,7 +23,7 @@ const Footer = (props) => {
 
           <nav>
             <span className="navAnach">
-              <Link to={'/top-books'}>
+              <Link to={'/books'}>
                 Books
               </Link>
             </span>
@@ -43,7 +43,12 @@ const Footer = (props) => {
           </nav>
         </div>
 
+
+
+
       </div>
+      <p className="downMsg">Some data comes from our kind friends at <a href="https://www.goodreads.com/">GoodReads</a>   © 2019 Inspook. All rights reserved.
+      </p>
     </footer>
   )
 }

@@ -6,10 +6,51 @@ import Search from './Search'
 
 
 export default class Topbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mobileNavOpen: false
+    }
+  }
+
+
+  toggleMobileNav=()=>{
+     this.setState({
+       mobileNavOpen: !this.state.mobileNavOpen
+     });
+  }
+
   render() {
+    const {mobileNavOpen} = this.state
 
     return (
       <div className='topbar'>
+        <div className={"topbar__mobile"+(mobileNavOpen?' open':'')}>
+          <nav className="cont-width_1">
+            <span className="subAnach">
+              <Link to={'/books'}>
+                Books
+              </Link>
+            </span>
+
+
+            <span className="subAnach">
+              <Link to={'/people'}>
+                Readers
+              </Link>
+            </span>
+
+            <span className="subAnach">
+              <Link to={'/collections'}>
+                Collections
+              </Link>
+            </span>
+          </nav>
+
+          <div className="topbar__mobile-bck"/>
+        </div>
+
+
         <div className="topbar__inner cont-width_1">
           <header>
             <Link to={'/'}>
@@ -26,10 +67,10 @@ export default class Topbar extends Component {
           </div>
 
 
-          <button className="nav-toggle"></button>
+          <button className={"nav-toggle"+(mobileNavOpen?' open':'')} onClick={this.toggleMobileNav}></button>
           <nav>
             <span className="navAnach">
-              <Link to={'/top-books'}>
+              <Link to={'/books'}>
                 Books
               </Link>
             </span>

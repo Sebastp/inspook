@@ -7,7 +7,7 @@ export default class ModalSignIn extends Component {
       <div className="row">
         <ul className="col-6 d-flex justify-content-between">
           <li>
-            <Link to={'/top-books'}>
+            <Link to={'/books'}>
               Top Books
             </Link>
           </li>

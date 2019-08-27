@@ -1,6 +1,7 @@
 .button-filled{
   border-radius: 500px;
   border: none;
+  display: inline-block;
   cursor: pointer;
   background-color: $grey1;
   font-size: 0.75rem;
@@ -15,6 +16,16 @@
     background-color: $grey2;
     color: rgba($black, 0.8);
     transition: background-color 0.4s;
+  }
+
+  &.button-filledWhite{
+    background-color: rgba($white, 0.95);
+    color: $black;
+  }
+
+  &.button-filledBlack{
+    color: rgba($white, 0.95);
+    background-color: $black;
   }
 }
 
@@ -43,5 +54,31 @@
   img{
     height: 17px;
     height: 100%;
+  }
+}
+
+
+.shareBtns{
+  position: absolute;
+  top: 0;
+  transition: opacity 0.2s;
+
+  .button-scm{
+    display: block;
+    margin-top: 15px;
+
+    &:first-child{
+      margin-top: 0px;
+    }
+  }
+
+  &.sticky{
+    top: 100px !important;
+    opacity: 1;
+    transition: opacity 0.35s;
+  }
+
+  &.hidden{
+    opacity: 0;
   }
 }

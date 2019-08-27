@@ -14,14 +14,20 @@ export default class ModalShelves extends Component {
     const { isVisible, shelves, bookId } = this.props
     return (
       <div className={"modalCont"+ (isVisible ? ' shown':'')}>
+        <ModalConsumer>
+          {({ hideModal }) => (
+            <img src={ require('../assets/img/icons/x.svg') } className="close-icon"
+              onClick={ () => { hideModal( 'mShelves')} }/>
+          )}
+        </ModalConsumer>
         <div className="modal__inner cont-width_2">
-          <ModalConsumer>
-            {({ hideModal }) => (
-              <span onClick={ () => { hideModal( 'mShelves')} }>close</span>
-            )}
-          </ModalConsumer>
 
-          <h3 className="sect-header_s1 pageMain__header">{onShelves(shelves)}</h3>
+
+          <div className="sectHeader">
+            <h3 className="sect-header pageMain__header">{onShelves(shelves)}</h3>
+          </div>
+
+
 
           <ul className='cont-width_2__scroll scrollbar_1'>
             <Query query={getChosenReaders} variables={{ bookId }}>
@@ -36,13 +42,15 @@ export default class ModalShelves extends Component {
                   }
 
                   var readers = data.getChosenReaders
-                  
-
                   return (
                     readers.map((persObj,i)=>(
-                      <li key={i}>
-                        <PersonMini personObj={persObj}/>
-                      </li>
+                      <ModalConsumer>
+                        {({ hideModal }) => (
+                          <li key={i} onClick={ () => { hideModal( 'mShelves')} }>
+                            <PersonMini personObj={persObj}/>
+                          </li>
+                        )}
+                      </ModalConsumer>
                     ))
                   )
                 }

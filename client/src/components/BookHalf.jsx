@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
-import Dotdotdot from 'react-clamp'
+
 
 import { ModalConsumer } from './ModalContext';
 
@@ -16,6 +16,10 @@ import { getLink } from '../helpers/amazonAff'
 
 import { nrOfShelves, getBookReviews } from '../graphql'
 
+
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 export default class BookHalf extends Component {
   state = {
@@ -63,21 +67,27 @@ export default class BookHalf extends Component {
           <div className="book-content">
             <h5 className="book-title">
               <Link to={'/book/'+bookUrl}>
-                <Dotdotdot clamp={2}>
-                  {book_title}
-                </Dotdotdot>
+                <ResponsiveEllipsis
+                  text={book_title}
+                  maxLine='2'
+                  ellipsis='...'
+                  trimRight
+                  basedOn='letters'
+                />
               </Link>
             </h5>
             <span className="book-author">
-              <Dotdotdot clamp={1}>
-                {book_author}
-              </Dotdotdot>
+              <ResponsiveEllipsis
+                text={book_author}
+                maxLine='1'
+                ellipsis='...'
+                trimRight
+                basedOn='letters'
+              />
             </span>
             <div className="book-midrow">
               <div className="book-rate"><span>{book_rating}</span>Stars on GoodReads</div>
-            </div>
 
-            <div className="book-bottom">
               <Query query={nrOfShelves} skip={typeof onShelvesProp != "undefined"} variables={{bookid: bookId, numToGet: 1}}>
                 {
                   ({loading, error, data}) => {
@@ -108,13 +118,12 @@ export default class BookHalf extends Component {
                   }
                 }
               </Query>
+            </div>
 
-
-              <div className="book-buy">
-                <a className="button-filled" target="_blank" href={getLink(bookId)}>
-                  Buy on Amazon
-                </a>
-              </div>
+            <div className="book-bottom">
+              <a className="button-filled book-buy" target="_blank" href={getLink(bookId)}>
+                Buy on Amazon
+              </a>
             </div>
           </div>
         </div>

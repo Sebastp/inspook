@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Dotdotdot from 'react-clamp'
+
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 
 const BookReview__2 = (props) => {
@@ -17,9 +21,14 @@ const BookReview__2 = (props) => {
       </span>
 
       <Link to={'/reader/'+uid} className="book-review__inner">
-        <Dotdotdot tagName="p" clamp={clampLine}>
-          {review}
-        </Dotdotdot>
+        <ResponsiveEllipsis
+          text={review}
+          maxLine={clampLine}
+          ellipsis='...'
+          trimRight
+          basedOn='letters'
+          component="p"
+        />
       </Link>
     </div>
   )

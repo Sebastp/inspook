@@ -35,6 +35,6 @@
     "start": "node ./build/server.js",
     "dev": "nodemon ./src/server.js"
   },
-  "author": "Sebastian Pobochav",
+  "author": "Sebastian Pobocha",
   "license": "ISC"
 }

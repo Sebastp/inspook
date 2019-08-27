@@ -1,100 +1,126 @@
 import React, { Component, Fragment } from 'react'
 import {Query} from 'react-apollo'
 
+import Sticky from 'react-sticky-el';
+
+
 import Topbar from './Topbar'
+import Footer from './Footer'
 import Search from './Search'
 import PeopleList from './hocs/PeopleList'
 
 
-import { getPeople } from '../graphql'
+import { getPeople, searchString } from '../graphql'
 
 
 export default class PeoplePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchPhrase: ''
+    }
+  }
+
+
   componentDidMount() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  searchPhrase = (phrase) => {
+    console.log(phrase)
+    this.setState({
+      searchPhrase: phrase
+    });
+  }
+
   render() {
+    const { searchPhrase } = this.state
+
+
     return (
       <Fragment>
         <Topbar/>
-        <header className="pageTop cont-width_2">
-          <div className="pageTop__tagline">
-            <h1>Find Your Bookmate</h1>
-            <p>Search our Database to find your Inspiration</p>
-          </div>
 
-          <nav className="pageTop__nav">
-            <div className="navAnach active">
-              Entrepreneurs
+        <div className="cont-width_0">
+
+          <header className="pageHeader">
+            <div className="pageHeader__tagline centered">
+              <h1>Our Reader List</h1>
+              <p>Search for your Idols and find out what they are reading</p>
             </div>
-            <div className="navAnach">
-              Artists
+
+
+            <div className="pageHeader__midrow">
+              <Search bottomMsg="Search readers..." getSearchChange={this.searchPhrase}/>
+              <div className="bck"/>
             </div>
-            <div className="navAnach">
-              Politicians
-            </div>
-            <div className="navAnach">
-              Scientists
-            </div>
-          </nav>
-
-          <Search bottomMsg="Type a Book Title"/>
-        </header>
+          </header>
 
 
-        <section className="pageMain">
-          <Query query={getPeople} variables={{page: 1}} notifyOnNetworkStatusChange>
-            {({ loading, data, error, networkStatus, fetchMore }) => {
-              if (error) {
-                console.log(error.toString());
-                return null
-              }
+          <section className="pageMain centColumn">
+            <Query query={searchPhrase=='' ? getPeople : searchString}
+              variables={searchPhrase=='' ?{page: 1}:{phrase: searchPhrase, type: ['readers']}} notifyOnNetworkStatusChange>
+                {({ loading, data, error, networkStatus, fetchMore }) => {
+                  if (error) {
+                    console.log(error.toString());
+                    return null
+                  }
 
-              var peopleData = data.getPeople
-              if (!peopleData) {
-                console.error('No Data Returned');
-                return null
-              }
-              console.log(peopleData);
+                  var peopleData = data.getPeople,
+                      searchRes = data.searchString
 
 
-              var pageSize = 20,
-                  page2get = (peopleData.length/pageSize)+1
+                  if ((searchPhrase=='' && !peopleData) || (searchPhrase!='' && !searchRes)) {
+                    console.error('No Data Returned');
+                    return null
+                  }
+                  if (searchRes && !searchRes.length) {
+                    return null
+                  }
 
-              return (
-                <PeopleList
-                  loading={loading}
-                  lItems={peopleData}
-                  onLoadMore={() =>{
-                    fetchMore({
-                      variables: {
-                        page: page2get
-                      },
-                      updateQuery: (prev, { fetchMoreResult }) => {
-                        if (!fetchMoreResult || fetchMoreResult.getPeople.length === 0 || !Number.isInteger(page2get)){
-                          return prev
-                        }
-                        return Object.assign({}, prev, {
-                          getPeople: [...prev.getPeople, ...fetchMoreResult.getPeople]
-                        });
-                      }
+                  if(searchPhrase!='') {
+                    peopleData = searchRes
+                    peopleData.map(a=>{
+                      a.displayName = a.name
+                      a.avatar = a.cover
                     })
                   }
-                  }
-                />
-              )
-            }}
-          </Query>
 
 
 
 
-          <span className="subMoreSpan hovEfct">
-            See More
-          </span>
-        </section>
+                  var pageSize = 20,
+                      page2get = (peopleData.length/pageSize)+1
 
+
+                  return (
+                    <PeopleList
+                      loading={loading}
+                      lItems={peopleData}
+                      onLoadMore={() =>{
+                        fetchMore({
+                          variables: {
+                            page: page2get
+                          },
+                          updateQuery: (prev, { fetchMoreResult }) => {
+                            if (!fetchMoreResult || fetchMoreResult.getPeople.length === 0 || !Number.isInteger(page2get)){
+                              return prev
+                            }
+                            return Object.assign({}, prev, {
+                              getPeople: [...prev.getPeople, ...fetchMoreResult.getPeople]
+                            });
+                          }
+                        })
+                      }
+                    }
+                    />
+                )
+              }}
+            </Query>
+          </section>
+        </div>
+
+        <Footer/>
       </Fragment>
     )
   }
