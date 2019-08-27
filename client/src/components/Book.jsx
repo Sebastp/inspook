@@ -3,8 +3,8 @@ import React, {Component, Fragment} from 'react'
 import {Query} from 'react-apollo'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
-import stripHtml from "string-strip-html";
-import Sticky from 'react-sticky-el';
+import stripHtml from "string-strip-html"
+import Sticky from 'react-sticky-el'
 
 
 import { ModalConsumer } from './ModalContext';
