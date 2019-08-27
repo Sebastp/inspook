@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Dotdotdot from 'react-clamp'
-// import PersonMini from './PersonMini'
-
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 const BookReview = (props) => {
   const {displayName, avatar, booksCount, review, uid} = props.revOjb
@@ -21,9 +21,13 @@ const BookReview = (props) => {
       <div className="person-info">
         <h5 className="person-name">
           <Link to={'/reader/'+uid}>
-            <Dotdotdot clamp={1}>
-              {displayName}
-            </Dotdotdot>
+            <ResponsiveEllipsis
+              text={displayName}
+              maxLine='1'
+              ellipsis='...'
+              trimRight
+              basedOn='letters'
+            />
           </Link>
         </h5>
 
@@ -36,9 +40,14 @@ const BookReview = (props) => {
 
 
       <Link to={'/reader/'+uid} className="book-review__inner">
-        <Dotdotdot tagName="p" clamp={4}>
-          {review}
-        </Dotdotdot>
+        <ResponsiveEllipsis
+          text={review}
+          maxLine='4'
+          ellipsis='...'
+          trimRight
+          basedOn='letters'
+          component="p"
+        />
       </Link>
     </div>
   )

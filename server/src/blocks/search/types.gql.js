@@ -11,6 +11,8 @@ export default gql`
     name: String
     desc: String
     cover: String
+    color: String
+    tags: [String]
     booksCount: Int
     type: String
   }

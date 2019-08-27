@@ -168,3 +168,17 @@
     }
   }
 }
+
+
+
+
+
+
+@media (max-width: 390px) {
+  .bookHalf .book-top .book-content .book-midrow{
+    flex-direction: column;
+    .book-spec{
+      margin-top: 10px;
+    }
+  }
+}

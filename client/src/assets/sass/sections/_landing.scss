@@ -1,3 +1,25 @@
+@-webkit-keyframes tReadersCardsIn {
+	0% {
+    top: -10px;
+    opacity: 0.1;
+	}
+
+	100% {
+    top: 0px;
+    opacity: 1;
+	}
+}
+
+@-webkit-keyframes tReadersCardsOut {
+  0% {
+    opacity: 1;
+  }
+
+	100% {
+    opacity: 0;
+	}
+}
+
 #searchSect{
   display: block;
   width: 100%;
@@ -81,6 +103,12 @@
       width: 100%;
       margin-bottom: 25px;
       max-width: 395px;
+      animation: tReadersCardsIn 0.3s linear;
+
+
+      &.fading{
+        animation: tReadersCardsOut 0.2s linear;
+      }
 
       &__inner{
         background-color: rgba($white, 0.9);
@@ -89,15 +117,6 @@
         border-radius: 3px;
       }
 
-      /*&:nth-child(1), &:nth-child(3){
-        margin-right: 20px;
-        margin-left: -20px;
-      }
-
-      &:nth-child(2), &:nth-child(4){
-        margin-left: 20px;
-        margin-right: -20px;
-      }*/
 
       &:nth-child(3), &:nth-child(4){
         margin-bottom: 0px;
@@ -223,7 +242,7 @@
 
       .collectionMini-name, .collectionMini-subtitle, .collectionMini-spec{
         padding-left: 20px;
-        padding-right: 20px;        
+        padding-right: 20px;
       }
     }
   }

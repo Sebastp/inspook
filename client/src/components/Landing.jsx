@@ -9,7 +9,7 @@ import Footer from './Footer'
 import MostRecomBooksHeader from './LandingTopBooks'
 import LandingReaderTypes from './LandingReaderTypes'
 
-import BookHalf from './BookHalf'
+
 import CollectionMini from './CollectionMini'
 import ReaderMini_horizontal from './ReaderMini_horizontal'
 
@@ -77,9 +77,10 @@ export default class Landing extends Component {
           <div className="row header__inner">
             <div className="col" id="header__tagline">
               <p>Get Inspired By The Best</p>
-              <h1>See Book Recommendations<br/>From
+              <h1>See Book Recommendations<br/><span id='fromSpan'>From</span>
                 <div className="hdr-lightCont">
-                  {currTypes[0]}
+                  {/*{currTypes[0]} longest name for placeholder*/}
+                  Entrepreneurs
                   {
                     currTypes.map((type,i)=>(
                       <span className="hdr-light" id={'hdrType-'+i} key={Math.random(8)}>{type}</span>
@@ -156,7 +157,6 @@ export default class Landing extends Component {
               </li>
             ))}
           </ul>
-
         </section>
 
 

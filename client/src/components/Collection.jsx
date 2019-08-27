@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 
 import { Link } from 'react-router-dom'
 import {Query} from 'react-apollo'
-import Dotdotdot from 'react-clamp'
 import Sticky from 'react-sticky-el';
 
 import { getCollectionByUid } from '../graphql'

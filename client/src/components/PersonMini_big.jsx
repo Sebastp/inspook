@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
-import Dotdotdot from 'react-clamp'
+
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 
 
@@ -33,13 +36,18 @@ export default class PersonMini_big extends Component {
             <div className="PersonMini_big-info__left">
               <span className="PersonMini_big-tag subAnach">
                 Politician
+                {/*TODO: change to tag from graphql*/}
               </span>
 
               <h5 className="PersonMini_big-name">
                 <Link to={'/reader/'+personObj.uid}>
-                  <Dotdotdot clamp={1}>
-                    {personObj.displayName}
-                  </Dotdotdot>
+                  <ResponsiveEllipsis
+                    text={personObj.displayName}
+                    maxLine='1'
+                    ellipsis='...'
+                    trimRight
+                    basedOn='letters'
+                  />
                 </Link>
               </h5>
             </div>

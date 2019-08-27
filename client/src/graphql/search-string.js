@@ -7,6 +7,8 @@ export const searchString = gql`
       name
       desc
       cover
+      color
+      tags
       booksCount
       type
     }

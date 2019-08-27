@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import {Query} from 'react-apollo'
 
-import Dotdotdot from 'react-clamp'
 
 import { getCollectionByUid } from '../graphql'
 
@@ -11,27 +10,29 @@ import CollectionMini_loading from './CollectionMini_loading'
 
 export default class CollectionMini extends Component {
   render() {
-    const {collId} = this.props;
+    const {collId, collectionObjPassed} = this.props;
 
-    if (!collId) {
-      return (<CollectionMini_loading/>)
+    if (!collId && !collectionObjPassed) {
+      return null
+      // return (<CollectionMini_loading/>)
     }
 
 
     return(
-      <Query query={getCollectionByUid} variables={{uid: collId}}>
+      <Query query={getCollectionByUid} skip={collectionObjPassed} variables={{uid: collId}}>
         {
           ({loading, error, data}) => {
             if (loading){
               return <CollectionMini_loading/>
             }
-            if (error || !data) {
-              console.log(error.toString());
-              return <CollectionMini_loading/>
+            error && ( console.log(error.toString()) )
+
+            if ((error || !data) && !collectionObjPassed) {
               return null;
             }
 
-            var collectionObj = data.collectionByUid
+            var collectionObj = collectionObjPassed ? collectionObjPassed : data.collectionByUid
+
 
             var tagsStr = collectionObj.tags.map(a=> { return a.charAt(0).toUpperCase() + a.slice(1) })
             tagsStr = tagsStr.join('  -  ')
@@ -53,16 +54,20 @@ export default class CollectionMini extends Component {
 
 
                 <span className="collectionMini-name">
-                  <Link to='/'>
+                  <Link to={'/collection/'+collectionObj.uid}>
                     {collectionObj.title}
                   </Link>
                 </span>
                 <span className="collectionMini-subtitle">
-                  <Link to='/'>
+                  <Link to={'/collection/'+collectionObj.uid}>
                     {collectionObj.booksCount} Books
                   </Link>
                 </span>
-                <span className="collectionMini-spec">{tagsStr}</span>
+                <span className="collectionMini-spec">
+                  <Link to={'/collection/'+collectionObj.uid}>
+                    {tagsStr}
+                  </Link>
+                </span>
               </div>
             )
 

@@ -512,7 +512,7 @@ body {
   border: none;
   display: inline-block;
   cursor: pointer;
-  background-color: #f6f6f4;
+  background-color: #f9f9f8;
   font-size: 0.75rem;
   padding: 7px 20px 7px 20px;
   font-family: "Poppins", sans-serif;
@@ -527,6 +527,9 @@ body {
   .button-filled.button-filledWhite {
     background-color: rgba(255, 255, 255, 0.95);
     color: #000000; }
+  .button-filled.button-filledBlack {
+    color: rgba(255, 255, 255, 0.95);
+    background-color: #000000; }
 
 .button-scm {
   padding: 11px 0;
@@ -572,7 +575,7 @@ input, textarea {
   box-sizing: content-box;
   border: none;
   width: 100%;
-  background-color: #f6f6f4;
+  background-color: #f9f9f8;
   padding: 16px 20px 15px 20px;
   border-radius: 8px;
   font-size: 0.9375rem;
@@ -659,6 +662,17 @@ input, textarea {
   .pageMain__personLi hr {
     margin-left: 0px !important;
     margin-right: 0px !important; }
+  .pageMain__collectionLi {
+    margin-bottom: 100px; }
+    .pageMain__collectionLi .collectionMini {
+      margin-bottom: 0; }
+      .pageMain__collectionLi .collectionMini .collectionMini-top .collectionMini-cover {
+        margin-top: 40px;
+        margin-bottom: 40px; }
+      .pageMain__collectionLi .collectionMini .collectionMini-name {
+        font-size: 1.25rem; }
+    .pageMain__collectionLi:last-child {
+      margin-bottom: 0px; }
 
 .centColumn {
   max-width: 555px;
@@ -734,7 +748,9 @@ input, textarea {
 @media (max-width: 544px) {
   .pageMain .pageMain__bookLi hr, .pageMain .pageMain__personLi hr {
     margin-left: -30px !important;
-    margin-right: -30px !important; } }
+    margin-right: -30px !important; }
+  .pageMain .pageMain__collectionLi .collectionMini .collectionMini-name {
+    font-size: 1.188rem; } }
 
 .pagebcpTop {
   position: relative;
@@ -892,7 +908,7 @@ input, textarea {
   border-radius: 50px;
   width: 3px; }
   .scrollbar_1::-webkit-scrollbar-thumb:active {
-    background-color: rgba(58, 241, 234, 0.5); }
+    background-color: rgba(0, 0, 0, 0.27); }
 
 .sect-header {
   font-size: 1.75rem;
@@ -1167,7 +1183,8 @@ input, textarea {
       width: 100%; }
       .PersonMini_big-right .PersonMini_big-info__left {
         display: inline-block;
-        flex: 1; }
+        flex: 1;
+        padding-right: 10px; }
   .PersonMini_big-tag {
     font-size: 0.75rem;
     font-size: 0.8125rem;
@@ -1193,6 +1210,26 @@ input, textarea {
     font-size: 0.9375rem;
     width: 100%;
     margin-top: 16px; }
+
+@media (max-width: 450px) {
+  .PersonMini_big {
+    flex-direction: column;
+    align-items: center; }
+    .PersonMini_big .PersonMini_big-canvas .PersonMini_big-cover {
+      width: 70px;
+      height: 70px; }
+    .PersonMini_big-right {
+      margin-left: 0;
+      margin-top: 25px;
+      text-align: center;
+      width: 100%; }
+      .PersonMini_big-right .PersonMini_big-info {
+        flex-direction: column; }
+        .PersonMini_big-right .PersonMini_big-info__left {
+          padding-right: 0;
+          width: 100%; }
+        .PersonMini_big-right .PersonMini_big-info .PersonMini_big-subtitle {
+          margin-top: 7px; } }
 
 .collectionPage {
   display: inline-block;
@@ -1277,7 +1314,7 @@ input, textarea {
       bottom: 0;
       margin: auto;
       z-index: -1;
-      background-color: #f6f6f4; }
+      background-color: #f9f9f8; }
   .collectionMini-name {
     display: block;
     font-weight: 500;
@@ -1379,6 +1416,12 @@ input, textarea {
       text-align: center; }
   .bookPage .midRow {
     padding: 65px 15px 75px 15px; } }
+
+@media (max-width: 350px) {
+  .pagebcpTop .bcp-info .bcp-spec p:first-child {
+    margin-right: 0px;
+    margin-bottom: 7px;
+    display: block; } }
 
 .bookHalf {
   width: 100%; }
@@ -1492,6 +1535,26 @@ input, textarea {
       color: rgba(32, 32, 32, 0.55);
       font-size: 0.875rem; }
 
+@media (max-width: 390px) {
+  .bookHalf .book-top .book-content .book-midrow {
+    flex-direction: column; }
+    .bookHalf .book-top .book-content .book-midrow .book-spec {
+      margin-top: 10px; } }
+
+@-webkit-keyframes tReadersCardsIn {
+  0% {
+    top: -10px;
+    opacity: 0.1; }
+  100% {
+    top: 0px;
+    opacity: 1; } }
+
+@-webkit-keyframes tReadersCardsOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 #searchSect {
   display: block;
   width: 100%;
@@ -1548,15 +1611,9 @@ input, textarea {
       width: 100%;
       margin-bottom: 25px;
       max-width: 395px;
-      /*&:nth-child(1), &:nth-child(3){
-        margin-right: 20px;
-        margin-left: -20px;
-      }
-
-      &:nth-child(2), &:nth-child(4){
-        margin-left: 20px;
-        margin-right: -20px;
-      }*/ }
+      animation: tReadersCardsIn 0.3s linear; }
+      #tReadersSect #tReadersSect__main .personCard.fading {
+        animation: tReadersCardsOut 0.2s linear; }
       #tReadersSect #tReadersSect__main .personCard__inner {
         background-color: rgba(255, 255, 255, 0.9);
         box-shadow: 3px 3px 7px 0px rgba(2, 12, 20, 0.07);
@@ -1739,24 +1796,28 @@ input, textarea {
         left: 0;
         right: 0; }
         #header__people li .person:first-child {
-          z-index: 5; }
+          z-index: 5;
+          animation: personFade0 0.4s ease-in forwards;
+          animation-delay: 7.5s; }
           #header__people li .person:first-child .person-cover {
-            opacity: 1;
-            animation: personFade0 0.4s ease-in forwards;
-            animation-delay: 7.5s; }
+            opacity: 1; }
           #header__people li .person:first-child .person-info__white {
+            display: none;
             right: auto;
             animation: personFadeDown0 0.4s ease-in forwards;
             animation-delay: 5s; }
-        #header__people li .person:last-child .person-cover {
+        #header__people li .person:last-child {
           opacity: 0;
           animation: personFade1 0.4s ease-in forwards;
-          animation-delay: 0s; }
-        #header__people li .person:last-child .person-info__white {
-          width: 100%;
-          left: auto;
-          animation: personFadeDown1 0.4s ease-in forwards;
-          animation-delay: 6.5s; }
+          animation-delay: 8s; }
+          #header__people li .person:last-child .person-cover {
+            opacity: 0; }
+          #header__people li .person:last-child .person-info__white {
+            display: none;
+            width: 100%;
+            left: auto;
+            animation: personFadeDown1 0.4s ease-in forwards;
+            animation-delay: 6.5s; }
 
 @media (max-width: 992px) {
   #header {
@@ -1794,6 +1855,10 @@ input, textarea {
       flex: 0 0 50%; }
       #header #header__people li:last-child {
         display: none; } }
+
+@media (max-width: 398px) {
+  #header__tagline h1 .hdr-lightCont, #fromSpan {
+    display: none; } }
 
 #mostRBooksSect {
   width: 100%;
@@ -1908,7 +1973,8 @@ input, textarea {
       padding-bottom: 0; }
       .readerPage .readerPage-top .readerPage-info .readerPage-tags {
         margin-bottom: 8px;
-        margin-top: 1px; }
+        margin-top: 1px;
+        text-transform: capitalize; }
       .readerPage .readerPage-top .readerPage-info .readerPage-name {
         color: #000722;
         font-size: 1.625rem; }
@@ -2069,6 +2135,37 @@ input, textarea {
 .topbar {
   width: 100%;
   position: relative; }
+  .topbar__mobile {
+    position: fixed;
+    width: 100%;
+    display: inline-block;
+    padding: 75px 0;
+    z-index: 90;
+    transform: translateY(-100%);
+    transition: transform 1s; }
+    .topbar__mobile nav {
+      display: block;
+      text-align: center;
+      margin-top: 60px; }
+      .topbar__mobile nav span {
+        font-size: 1.25rem;
+        font-size: 1.188rem;
+        display: block;
+        margin-top: 40px;
+        margin-right: auto !important; }
+        .topbar__mobile nav span:first-child {
+          margin-top: 0px; }
+    .topbar__mobile-bck {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: -1; }
+    .topbar__mobile.open {
+      transition: transform 1s;
+      transform: translateY(0%); }
   .topbar__inner {
     width: 100%;
     display: flex;
@@ -2098,7 +2195,7 @@ input, textarea {
     height: 30px;
     width: 30px;
     position: relative;
-    z-index: 100;
+    z-index: 90;
     cursor: pointer; }
     .topbar .nav-toggle:after, .topbar .nav-toggle:before {
       content: "";
@@ -2107,14 +2204,26 @@ input, textarea {
       right: 0;
       width: 100%;
       height: 4px;
-      background-color: #080808;
+      background-color: rgba(8, 8, 8, 0.8);
       transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
       border-bottom: 2px solid #fff; }
     .topbar .nav-toggle:after {
       top: auto;
       bottom: 8px; }
+    .topbar .nav-toggle:hover:after, .topbar .nav-toggle:hover:before {
+      background-color: #080808; }
     .topbar .nav-toggle:hover:after {
       width: 80%; }
+    .topbar .nav-toggle.open:before {
+      transform: rotate(45deg);
+      top: 10px;
+      left: 0px; }
+    .topbar .nav-toggle.open:after {
+      transform: rotate(-45deg);
+      bottom: 16px;
+      left: 1px;
+      width: 100%;
+      margin-left: 0%; }
   .topbar nav {
     font-size: 0.75rem;
     display: inline-block; }
@@ -2126,7 +2235,7 @@ input, textarea {
     padding-top: 40px; }
     .topbar__inner header {
       width: auto; }
-  .topbar nav span {
+  .topbar .topbar__inner nav span {
     margin-right: 35px; } }
 
 @media (max-width: 1000px) {
@@ -2136,7 +2245,7 @@ input, textarea {
 @media (max-width: 992px) {
   .topbar .nav-toggle {
     display: block; }
-  .topbar nav {
+  .topbar .topbar__inner nav {
     display: none; } }
 
 @media (max-width: 840px) {
@@ -2148,8 +2257,11 @@ input, textarea {
     display: none; } }
 
 @media (max-width: 544px) {
-  .topbar__inner {
-    padding: 35px 30px; } }
+  .topbar .topbar__inner {
+    padding: 35px 30px; }
+  .topbar .nav-toggle {
+    height: 29px;
+    width: 27px; } }
 
 @media (max-width: 380px) {
   .topbar header #tpb-logoi {
@@ -2158,7 +2270,7 @@ input, textarea {
     display: none; } }
 
 .modalCont {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -2169,8 +2281,43 @@ input, textarea {
   display: none; }
   .modalCont.shown {
     display: block; }
+  .modalCont .close-icon {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    width: auto;
+    height: 18px;
+    opacity: 0.45;
+    cursor: pointer;
+    transition: opacity 0.3s; }
+    .modalCont .close-icon:hover {
+      opacity: 0.8;
+      transition: opacity 0.2s; }
   .modalCont .modal__inner {
-    margin-top: 120px; }
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 100px); }
+    .modalCont .modal__inner .sect-header {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 65px; }
+    .modalCont .modal__inner ul {
+      padding: 0;
+      overflow-y: scroll;
+      flex: 1;
+      margin-right: -20px;
+      margin-left: 0;
+      padding-right: 20px;
+      width: auto; }
+      .modalCont .modal__inner ul li {
+        margin-top: 30px; }
+        .modalCont .modal__inner ul li:first-child {
+          margin-top: 0px; }
+        .modalCont .modal__inner ul li:last-child {
+          margin-bottom: 65px; }
   .modalCont .modal__bck {
     width: 100%;
     height: 100%;
@@ -2180,6 +2327,22 @@ input, textarea {
     display: block;
     position: absolute;
     z-index: -1; }
+
+@media (max-height: 600px), (max-width: 800px) {
+  .modalCont .close-icon {
+    right: 20px; }
+  .modalCont .modal__inner {
+    height: calc(100% - 80px);
+    margin-top: 80px; } }
+
+@media (max-height: 550px), (max-width: 430px) {
+  .modalCont .close-icon {
+    top: 40px; }
+  .modalCont .modal__inner {
+    height: calc(100% - 70px);
+    margin-top: 70px; }
+    .modalCont .modal__inner .sect-header {
+      margin-bottom: 30px; } }
 
 footer {
   width: 100%;
@@ -2208,13 +2371,13 @@ footer {
       color: rgba(0, 7, 34, 0.9);
       font-size: 1.125rem; }
     footer .findus .findus-sm {
-      margin-top: 15px; }
+      margin-top: 18px; }
       footer .findus .findus-sm .findus-icon {
         display: inline-block;
         height: 15px;
         width: auto;
         opacity: 0.13;
-        margin-right: 10px; }
+        margin-right: 15px; }
         footer .findus .findus-sm .findus-icon:last-child {
           margin-right: 0px !important; }
   footer nav {
@@ -2231,7 +2394,7 @@ footer {
     transition: color 0.2s;
     white-space: pre-wrap;
     font-size: 0.75rem;
-    margin-top: 50px;
+    margin-top: 80px;
     padding: 0 15px; }
 
 @media (max-width: 768px) {
@@ -2274,7 +2437,7 @@ footer {
         justify-content: space-around;
         text-align: center;
         width: 100%;
-        margin-top: 40px; }
+        margin-top: 55px; }
         footer .footer__right nav .navAnach {
           margin-bottom: 0px;
           flex: 33.33%;

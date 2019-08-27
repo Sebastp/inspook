@@ -34,6 +34,8 @@ const Query = {
         a.name = a.displayName
         a.booksCount = a.books.length
         a.cover = a.avatar
+        a.color = ''
+        a.tags = []
         a.type = 'reader'
         return a
       })
@@ -44,14 +46,12 @@ const Query = {
       docsCollections = await Collection.find({$or:[
         {"title":{$regex:phrase, $options : 'i'}},
         {"desc":{$regex:phrase, $options : 'i'}}
-      ]}, {uid: 1, title: 1, 'books': 1})
+      ]}, {uid: 1, title: 1, desc: 1, color: 1, cover: 1, tags: 1, books: 1})
       .limit(4).exec()
 
       docsCollections.map((a)=>{
         a.name = a.title
         a.booksCount = a.books.length
-        a.desc = ''
-        a.cover = ''
         a.type = 'collection'
         return a
       })

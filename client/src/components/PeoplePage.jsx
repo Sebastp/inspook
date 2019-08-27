@@ -49,22 +49,7 @@ export default class PeoplePage extends Component {
               <p>Search for your Idols and find out what they are reading</p>
             </div>
 
-            {/*
-              <nav className="pageHeader__nav">
-              <div className="navAnach active">
-              Entrepreneurs
-              </div>
-              <div className="navAnach">
-              Artists
-              </div>
-              <div className="navAnach">
-              Politicians
-              </div>
-              <div className="navAnach">
-              Scientists
-              </div>
-              </nav>
-              */}
+
             <div className="pageHeader__midrow">
               <Search bottomMsg="Search readers..." getSearchChange={this.searchPhrase}/>
               <div className="bck"/>
@@ -84,7 +69,7 @@ export default class PeoplePage extends Component {
                   var peopleData = data.getPeople,
                       searchRes = data.searchString
 
-                      console.log(data);
+
                   if ((searchPhrase=='' && !peopleData) || (searchPhrase!='' && !searchRes)) {
                     console.error('No Data Returned');
                     return null
@@ -107,7 +92,6 @@ export default class PeoplePage extends Component {
                   var pageSize = 20,
                       page2get = (peopleData.length/pageSize)+1
 
-                  console.log(peopleData);
 
                   return (
                     <PeopleList

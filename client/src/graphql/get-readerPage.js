@@ -7,6 +7,7 @@ export const getReaderPage = gql`
       displayName
       avatar
       desc
+      tag
       books{
         bookId
         review

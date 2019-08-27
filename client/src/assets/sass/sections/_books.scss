@@ -113,3 +113,12 @@
     }
   }
 }
+
+
+@media (max-width: 350px) {
+  .pagebcpTop .bcp-info .bcp-spec p:first-child{
+    margin-right: 0px;
+    margin-bottom: 7px;
+    display: block;
+  }
+}

@@ -4,6 +4,7 @@ export default gql`
   extend type Query {
     collectionByUid(uid: String!): Collection
     getRandomCollections(numToGet: Int!, ignore: [String]): [randCollections]
+    getCollections(pageSize: Int, page: Int): [Collection]
   }
 
   type Collection {

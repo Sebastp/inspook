@@ -22,6 +22,11 @@
     background-color: rgba($white, 0.95);
     color: $black;
   }
+
+  &.button-filledBlack{
+    color: rgba($white, 0.95);
+    background-color: $black;
+  }
 }
 
 

@@ -120,6 +120,26 @@
       margin-right: 0px !important;
     }
   }
+
+  &__collectionLi{
+    margin-bottom: 100px;
+    .collectionMini{
+      margin-bottom: 0;
+
+      .collectionMini-top .collectionMini-cover{
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .collectionMini-name{
+        font-size: 1.25rem;
+      }
+    }
+
+    &:last-child{
+      margin-bottom: 0px;
+    }
+  }
 }
 
 .centColumn{
@@ -271,6 +291,10 @@
     .pageMain__bookLi hr, .pageMain__personLi hr{
       margin-left: -30px !important;
       margin-right: -30px !important;
+    }
+
+    .pageMain__collectionLi .collectionMini .collectionMini-name{
+      font-size: 1.188rem;
     }
   }
 }

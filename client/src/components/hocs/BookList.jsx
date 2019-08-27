@@ -27,21 +27,23 @@ export default class BookList extends Component {
     var scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight-500;
 
 
-    if (scrolledToBottom) {
+    if (scrolledToBottom && !this.props.loading) {
       this.props.onLoadMore();
     }
   };
 
   render() {
-    if (!this.props.lItems && this.props.loading) return(
-      <Fragment>
-        {
-          [0,1,2,3].map(( item, i ) => (
-            <BookHalf_loading/>
-          ))
-        }
-      </Fragment>
-    )
+    if (!this.props.lItems && this.props.loading){
+      return(
+        <Fragment>
+          {
+            [0,1,2,3].map(( item, i ) => (
+              <BookHalf_loading/>
+            ))
+          }
+        </Fragment>
+      )
+    }
 
     const { lItems } = this.props
 

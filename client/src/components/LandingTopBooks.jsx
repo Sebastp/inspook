@@ -2,11 +2,15 @@ import React, {Component, Fragment} from 'react'
 
 import { Link } from 'react-router-dom'
 
-import Dotdotdot from 'react-clamp'
-import Swiper from 'swiper';
+
+import Swiper from 'swiper/dist/js/swiper.js';
 
 import {onShelves} from '../helpers/textTransf'
 
+
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 
 
@@ -41,8 +45,8 @@ export default class MostRecomBooksHeader extends Component {
         direction: 'horizontal',
         slidesPerView: 'auto',
         freeMode: true,
-        freeModeMomentumRatio: 0.4,
-        freeModeMomentumVelocityRatio: 0.4,
+        freeModeMomentumRatio: 0.25,
+        freeModeMomentumVelocityRatio: 0.2,
         // centeredSlides: true,
         spaceBetween: 80,
         slidesOffsetBefore: 0,
@@ -117,11 +121,18 @@ export default class MostRecomBooksHeader extends Component {
                           {bitm.title}
                         </Link>
                       </h5>
-                      <Dotdotdot clamp={1} className="book-author" tagName="span">
-                        <Link to={'/book/'+bitm.id}>
-                          {bitm.author}
-                        </Link>
-                      </Dotdotdot>
+                      <Link to={'/book/'+bitm.id}>
+                        <ResponsiveEllipsis
+                          text={bitm.author}
+                          maxLine='1'
+                          ellipsis='...'
+                          trimRight
+                          basedOn='letters'
+                          className="book-author"
+                          component="span"
+                        />
+                      </Link>
+
                       <span className="book-spec">
                         <Link to={'/book/'+bitm.id}>
                           {onShelves(bitm.shelves)}

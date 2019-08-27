@@ -47,7 +47,7 @@ export default class Reader extends Component {
                 var reader_uid = readerObj.uid,
                     reader_name = readerObj.displayName,
                     reader_desc = readerObj.desc,
-                    reader_tags = 'Entrepreneur',
+                    reader_tag = readerObj.tag,
                     reader_books = readerObj.books,
                     reader_avatarName = readerObj.avatar ? readerObj.avatar : readerObj.uid,
                     reader_avatar = require('../assets/img/readers/'+ reader_avatarName +'.jpg')
@@ -71,7 +71,7 @@ export default class Reader extends Component {
                       />
 
                       <div className="readerPage-info bcp-info">
-                        <span className="readerPage-tags bcp-pname subAnach">{reader_tags}</span>
+                        <span className="readerPage-tags bcp-pname subAnach">{reader_tag}</span>
                         <h1 className="readerPage-name bcp-title">{reader_name}</h1>
                         <p className="readerPage-desc bcp-desc">{reader_desc}</p>
                         <div className="bcp-spec">

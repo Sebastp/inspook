@@ -15,6 +15,11 @@ import { getTopBooks } from '../graphql'
 
 
 export default class TopBooksPage extends Component {
+  constructor() {
+    super()
+    this.booksCache = []
+  }
+
   componentDidMount() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -30,22 +35,6 @@ export default class TopBooksPage extends Component {
               <p>Our most Recommended set of books</p>
             </div>
 
-            {/*
-              <nav className="pageHeader__nav">
-              <div className="navAnach active">
-              Entrepreneurs
-              </div>
-              <div className="navAnach">
-              Artists
-              </div>
-              <div className="navAnach">
-              Politicians
-              </div>
-              <div className="navAnach">
-              Scientists
-              </div>
-              </nav>
-              */}
             <div className="pageHeader__midrow">
               <div className="bck"/>
             </div>
@@ -66,10 +55,12 @@ export default class TopBooksPage extends Component {
                   return null
                 }
 
+
                 if (loading) {
-                  var booksData = []
+                  var booksData = this.booksCache
                 }else {
                   var booksData = data.getTopBooks
+                  this.booksCache = booksData
                 }
 
 

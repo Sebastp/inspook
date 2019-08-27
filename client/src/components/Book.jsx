@@ -1,9 +1,11 @@
 import React, {Component, Fragment} from 'react'
 
 import {Query} from 'react-apollo'
-import Dotdotdot from 'react-clamp'
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 import stripHtml from "string-strip-html";
 import Sticky from 'react-sticky-el';
+
 
 import { ModalConsumer } from './ModalContext';
 
@@ -20,6 +22,7 @@ import {onShelves} from '../helpers/textTransf'
 import {bookReviews} from '../helpers/goodreads'
 
 import { nrOfShelves, getBookReviews } from '../graphql'
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 export default class Book extends Component {
   state = {
@@ -38,6 +41,11 @@ export default class Book extends Component {
     });
   }
 
+  handleImageLoaded = (i) => {
+    if (parseFloat(i.height) > 10) {
+      console.dir(i.height);
+    }
+  }
 
   render() {
     const {bookObj} = this.state
@@ -52,7 +60,7 @@ export default class Book extends Component {
           book_cover = bookObj.cover,
           book_url = bookObj.url[0]
     }else {
-      var book_cover = require('../assets/img/noBookCover.jpg'),
+      var book_cover = '',
           book_title = 'Loading Title',
           book_author = 'Loading Author',
           book_desc = '',
@@ -67,20 +75,13 @@ export default class Book extends Component {
 
         <div className="bookPage">
           <header className="cont-width_0 pagebcpTop">
-            {/*
-            <div className="row">
-              <div className="col-0 col-lg-1"/>
-            */}
-              <div className="bookPage-canvas bcp-canvas">
-                <div className="bookPage-cover bcp-canvas__cover"
-                  style={{ backgroundImage: `url(${book_cover})` }}
-                />
-                {/*<div className="bookPage-bck bcp-canvas__bck"/>*/}
-              </div>
-            {/*
-              <div className="col-0 col-lg-1"/>
+
+            <div className="bookPage-canvas bcp-canvas">
+              <div className="bookPage-cover bcp-canvas__cover"
+                style={{ backgroundImage: `url(${book_cover})` }}
+              />
             </div>
-            */}
+
 
             <div className="row">
               <div className="col-0 col-lg-1"/>
@@ -123,9 +124,16 @@ export default class Book extends Component {
               </div>
 
               <div className="col-12 col-md-6 col-lg-5 colBigPading-left bookPage-desc">
-                <Dotdotdot clamp={3} className="pagebcpMain-leftDesc" tagName="p">
-                  {stripHtml(book_desc)}
-                </Dotdotdot>
+                <ResponsiveEllipsis
+                  text={stripHtml(book_desc)}
+                  maxLine='3'
+                  ellipsis='...'
+                  trimRight
+                  basedOn='letters'
+                  className="pagebcpMain-leftDesc"
+                  component="p"
+                />
+
                 <span className="subAnach pagebcpMain-leftSub">
                   <a target="_blank" href={book_url}>
                     Goodreads Description
@@ -143,10 +151,10 @@ export default class Book extends Component {
             <div className="midRow__item">
               <span className="itmDesc">Buy this book on</span>
               <div className="itmRight">
-                <a className="button-filled button-filledWhite" target="_blank" href={getLink(this.bookId)}>
+                <a className="button-filled button-filledBlack" target="_blank" href={getLink(this.bookId)}>
                   Amazon
                 </a>
-                <a className="button-filled button-filledWhite" target="_blank" href={getLink(this.bookId)}>
+                <a className="button-filled button-filledBlack" target="_blank" href={getLink(this.bookId)}>
                   Book Depository
                 </a>
               </div>
