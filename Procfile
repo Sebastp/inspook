@@ -1,2 +1,2 @@
-web: npm run react
-worker: npm run start -p 8080
+web: npm start -p 3000
+worker: npm start -p 8080
