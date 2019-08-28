@@ -27,7 +27,6 @@ export default class PeoplePage extends Component {
   }
 
   searchPhrase = (phrase) => {
-    console.log(phrase)
     this.setState({
       searchPhrase: phrase
     });

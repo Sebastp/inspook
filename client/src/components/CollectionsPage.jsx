@@ -27,7 +27,6 @@ export default class CollectionsPage extends Component {
   }
 
   searchPhrase = (phrase) => {
-    console.log(phrase)
     this.setState({
       searchPhrase: phrase
     });
@@ -90,7 +89,7 @@ export default class CollectionsPage extends Component {
                   var pageSize = 20,
                       page2get = (collectionsData.length/pageSize)+1
 
-                  console.log(collectionsData);
+
 
                   return (
                     <CollectionList

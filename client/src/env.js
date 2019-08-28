@@ -6,3 +6,5 @@ export const grCredentials = {
 export const amazonAccount = {
   assTag: 'inspook-20'
 };
+
+export const LOCAL_SERVER_IP = '192.168.1.3'

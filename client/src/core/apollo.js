@@ -3,10 +3,10 @@ import { ApolloLink, split } from 'apollo-link'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { getMainDefinition } from 'apollo-utilities'
-// import { LOCAL_SERVER_IP } from '../env'
-// var serverUri = 'http://'+LOCAL_SERVER_IP+':8080/graphql'
+import { LOCAL_SERVER_IP } from '../env'
 
 var serverUri = 'http://localhost:8080/graphql'
+// var serverUri = 'http://'+LOCAL_SERVER_IP+':8080/graphql'
 
 const httpLink = new HttpLink({
   uri: serverUri,
@@ -14,6 +14,7 @@ const httpLink = new HttpLink({
     reconnect: true
   }
 })
+
 
 const terminatingLink = split(
   ({ query }) => {
@@ -23,7 +24,7 @@ const terminatingLink = split(
   httpLink
 )
 
-const link = ApolloLink.from([terminatingLink])
+// const link = ApolloLink.from([terminatingLink])
 const cache = new InMemoryCache()
 
 const apollo = new ApolloClient({

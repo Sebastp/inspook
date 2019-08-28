@@ -8,10 +8,11 @@ import { getRandomCollections } from '../../graphql'
 
 const PageSeeNext = (props) => {
   const {ignoreUid} = props
+  var ignore;
   if (ignoreUid) {
-    this.ignore = [ignoreUid]
+    ignore = [ignoreUid]
   }else {
-    this.ignore = []
+    ignore = []
   }
 
   return (
@@ -31,7 +32,7 @@ const PageSeeNext = (props) => {
       </div>
 
       <ul className='row'>
-        <Query query={getRandomCollections} variables={{numToGet: 3, ignore: this.ignore}}>
+        <Query query={getRandomCollections} variables={{numToGet: 3, ignore}}>
           {
             ({loading, error, data}) => {
               if (loading){

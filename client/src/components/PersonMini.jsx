@@ -6,7 +6,6 @@ import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 
-import {bookReviews} from '../helpers/goodreads'
 import { getChosenReaders } from '../graphql'
 
 import PersonMini_loading from './PersonMini_loading'
