@@ -83,8 +83,8 @@ cors_proxy.createServer({
     originWhitelist: [], // Allow all origins
     requireHeader: ['origin', 'x-requested-with'],
     removeHeaders: ['cookie', 'cookie2']
-}).listen(parseInt(PORT)+1, '0.0.0.0', function() {
-    console.log('Running CORS Anywhere on:' + parseInt(PORT)+1);
+}).listen((parseInt(PORT)+2), '0.0.0.0', function() {
+    console.log('Running CORS Anywhere on:' + (parseInt(PORT)+2) );
 });
 
 // Start the server
