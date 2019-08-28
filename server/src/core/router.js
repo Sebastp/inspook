@@ -9,7 +9,7 @@ const { DOMAIN } = process.env
 
 // Serve static frontend
 router.use(express.static(path.join(__dirname, '../../../client/build')))
-
+console.log(__dirname);
 // Catchall
 router.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../../client/build/index.html'))

@@ -60,7 +60,7 @@ export default class Landing extends Component {
     const {currTypes} = this.state
     var readersType1 = readerTypes[currTypes[0]],
         readersType2 = readerTypes[currTypes[1]]
-
+        console.log(process.env);
     return (
       <Fragment>
         <Topbar/>
@@ -71,7 +71,6 @@ export default class Landing extends Component {
               <p>Get Inspired By The Best</p>
               <h1>See Book Recommendations<br/><span id='fromSpan'>From</span>
                 <div className="hdr-lightCont">
-                  {/*{currTypes[0]} longest name for placeholder*/}
                   Entrepreneurs
                   {
                     currTypes.map((type,i)=>(

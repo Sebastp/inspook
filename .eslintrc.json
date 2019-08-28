@@ -30,6 +30,6 @@
     "eol-last": "off",
     "new-cap": "off",
     "prefer-const": "warn",
-    "no-var": "warn"
+    "no-var": "warn",
   }
 }
