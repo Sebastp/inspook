@@ -5,7 +5,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { getMainDefinition } from 'apollo-utilities'
 import { LOCAL_SERVER_IP } from '../env'
 
-var serverUri = 'http://localhost:8080/graphql'
+var serverUri = 'http://192.168.1.2:8080/graphql'
 // var serverUri = 'http://'+LOCAL_SERVER_IP+':8080/graphql'
 
 const httpLink = new HttpLink({
