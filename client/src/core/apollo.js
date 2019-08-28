@@ -3,16 +3,17 @@ import { ApolloLink, split } from 'apollo-link'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { getMainDefinition } from 'apollo-utilities'
-import { LOCAL_SERVER_IP } from '../env'
+// import { LOCAL_SERVER_IP } from '../env'
 
 const {
-  PORT = 8080
+  BACKEND_PORT=8080,
+  LOCAL_SERVER_IP='localhost'
 } = process.env
 
-// var serverUri = 'http://192.168.1.2:8080/graphql'
-// var serverUri = 'http://'+LOCAL_SERVER_IP+':'+PORT+'/graphql'
+
+var serverUri = 'http://'+LOCAL_SERVER_IP+':'+BACKEND_PORT+'/graphql'
 // var serverUri = 'http://'+LOCAL_SERVER_IP+':3000/graphql'
-var serverUri = 'https://inspook.herokuapp.com:'+PORT+'/graphql'
+// var serverUri = 'https://inspook.herokuapp.com:'+BACKEND_PORT+'/graphql'
 
 const httpLink = new HttpLink({
   uri: serverUri,

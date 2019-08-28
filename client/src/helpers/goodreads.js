@@ -7,13 +7,17 @@ var parseString = require('xml2js').parseString;
 
 var noImgUrl = 's.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png'
 
-
+const {
+  BACKEND_PORT=8080,
+  LOCAL_SERVER_IP='localhost'
+} = process.env
 
 
 export async function bookReviews(isbn){
-  var url = "https://www.goodreads.com/book/isbn/"+isbn+"?key="+grCredentials.key;
+  var url = "https://www.goodreads.com/book/isbn/"+isbn+"?key="+grCredentials.key,
+      getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
   return new Promise((resolve, reject) => {
-    axios.get('http://localhost:8081/'+url).then(res=>{
+    axios.get(getUrl).then(res=>{
       parseString(res.data, function (err, result) {
         var res = result.GoodreadsResponse.book[0]
 
