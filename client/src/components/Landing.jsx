@@ -60,7 +60,7 @@ export default class Landing extends Component {
     const {currTypes} = this.state
     var readersType1 = readerTypes[currTypes[0]],
         readersType2 = readerTypes[currTypes[1]]
-        
+
     return (
       <Fragment>
         <Topbar/>
