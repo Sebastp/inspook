@@ -7,7 +7,7 @@
     "build-css": "node-sass-chokidar src/assets/sass/ -o src/assets/css/",
     "watch-css": "npm run build-css && node-sass-chokidar src/assets/sass -o src/assets/css/ --watch --recursive --importer=node_modules/node-sass-tilde-importer",
     "start": "react-scripts start",
-    "build": "npm run build-css && react-app-rewired build"
+    "build": "npm run build-css && react-scripts build"
   },
   "browserslist": [
     ">0.2%",
