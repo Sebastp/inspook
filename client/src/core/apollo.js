@@ -12,9 +12,9 @@ const {
 
 
 if (process.env.NODE_ENV === 'production') {
-  var serverUri = LOCAL_SERVER_URL+'/graphql'
-}else {
   var serverUri = 'http://'+LOCAL_SERVER_IP+':'+BACKEND_PORT+'/graphql'
+}else {
+  var serverUri = LOCAL_SERVER_URL+'/graphql'
 }
 // var serverUri = 'http://'+LOCAL_SERVER_IP+':3000/graphql'
 // var serverUri = 'https://'+LOCAL_SERVER_IP+'/graphql'
@@ -25,7 +25,7 @@ const httpLink = new HttpLink({
     reconnect: true
   }
 })
-// console.log(httpLink);
+
 
 const terminatingLink = split(
   ({ query }) => {
