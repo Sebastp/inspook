@@ -43,14 +43,6 @@ export default class Landing extends Component {
 
   componentDidMount() {
     setInterval(this.changeType.bind(this), 8000)
-    /*
-    setTimeout(
-      function() {
-        setInterval(this.changeType.bind(this), 8000)
-      }
-      .bind(this),
-      8000
-    )*/
   }
 
   changeType() {
@@ -68,7 +60,8 @@ export default class Landing extends Component {
     const {currTypes} = this.state
     var readersType1 = readerTypes[currTypes[0]],
         readersType2 = readerTypes[currTypes[1]]
-        console.log(process.env);
+
+
     return (
       <Fragment>
         <Topbar/>
