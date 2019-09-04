@@ -5,6 +5,8 @@ export const grCredentials = {
 
 export const LOCAL_SERVER_IP = '192.168.1.2'
 
+export const LOCAL_SERVER_URL = 'https://inspook.herokuapp.com'
+
 export const amazonAccount = {
   assTag: 'inspook-20'
 };

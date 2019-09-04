@@ -1,4 +1,4 @@
-import {grCredentials} from '../env'
+import {grCredentials, LOCAL_SERVER_URL} from '../env'
 import {createOpenLibUrl} from './openlibrary'
 
 var axios = require('axios');
@@ -15,7 +15,14 @@ const {
 
 export async function bookReviews(isbn){
   var url = "https://www.goodreads.com/book/isbn/"+isbn+"?key="+grCredentials.key,
-      getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
+      getUrl;
+
+  if (process.env.NODE_ENV === 'production') {
+    getUrl = LOCAL_SERVER_URL+'/'+url
+  }else {
+    getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
+  }
+
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{
       parseString(res.data, function (err, result) {
