@@ -11,9 +11,10 @@ const {
 } = process.env
 
 
-var serverUri = 'http://'+LOCAL_SERVER_IP+':'+BACKEND_PORT+'/graphql'
+// var serverUri = 'http://'+LOCAL_SERVER_IP+':'+BACKEND_PORT+'/graphql'
 // var serverUri = 'http://'+LOCAL_SERVER_IP+':3000/graphql'
-// var serverUri = 'https://inspook.herokuapp.com:'+BACKEND_PORT+'/graphql'
+var serverUri = 'https://inspook.herokuapp.com/graphql'
+// var serverUri = 'https://'+LOCAL_SERVER_IP+'/graphql'
 
 const httpLink = new HttpLink({
   uri: serverUri,
