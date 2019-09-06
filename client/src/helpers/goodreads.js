@@ -18,11 +18,11 @@ export async function bookReviews(isbn){
       getUrl;
 
   if (process.env.NODE_ENV === 'production') {
-    getUrl = LOCAL_SERVER_URL+'/'+url
-  }else {
     getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
+  }else {
+    getUrl = LOCAL_SERVER_URL+'/'+url
   }
-  
+
   console.log(process.env);
 
   return new Promise((resolve, reject) => {
