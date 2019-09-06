@@ -1033,7 +1033,9 @@ input, textarea {
       font-weight: 500;
       color: #000722; }
       .search-center .search-result .result-itm__left {
-        text-align: left; }
+        text-align: left;
+        flex: 1;
+        padding-right: 10px; }
         .search-center .search-result .result-itm__left .itm-name {
           font-size: 0.9375rem; }
         .search-center .search-result .result-itm__left .itm-subtitle {
@@ -1189,7 +1191,8 @@ input, textarea {
     font-size: 0.75rem;
     font-size: 0.8125rem;
     margin-bottom: 6px;
-    display: block; }
+    display: block;
+    text-transform: capitalize; }
   .PersonMini_big-name {
     display: block;
     font-family: "Poppins", sans-serif;
@@ -1266,6 +1269,11 @@ input, textarea {
     .collectionPage ul li {
       display: inline-block;
       width: 100%; }
+  .collectionPage.loading header .collection-canvas .collection-cover {
+    background-color: #fafafa;
+    opacity: 0.7; }
+  .collectionPage.loading header .collection-canvas .collection-bck {
+    opacity: 0.3; }
 
 @media (max-width: 544px) {
   .collectionPage header {
@@ -1278,6 +1286,8 @@ input, textarea {
     .collectionPage header .collection-info__total {
       display: block;
       text-align: center;
+      margin-left: auto;
+      margin-right: auto;
       padding-right: 0px; }
     .collectionPage header .collection-info .collection-specs {
       display: block;

@@ -67,6 +67,9 @@
 
       &__left{
         text-align: left;
+        flex: 1;
+        padding-right: 10px;
+
         .itm-name{
           font-size: 0.9375rem;
         }

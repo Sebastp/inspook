@@ -42,6 +42,7 @@ export default class Landing extends Component {
   }
 
   componentDidMount() {
+    document.title = 'Inspook 📘 Find your next book';
     setInterval(this.changeType.bind(this), 8000)
   }
 

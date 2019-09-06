@@ -80,8 +80,10 @@ export default class PeoplePage extends Component {
                   if(searchPhrase!='') {
                     peopleData = searchRes
                     peopleData.map(a=>{
+                      console.log(a.tags);
                       a.displayName = a.name
                       a.avatar = a.cover
+                      a.tag = a.tags[0]
                     })
                   }
 

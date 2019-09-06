@@ -27,7 +27,7 @@ const Query = {
     if (type.includes('readers')) {
       docsReaders = await Reader.find(
         { displayName: { $regex: phrase , $options : 'i'} },
-        {uid: 1, displayName: 1, desc:1, avatar: 1, 'books.bookId': 1}
+        {uid: 1, displayName: 1, desc:1, avatar: 1, tag: 1, 'books.bookId': 1}
       ).limit(4).exec()
 
       docsReaders.map((a)=>{
@@ -35,7 +35,7 @@ const Query = {
         a.booksCount = a.books.length
         a.cover = a.avatar
         a.color = ''
-        a.tags = []
+        a.tags = [a.tag]
         a.type = 'reader'
         return a
       })

@@ -18,10 +18,11 @@ export async function bookReviews(isbn){
       getUrl;
 
   if (process.env.NODE_ENV === 'production') {
-    getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
-  }else {
     getUrl = LOCAL_SERVER_URL+'/'+url
+  }else {
+    getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
   }
+
 
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{

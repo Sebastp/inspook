@@ -10,6 +10,7 @@ import { getCollectionByUid } from '../graphql'
 import Topbar from './Topbar'
 import Footer from './Footer'
 import BookHalf from './BookHalf'
+import Collection_loading from './Collection_loading'
 import BookList from './hocs/BookList'
 import ScmButtons from './partials/ScmButtons'
 import PageSeeNext from './partials/PageSeeNext'
@@ -39,7 +40,7 @@ export default class Collection extends Component {
           {
             ({loading, error, data}) => {
               if (loading){
-                return 'loading'
+                return <Collection_loading/>
               }
 
               if (error) {
@@ -51,6 +52,7 @@ export default class Collection extends Component {
               collectionObj.tagsStr = collectionObj.tags.map(a=> { return a.charAt(0).toUpperCase() + a.slice(1) })
               collectionObj.tagsStr = collectionObj.tagsStr.join('    ')
 
+              document.title = collectionObj.title+' | Inspook Collection';
 
 
               return (
@@ -113,10 +115,8 @@ export default class Collection extends Component {
                       <div className="col-0 col-lg-1"/>
                     </div>
                   </section>
-
                 </div>
               )
-
             }
           }
         </Query>

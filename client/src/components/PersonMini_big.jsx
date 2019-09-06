@@ -17,7 +17,6 @@ export default class PersonMini_big extends Component {
     const {readerUid, personObj} = this.props;
 
 
-
     return(
       <div className="PersonMini_big">
         <div className="PersonMini_big-canvas">
@@ -35,9 +34,9 @@ export default class PersonMini_big extends Component {
 
             <div className="PersonMini_big-info__left">
               <span className="PersonMini_big-tag subAnach">
-                Politician
-                {/*TODO: change to tag from graphql*/}
+                {personObj.tag}
               </span>
+
 
               <h5 className="PersonMini_big-name">
                 <Link to={'/reader/'+personObj.uid}>

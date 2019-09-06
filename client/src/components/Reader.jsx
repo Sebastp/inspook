@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom'
 import Topbar from './Topbar'
 import Footer from './Footer'
 import PersonMini from './PersonMini'
+import Reader_loading from './Reader_loading'
 import BookHalf from './BookHalf'
 import BookList from './hocs/BookList'
 
@@ -31,7 +32,7 @@ export default class Reader extends Component {
             {
               ({loading, error, data}) => {
                 if (loading){
-                  return 'loading'
+                  return <Reader_loading/>
                 }
 
                 if (error) {
@@ -51,6 +52,8 @@ export default class Reader extends Component {
                     reader_books = readerObj.books,
                     reader_avatarName = readerObj.avatar ? readerObj.avatar : readerObj.uid,
                     reader_avatar = require('../assets/img/readers/'+ reader_avatarName +'.jpg')
+
+                    document.title = reader_name+' - Books | Inspook';
 
                 reader_books.map(e => {
                   e.uid = reader_uid

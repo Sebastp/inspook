@@ -60,6 +60,8 @@ export default class Book extends Component {
           book_desc = bookObj.description[0],
           book_cover = bookObj.cover,
           book_url = bookObj.url[0]
+
+          document.title = book_title+' | Inspook';          
     }else {
       var book_cover = '',
           book_title = 'Loading Title',

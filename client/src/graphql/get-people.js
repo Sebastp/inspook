@@ -6,6 +6,7 @@ export const getPeople = gql`
       uid
       displayName
       desc
+      tag
       avatar
       booksCount
     }
