@@ -22,11 +22,15 @@ export async function bookReviews(isbn){
   }else {
     getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
   }
-
+  
+  console.log(process.env);
 
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{
       parseString(res.data, function (err, result) {
+        if (err) {
+          console.log(err);
+        }
         var res = result.GoodreadsResponse.book[0]
 
         if (res.image_url[0] === noImgUrl) {
