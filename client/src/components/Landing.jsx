@@ -76,7 +76,6 @@ export default class Landing extends Component {
     })
     .then(({data}) => {
       readerTypesAllObjects = data.getChosenReaders
-      console.log(readerTypesAllObjects);
       this.changeType()
       setInterval(this.changeType.bind(this), 8000)
     })
