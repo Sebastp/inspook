@@ -76,15 +76,16 @@ export default class Landing extends Component {
     })
     .then(({data}) => {
       readerTypesAllObjects = data.getChosenReaders
+      console.log(readerTypesAllObjects);
+      this.changeType()
+      setInterval(this.changeType.bind(this), 8000)
     })
     .catch(error => console.error(error));
   }
 
 
 
-  componentDidMount() {
-    setInterval(this.changeType.bind(this), 8000)
-  }
+
 
   changeType() {
      var {currTypesNum} = this.state,

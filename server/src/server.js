@@ -93,7 +93,10 @@ httpServer.listen(PORT, () => {
 })
 
 
-//keeps heroku alive
-setInterval(function() {
+
+if (process.env.NODE_ENV === 'production') {
+  //keeps heroku alive
+  setInterval(function() {
     get("http://inspook.herokuapp.com");
-}, 300000);
+  }, 300000);
+}

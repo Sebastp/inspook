@@ -10,15 +10,13 @@ const {
   LOCAL_SERVER_IP='localhost'
 } = process.env
 
-console.log(process.env);
+
 if (process.env.NODE_ENV === 'production') {
   var serverUri = LOCAL_SERVER_URL+'/graphql'
 }else {
   var serverUri = 'http://'+LOCAL_SERVER_IP+':'+BACKEND_PORT+'/graphql'
 }
 
-// var serverUri = 'http://'+LOCAL_SERVER_IP+':3000/graphql'
-// var serverUri = 'https://'+LOCAL_SERVER_IP+'/graphql'
 
 const httpLink = new HttpLink({
   uri: serverUri,
