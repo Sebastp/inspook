@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 
 import { Link } from 'react-router-dom'
 
@@ -30,7 +30,7 @@ export default class LandingReaderTypes extends Component {
 
 
   changeReaderType = (i) =>{
-    if (this.state.currTypeNum == i) {
+    if (this.state.currTypeNum === i) {
       return;
     }
     this.setState({
@@ -71,7 +71,7 @@ export default class LandingReaderTypes extends Component {
 
             <div id="tReadersSect__nav">
               {readerTypesKeys.map((key,i)=>(
-                <div className={"navAnach"+(i==currTypeNum?' active':'')} key={i} onClick={()=>{this.changeReaderType(i)}}>
+                <div className={"navAnach"+(i===currTypeNum?' active':'')} key={i} onClick={()=>{this.changeReaderType(i)}}>
                   {key}
                 </div>
               ))}

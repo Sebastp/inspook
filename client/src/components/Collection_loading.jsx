@@ -1,18 +1,8 @@
-import React, { Component, Fragment } from 'react'
-
-import { Link } from 'react-router-dom'
-import {Query} from 'react-apollo'
-import Sticky from 'react-sticky-el';
-
-import { getCollectionByUid } from '../graphql'
+import React, { Component } from 'react'
 
 
-import Topbar from './Topbar'
-import Footer from './Footer'
-import BookHalf from './BookHalf'
 import BookList from './hocs/BookList'
-import ScmButtons from './partials/ScmButtons'
-import PageSeeNext from './partials/PageSeeNext'
+
 
 
 

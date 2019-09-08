@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
-import {bookReviews} from '../helpers/goodreads'
+
 import { getChosenReaders } from '../graphql'
 
 import PersonMini_loading from './PersonMini_loading'

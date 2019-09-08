@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
 import apollo from '../core/apollo'
 
@@ -19,8 +18,7 @@ import { getChosenReaders } from '../graphql'
 
 
 
-const PopularReadersArr = ["elon-musk", "richard-branson", "bill-gates", "seth-godin"],
-      PopularCollectionsArr = [
+const PopularCollectionsArr = [
         'reading-for-success', 'top-pulitzer-winners', 'best-young-adult',
         'modern-business-books', 'best-leadership-books', 'motivation-self-improvement'
       ],
@@ -98,8 +96,8 @@ export default class Landing extends Component {
      this.headerPeopleList = []
      this.headerPeopleList = readersType1.map((rid,i)=>(
        <li key={Math.random(8)}>
-         <ReaderMini_horizontal personObj={readerTypesAllObjects.filter(r=>r.uid == rid)[0]}/>
-         <ReaderMini_horizontal personObj={readerTypesAllObjects.filter(r=>r.uid == readersType2[i])[0]}/>
+         <ReaderMini_horizontal personObj={readerTypesAllObjects.filter(r=>r.uid === rid)[0]}/>
+         <ReaderMini_horizontal personObj={readerTypesAllObjects.filter(r=>r.uid === readersType2[i])[0]}/>
        </li>
      ))
 
