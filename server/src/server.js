@@ -4,7 +4,7 @@ import cors from 'cors'
 import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
-import { createServer } from 'http'
+import { createServer, get } from 'http'
 import basicAuth from 'express-basic-auth'
 
 import router from '~/core/router'
@@ -17,7 +17,7 @@ const {
   MONGODB_URL
 } = process.env
 
-// MONGODB_URL.replace('<PASSWORD>', MONGODB_PASSWORD)
+
 mongoose
   .connect(
     MONGODB_URL,
