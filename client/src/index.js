@@ -18,7 +18,7 @@ import apollo from './core/apollo'
 
 ReactDOM.render(
   <ApolloProvider client={apollo}>
-    <App />
+    <App/>
   </ApolloProvider>,
 
   document.getElementById('index')

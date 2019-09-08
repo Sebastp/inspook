@@ -17,7 +17,6 @@ export default class ReaderMini_horizontal extends Component {
     const {readerUid, personObj} = this.props;
 
 
-
     return(
       <Query query={getChosenReaders} skip={personObj} variables={{uidsArr: [readerUid]}}>
         {

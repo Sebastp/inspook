@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
+import {Query} from 'react-apollo'
 import { Link } from 'react-router-dom'
+import apollo from '../core/apollo'
 
 
 import Topbar from './Topbar'
@@ -9,10 +11,11 @@ import Footer from './Footer'
 import MostRecomBooksHeader from './LandingTopBooks'
 import LandingReaderTypes from './LandingReaderTypes'
 
-
 import CollectionMini from './CollectionMini'
 import ReaderMini_horizontal from './ReaderMini_horizontal'
+import PersonMini_loading from './PersonMini_loading'
 
+import { getChosenReaders } from '../graphql'
 
 
 
@@ -29,6 +32,12 @@ const PopularReadersArr = ["elon-musk", "richard-branson", "bill-gates", "seth-g
       },
       readerTypesKeys = Object.keys(readerTypes)
 
+var readerTypesAllIds = [],
+    readerTypesAllObjects = []
+
+
+readerTypesKeys.map(a=>readerTypes[a].map((c)=>readerTypesAllIds.push(c)))
+
 
 
 export default class Landing extends Component {
@@ -37,19 +46,63 @@ export default class Landing extends Component {
     this.state = {
       loadedPeople: false,
       currTypesNum: 1,
-      currTypes: [readerTypesKeys[0], readerTypesKeys[1]],
+      currTypes: [readerTypesKeys[0], readerTypesKeys[1]]
     }
+
+    document.title = 'Inspook 📘 Find your next book';
+
+
+
+    this.headerPeopleList = (
+      <Fragment>
+        <li key={2511561}>
+          <PersonMini_loading/>
+          <PersonMini_loading/>
+        </li>
+        <li key={2511562}>
+          <PersonMini_loading/>
+          <PersonMini_loading/>
+        </li>
+        <li key={2511563}>
+          <PersonMini_loading/>
+          <PersonMini_loading/>
+        </li>
+      </Fragment>
+    )
+
+    apollo.query({
+      query: getChosenReaders,
+      variables: {uidsArr: readerTypesAllIds}
+    })
+    .then(({data}) => {
+      readerTypesAllObjects = data.getChosenReaders
+    })
+    .catch(error => console.error(error));
   }
 
+
+
   componentDidMount() {
-    document.title = 'Inspook 📘 Find your next book';
     setInterval(this.changeType.bind(this), 8000)
   }
 
   changeType() {
      var {currTypesNum} = this.state,
          nextNum = (currTypesNum+1)%readerTypesKeys.length,
-         typesToView = [readerTypesKeys[currTypesNum], readerTypesKeys[nextNum]]
+         typesToView = [readerTypesKeys[currTypesNum], readerTypesKeys[nextNum]],
+         readersType1 = readerTypes[typesToView[0]],
+         readersType2 = readerTypes[typesToView[1]]
+
+
+
+     this.headerPeopleList = []
+     this.headerPeopleList = readersType1.map((rid,i)=>(
+       <li key={Math.random(8)}>
+         <ReaderMini_horizontal personObj={readerTypesAllObjects.filter(r=>r.uid == rid)[0]}/>
+         <ReaderMini_horizontal personObj={readerTypesAllObjects.filter(r=>r.uid == readersType2[i])[0]}/>
+       </li>
+     ))
+
 
      this.setState({
        currTypesNum: nextNum,
@@ -59,8 +112,7 @@ export default class Landing extends Component {
 
   render() {
     const {currTypes} = this.state
-    var readersType1 = readerTypes[currTypes[0]],
-        readersType2 = readerTypes[currTypes[1]]
+
 
 
     return (
@@ -83,21 +135,14 @@ export default class Landing extends Component {
               </h1>
             </div>
 
-            <ul className="col-12 col-lg-6" id="header__people">
-              {
-                readersType1.map((rid,i)=>(
-                  <li key={Math.random(8)}>
-                    <ReaderMini_horizontal readerUid={rid}/>
-                    <ReaderMini_horizontal readerUid={readersType2[i]}/>
-                  </li>
-                ))
-              }
+            <ul className="col-12 col-lg-6 lo" id="header__people">
+              {this.headerPeopleList}
             </ul>
-          </div>
 
-          {/*
-            <p id="header__subparagraph">{currTypes[0]}</p>
-          */}
+
+
+
+          </div>
         </header>
 
 

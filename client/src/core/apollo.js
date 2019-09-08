@@ -10,7 +10,7 @@ const {
   LOCAL_SERVER_IP='localhost'
 } = process.env
 
-
+console.log(process.env);
 if (process.env.NODE_ENV === 'production') {
   var serverUri = 'http://'+LOCAL_SERVER_IP+':'+BACKEND_PORT+'/graphql'
 }else {

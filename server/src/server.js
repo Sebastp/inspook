@@ -91,3 +91,9 @@ cors_proxy.createServer({
 httpServer.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`)
 })
+
+
+//keeps heroku alive
+setInterval(function() {
+    get("http://inspook.herokuapp.com");
+}, 300000);

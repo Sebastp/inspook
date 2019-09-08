@@ -23,7 +23,7 @@ export async function bookReviews(isbn){
     getUrl = LOCAL_SERVER_URL+'/'+url
   }
 
-  console.log(process.env);
+
 
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{
