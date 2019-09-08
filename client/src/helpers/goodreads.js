@@ -18,7 +18,7 @@ export async function bookReviews(isbn){
       getUrl;
 
   if (process.env.NODE_ENV === 'production') {
-    getUrl = LOCAL_SERVER_URL+'/'+url
+    getUrl = LOCAL_SERVER_URL+'/cors/'+url
   }else {
     getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
   }
@@ -28,7 +28,7 @@ export async function bookReviews(isbn){
 
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{
-      console.log(res);
+      console.log(res.data);
       parseString(res.data, function (err, result) {
         if (err) {
           console.log(err);
