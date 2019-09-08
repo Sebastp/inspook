@@ -24,9 +24,11 @@ export async function bookReviews(isbn){
   }
 
 
+  console.log(getUrl);
 
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{
+      console.log(res);
       parseString(res.data, function (err, result) {
         if (err) {
           console.log(err);
