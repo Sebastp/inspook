@@ -24,8 +24,8 @@ export async function bookReviews(isbn){
     getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT) +1) +'/'+url
     // getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (BACKEND_PORT) +'/'+url
     // getUrl = 'http://'+LOCAL_SERVER_IP+':8080/cors/'+url
-    getUrl = 'http://cors-anywhere.herokuapp.com/'+url
   }
+  getUrl = 'http://cors-anywhere.herokuapp.com/'+url
 
 
   console.log(getUrl);
