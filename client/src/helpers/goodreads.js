@@ -21,11 +21,11 @@ export async function bookReviews(isbn){
   if (process.env.NODE_ENV === 'production') {
     getUrl = LOCAL_SERVER_URL+'/'+url
   }else {
-    getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT) +1) +'/'+url
-    // getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (BACKEND_PORT) +'/'+url
-    // getUrl = 'http://'+LOCAL_SERVER_IP+':8080/cors/'+url
+    getUrl = 'https://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT) +1) +'/'+url
+    // getUrl = 'https://'+LOCAL_SERVER_IP+':'+ (BACKEND_PORT) +'/'+url
+    // getUrl = 'https://'+LOCAL_SERVER_IP+':8080/cors/'+url
   }
-  getUrl = 'http://cors-anywhere.herokuapp.com/'+url
+  getUrl = 'https://cors-anywhere.herokuapp.com/'+url
 
 
   console.log(getUrl);
