@@ -14,6 +14,7 @@ var cors_proxy = require('cors-anywhere');
 
 const {
   PORT = 8080,
+  CORS_PORT = 8081,
   MONGODB_URL
 } = process.env
 
@@ -83,8 +84,8 @@ cors_proxy.createServer({
     originWhitelist: [], // Allow all origins
     requireHeader: ['origin', 'x-requested-with'],
     removeHeaders: ['cookie', 'cookie2']
-}).listen((parseInt(PORT)+1), '0.0.0.0', function() {
-    console.log('Running CORS Anywhere on:' + (parseInt(PORT)+1) );
+}).listen(CORS_PORT, '0.0.0.0', function() {
+    console.log('Running CORS Anywhere on:' + CORS_PORT );
 });
 
 // Start the server

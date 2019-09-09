@@ -8,5 +8,5 @@ export const LOCAL_SERVER_IP = '192.168.1.2'
 export const LOCAL_SERVER_URL = 'https://www.inspook.com'
 
 export const amazonAccount = {
-  assTag: 'inspook-20'
+  assTag: 'inspook0f-20'
 };

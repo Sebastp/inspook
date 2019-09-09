@@ -17,10 +17,13 @@ export async function bookReviews(isbn){
   var url = "https://www.goodreads.com/book/isbn/"+isbn+"?key="+grCredentials.key,
       getUrl;
 
+
   if (process.env.NODE_ENV === 'production') {
-    getUrl = LOCAL_SERVER_URL+'/cors/'+url
+    getUrl = LOCAL_SERVER_URL+'/'+url
   }else {
-    getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT)+1) +'/'+url
+    getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT) +1) +'/'+url
+    // getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (BACKEND_PORT) +'/'+url
+    // getUrl = 'http://'+LOCAL_SERVER_IP+':8080/cors/'+url
   }
 
 
