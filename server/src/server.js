@@ -11,6 +11,8 @@ import router from '~/core/router'
 import apollo from '~/core/apollo'
 
 var cors_proxy = require('cors-anywhere');
+var proxy = require('http-proxy-middleware');
+
 
 const {
   PORT = 8080,
@@ -62,18 +64,56 @@ app.use(compression())
 
 apollo.applyMiddleware({ app })
 
+
+
+
+
+
 /*
-//add auth
-const siteLock = basicAuth({
-  challenge: true,
-  users: { dev: 'SITELOCK_PASSWORD' }
-})
-app.use(siteLock)
+// target: 'https://cors-anywhere.herokuapp.com',
+app.use('/cors', proxy({
+    target: 'localhost:'+CORS_PORT,
+    "secure": false,
+    "changeOrigin": true,
+    pathRewrite: {
+    '^/cors/': '', // rewrite path
+    }
+  })
+)
 */
+
+app.use('/cors', (req, response, next) => {
+  let goodreadsUrl = (req.originalUrl).replace("/cors/", "")
+      // requestUrl = 'http://cors-anywhere.herokuapp.com/'+goodreadsUrl
+
+
+  get({
+    protocol:'http:',
+    host: 'localhost',
+    port:8081,
+    path: '/'+goodreadsUrl,
+    method:'GET',
+    headers: {
+        Origin: 'https://www.inspook.com'
+    }
+  }, res => {
+      res.setEncoding('utf8');
+      let body = '';
+      res.on('data', function(chunk) {
+        body += chunk;
+      });
+      res.on('end', function() {
+        response.send(body)
+      });
+  }).on('error', function(err) {
+    console.log(err);
+  });
+})
+
+
 
 // Handle routes
 app.use('/', router)
-
 
 
 const httpServer = createServer(app)

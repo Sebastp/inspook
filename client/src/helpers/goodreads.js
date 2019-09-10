@@ -19,20 +19,19 @@ export async function bookReviews(isbn){
 
 
   if (process.env.NODE_ENV === 'production') {
-    getUrl = LOCAL_SERVER_URL+'/'+url
+    getUrl = LOCAL_SERVER_URL+'/cors/'+url
   }else {
-    getUrl = 'https://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT) +1) +'/'+url
-    // getUrl = 'https://'+LOCAL_SERVER_IP+':'+ (BACKEND_PORT) +'/'+url
-    // getUrl = 'https://'+LOCAL_SERVER_IP+':8080/cors/'+url
+    // getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (parseInt(BACKEND_PORT) +1) +'/'+url
+    // getUrl = 'http://'+LOCAL_SERVER_IP+':'+ (BACKEND_PORT) +'/'+url
+    // getUrl = 'https://cors-anywhere.herokuapp.com/'+url
+    getUrl = 'http://'+LOCAL_SERVER_IP+':8080/cors/'+url
   }
-  getUrl = 'https://cors-anywhere.herokuapp.com/'+url
 
 
   console.log(getUrl);
 
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{
-      console.log(res.data);
       parseString(res.data, function (err, result) {
         if (err) {
           console.log(err);

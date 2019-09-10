@@ -15,9 +15,13 @@ const Footer = (props) => {
               Find Us
             </h4>
             <div className="findus-sm">
-              <img src={ require('../assets/img/icons/fb.png') } alt="facebook icon" className="findus-icon"/>
-              <img src={ require('../assets/img/icons/twt.png') } alt="twiter icon" className="findus-icon"/>
-              <img src={ require('../assets/img/icons/in.png') } alt="instagram icon" className="findus-icon"/>
+              <a target="_blank" href="https://www.facebook.com/inspook/" className="findus-icon">
+                <img src={ require('../assets/img/icons/fb.svg') } alt="facebook icon"/>
+              </a>
+              {/*<img src={ require('../assets/img/icons/twt.png') } alt="twiter icon" className="findus-icon"/>*/}
+              <a target="_blank" href="https://www.instagram.com/socrades.studio/" className="findus-icon">
+                <img src={ require('../assets/img/icons/inst.svg') } alt="instagram icon"/>
+              </a>
             </div>
           </div>
 

@@ -36,12 +36,24 @@ footer{
 
     .findus-sm{
       margin-top: 18px;
+
       .findus-icon{
         display: inline-block;
-        height: 15px;
+        height: 20px;
         width: auto;
-        opacity: 0.13;
-        margin-right: 15px;
+        opacity: 0.17;
+        margin-right: 18px;
+        transition: opacity 0.2s;
+
+        img{
+          height: 100%;
+        }
+
+
+        &:hover{
+          opacity: 0.3;
+          transition: opacity 0.2s;
+        }
 
         &:last-child{
           margin-right: 0px !important;
@@ -56,7 +68,7 @@ footer{
     .navAnach{
       display: block;
       font-size: 0.9375rem;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
   }
 
@@ -109,16 +121,17 @@ footer{
       align-items: center;
       .findus{
         display: inline-block;
-        // margin-right: 16px;
         vertical-align: middle;
+        
         h4{
           display: none;
         }
+
         .findus-sm{
           display: inline-block;
           .findus-icon{
-            height: 18px;
-            opacity: 0.15;
+            height: 20px;
+            opacity: 0.18;
             margin-right: 20px;
           }
         }

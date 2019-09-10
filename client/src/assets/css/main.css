@@ -2384,10 +2384,16 @@ footer {
       margin-top: 18px; }
       footer .findus .findus-sm .findus-icon {
         display: inline-block;
-        height: 15px;
+        height: 20px;
         width: auto;
-        opacity: 0.13;
-        margin-right: 15px; }
+        opacity: 0.17;
+        margin-right: 18px;
+        transition: opacity 0.2s; }
+        footer .findus .findus-sm .findus-icon img {
+          height: 100%; }
+        footer .findus .findus-sm .findus-icon:hover {
+          opacity: 0.3;
+          transition: opacity 0.2s; }
         footer .findus .findus-sm .findus-icon:last-child {
           margin-right: 0px !important; }
   footer nav {
@@ -2396,7 +2402,7 @@ footer {
     footer nav .navAnach {
       display: block;
       font-size: 0.9375rem;
-      margin-bottom: 6px; }
+      margin-bottom: 8px; }
   footer .downMsg {
     display: block;
     font-weight: 400;
@@ -2439,8 +2445,8 @@ footer {
         footer .footer__right .findus .findus-sm {
           display: inline-block; }
           footer .footer__right .findus .findus-sm .findus-icon {
-            height: 18px;
-            opacity: 0.15;
+            height: 20px;
+            opacity: 0.18;
             margin-right: 20px; }
       footer .footer__right nav {
         display: flex;

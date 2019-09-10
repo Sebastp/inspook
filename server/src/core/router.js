@@ -11,6 +11,8 @@ const { DOMAIN } = process.env
 router.use(express.static(path.join(__dirname, '../../../client/build')))
 
 
+
+
 // Catchall
 router.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../../client/build/index.html'))
