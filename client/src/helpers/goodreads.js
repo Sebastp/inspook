@@ -28,37 +28,32 @@ export async function bookReviews(isbn){
   }
 
 
-  console.log(getUrl);
 
   return new Promise((resolve, reject) => {
     axios.get(getUrl).then(res=>{
-      parseString(res.data, function (err, result) {
-        if (err) {
-          console.log(err);
-        }
-        var res = result.GoodreadsResponse.book[0]
+      let bookJson = res.data
+      
 
-        if (res.image_url[0] === noImgUrl) {
-          res.cover = createOpenLibUrl(isbn)
+      if (bookJson.image_url[0] === noImgUrl) {
+        bookJson.cover = createOpenLibUrl(isbn)
 
-          let image = new Image();
-          image.src = res.cover;
-          image.onload = () => {
-            if (parseFloat(image.height) < 10) {
-              res.cover = require('../assets/img/noBookCover.jpg')
-            }
-            resolve(res)
+        let image = new Image();
+        image.src = bookJson.cover;
+        image.onload = () => {
+          if (parseFloat(image.height) < 10) {
+            bookJson.cover = require('../assets/img/noBookCover.jpg')
           }
-          image.onerror = () => {
-            res.cover = require('../assets/img/noBookCover.jpg')
-            resolve(res);
-          }
-        }else {
-          res.cover = res.image_url[0]
-          resolve(res)
+          resolve(bookJson)
         }
+        image.onerror = () => {
+          bookJson.cover = require('../assets/img/noBookCover.jpg')
+          resolve(bookJson);
+        }
+      }else {
+        bookJson.cover = bookJson.image_url[0]
+        resolve(bookJson)
+      }
 
-      })
     })
   })
 
