@@ -21,6 +21,7 @@ const BookReview__2 = (props) => {
       </span>
 
       <Link to={'/reader/'+uid} className="book-review__inner">
+        {/*}
         <ResponsiveEllipsis
           text={review}
           maxLine={clampLine}
@@ -29,6 +30,10 @@ const BookReview__2 = (props) => {
           basedOn='letters'
           component="p"
         />
+        */}
+        <p>
+          {review}
+        </p>
       </Link>
     </div>
   )
