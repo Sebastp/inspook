@@ -23,7 +23,7 @@
     "fuse.js": "^3.4.4",
     "graphql": "^14.1.1",
     "lodash": "^4.17.11",
-    "mongoose": "^5.4.13",
+    "mongoose": "^5.7.5",
     "mongoose-simple-random": "^0.4.1",
     "redis": "^2.8.0",
     "xml2js": "^0.4.22"
