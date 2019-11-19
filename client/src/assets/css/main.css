@@ -2379,9 +2379,11 @@ footer {
       font-family: "Poppins", sans-serif;
       font-weight: 500;
       color: rgba(0, 7, 34, 0.9);
-      font-size: 1.125rem; }
+      font-size: 1.125rem;
+      display: none; }
     footer .findus .findus-sm {
-      margin-top: 18px; }
+      margin-top: 18px;
+      display: none; }
       footer .findus .findus-sm .findus-icon {
         display: inline-block;
         height: 20px;
@@ -2400,9 +2402,10 @@ footer {
     display: inline-block;
     text-align: left; }
     footer nav .navAnach {
-      display: block;
-      font-size: 0.9375rem;
-      margin-bottom: 8px; }
+      display: inline-block;
+      font-size: 0.9375rem; }
+      footer nav .navAnach:not(:last-child) {
+        margin-right: 30px; }
   footer .downMsg {
     display: block;
     font-weight: 400;
@@ -2420,7 +2423,7 @@ footer {
     footer h3 {
       font-size: 1.313rem; } }
 
-@media (max-width: 660px) {
+@media (max-width: 735px) {
   footer {
     margin-top: 140px !important;
     padding-bottom: 75px !important; }
@@ -2442,12 +2445,10 @@ footer {
         vertical-align: middle; }
         footer .footer__right .findus h4 {
           display: none; }
-        footer .footer__right .findus .findus-sm {
-          display: inline-block; }
-          footer .footer__right .findus .findus-sm .findus-icon {
-            height: 20px;
-            opacity: 0.18;
-            margin-right: 20px; }
+        footer .footer__right .findus .findus-sm .findus-icon {
+          height: 20px;
+          opacity: 0.18;
+          margin-right: 20px; }
       footer .footer__right nav {
         display: flex;
         justify-content: space-around;

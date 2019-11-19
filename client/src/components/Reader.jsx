@@ -104,11 +104,6 @@ export default class Reader extends Component {
               }
             }
           </Query>
-
-
-
-
-
           <Footer/>
       </Fragment>
     )

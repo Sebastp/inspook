@@ -9,7 +9,7 @@ const Footer = (props) => {
           <h3>Read who You<wbr/> want to be</h3>
         </div>
 
-        <div className="col-5 col-md-4 footer__right">
+        <div className="col-5 col-md-5 footer__right">
           <div className="findus">
             <h4>
               Find Us
@@ -23,7 +23,7 @@ const Footer = (props) => {
                 <img src={ require('../assets/img/icons/inst.svg') } alt="instagram icon"/>
               </a>
             </div>
-          </div>
+          </div> 
 
           <nav>
             <span className="navAnach">

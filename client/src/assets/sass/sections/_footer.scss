@@ -32,10 +32,12 @@ footer{
       font-weight: $medium;
       color: rgba($dark2, 0.9);
       font-size: 1.125rem;
+      display: none;
     }
 
     .findus-sm{
       margin-top: 18px;
+      display: none;
 
       .findus-icon{
         display: inline-block;
@@ -66,9 +68,12 @@ footer{
     display: inline-block;
     text-align: left;
     .navAnach{
-      display: block;
+      display: inline-block;
       font-size: 0.9375rem;
-      margin-bottom: 8px;
+      &:not(:last-child){
+        
+        margin-right: 30px;
+      }
     }
   }
 
@@ -97,7 +102,7 @@ footer{
   }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 735px) {
   footer{
     margin-top: 140px !important;
     padding-bottom: 75px !important;
@@ -128,7 +133,7 @@ footer{
         }
 
         .findus-sm{
-          display: inline-block;
+          // display: inline-block;
           .findus-icon{
             height: 20px;
             opacity: 0.18;
