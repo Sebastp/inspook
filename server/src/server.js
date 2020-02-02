@@ -165,6 +165,7 @@ httpServer.listen(PORT, () => {
 if (process.env.NODE_ENV === 'production') {
   //keeps heroku alive
   setInterval(function() {
+    console.log('re connect heroku');
     get("http://inspook.herokuapp.com");
   }, 300000);
 }
